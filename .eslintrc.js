@@ -17,5 +17,11 @@ module.exports = {
   ],
   rules: {
     // 규칙 추가
+    "react/require-default-props": [
+      "warn",
+      {
+        ignoreFunctionalComponents: true,
+      },
+    ],
   },
 };
