@@ -56,6 +56,28 @@ export default {
         lg: "24px", // radius/lg
         circle: "99999px", // radius/circle
       },
+      gap: {
+        none: "0px", // gap/none
+        "7xs": "1px", // gap/7xs
+        "6xs": "2px", // gap/6xs
+        "5xs": "4px", // gap/5xs
+        "4xs": "6px", // gap/4xs
+        "3xs": "8px", // gap/3xs
+        "2xs": "10px", // gap/2xs
+        xs: "12px", // gap/xs
+        sm: "14px", // gap/sm
+        md: "16px", // gap/md
+        lg: "18px", // gap/lg
+        xl: "20px", // gap/xl
+        "2xl": "24px", // gap/2xl
+        "3xl": "28px", // gap/3xl
+        "4xl": "32px", // gap/4xl
+        "5xl": "36px", // gap/5xl
+        "6xl": "40px", // gap/6xl
+        "7xl": "48px", // gap/7xl
+        "8xl": "56px", // gap/8xl
+        "9xl": "72px", // gap/9xl
+      },
     },
   },
   plugins: [],
