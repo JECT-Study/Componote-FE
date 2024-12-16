@@ -46,6 +46,22 @@ export default {
       colors: {
         light: designTokens.semantic.light,
         dark: designTokens.semantic.dark,
+        "alpha-1": "rgba(9, 11, 18, 0.01)",
+        "alpha-2": "rgba(9, 11, 18, 0.02)",
+        "alpha-3": "rgba(9, 11, 18, 0.03)",
+        "alpha-4": "rgba(9, 11, 18, 0.04)",
+        "alpha-5": "rgba(9, 11, 18, 0.05)",
+        "alpha-6": "rgba(9, 11, 18, 0.06)",
+        "alpha-7": "rgba(9, 11, 18, 0.07)",
+        "alpha-8": "rgba(9, 11, 18, 0.08)",
+        "alpha-9": "rgba(9, 11, 18, 0.09)",
+        "alpha-10": "rgba(9, 11, 18, 0.1)",
+        "alpha-11": "rgba(9, 11, 18, 0.11)",
+        "alpha-12": "rgba(9, 11, 18, 0.12)",
+        "alpha-13": "rgba(9, 11, 18, 0.13)",
+        "alpha-14": "rgba(9, 11, 18, 0.14)",
+        "alpha-15": "rgba(9, 11, 18, 0.15)",
+        "alpha-16": "rgba(9, 11, 18, 0.16)",
       },
       borderRadius: {
         none: "0px", // radius/none
