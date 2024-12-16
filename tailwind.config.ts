@@ -47,6 +47,15 @@ export default {
         light: designTokens.semantic.light,
         dark: designTokens.semantic.dark,
       },
+      borderRadius: {
+        none: "0px", // radius/none
+        "2xs": "4px", // radius/2xs
+        xs: "8px", // radius/xs
+        sm: "12px", // radius/sm
+        md: "16px", // radius/md
+        lg: "24px", // radius/lg
+        circle: "99999px", // radius/circle
+      },
     },
   },
   plugins: [],
