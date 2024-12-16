@@ -43,6 +43,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        pretendard: ["var(--font-pretendard)", "sans-serif"],
+      },
       colors: {
         light: designTokens.semantic.light,
         dark: designTokens.semantic.dark,
