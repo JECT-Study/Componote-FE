@@ -47,6 +47,61 @@ export default {
         light: designTokens.semantic.light,
         dark: designTokens.semantic.dark,
       },
+      borderRadius: {
+        none: "0px", // radius/none
+        "2xs": "4px", // radius/2xs
+        xs: "8px", // radius/xs
+        sm: "12px", // radius/sm
+        md: "16px", // radius/md
+        lg: "24px", // radius/lg
+        circle: "99999px", // radius/circle
+      },
+      gap: {
+        none: "0px", // gap/none
+        "7xs": "1px", // gap/7xs
+        "6xs": "2px", // gap/6xs
+        "5xs": "4px", // gap/5xs
+        "4xs": "6px", // gap/4xs
+        "3xs": "8px", // gap/3xs
+        "2xs": "10px", // gap/2xs
+        xs: "12px", // gap/xs
+        sm: "14px", // gap/sm
+        md: "16px", // gap/md
+        lg: "18px", // gap/lg
+        xl: "20px", // gap/xl
+        "2xl": "24px", // gap/2xl
+        "3xl": "28px", // gap/3xl
+        "4xl": "32px", // gap/4xl
+        "5xl": "36px", // gap/5xl
+        "6xl": "40px", // gap/6xl
+        "7xl": "48px", // gap/7xl
+        "8xl": "56px", // gap/8xl
+        "9xl": "72px", // gap/9xl
+      },
+      strokeWidth: {
+        none: "0px", // stroke/none
+        normal: "1px", // stroke/normal
+        bold: "2px", // stroke/bold
+        bolder: "4px", // stroke/bolder
+        boldest: "8px", // stroke/boldest
+      },
+      opacity: {
+        invisible: "0", // opacity/invisible
+        5: "0.05", // opacity/05
+        8: "0.08", // opacity/08
+        12: "0.12", // opacity/12
+        16: "0.16", // opacity/16
+        22: "0.22", // opacity/22
+        28: "0.28", // opacity/28
+        35: "0.35", // opacity/35
+        43: "0.43", // opacity/43
+        52: "0.52", // opacity/52
+        63: "0.63", // opacity/63
+        75: "0.75", // opacity/75
+        88: "0.88", // opacity/88
+        96: "0.96", // opacity/96
+        visible: "1", // opacity/visible
+      },
     },
   },
   plugins: [],
