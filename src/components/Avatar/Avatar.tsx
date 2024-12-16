@@ -24,14 +24,12 @@ export default function Avatar({ src, alt, size = "md" }: AvatarProps) {
   const imageSize = sizeMap[size];
 
   return (
-    <div className="overflow-hidden rounded-full">
-      <Image
-        src={src || "/image/defaultAvatarImage.svg"}
-        alt={alt || "프로필 사진"}
-        className="object-cover"
-        width={imageSize}
-        height={imageSize}
-      />
-    </div>
+    <Image
+      src={src || "/image/defaultAvatarImage.svg"}
+      alt={alt || "프로필 사진"}
+      className="rounded-circle"
+      width={imageSize}
+      height={imageSize}
+    />
   );
 }
