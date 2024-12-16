@@ -78,6 +78,13 @@ export default {
         "8xl": "56px", // gap/8xl
         "9xl": "72px", // gap/9xl
       },
+      strokeWidth: {
+        none: "0px", // stroke/none
+        normal: "1px", // stroke/normal
+        bold: "2px", // stroke/bold
+        bolder: "4px", // stroke/bolder
+        boldest: "8px", // stroke/boldest
+      },
     },
   },
   plugins: [],
