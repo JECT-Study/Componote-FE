@@ -85,6 +85,23 @@ export default {
         bolder: "4px", // stroke/bolder
         boldest: "8px", // stroke/boldest
       },
+      opacity: {
+        invisible: "0", // opacity/invisible
+        5: "0.05", // opacity/05
+        8: "0.08", // opacity/08
+        12: "0.12", // opacity/12
+        16: "0.16", // opacity/16
+        22: "0.22", // opacity/22
+        28: "0.28", // opacity/28
+        35: "0.35", // opacity/35
+        43: "0.43", // opacity/43
+        52: "0.52", // opacity/52
+        63: "0.63", // opacity/63
+        75: "0.75", // opacity/75
+        88: "0.88", // opacity/88
+        96: "0.96", // opacity/96
+        visible: "1", // opacity/visible
+      },
     },
   },
   plugins: [],
