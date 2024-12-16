@@ -29,7 +29,7 @@ interface DesignTokens {
 // TODO: 현재 파일 가져오는 주소 sample파일 주소로 되어있음 => 추후 최종 파일 받으면 경로 수정하기
 const designTokensPath = path.resolve(
   "./src/designToken/",
-  "colorTokens(mode).json"
+  "color-tokens(mode).json"
 );
 const rawData = fs.readFileSync(designTokensPath, "utf-8");
 const designTokensString = JSON.parse(rawData);
