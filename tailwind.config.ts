@@ -26,7 +26,6 @@ interface DesignTokens {
   [key: string]: ThemeColors;
 }
 
-// TODO: 현재 파일 가져오는 주소 sample파일 주소로 되어있음 => 추후 최종 파일 받으면 경로 수정하기
 const designTokensPath = path.resolve(
   "./src/designToken/",
   "color-tokens(mode).json"
@@ -38,8 +37,9 @@ const designTokens: DesignTokens = JSON.parse(designTokensString); // 파싱 두
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/stories/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
