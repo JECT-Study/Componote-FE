@@ -4,12 +4,13 @@ module.exports = {
     project: "./tsconfig.json", // TypeScript 프로젝트 설정 파일 경로
   },
   extends: [
-    "airbnb", // Airbnb 스타일 규칙 사용
-    "airbnb-typescript", // TypeScript용 Airbnb 규칙 사용
-    "plugin:@typescript-eslint/recommended", // TypeScript에 대한 권장 ESLint 규칙 사용
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
     "next/typescript",
     "prettier",
+    "plugin:storybook/recommended"
   ],
   plugins: [
     "@typescript-eslint", // TypeScript 관련 ESLint 플러그인
