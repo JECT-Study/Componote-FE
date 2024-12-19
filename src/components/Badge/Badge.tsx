@@ -14,7 +14,11 @@ export default function Badge({ variant, text }: BadgeProps) {
     "rounded-circle opacity-visible bg-light-feedback-notification";
 
   if (variant === "dot") {
-    return <div className={`size-1 ${basicBadgeClass}`} />;
+    return (
+      <div className="w-fit h-fit flex flex-row p-4xs justify-items-center justify-center">
+        <div className={`size-1 ${basicBadgeClass}`} />
+      </div>
+    );
   }
 
   return (
