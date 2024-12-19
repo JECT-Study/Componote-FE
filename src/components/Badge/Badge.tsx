@@ -21,11 +21,21 @@ export default function Badge({ variant, text }: BadgeProps) {
     );
   }
 
+  if (variant === "new") {
+    return (
+      <div
+        className={`h-5 w-5 align-middle ${basicBadgeClass} text-light-object-static-inv-hero text-center typo-body-2xs`}
+      >
+        N
+      </div>
+    );
+  }
+
   return (
     <div
-      className={`h-5 min-w-5 w-fit ${basicBadgeClass} text-light-object-static-inv-hero text-center typo-body-2xs `}
+      className={`h-5 min-w-5 w-fit ${basicBadgeClass} text-light-object-static-inv-hero text-center typo-body-2xs`}
     >
-      {text || "N"}
+      {text || ""}
     </div>
   );
 }
