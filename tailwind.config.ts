@@ -75,7 +75,7 @@ export default {
         lg: "24px", // radius/lg
         circle: "99999px", // radius/circle
       },
-      gap: {
+      spacing: {
         none: "0px", // gap/none
         "7xs": "1px", // gap/7xs
         "6xs": "2px", // gap/6xs
