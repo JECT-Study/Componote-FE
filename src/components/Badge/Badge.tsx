@@ -1,5 +1,5 @@
 /**
- * Avatar 컴포넌트에 필요한 props입니다
+ * Badge 컴포넌트에 필요한 props입니다
  */
 interface BadgeProps {
   variant: "dot" | "new" | "count";
@@ -7,7 +7,7 @@ interface BadgeProps {
 }
 
 /**
- * 프로필 사진을 보여주는 Avatar 컴포넌트입니다
+ * Badge 컴포넌트입니다
  */
 export default function Badge({ variant, text }: BadgeProps) {
   const basicBadgeClass =
