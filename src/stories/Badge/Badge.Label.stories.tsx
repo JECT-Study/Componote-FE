@@ -1,4 +1,4 @@
-import BadgeLabel from "../components/Badge/Badge.Label";
+import BadgeLabel from "../../components/Badge/Badge.Label";
 
 export default {
   component: BadgeLabel,
