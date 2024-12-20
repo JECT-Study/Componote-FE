@@ -2,7 +2,7 @@ import BadgeLabel from "../../components/Badge/Badge.Label";
 
 export default {
   component: BadgeLabel,
-  title: "BadgeLabel",
+  title: "Badge/Label",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
 };
