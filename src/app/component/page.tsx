@@ -1,5 +1,3 @@
-"use client";
-
 import MyComponent from "./MyComponents";
 
 export default function Component() {
