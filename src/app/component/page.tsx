@@ -1,3 +1,11 @@
+"use client";
+
+import MyComponent from "./MyComponents";
+
 export default function Component() {
-  return <div>Component</div>;
+  return (
+    <div>
+      <MyComponent />
+    </div>
+  );
 }
