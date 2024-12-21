@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
-import { IDivider } from "./Divider";
+
+export interface IDivider {
+  $stroke: keyof typeof strokeSizes;
+  $layout: "vertical" | "horizontal";
+}
 
 export const strokeSizes = {
   normal: "0.0625rem",
