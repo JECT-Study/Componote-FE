@@ -4,7 +4,6 @@ import StyledComponentRegistry from "../styles/Registry";
 
 const pretendard = localFont({
   src: "./font/PretendardVariable.woff2",
-  variable: "--font-pretendard",
   display: "swap",
 });
 
@@ -20,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={pretendard.className}>
       <title>{metadata.title as string}</title>
-      <body className="font-pretendard">
+      <body>
         <StyledComponentRegistry>{children}</StyledComponentRegistry>
       </body>
     </html>
