@@ -1,7 +1,9 @@
-import designTokens from "../designToken/designTokens";
+import designTokens from "../designToken/color-tokens(mode).json";
+
+const colorTokens = JSON.parse(designTokens);
 
 const colors = {
-  ...designTokens.semantic,
+  ...colorTokens.semantic,
   alpha: {
     1: "rgba(9, 11, 18, 0.01)",
     2: "rgba(9, 11, 18, 0.02)",

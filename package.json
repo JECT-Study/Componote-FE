@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate-tokens": "ts-node src/designToken/generateDesignToken.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -48,7 +47,6 @@
     "eslint-plugin-storybook": "^0.11.1",
     "postcss": "^8",
     "storybook": "^8.4.7",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5"
   }
 }
