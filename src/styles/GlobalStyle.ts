@@ -3,13 +3,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Pretendard';
-    font-display: swap;
-    font-weight: 500;
-    src: url('/assets/font/Pretendard.woff2') format("woff2");
-  }
-
   *,
   *::before,
   *::after {
