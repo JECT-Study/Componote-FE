@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
-
-import { Registry as StyledComponentRegistry } from "../styles/Registry";
+import StyledComponentRegistry from "../styles/Registry";
 
 const pretendard = localFont({
   src: "./font/PretendardVariable.woff2",
