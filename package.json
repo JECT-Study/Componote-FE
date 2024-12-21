@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "generate-tokens": "ts-node src/designToken/generateDesignToken.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
