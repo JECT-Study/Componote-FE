@@ -1,3 +1,9 @@
+import { MyComponent } from "../../components";
+
 export default function Component() {
-  return <div>Component</div>;
+  return (
+    <div>
+      <MyComponent />
+    </div>
+  );
 }
