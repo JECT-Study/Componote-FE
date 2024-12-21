@@ -1,5 +1,3 @@
-"use client";
-
 import * as S from "./Divider.style";
 
 export default function Divider({ $stroke, $layout }: S.IDivider) {
