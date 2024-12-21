@@ -1,4 +1,4 @@
-import * as S from "../../styles/MyComponent.style";
+import * as S from "./MyComponent.style";
 
 export default function MyComponent() {
   return (

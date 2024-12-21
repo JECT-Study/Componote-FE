@@ -1,4 +1,4 @@
-import MyComponent from "./MyComponents";
+import MyComponent from "../../components/MyComponent/MyComponent";
 
 export default function Component() {
   return (
