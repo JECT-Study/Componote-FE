@@ -1,6 +1,5 @@
-"use client";
-
 import styled, { css } from "styled-components";
+import { IDivider } from "./Divider";
 
 export const strokeSizes = {
   normal: "0.0625rem",
@@ -9,10 +8,7 @@ export const strokeSizes = {
   boldest: "0.5rem",
 };
 
-export const Divider = styled.div<{
-  $stroke: keyof typeof strokeSizes;
-  $layout: "vertical" | "horizontal";
-}>`
+export const Divider = styled.div<IDivider>`
   ${({ $stroke, $layout }) => {
     const size = strokeSizes[$stroke];
 

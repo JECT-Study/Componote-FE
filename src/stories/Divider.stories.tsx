@@ -9,12 +9,12 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    stroke: {
+    $stroke: {
       control: { type: "select" },
       options: ["normal", "bold", "bolder", "boldest"],
       defaultValue: "normal",
     },
-    layout: {
+    $layout: {
       control: { type: "select" },
       options: ["horizontal", "vertical"],
       defaultValue: "horizontal",
@@ -28,56 +28,56 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    stroke: "normal",
-    layout: "horizontal",
+    $stroke: "normal",
+    $layout: "horizontal",
   },
 };
 
 export const BoldHorizontal: Story = {
   args: {
-    stroke: "bold",
-    layout: "horizontal",
+    $stroke: "bold",
+    $layout: "horizontal",
   },
 };
 
 export const BolderHorizontal: Story = {
   args: {
-    stroke: "bolder",
-    layout: "horizontal",
+    $stroke: "bolder",
+    $layout: "horizontal",
   },
 };
 
 export const BoldestHorizontal: Story = {
   args: {
-    stroke: "boldest",
-    layout: "horizontal",
+    $stroke: "boldest",
+    $layout: "horizontal",
   },
 };
 
 export const NormalVertical: Story = {
   args: {
-    stroke: "normal",
-    layout: "vertical",
+    $stroke: "normal",
+    $layout: "vertical",
   },
 };
 
 export const BoldVertical: Story = {
   args: {
-    stroke: "bold",
-    layout: "vertical",
+    $stroke: "bold",
+    $layout: "vertical",
   },
 };
 
 export const BolderVertical: Story = {
   args: {
-    stroke: "bolder",
-    layout: "vertical",
+    $stroke: "bolder",
+    $layout: "vertical",
   },
 };
 
 export const BoldestVertical: Story = {
   args: {
-    stroke: "boldest",
-    layout: "vertical",
+    $stroke: "boldest",
+    $layout: "vertical",
   },
 };
