@@ -197,11 +197,11 @@ const radius = {
 };
 
 const stroke = {
-  none: "0px",
-  normal: "1px",
-  bold: "2px",
-  bolder: "4px",
-  boldest: "8px",
+  none: "0rem",
+  normal: "0.0625rem",
+  bold: "0.125rem",
+  bolder: "0.25rem",
+  boldest: "0.5rem",
 };
 
 const opacity = {
