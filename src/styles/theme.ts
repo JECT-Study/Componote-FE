@@ -27,31 +27,31 @@ const colors = {
 const typography = {
   body: {
     "2xs": {
-      fontSize: "12px",
+      fontSize: "0.75rem",
       fontWeight: 510,
       lineHeight: "1.6em",
       letterSpacing: "0.004em",
     },
     xs: {
-      fontSize: "13px",
+      fontSize: "0.8125rem",
       fontWeight: 450,
       lineHeight: "1.6em",
       letterSpacing: "0.004em",
     },
     sm: {
-      fontSize: "15px",
+      fontSize: "0.9375rem",
       fontWeight: 400,
       lineHeight: "1.6em",
       letterSpacing: "0em",
     },
     md: {
-      fontSize: "16px",
+      fontSize: "1rem",
       fontWeight: 400,
       lineHeight: "1.6em",
       letterSpacing: "0em",
     },
     lg: {
-      fontSize: "17px",
+      fontSize: "1.0625rem",
       fontWeight: 400,
       lineHeight: "1.6em",
       letterSpacing: "0em",
@@ -60,50 +60,50 @@ const typography = {
   label: {
     bold: {
       xs: {
-        fontSize: "14px",
+        fontSize: "0.875rem",
         fontWeight: 570,
         lineHeight: "1.5em",
         letterSpacing: "-0.005em",
       },
       sm: {
-        fontSize: "15px",
+        fontSize: "0.9375rem",
         fontWeight: 570,
         lineHeight: "1.5em",
         letterSpacing: "-0.005em",
       },
       md: {
-        fontSize: "16px",
+        fontSize: "1rem",
         fontWeight: 570,
         lineHeight: "1.5em",
         letterSpacing: "-0.005em",
       },
       lg: {
-        fontSize: "18px",
+        fontSize: "1.125rem",
         fontWeight: 570,
         lineHeight: "1.5em",
         letterSpacing: "-0.005em",
       },
     },
     xs: {
-      fontSize: "14px",
+      fontSize: "0.875rem",
       fontWeight: 510,
       lineHeight: "1.5em",
       letterSpacing: "0em",
     },
     sm: {
-      fontSize: "15px",
+      fontSize: "0.9375rem",
       fontWeight: 510,
       lineHeight: "1.5em",
       letterSpacing: "0em",
     },
     md: {
-      fontSize: "16px",
+      fontSize: "1rem",
       fontWeight: 510,
       lineHeight: "1.5em",
       letterSpacing: "0em",
     },
     lg: {
-      fontSize: "18px",
+      fontSize: "1.125rem",
       fontWeight: 510,
       lineHeight: "1.5em",
       letterSpacing: "0em",
@@ -111,25 +111,25 @@ const typography = {
   },
   title: {
     1: {
-      fontSize: "20px",
+      fontSize: "1.25rem",
       fontWeight: 570,
       lineHeight: "1.4em",
       letterSpacing: "-0.01em",
     },
     2: {
-      fontSize: "25px",
+      fontSize: "1.5625rem",
       fontWeight: 570,
       lineHeight: "1.4em",
       letterSpacing: "-0.01em",
     },
     3: {
-      fontSize: "32px",
+      fontSize: "2rem",
       fontWeight: 570,
       lineHeight: "1.4em",
       letterSpacing: "-0.01em",
     },
     4: {
-      fontSize: "40px",
+      fontSize: "2.5rem",
       fontWeight: 570,
       lineHeight: "1.4em",
       letterSpacing: "-0.01em",
@@ -137,25 +137,25 @@ const typography = {
   },
   display: {
     1: {
-      fontSize: "48px",
+      fontSize: "3rem",
       fontWeight: 640,
       lineHeight: "1.3em",
       letterSpacing: "-0.014em",
     },
     2: {
-      fontSize: "56px",
+      fontSize: "3.5rem",
       fontWeight: 640,
       lineHeight: "1.3em",
       letterSpacing: "-0.014em",
     },
     3: {
-      fontSize: "64px",
+      fontSize: "4rem",
       fontWeight: 640,
       lineHeight: "1.3em",
       letterSpacing: "-0.014em",
     },
     4: {
-      fontSize: "72px",
+      fontSize: "4.5rem",
       fontWeight: 640,
       lineHeight: "1.3em",
       letterSpacing: "-0.014em",
