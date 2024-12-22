@@ -187,12 +187,12 @@ const gap = {
 };
 
 const radius = {
-  none: "0px",
-  "2xs": "4px",
-  xs: "8px",
-  sm: "12px",
-  md: "16px",
-  lg: "24px",
+  none: "0rem",
+  "2xs": "0.25rem",
+  xs: "0.5rem",
+  sm: "0.75rem",
+  md: "1rem",
+  lg: "1.5rem",
   circle: "99999px",
 };
 
