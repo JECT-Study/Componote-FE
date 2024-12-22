@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
-import StyledComponentRegistry from "../styles/Registry";
+import ClientComponentContainer from "@/styles/ClientComponentContainer";
 
 const pretendard = localFont({
   src: "./font/PretendardVariable.woff2",
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.className}>
       <title>{metadata.title as string}</title>
       <body>
-        <StyledComponentRegistry>{children}</StyledComponentRegistry>
+        <ClientComponentContainer>{children}</ClientComponentContainer>
       </body>
     </html>
   );
