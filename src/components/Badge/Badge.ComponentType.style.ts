@@ -18,7 +18,7 @@ const typeColor = {
   navigation: "lime",
 };
 
-export const sizeMap = {
+const sizeMap = {
   xs: {
     typo: (theme: DefaultTheme) => theme.typography?.body["2xs"],
     gap: "6xs",

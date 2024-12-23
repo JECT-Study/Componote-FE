@@ -4,32 +4,38 @@ import styled, { DefaultTheme } from "styled-components";
 import checkLine from "@/assets/icons/check-line.svg";
 
 /**
- * Badge/Label 컴포넌트의 styled-component에 필요한 props입니다
+ * Badge/Label 컴포넌트의 styled-component에 기본적으로 필요한 props입니다
  */
-export interface IBadgeLabelStyle {
-  $variant: "labelOnly" | "rightIcon";
+interface IBadgeLabelBasicStyle {
   $feedback: keyof FeedbackColorType;
-  $style: keyof StyleType;
-  $size: keyof typeof sizeTypo;
+  $style: keyof IStyle;
+  $size: keyof typeof sizeMap;
 }
 
-interface ColorMapType {
+/**
+ * Badge/Label 컴포넌트의 styled-component에 추가적으로 필요한 props입니다
+ */
+export interface IBadgeLabelStyle extends IBadgeLabelBasicStyle {
+  $variant: "labelOnly" | "rightIcon";
+}
+
+interface IColor {
   background: string;
   text: string;
 }
 
-interface StyleType {
-  solid: ColorMapType;
-  transparent: ColorMapType;
-  outlined: ColorMapType & { border: string };
+interface IStyle {
+  solid: IColor;
+  transparent: IColor;
+  outlined: IColor & { border: string };
 }
 
 interface FeedbackColorType {
-  none: StyleType;
-  negative: StyleType;
-  info: StyleType;
-  positive: StyleType;
-  notification: StyleType;
+  none: IStyle;
+  negative: IStyle;
+  info: IStyle;
+  positive: IStyle;
+  notification: IStyle;
 }
 
 const feedbackColor: FeedbackColorType = {
@@ -98,7 +104,7 @@ const feedbackColor: FeedbackColorType = {
   },
 };
 
-export const sizeTypo = {
+const sizeMap = {
   xs: {
     typo: (theme: DefaultTheme) => theme.typography?.body["2xs"],
     icon: "2xs",
@@ -143,7 +149,7 @@ export const BadgeLabelContainer = styled.div<IBadgeLabelStyle>`
 
   gap: ${({ theme }) => theme.gap?.["6xs"]};
   padding: ${(props) =>
-    sizeTypo[props.$size].padding[props.$variant](props.theme)};
+    sizeMap[props.$size].padding[props.$variant](props.theme)};
 
   border-radius: ${({ theme }) => theme.radius?.["2xs"]};
   border: ${(props) => (props.$style === "outlined" ? "solid" : "0")};
@@ -159,16 +165,12 @@ export const BadgeLabelContainer = styled.div<IBadgeLabelStyle>`
       feedbackColor[props.$feedback][props.$style].text
     ]};
 
-  ${(props) => sizeTypo[props.$size].typo(props.theme)};
+  ${(props) => sizeMap[props.$size].typo(props.theme)};
 `;
 
-export const BadgeLabelCheckIcon = styled(checkLine)<{
-  $size: keyof typeof sizeTypo;
-  $feedback: keyof FeedbackColorType;
-  $style: keyof StyleType;
-}>`
-  width: ${(props) => props.theme.iconSize?.[sizeTypo[props.$size].icon]};
-  height: ${(props) => props.theme.iconSize?.[sizeTypo[props.$size].icon]};
+export const BadgeLabelCheckIcon = styled(checkLine)<IBadgeLabelBasicStyle>`
+  width: ${(props) => props.theme.iconSize?.[sizeMap[props.$size].icon]};
+  height: ${(props) => props.theme.iconSize?.[sizeMap[props.$size].icon]};
   path {
     fill: ${(props) =>
       props.theme.colors?.light[
