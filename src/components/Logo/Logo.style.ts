@@ -1,7 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import Image from "next/image";
+import LogoIcon from "../../assets/logo/logo_icon.svg";
+import LogoText from "../../assets/logo/logo.svg";
 
 export const LogoContainer = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const LogoContainer = styled.div`
   gap: ${({ theme }) => theme.gap["4xs"]};
 `;
 
-export const LogoIconImg = styled(Image)`
+export const LogoIconImg = styled(LogoIcon)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,4 +20,4 @@ export const LogoIconImg = styled(Image)`
   padding: 0.02606rem;
 `;
 
-export const LogoText = styled(Image)``;
+export const LogoTextImg = styled(LogoText)``;
