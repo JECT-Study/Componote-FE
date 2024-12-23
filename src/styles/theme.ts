@@ -232,6 +232,13 @@ const opacity = {
   visible: "1",
 };
 
+const shadow = {
+  overlay: `
+  0px 0px 4px 0px ${colors.alpha[8]},
+  0px 3px 8px 0px ${colors.alpha[12]},
+  0px 8px 16px 0px ${colors.alpha[16]}`,
+};
+
 const theme = {
   colors,
   typography,
@@ -240,6 +247,7 @@ const theme = {
   radius,
   stroke,
   opacity,
+  shadow,
 };
 
 export default theme;
