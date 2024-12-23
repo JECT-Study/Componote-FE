@@ -1,27 +1,38 @@
-import Badge from "../../components/Badge/Badge";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Badge } from "../../components";
 
-export default {
+const meta = {
   component: Badge,
   title: "Badge",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
-};
+  argTypes: {
+    $variant: {
+      options: ["dot", "new", "count"],
+      control: { type: "radio" },
+    },
+  },
+} satisfies Meta<typeof Badge>;
 
-export const Dot = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Dot: Story = {
   args: {
-    variant: "dot",
+    $variant: "dot",
   },
 };
 
-export const New = {
+export const New: Story = {
   args: {
-    variant: "new",
+    $variant: "new",
   },
 };
 
-export const Count = {
+export const Count: Story = {
   args: {
-    variant: "count",
+    $variant: "count",
     text: "1",
   },
 };
