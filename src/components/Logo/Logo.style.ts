@@ -3,7 +3,6 @@
 import styled from "styled-components";
 import LogoIcon from "../../assets/logo/logo_icon.svg";
 import LogoText from "../../assets/logo/logo.svg";
-import LogoWhiteText from "../../assets/logo/logo_white.svg";
 
 export const LogoContainer = styled.div`
   display: flex;
@@ -22,5 +21,3 @@ export const LogoIconImg = styled(LogoIcon)`
 `;
 
 export const LogoTextImg = styled(LogoText)``;
-
-export const LogoWhiteTextImg = styled(LogoWhiteText)``;

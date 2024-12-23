@@ -12,7 +12,11 @@ export default function Logo({ isFooter }: ILogo) {
       ) : (
         <S.LogoIconImg width={24} height={24} />
       )}
-      {isFooter ? <S.LogoWhiteTextImg /> : <S.LogoTextImg />}
+      {isFooter ? (
+        <S.LogoTextImg width={54} height={15} fill="#fff" />
+      ) : (
+        <S.LogoTextImg width={70} height={18} fill="#121110" />
+      )}
     </S.LogoContainer>
   );
 }
