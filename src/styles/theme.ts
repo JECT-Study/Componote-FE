@@ -163,6 +163,16 @@ const typography = {
   },
 };
 
+const iconSize = {
+  "2xs": "14px",
+  xs: "16px",
+  sm: "18px",
+  md: "20px",
+  lg: "24px",
+  xl: "28px",
+  "2xl": "32px",
+};
+
 const gap = {
   none: "0rem",
   "7xs": "0.0625rem",
@@ -225,6 +235,7 @@ const opacity = {
 const theme = {
   colors,
   typography,
+  iconSize,
   gap,
   radius,
   stroke,
