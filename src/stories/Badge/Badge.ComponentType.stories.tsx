@@ -1,37 +1,84 @@
-import BadgeComponentType from "../../components/Badge/Badge.ComponentType";
+import type { Meta, StoryObj } from "@storybook/react";
+import { BadgeComponentType } from "../../components";
 
-export default {
+const meta = {
   component: BadgeComponentType,
   title: "Badge/ComponentType",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
-};
+  argTypes: {
+    $type: {
+      options: ["input", "display", "feedback", "navigation"],
+      control: { type: "radio" },
+    },
+    $style: {
+      options: ["solid", "transparent"],
+      control: { type: "radio" },
+    },
+    $size: {
+      options: ["xs", "sm", "md"],
+      control: { type: "radio" },
+    },
+  },
+} satisfies Meta<typeof BadgeComponentType>;
 
-export const Input = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
-    type: "input",
-    style: "solid",
-    size: "xs",
+    $type: "input",
+    $style: "solid",
+    $size: "md",
   },
 };
 
-export const Display = {
+export const InputTransparent: Story = {
   args: {
-    ...Input.args,
-    type: "display",
+    ...Default.args,
+    $style: "transparent",
   },
 };
 
-export const Feedback = {
+export const DisplaySolid: Story = {
   args: {
-    ...Input.args,
-    type: "feedback",
+    ...Default.args,
+    $type: "display",
   },
 };
 
-export const Navigation = {
+export const DisplayTransparent: Story = {
   args: {
-    ...Input.args,
-    type: "navigation",
+    ...DisplaySolid.args,
+    $style: "transparent",
+  },
+};
+
+export const FeedbackSolid: Story = {
+  args: {
+    ...Default.args,
+    $type: "feedback",
+  },
+};
+
+export const FeedbackTransparent: Story = {
+  args: {
+    ...FeedbackSolid.args,
+    $style: "transparent",
+  },
+};
+
+export const NavigationSolid: Story = {
+  args: {
+    ...Default.args,
+    $type: "navigation",
+  },
+};
+
+export const NavigationTransparent: Story = {
+  args: {
+    ...NavigationSolid.args,
+    $style: "transparent",
   },
 };
