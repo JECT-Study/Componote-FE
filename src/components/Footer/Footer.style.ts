@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FooterContainer = styled.div`
   display: flex;
@@ -30,17 +30,19 @@ export const FooterBox = styled.div`
   padding: ${({ theme }) => theme.gap["none"]};
 `;
 
-export const TermsAndPolicyAnchor = styled.a`
-  padding-top: 0.08rem;
-  text-decoration: underline;
-
+const BaseText = css`
   ${({ theme }) => theme.typography?.body["2xs"]};
   color: ${({ theme }) => theme.colors?.light["object-static-inv-subtle"]};
 `;
 
-export const ReservedText = styled.span`
-  text-align: right;
+export const TermsAndPolicyAnchor = styled.a`
+  ${BaseText};
 
-  ${({ theme }) => theme.typography?.body["2xs"]};
-  color: ${({ theme }) => theme.colors?.light["object-static-inv-subtle"]};
+  padding-top: 0.08rem;
+  text-decoration: underline;
+`;
+
+export const ReservedText = styled.span`
+  ${BaseText};
+  text-align: right;
 `;
