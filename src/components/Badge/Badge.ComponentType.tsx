@@ -1,46 +1,24 @@
-/**
- * Badge/componentType 컴포넌트에 필요한 props입니다
- */
-interface BadgeComponentTypeProps {
-  type: "input" | "display" | "feedback" | "navigation";
-  style: "solid" | "transparent";
-  size: "xs" | "sm" | "md";
-}
+import * as S from "./Badge.ComponentType.style";
 
 /**
  * Badge/componentType 컴포넌트입니다
  */
 export default function BadgeComponentType({
-  type,
-  style,
-  size,
-}: BadgeComponentTypeProps) {
+  $type,
+  $style,
+  $size,
+}: S.IBadgeComponentType) {
   const textMap = {
-    input: { text: "Input 입력", color: "cyan" },
-    display: { text: "Display 표시", color: "violet" },
-    feedback: { text: "Feedback 반응", color: "rose" },
-    navigation: { text: "Navigation 안내", color: "lime" },
+    input: "Input 입력",
+    display: "Display 표시",
+    feedback: "Feedback 반응",
+    navigation: "Navigation 안내",
   };
-  const { text, color } = textMap[type];
-
-  const isSolid = style === "solid";
-
-  const sizeMap = {
-    xs: "typo-body-2xs gap-6xs py-6xs px-2xs",
-    sm: "typo-label-xs gap-5xs py-5xs px-xs",
-    md: "typo-label-sm gap-4xs py-4xs px-sm",
-  };
-  const badgeSize = sizeMap[size];
+  const text = textMap[$type];
 
   return (
-    <div
-      className={`flex flex-row justify-center justify-items-center w-fit h-fit rounded-2xs ${badgeSize} ${
-        isSolid
-          ? `bg-light-custom-${color} text-light-object-static-inv-hero`
-          : `bg-light-custom-trans-${color} text-light-custom-${color}`
-      }`}
-    >
+    <S.BadgeComponentTypeContainer $type={$type} $style={$style} $size={$size}>
       {text}
-    </div>
+    </S.BadgeComponentTypeContainer>
   );
 }
