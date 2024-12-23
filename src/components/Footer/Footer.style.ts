@@ -26,6 +26,8 @@ export const FooterBox = styled.div`
   align-items: center;
   flex: 1 0 0;
 
+  min-width: 20rem;
+
   gap: ${({ theme }) => theme.gap["md"]};
   padding: ${({ theme }) => theme.gap["none"]};
 `;
