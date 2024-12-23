@@ -20,8 +20,7 @@ export const Divider = styled.div<IDivider>`
       height: ${$layout === "horizontal" ? size : "4.6875rem"};
       width: ${$layout === "vertical" ? size : "22.5rem"};
 
-      // 컬러 토큰 작업 완료 시 변경 필요
-      background: #481909;
+      background: ${({ theme }) => theme.colors?.light["border-trans-subtler"]};
     `;
   }}
 `;
