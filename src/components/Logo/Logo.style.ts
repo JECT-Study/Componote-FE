@@ -1,9 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import LogoIcon from "../../../public/logo/logo_icon.svg";
-import LogoText from "../../../public/logo/logo.svg";
-import LogoWhiteText from "../../../public/logo/logo_white.svg";
+import LogoIcon from "../../assets/logo/logo_icon.svg";
+import LogoText from "../../assets/logo/logo.svg";
+import LogoWhiteText from "../../assets/logo/logo_white.svg";
 
 export const LogoContainer = styled.div`
   display: flex;
