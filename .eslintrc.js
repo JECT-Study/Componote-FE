@@ -10,12 +10,17 @@ module.exports = {
     "next/core-web-vitals",
     "next/typescript",
     "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
   ],
   plugins: [
     "@typescript-eslint", // TypeScript 관련 ESLint 플러그인
   ],
   rules: {
-    // 규칙 추가
+    "react/require-default-props": [
+      "warn",
+      {
+        ignoreFunctionalComponents: true,
+      },
+    ],
   },
 };
