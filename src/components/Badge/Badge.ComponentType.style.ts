@@ -1,6 +1,7 @@
 "use client";
 
-import styled, { DefaultTheme } from "styled-components";
+import styled from "styled-components";
+import DESIGN_SYSTEM from "@/styles/designSystem";
 
 /**
  * Badge/componentType 컴포넌트에 필요한 props입니다
@@ -20,20 +21,19 @@ const typeColor = {
 
 const sizeMap = {
   xs: {
-    typo: (theme: DefaultTheme) => theme.typography?.body["2xs"],
-    gap: "6xs",
-    padding: (theme: DefaultTheme) =>
-      `${theme.gap?.["6xs"]} ${theme.gap?.["2xs"]}`,
+    typography: DESIGN_SYSTEM.typography.body["2xs"],
+    gap: DESIGN_SYSTEM.gap["6xs"],
+    padding: `${DESIGN_SYSTEM.gap["6xs"]} ${DESIGN_SYSTEM.gap["2xs"]}`,
   },
   sm: {
-    typo: (theme: DefaultTheme) => theme.typography?.label.xs,
-    gap: "5xs",
-    padding: (theme: DefaultTheme) => `${theme.gap?.["5xs"]} ${theme.gap?.xs}`,
+    typography: DESIGN_SYSTEM.typography.label.xs,
+    gap: DESIGN_SYSTEM.gap["5xs"],
+    padding: `${DESIGN_SYSTEM.gap["5xs"]} ${DESIGN_SYSTEM.gap.xs}`,
   },
   md: {
-    typo: (theme: DefaultTheme) => theme.typography?.label.sm,
-    gap: "4xs",
-    padding: (theme: DefaultTheme) => `${theme.gap?.["4xs"]} ${theme.gap?.sm}`,
+    typography: DESIGN_SYSTEM.typography.label.sm,
+    gap: DESIGN_SYSTEM.gap["4xs"],
+    padding: `${DESIGN_SYSTEM.gap["4xs"]} ${DESIGN_SYSTEM.gap.sm}`,
   },
 };
 
@@ -43,23 +43,23 @@ export const BadgeComponentTypeContainer = styled.div<IBadgeComponentType>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: ${(props) => props.theme.gap?.[sizeMap[props.$size].gap]};
+  gap: ${(props) => sizeMap[props.$size].gap};
 
   width: fit-content;
   height: fit-content;
-  padding: ${(props) => sizeMap[props.$size].padding(props.theme)};
+  padding: ${(props) => sizeMap[props.$size].padding};
 
-  border-radius: ${({ theme }) => theme.radius?.["2xs"]};
+  border-radius: ${DESIGN_SYSTEM.radius["2xs"]};
 
   background-color: ${(props) =>
     props.$style === "solid"
-      ? props.theme.colors?.light[`custom-${typeColor[props.$type]}`]
-      : props.theme.colors?.light[`custom-trans-${typeColor[props.$type]}`]};
+      ? props.theme.light[`custom-${typeColor[props.$type]}`]
+      : props.theme.light[`custom-trans-${typeColor[props.$type]}`]};
 
   color: ${(props) =>
     props.$style === "solid"
-      ? props.theme.colors?.light["object-static-inv-hero"]
-      : props.theme.colors?.light[`custom-${typeColor[props.$type]}`]};
+      ? props.theme.light["object-static-inv-hero"]
+      : props.theme.light[`custom-${typeColor[props.$type]}`]};
 
-  ${(props) => sizeMap[props.$size].typo(props.theme)}
+  ${(props) => sizeMap[props.$size].typography}
 `;
