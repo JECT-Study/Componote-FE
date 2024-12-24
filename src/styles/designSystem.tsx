@@ -1,5 +1,24 @@
 import theme from "./theme";
 
+const alpha = {
+  1: "rgba(9, 11, 18, 0.01)",
+  2: "rgba(9, 11, 18, 0.02)",
+  3: "rgba(9, 11, 18, 0.03)",
+  4: "rgba(9, 11, 18, 0.04)",
+  5: "rgba(9, 11, 18, 0.05)",
+  6: "rgba(9, 11, 18, 0.06)",
+  7: "rgba(9, 11, 18, 0.07)",
+  8: "rgba(9, 11, 18, 0.08)",
+  9: "rgba(9, 11, 18, 0.09)",
+  10: "rgba(9, 11, 18, 0.1)",
+  11: "rgba(9, 11, 18, 0.11)",
+  12: "rgba(9, 11, 18, 0.12)",
+  13: "rgba(9, 11, 18, 0.13)",
+  14: "rgba(9, 11, 18, 0.14)",
+  15: "rgba(9, 11, 18, 0.15)",
+  16: "rgba(9, 11, 18, 0.16)",
+};
+
 const typography = {
   body: {
     "2xs": {
@@ -210,19 +229,19 @@ const opacity = {
 
 const shadow = {
   embossed: `
-  0 0 0.0625rem 0 ${theme.alpha[4]},
-  0 0.125rem 0.25rem 0 ${theme.alpha[8]}`,
+  0 0 0.0625rem 0 ${alpha[4]},
+  0 0.125rem 0.25rem 0 ${alpha[8]}`,
   raised: `
-  0 0 0.125rem 0 ${theme.alpha[6]},
-  0 0.1875rem 0.375rem 0 ${theme.alpha[11]}`,
+  0 0 0.125rem 0 ${alpha[6]},
+  0 0.1875rem 0.375rem 0 ${alpha[11]}`,
   floated: `
-  0 0 0.125rem 0 ${theme.alpha[6]},
-  0 0.125rem 0.25rem 0 ${theme.alpha[6]},
-  0 0.25rem 0.5rem 0 ${theme.alpha[13]}`,
+  0 0 0.125rem 0 ${alpha[6]},
+  0 0.125rem 0.25rem 0 ${alpha[6]},
+  0 0.25rem 0.5rem 0 ${alpha[13]}`,
   overlay: `
-  0 0 0.25rem 0 ${theme.alpha[8]},
-  0 0.1875rem 0.5rem 0 ${theme.alpha[12]},
-  0 0.5rem 1rem 0 ${theme.alpha[16]}`,
+  0 0 0.25rem 0 ${alpha[8]},
+  0 0.1875rem 0.5rem 0 ${alpha[12]},
+  0 0.5rem 1rem 0 ${alpha[16]}`,
 };
 
 const interaction = {
@@ -268,6 +287,7 @@ const interaction = {
 };
 
 const DESIGN_SYSTEM = {
+  alpha,
   typography,
   iconSize,
   gap,
