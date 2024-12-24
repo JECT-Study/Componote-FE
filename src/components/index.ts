@@ -8,3 +8,4 @@ export { default as BadgeLabel } from "./Badge/Badge.Label";
 export { default as BadgeComponentType } from "./Badge/Badge.ComponentType";
 export { default as Toast } from "./Toast/Toast";
 export { default as Callout } from "./Callout/Callout";
+export { default as Chip } from "./Chip/Chip";
