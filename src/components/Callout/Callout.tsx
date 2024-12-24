@@ -5,7 +5,7 @@ import * as S from "./Callout.style";
  */
 interface ICallout extends S.ICalloutStyle {
   titleText: string;
-  bodyText: string;
+  bodyText?: string;
 }
 
 /**
@@ -18,7 +18,9 @@ export default function Badge({ $size, titleText, bodyText }: ICallout) {
         <S.CalloutTitleText $size={$size}>{titleText}</S.CalloutTitleText>
         {/* TODO: 추후 버튼 컴포넌트가 만들어지고 나면 button/empty/secondary 넣어줘야 함 */}
       </S.CalloutTitleContainer>
-      <S.CalloutBodyText $size={$size}>{bodyText}</S.CalloutBodyText>
+      {bodyText ? (
+        <S.CalloutBodyText $size={$size}>{bodyText}</S.CalloutBodyText>
+      ) : null}
     </S.CalloutContainer>
   );
 }
