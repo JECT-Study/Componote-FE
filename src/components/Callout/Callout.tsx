@@ -11,7 +11,7 @@ interface ICallout extends S.ICalloutStyle {
 /**
  * Callout 컴포넌트입니다
  */
-export default function Badge({ $size, titleText, bodyText }: ICallout) {
+export default function Callout({ $size, titleText, bodyText }: ICallout) {
   return (
     <S.CalloutContainer $size={$size}>
       <S.CalloutTitleContainer>
