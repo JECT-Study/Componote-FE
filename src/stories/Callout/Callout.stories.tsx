@@ -3,7 +3,7 @@ import { Callout } from "../../components";
 
 const meta = {
   component: Callout,
-  title: "Callout",
+  title: "Components/Callout",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   argTypes: {
