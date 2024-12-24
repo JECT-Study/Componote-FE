@@ -1,26 +1,27 @@
 import styled from "styled-components";
 import checkLine from "@/assets/icons/check-line.svg";
+import DESIGN_SYSTEM from "@/styles/designSystem";
 
 export const ToastContainer = styled.div`
   display: inline-flex;
   justify-content: center;
   align-items: center;
 
-  gap: ${({ theme }) => theme.gap["4xs"]};
-  padding: ${({ theme }) => `${theme.gap["xs"]} ${theme.gap["2xl"]}`};
+  gap: ${DESIGN_SYSTEM.gap["4xs"]};
+  padding: ${`${DESIGN_SYSTEM.gap.xs} ${DESIGN_SYSTEM.gap["2xl"]}`};
 
-  box-shadow: ${({ theme }) => theme.shadow.overlay};
-  border-radius: ${({ theme }) => theme.radius["sm"]};
+  box-shadow: ${DESIGN_SYSTEM.shadow.overlay};
+  border-radius: ${DESIGN_SYSTEM.radius.sm};
 
-  opacity: ${({ theme }) => theme.opacity["visible"]};
-  background: ${({ theme }) => theme.colors?.light["object-hero"]};
+  opacity: ${DESIGN_SYSTEM.opacity.visible};
+  background: ${({ theme }) => theme.light["object-hero"]};
 `;
 
 export const ToastLabelText = styled.span`
   text-align: center;
 
-  ${({ theme }) => theme.typography?.label.bold["sm"]}
-  color: ${({ theme }) => theme.colors?.light["object-inv-hero"]};
+  ${DESIGN_SYSTEM.typography.label.bold.sm}
+  color: ${({ theme }) => theme.light["object-inv-hero"]};
 `;
 
 export const CheckLineImg = styled(checkLine)`
@@ -31,10 +32,10 @@ export const CheckLineImg = styled(checkLine)`
   width: 1.25rem;
   height: 1.25rem;
 
-  gap: ${({ theme }) => theme.gap["none"]};
-  padding: ${({ theme }) => theme.gap["none"]};
+  gap: ${DESIGN_SYSTEM.gap.none};
+  padding: ${DESIGN_SYSTEM.gap.none};
 
   path {
-    fill: ${({ theme }) => theme.colors?.light["feedback-positive"]};
+    fill: ${({ theme }) => theme.light["feedback-positive"]};
   }
 `;

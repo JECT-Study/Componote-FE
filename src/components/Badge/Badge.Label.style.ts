@@ -1,7 +1,8 @@
 "use client";
 
-import styled, { DefaultTheme } from "styled-components";
+import styled from "styled-components";
 import checkLine from "@/assets/icons/check-line.svg";
+import DESIGN_SYSTEM from "@/styles/designSystem";
 
 /**
  * Badge/Label 컴포넌트의 styled-component에 기본적으로 필요한 props입니다
@@ -106,33 +107,27 @@ const feedbackColor: FeedbackColorType = {
 
 const sizeMap = {
   xs: {
-    typo: (theme: DefaultTheme) => theme.typography?.body["2xs"],
-    icon: "2xs",
+    typography: DESIGN_SYSTEM.typography.body["2xs"],
+    iconSize: DESIGN_SYSTEM.iconSize["2xs"],
     padding: {
-      labelOnly: (theme: DefaultTheme) =>
-        `${theme.gap?.["6xs"]} ${theme.gap?.["2xs"]}`,
-      rightIcon: (theme: DefaultTheme) =>
-        `${theme.gap?.["6xs"]} ${theme.gap?.["4xs"]} ${theme.gap?.["6xs"]} ${theme.gap?.["2xs"]}`,
+      labelOnly: `${DESIGN_SYSTEM.gap["6xs"]} ${DESIGN_SYSTEM.gap["2xs"]}`,
+      rightIcon: `${DESIGN_SYSTEM.gap["6xs"]} ${DESIGN_SYSTEM.gap["4xs"]} ${DESIGN_SYSTEM.gap["6xs"]} ${DESIGN_SYSTEM.gap["2xs"]}`,
     },
   },
   sm: {
-    typo: (theme: DefaultTheme) => theme.typography?.label.xs,
-    icon: "xs",
+    typography: DESIGN_SYSTEM.typography.label.xs,
+    iconSize: DESIGN_SYSTEM.iconSize.xs,
     padding: {
-      labelOnly: (theme: DefaultTheme) =>
-        `${theme.gap?.["5xs"]} ${theme.gap?.xs}`,
-      rightIcon: (theme: DefaultTheme) =>
-        `${theme.gap?.["5xs"]} ${theme.gap?.["3xs"]} ${theme.gap?.["5xs"]} ${theme.gap?.xs}`,
+      labelOnly: `${DESIGN_SYSTEM.gap["5xs"]} ${DESIGN_SYSTEM.gap.xs}`,
+      rightIcon: `${DESIGN_SYSTEM.gap["5xs"]} ${DESIGN_SYSTEM.gap["3xs"]} ${DESIGN_SYSTEM.gap["5xs"]} ${DESIGN_SYSTEM.gap.xs}`,
     },
   },
   md: {
-    typo: (theme: DefaultTheme) => theme.typography?.label.sm,
-    icon: "sm",
+    typography: DESIGN_SYSTEM.typography.label.sm,
+    iconSize: DESIGN_SYSTEM.iconSize.sm,
     padding: {
-      labelOnly: (theme: DefaultTheme) =>
-        `${theme.gap?.["4xs"]} ${theme.gap?.sm}`,
-      rightIcon: (theme: DefaultTheme) =>
-        `${theme.gap?.["4xs"]} ${theme.gap?.["2xs"]} ${theme.gap?.["4xs"]} ${theme.gap?.sm}`,
+      labelOnly: `${DESIGN_SYSTEM.gap["4xs"]} ${DESIGN_SYSTEM.gap.sm}`,
+      rightIcon: `${DESIGN_SYSTEM.gap["4xs"]} ${DESIGN_SYSTEM.gap["2xs"]} ${DESIGN_SYSTEM.gap["4xs"]} ${DESIGN_SYSTEM.gap.sm}`,
     },
   },
 };
@@ -147,34 +142,27 @@ export const BadgeLabelContainer = styled.div<IBadgeLabelStyle>`
   width: fit-content;
   height: fit-content;
 
-  gap: ${({ theme }) => theme.gap?.["6xs"]};
-  padding: ${(props) =>
-    sizeMap[props.$size].padding[props.$variant](props.theme)};
+  gap: ${DESIGN_SYSTEM.gap["6xs"]};
+  padding: ${(props) => sizeMap[props.$size].padding[props.$variant]};
 
-  border-radius: ${({ theme }) => theme.radius?.["2xs"]};
+  border-radius: ${DESIGN_SYSTEM.radius["2xs"]};
   border: ${(props) => (props.$style === "outlined" ? "solid" : "0")};
-  border-width: ${({ theme }) => theme.stroke?.normal};
+  border-width: ${DESIGN_SYSTEM.stroke.normal};
 
   background-color: ${(props) =>
-    props.theme.colors?.light[
-      feedbackColor[props.$feedback][props.$style].background
-    ]};
+    props.theme.light[feedbackColor[props.$feedback][props.$style].background]};
 
   color: ${(props) =>
-    props.theme.colors?.light[
-      feedbackColor[props.$feedback][props.$style].text
-    ]};
+    props.theme.light[feedbackColor[props.$feedback][props.$style].text]};
 
-  ${(props) => sizeMap[props.$size].typo(props.theme)};
+  ${(props) => sizeMap[props.$size].typography};
 `;
 
 export const BadgeLabelCheckIcon = styled(checkLine)<IBadgeLabelBasicStyle>`
-  width: ${(props) => props.theme.iconSize?.[sizeMap[props.$size].icon]};
-  height: ${(props) => props.theme.iconSize?.[sizeMap[props.$size].icon]};
+  width: ${(props) => sizeMap[props.$size].iconSize};
+  height: ${(props) => sizeMap[props.$size].iconSize};
   path {
     fill: ${(props) =>
-      props.theme.colors?.light[
-        feedbackColor[props.$feedback][props.$style].text
-      ]};
+      props.theme.light[feedbackColor[props.$feedback][props.$style].text]};
   }
 `;
