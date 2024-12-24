@@ -3,6 +3,7 @@ import DESIGN_SYSTEM from "@/styles/designSystem";
 
 export interface IInteractionContainer {
   $variant: keyof typeof variantColorMap;
+  $density: keyof typeof stateMap;
 }
 
 const variantColorMap = {
@@ -13,11 +14,27 @@ const variantColorMap = {
 };
 
 const stateMap = {
-  enabled: DESIGN_SYSTEM.opacity.invisible,
-  hover: DESIGN_SYSTEM.opacity[12],
-  pressed: DESIGN_SYSTEM.opacity[22],
-  focused: DESIGN_SYSTEM.opacity.visible,
-  disabled: DESIGN_SYSTEM.opacity.invisible,
+  bold: {
+    enabled: DESIGN_SYSTEM.opacity.invisible,
+    hover: DESIGN_SYSTEM.opacity[12],
+    pressed: DESIGN_SYSTEM.opacity[22],
+    focused: DESIGN_SYSTEM.opacity.visible,
+    disabled: DESIGN_SYSTEM.opacity.invisible,
+  },
+  normal: {
+    enabled: DESIGN_SYSTEM.opacity.invisible,
+    hover: DESIGN_SYSTEM.opacity[8],
+    pressed: DESIGN_SYSTEM.opacity[16],
+    focused: DESIGN_SYSTEM.opacity.visible,
+    disabled: DESIGN_SYSTEM.opacity.invisible,
+  },
+  subtle: {
+    enabled: DESIGN_SYSTEM.opacity.invisible,
+    hover: DESIGN_SYSTEM.opacity[5],
+    pressed: DESIGN_SYSTEM.opacity[12],
+    focused: DESIGN_SYSTEM.opacity.visible,
+    disabled: DESIGN_SYSTEM.opacity.invisible,
+  },
 };
 
 const InteractionContainer = styled.span<IInteractionContainer>`
@@ -34,20 +51,20 @@ const InteractionContainer = styled.span<IInteractionContainer>`
 
   background-color: ${(props) => variantColorMap[props.$variant](props.theme)};
 
-  opacity: ${stateMap.enabled};
+  opacity: ${(props) => stateMap[props.$density].enabled};
 
   &:hover {
-    opacity: ${stateMap.hover};
+    opacity: ${(props) => stateMap[props.$density].hover};
   }
 
   &:active {
-    opacity: ${stateMap.pressed};
+    opacity: ${(props) => stateMap[props.$density].pressed};
   }
 
   &:focus-visible {
     outline: ${({ theme }) =>
       `${DESIGN_SYSTEM.stroke.bolder} solid ${theme.light["interactive-focus"]}`};
-    opacity: ${stateMap.focused};
+    opacity: ${(props) => stateMap[props.$density].focused};
     background-color: transparent;
   }
 `;
