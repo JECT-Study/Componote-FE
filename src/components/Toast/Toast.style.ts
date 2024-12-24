@@ -34,5 +34,7 @@ export const CheckLineImg = styled(checkLine)`
   gap: ${({ theme }) => theme.gap["none"]};
   padding: ${({ theme }) => theme.gap["none"]};
 
-  fill: ${({ theme }) => theme.colors?.light["feedback-positive"]};
+  path {
+    fill: ${({ theme }) => theme.colors?.light["feedback-positive"]};
+  }
 `;
