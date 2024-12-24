@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import DESIGN_SYSTEM from "@/styles/designSystem";
 import LogoIcon from "../../assets/logo/logo_icon.svg";
 import LogoText from "../../assets/logo/logo.svg";
 
@@ -9,7 +10,7 @@ export const LogoContainer = styled.div`
   align-items: center;
   align-self: stretch;
 
-  gap: ${({ theme }) => theme.gap["4xs"]};
+  gap: ${DESIGN_SYSTEM.gap["4xs"]};
 `;
 
 export const LogoIconImg = styled(LogoIcon)`

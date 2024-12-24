@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
+import DESIGN_SYSTEM from "@/styles/designSystem";
 
 export const FooterContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
 
-  padding: ${({ theme }) => `${theme.gap["xl"]} ${theme.gap["4xl"]}`};
-  background: ${({ theme }) =>
-    theme.colors?.light["surface-static-inv-sunken"]};
+  padding: ${`${DESIGN_SYSTEM.gap.xl} ${DESIGN_SYSTEM.gap["4xl"]}`};
+  background: ${({ theme }) => theme.light["surface-static-inv-sunken"]};
 `;
 
 export const FooterSection = styled.section`
@@ -17,8 +17,8 @@ export const FooterSection = styled.section`
 
   max-width: 60rem;
 
-  gap: ${({ theme }) => theme.gap["2xl"]};
-  padding: ${({ theme }) => theme.gap["none"]};
+  gap: ${DESIGN_SYSTEM.gap["2xl"]};
+  padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
 export const FooterBox = styled.div`
@@ -28,13 +28,13 @@ export const FooterBox = styled.div`
 
   min-width: 20rem;
 
-  gap: ${({ theme }) => theme.gap["md"]};
-  padding: ${({ theme }) => theme.gap["none"]};
+  gap: ${DESIGN_SYSTEM.gap.md};
+  padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
 const BaseText = css`
-  ${({ theme }) => theme.typography?.body["2xs"]};
-  color: ${({ theme }) => theme.colors?.light["object-static-inv-subtle"]};
+  ${DESIGN_SYSTEM.typography.body["2xs"]};
+  color: ${({ theme }) => theme.light["object-static-inv-subtle"]};
 `;
 
 export const TermsAndPolicyAnchor = styled.a`

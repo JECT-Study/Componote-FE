@@ -20,7 +20,7 @@ export const Divider = styled.div<IDivider>`
       height: ${$layout === "horizontal" ? size : "4.6875rem"};
       width: ${$layout === "vertical" ? size : "22.5rem"};
 
-      background: ${({ theme }) => theme.colors?.light["border-trans-subtler"]};
+      background: ${({ theme }) => theme.light["border-trans-subtler"]};
     `;
   }}
 `;
