@@ -140,13 +140,13 @@ const typography = {
 };
 
 const iconSize = {
-  "2xs": "14px",
-  xs: "16px",
-  sm: "18px",
-  md: "20px",
-  lg: "24px",
-  xl: "28px",
-  "2xl": "32px",
+  "2xs": "0.875rem",
+  xs: "1rem",
+  sm: "1.125rem",
+  md: "1.25rem",
+  lg: "1.5rem",
+  xl: "1.75rem",
+  "2xl": "2rem",
 };
 
 const gap = {
