@@ -233,10 +233,62 @@ const opacity = {
 };
 
 const shadow = {
+  embossed: `
+  0 0 0.0625rem 0 ${colors.alpha[4]},
+  0 0.125rem 0.25rem 0 ${colors.alpha[8]}`,
+  raised: `
+  0 0 0.125rem 0 ${colors.alpha[6]},
+  0 0.1875rem 0.375rem 0 ${colors.alpha[11]}`,
+  floated: `
+  0 0 0.125rem 0 ${colors.alpha[6]},
+  0 0.125rem 0.25rem 0 ${colors.alpha[6]},
+  0 0.25rem 0.5rem 0 ${colors.alpha[13]}`,
   overlay: `
-  0px 0px 4px 0px ${colors.alpha[8]},
-  0px 3px 8px 0px ${colors.alpha[12]},
-  0px 8px 16px 0px ${colors.alpha[16]}`,
+  0 0 0.25rem 0 ${colors.alpha[8]},
+  0 0.1875rem 0.5rem 0 ${colors.alpha[12]},
+  0 0.5rem 1rem 0 ${colors.alpha[16]}`,
+};
+
+const interaction = {
+  bold: `
+  &:hover {
+    opacity : ${opacity[12]};
+  }
+
+  &:active {
+    opacity : ${opacity[22]};
+  }
+
+  &:focus-visible {
+    border: ${stroke.bolder} solid ${colors.light["interactive-focus"]};
+    opacity : ${opacity.visible};
+  }`,
+  normal: `
+  &:hover {
+    opacity : ${opacity[8]};
+  }
+
+  &:active {
+    opacity : ${opacity[16]};
+  }
+
+  &:focus-visible {
+    border: ${stroke.bolder} solid ${colors.light["interactive-focus"]};
+    opacity : ${opacity.visible};
+  }`,
+  subtle: `
+  &:hover {
+    opacity : ${opacity[5]};
+  }
+
+  &:active {
+    opacity : ${opacity[12]};
+  }
+
+  &:focus-visible {
+    border: ${stroke.bolder} solid ${colors.light["interactive-focus"]};
+    opacity : ${opacity.visible};
+  }`,
 };
 
 const theme = {
@@ -248,6 +300,7 @@ const theme = {
   stroke,
   opacity,
   shadow,
+  interaction,
 };
 
 export default theme;
