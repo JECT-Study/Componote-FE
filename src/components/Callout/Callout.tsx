@@ -16,6 +16,7 @@ export default function Badge({ $size, titleText, bodyText }: ICallout) {
     <S.CalloutContainer $size={$size}>
       <S.CalloutTitleContainer>
         <S.CalloutTitleText>{titleText}</S.CalloutTitleText>
+        {/* TODO: 추후 버튼 컴포넌트가 만들어지고 나면 button/empty/secondary 넣어줘야 함 */}
       </S.CalloutTitleContainer>
       <S.CalloutBodyText>{bodyText}</S.CalloutBodyText>
     </S.CalloutContainer>
