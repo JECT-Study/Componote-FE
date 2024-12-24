@@ -71,7 +71,7 @@ export const CalloutTitleText = styled.span<ICalloutStyle>`
   color: ${({ theme }) => theme.light["object-hero"]};
 `;
 
-export const CalloutBodyText = styled.div<ICalloutStyle>`
+export const CalloutBodyText = styled.span<ICalloutStyle>`
   ${(props) => sizeMap[props.$size].bodyText}
 
   align-self: stretch;
