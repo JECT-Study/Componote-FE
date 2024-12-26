@@ -18,9 +18,9 @@ export default function Callout({ $size, titleText, bodyText }: ICallout) {
         <S.CalloutTitleText $size={$size}>{titleText}</S.CalloutTitleText>
         {/* TODO: 추후 버튼 컴포넌트가 만들어지고 나면 button/empty/secondary 넣어줘야 함 */}
       </S.CalloutTitleContainer>
-      {bodyText ? (
+      {bodyText && (
         <S.CalloutBodyText $size={$size}>{bodyText}</S.CalloutBodyText>
-      ) : null}
+      )}
     </S.CalloutContainer>
   );
 }
