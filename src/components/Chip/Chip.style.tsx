@@ -2,21 +2,10 @@
 
 import styled from "styled-components";
 
-import checkLine from "@/assets/icons/check-line.svg";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import checkLine from "@/assets/icons/check-line.svg";
+import { IIconWrapper, IChipComponent } from "./Chip.types";
 import sizeMap from "./Chip.theme";
-
-export interface IChipComponent {
-  $isInversed?: boolean;
-  $isSelected?: boolean;
-  $iconVisible?: boolean;
-  $isDisabled?: boolean;
-  $size: keyof typeof sizeMap;
-}
-
-export interface IIconWrapper {
-  IconComponent: React.ElementType;
-}
 
 function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
   return <IconComponent {...props} />;
@@ -36,14 +25,13 @@ export const ChipContainer = styled.div<IChipComponent>`
 
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme, $isSelected, $isInversed, $isDisabled }) => {
-    if ($isDisabled) {
-      return theme.light["object-inv-hero"];
-    }
+    if ($isDisabled) return theme.light["object-inv-hero"];
     if ($isInversed) {
       return $isSelected
         ? theme.light["surface-raised"]
         : theme.light["fill-hero"];
     }
+
     return $isSelected
       ? theme.light["fill-hero"]
       : theme.light["surface-raised"];
@@ -54,14 +42,13 @@ export const ChipContainer = styled.div<IChipComponent>`
     `${DESIGN_SYSTEM.stroke.normal} solid ${theme.light["border-trans-subtle"]}`};
 
   color: ${({ theme, $isSelected, $isInversed, $isDisabled }) => {
-    if ($isDisabled) {
-      return theme.light["object-subtlest"];
-    }
+    if ($isDisabled) return theme.light["object-subtlest"];
     if ($isInversed) {
       return $isSelected
         ? theme.light["object-normal"]
         : theme.light["object-inv-hero"];
     }
+
     return $isSelected
       ? theme.light["object-inv-hero"]
       : theme.light["object-normal"];
@@ -80,7 +67,7 @@ export const InteractionOverlay = styled.div`
 
   opacity: ${DESIGN_SYSTEM.opacity.invisible};
 
-  border-radius: ${DESIGN_SYSTEM.radius.circle}; // 점 표기법 사용
+  border-radius: ${DESIGN_SYSTEM.radius.circle};
   background-color: ${({ theme }) => theme.light["object-bolder"]};
 `;
 
@@ -97,6 +84,7 @@ export const ChipLeftIconImg = styled(BaseIconImg)`
           ? theme.light["object-normal"]
           : theme.light["object-inv-hero"];
       }
+
       return $isSelected
         ? theme.light["object-inv-hero"]
         : theme.light["object-normal"];

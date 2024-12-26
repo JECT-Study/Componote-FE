@@ -1,10 +1,6 @@
 import * as S from "./Chip.style";
 import InteractionContainer from "../Interaction/Interaction.style";
-
-export interface IChip extends S.IChipComponent {
-  text: string;
-  IconComponent: React.ElementType;
-}
+import { IChip, IChipComponent } from "./Chip.types";
 
 export default function Chip({
   $isInversed = false,
@@ -14,14 +10,15 @@ export default function Chip({
   $size,
   text,
   IconComponent,
-}: IChip) {
+  onClick,
+}: IChip & IChipComponent) {
   return (
     <S.ChipContainer
       $size={$size}
       $isSelected={$isSelected}
       $isInversed={$isInversed}
       $isDisabled={$isDisabled}
-      tabIndex={0}
+      onClick={onClick}
     >
       {$iconVisible && (
         <S.ChipLeftIconImg
