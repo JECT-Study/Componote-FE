@@ -2,9 +2,9 @@
 
 import styled from "styled-components";
 
-import { sizeMap } from "./Chip.theme";
-import DESIGN_SYSTEM from "@/styles/designSystem";
 import checkLine from "@/assets/icons/check-line.svg";
+import DESIGN_SYSTEM from "@/styles/designSystem";
+import sizeMap from "./Chip.theme";
 
 export interface IChipComponent {
   $isInversed?: boolean;
@@ -18,9 +18,9 @@ export interface IIconWrapper {
   IconComponent: React.ElementType;
 }
 
-const IconWrapper = ({ IconComponent, ...props }: IIconWrapper) => {
+function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
   return <IconComponent {...props} />;
-};
+}
 
 export const ChipContainer = styled.div<IChipComponent>`
   display: inline-flex;
@@ -29,37 +29,40 @@ export const ChipContainer = styled.div<IChipComponent>`
   position: relative;
 
   gap: ${DESIGN_SYSTEM.gap["6xs"]};
-  padding: ${(props) => {
-    return props.$isSelected
+  padding: ${(props) =>
+    props.$isSelected
       ? sizeMap[props.$size].selectedPadding
-      : sizeMap[props.$size].padding;
-  }};
+      : sizeMap[props.$size].padding};
 
-  opacity: ${DESIGN_SYSTEM.opacity["visible"]};
+  opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme, $isSelected, $isInversed, $isDisabled }) => {
-    return $isDisabled
-      ? theme.light["object-inv-hero"]
-      : $isInversed
-      ? $isSelected
+    if ($isDisabled) {
+      return theme.light["object-inv-hero"];
+    }
+    if ($isInversed) {
+      return $isSelected
         ? theme.light["surface-raised"]
-        : theme.light["fill-hero"]
-      : $isSelected
+        : theme.light["fill-hero"];
+    }
+    return $isSelected
       ? theme.light["fill-hero"]
       : theme.light["surface-raised"];
   }};
 
-  border-radius: ${DESIGN_SYSTEM.radius["circle"]};
+  border-radius: ${DESIGN_SYSTEM.radius.circle};
   border: ${({ theme }) =>
-    `${DESIGN_SYSTEM.stroke["normal"]} solid ${theme.light["border-trans-subtle"]}`};
+    `${DESIGN_SYSTEM.stroke.normal} solid ${theme.light["border-trans-subtle"]}`};
 
   color: ${({ theme, $isSelected, $isInversed, $isDisabled }) => {
-    return $isDisabled
-      ? theme.light["object-subtlest"]
-      : $isInversed
-      ? $isSelected
+    if ($isDisabled) {
+      return theme.light["object-subtlest"];
+    }
+    if ($isInversed) {
+      return $isSelected
         ? theme.light["object-normal"]
-        : theme.light["object-inv-hero"]
-      : $isSelected
+        : theme.light["object-inv-hero"];
+    }
+    return $isSelected
       ? theme.light["object-inv-hero"]
       : theme.light["object-normal"];
   }};
@@ -75,15 +78,15 @@ export const InteractionOverlay = styled.div`
   right: 0;
   bottom: 0;
 
-  opacity: ${DESIGN_SYSTEM.opacity["invisible"]};
+  opacity: ${DESIGN_SYSTEM.opacity.invisible};
 
-  border-radius: ${DESIGN_SYSTEM.radius["circle"]};
+  border-radius: ${DESIGN_SYSTEM.radius.circle}; // 점 표기법 사용
   background-color: ${({ theme }) => theme.light["object-bolder"]};
 `;
 
 const BaseIconImg = styled(IconWrapper)<IChipComponent>`
-  width: ${(props) => [sizeMap[props.$size].icon]};
-  height: ${(props) => [sizeMap[props.$size].icon]};
+  width: ${(props) => sizeMap[props.$size].icon};
+  height: ${(props) => sizeMap[props.$size].icon};
 `;
 
 export const ChipLeftIconImg = styled(BaseIconImg)`
@@ -93,11 +96,10 @@ export const ChipLeftIconImg = styled(BaseIconImg)`
         return $isSelected
           ? theme.light["object-normal"]
           : theme.light["object-inv-hero"];
-      } else {
-        return $isSelected
-          ? theme.light["object-inv-hero"]
-          : theme.light["object-normal"];
       }
+      return $isSelected
+        ? theme.light["object-inv-hero"]
+        : theme.light["object-normal"];
     }};
   }
 `;

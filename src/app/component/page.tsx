@@ -9,9 +9,9 @@ export default function Component() {
       <Chip
         text="레이블"
         $size="lg"
-        $isSelected={true}
-        $iconVisible={true}
-        $isInversed={true}
+        $isSelected
+        $iconVisible
+        $isInversed
         $isDisabled={false}
         IconComponent={GitHubIcon}
       />

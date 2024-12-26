@@ -50,21 +50,21 @@ export const Default: Story = {
   },
 };
 
-export const isSelected: Story = {
+export const Selected: Story = {
   args: {
     ...Default.args,
     $isSelected: true,
   },
 };
 
-export const isInversed: Story = {
+export const Inversed: Story = {
   args: {
     ...Default.args,
     $isInversed: true,
   },
 };
 
-export const isDisabled: Story = {
+export const Disabled: Story = {
   args: {
     ...Default.args,
     $isDisabled: true,
