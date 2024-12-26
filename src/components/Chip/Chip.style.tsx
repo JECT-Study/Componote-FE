@@ -65,11 +65,6 @@ export const ChipContainer = styled.div<IChipComponent>`
   }};
 
   ${(props) => sizeMap[props.$size].typo};
-
-  &:focus {
-    outline: none;
-    ${({ $isDisabled }) => !$isDisabled && DESIGN_SYSTEM.interaction["bold"]}
-  }
 `;
 
 export const InteractionOverlay = styled.div`
@@ -84,11 +79,6 @@ export const InteractionOverlay = styled.div`
 
   border-radius: ${DESIGN_SYSTEM.radius["circle"]};
   background-color: ${({ theme }) => theme.light["object-bolder"]};
-
-  &:hover {
-    opacity: ${DESIGN_SYSTEM.opacity["visible"]};
-    ${DESIGN_SYSTEM.interaction["subtle"]}
-  }
 `;
 
 const BaseIconImg = styled(IconWrapper)<IChipComponent>`

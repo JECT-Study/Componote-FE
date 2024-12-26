@@ -1,4 +1,5 @@
 import * as S from "./Chip.style";
+import InteractionContainer from "../Interaction/Interaction.style";
 
 export interface IChip extends S.IChipComponent {
   text: string;
@@ -34,7 +35,9 @@ export default function Chip({
       {$isSelected && (
         <S.CheckLineIconImg $size={$size} $isInversed={$isInversed} />
       )}
-      {!$isDisabled && <S.InteractionOverlay />}
+      {!$isDisabled && (
+        <InteractionContainer $variant="default" $density="subtle" />
+      )}
     </S.ChipContainer>
   );
 }
