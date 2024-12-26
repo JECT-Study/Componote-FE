@@ -1,4 +1,4 @@
-// import InteractionContainer from "../Interaction/Interaction.style";
+import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./Callout.Interactive.style";
 
 /**
@@ -14,7 +14,7 @@ interface ICalloutInteractive extends S.ICalloutInteractiveStyle {
  */
 export default function CalloutInteractive({
   $size,
-  $disabled,
+  $disabled = false,
   titleText,
   bodyText,
 }: ICalloutInteractive) {
@@ -31,7 +31,7 @@ export default function CalloutInteractive({
           {bodyText}
         </S.CalloutInteractiveBodyText>
       )}
-      {/* <InteractionContainer $variant="default" $density="subtle" /> */}
+      <InteractionContainer $variant="default" $density="subtle" />
     </S.CalloutInteractiveContainer>
   );
 }

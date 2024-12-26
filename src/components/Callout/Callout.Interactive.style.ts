@@ -7,7 +7,7 @@ import chevronRightLine from "@/assets/icons/chevron-right-line.svg";
  */
 export interface ICalloutInteractiveStyle {
   $size: keyof typeof sizeMap;
-  $disabled: boolean;
+  $disabled?: boolean;
 }
 
 const sizeMap = {
