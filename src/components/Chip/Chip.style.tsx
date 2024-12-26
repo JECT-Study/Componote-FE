@@ -30,10 +30,9 @@ export const ChipContainer = styled.div<IChipComponent>`
 
   gap: ${DESIGN_SYSTEM.gap["6xs"]};
   padding: ${(props) => {
-    const padding = sizeMap[props.$size].padding;
     return props.$isSelected
-      ? `${DESIGN_SYSTEM.gap["6xs"]} ${DESIGN_SYSTEM.gap["4xs"]} ${DESIGN_SYSTEM.gap["6xs"]} ${DESIGN_SYSTEM.gap["2xs"]}`
-      : padding;
+      ? sizeMap[props.$size].selectedPadding
+      : sizeMap[props.$size].padding;
   }};
 
   opacity: ${DESIGN_SYSTEM.opacity["visible"]};
