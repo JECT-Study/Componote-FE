@@ -47,6 +47,7 @@ export const Default: Story = {
     $isSelected: false,
     $isInversed: false,
     $isDisabled: false,
+    onClick: () => {},
   },
 };
 
