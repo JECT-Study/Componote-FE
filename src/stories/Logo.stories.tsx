@@ -16,13 +16,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    isFooter: false,
+    $isFooter: false,
   },
 };
 
-export const isFooter: Story = {
+export const Footer: Story = {
   args: {
-    isFooter: true,
+    $isFooter: true,
   },
   decorators: [
     (Story) => (
