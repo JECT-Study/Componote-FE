@@ -1,5 +1,3 @@
-import theme from "./theme";
-
 const alpha = {
   1: "rgba(9, 11, 18, 0.01)",
   2: "rgba(9, 11, 18, 0.02)",
@@ -244,48 +242,6 @@ const shadow = {
   0 0.5rem 1rem 0 ${alpha[16]}`,
 };
 
-const interaction = {
-  bold: `
-  &:hover {
-    opacity : ${opacity[12]};
-  }
-
-  &:active {
-    opacity : ${opacity[22]};
-  }
-
-  &:focus-visible {
-    border: ${stroke.bolder} solid ${theme.light["interactive-focus"]};
-    opacity : ${opacity.visible};
-  }`,
-  normal: `
-  &:hover {
-    opacity : ${opacity[8]};
-  }
-
-  &:active {
-    opacity : ${opacity[16]};
-  }
-
-  &:focus-visible {
-    border: ${stroke.bolder} solid ${theme.light["interactive-focus"]};
-    opacity : ${opacity.visible};
-  }`,
-  subtle: `
-  &:hover {
-    opacity : ${opacity[5]};
-  }
-
-  &:active {
-    opacity : ${opacity[12]};
-  }
-
-  &:focus-visible {
-    border: ${stroke.bolder} solid ${theme.light["interactive-focus"]};
-    opacity : ${opacity.visible};
-  }`,
-};
-
 const DESIGN_SYSTEM = {
   alpha,
   typography,
@@ -295,6 +251,5 @@ const DESIGN_SYSTEM = {
   stroke,
   opacity,
   shadow,
-  interaction,
 };
 export default DESIGN_SYSTEM;
