@@ -9,3 +9,4 @@ export { default as BadgeComponentType } from "./Badge/Badge.ComponentType";
 export { default as Toast } from "./Toast/Toast";
 export { default as Callout } from "./Callout/Callout";
 export { default as CalloutInteractive } from "./Callout/Callout.Interactive";
+export { default as IndexPanel } from "./IndexPanel/IndexPanel";
