@@ -1,13 +1,9 @@
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import AVATAR_SIZE from "./Avatar.theme";
+import IAvatar from "./Avatar.types";
 
-export interface IAvatarStyle {
-  $src?: string;
-  $size: keyof typeof AVATAR_SIZE;
-}
-
-export const AvatarContainer = styled.div<IAvatarStyle>`
+export const AvatarContainer = styled.div<IAvatar>`
   position: relative;
 
   width: ${({ $size }) => AVATAR_SIZE[$size].avatarSize};
