@@ -1,14 +1,6 @@
-"use client";
-
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
-
-/**
- * Badge 컴포넌트에 필요한 style props입니다
- */
-export interface IBadgeStyle {
-  $variant: "dot" | "new" | "count";
-}
+import { IBadgeStyle } from "./Badge.types";
 
 export const DotBadgeContainer = styled.div<IBadgeStyle>`
   display: flex;

@@ -1,4 +1,5 @@
-import * as S from "./Badge.ComponentType.style";
+import BadgeComponentTypeContainer from "./Badge.ComponentType.style";
+import { IBadgeComponentType } from "./Badge.types";
 
 /**
  * Badge/componentType 컴포넌트입니다
@@ -7,7 +8,7 @@ export default function BadgeComponentType({
   $type,
   $style,
   $size,
-}: S.IBadgeComponentType) {
+}: IBadgeComponentType) {
   const textMap = {
     input: "Input 입력",
     display: "Display 표시",
@@ -17,8 +18,8 @@ export default function BadgeComponentType({
   const text = textMap[$type];
 
   return (
-    <S.BadgeComponentTypeContainer $type={$type} $style={$style} $size={$size}>
+    <BadgeComponentTypeContainer $type={$type} $style={$style} $size={$size}>
       {text}
-    </S.BadgeComponentTypeContainer>
+    </BadgeComponentTypeContainer>
   );
 }
