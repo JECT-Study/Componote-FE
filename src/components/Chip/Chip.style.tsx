@@ -5,7 +5,7 @@ import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import checkLine from "@/assets/icons/check-line.svg";
 import { IIconWrapper, IChipComponent } from "./Chip.types";
-import sizeMap from "./Chip.theme";
+import CHIP_SIZE_MAP from "./Chip.theme";
 
 function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
   // eslint-disable-next-line react/jsx-props-no-spreading
@@ -21,8 +21,8 @@ export const ChipContainer = styled.div<IChipComponent>`
   gap: ${DESIGN_SYSTEM.gap["6xs"]};
   padding: ${(props) =>
     props.$isSelected
-      ? sizeMap[props.$size].selectedPadding
-      : sizeMap[props.$size].padding};
+      ? CHIP_SIZE_MAP[props.$size].selectedPadding
+      : CHIP_SIZE_MAP[props.$size].padding};
 
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme, $isSelected, $isInversed, $isDisabled }) => {
@@ -55,7 +55,7 @@ export const ChipContainer = styled.div<IChipComponent>`
       : theme.light["object-normal"];
   }};
 
-  ${(props) => sizeMap[props.$size].typo};
+  ${(props) => CHIP_SIZE_MAP[props.$size].typo};
 `;
 
 export const InteractionOverlay = styled.div`
@@ -73,8 +73,8 @@ export const InteractionOverlay = styled.div`
 `;
 
 const BaseIconImg = styled(IconWrapper)<IChipComponent>`
-  width: ${(props) => sizeMap[props.$size].icon};
-  height: ${(props) => sizeMap[props.$size].icon};
+  width: ${(props) => CHIP_SIZE_MAP[props.$size].icon};
+  height: ${(props) => CHIP_SIZE_MAP[props.$size].icon};
 `;
 
 export const ChipLeftIconImg = styled(BaseIconImg)`

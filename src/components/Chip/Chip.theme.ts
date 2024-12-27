@@ -1,6 +1,6 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 
-const sizeMap = {
+const CHIP_SIZE_MAP = {
   xl: {
     icon: DESIGN_SYSTEM.iconSize.md,
     typo: DESIGN_SYSTEM.typography.label.lg,
@@ -27,4 +27,4 @@ const sizeMap = {
   },
 };
 
-export default sizeMap;
+export default CHIP_SIZE_MAP;
