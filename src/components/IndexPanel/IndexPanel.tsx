@@ -32,7 +32,7 @@ function IndexPanelItem({
       $isDisabled={$isDisabled}
       onClick={onContentClick}
     >
-      {text || ""}
+      {text}
       <InteractionContainer $variant="default" $density="subtle" />
     </S.IndexPanelItem>
   );
