@@ -79,7 +79,9 @@ const BaseIconImg = styled(IconWrapper)<IChipComponent>`
 
 export const ChipLeftIconImg = styled(BaseIconImg)`
   path {
-    fill: ${({ theme, $isSelected, $isInversed }) => {
+    fill: ${({ theme, $isDisabled, $isSelected, $isInversed }) => {
+      if ($isDisabled) return theme.light["object-subtlest"];
+
       if ($isInversed) {
         return $isSelected
           ? theme.light["object-normal"]

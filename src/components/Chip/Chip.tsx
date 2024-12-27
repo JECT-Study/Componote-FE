@@ -26,6 +26,7 @@ export default function Chip({
           IconComponent={IconComponent}
           $isSelected={$isSelected}
           $isInversed={$isInversed}
+          $isDisabled={$isDisabled}
         />
       )}
       <S.ChipLabelText>{text}</S.ChipLabelText>
