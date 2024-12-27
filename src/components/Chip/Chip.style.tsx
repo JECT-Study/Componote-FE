@@ -8,6 +8,7 @@ import { IIconWrapper, IChipComponent } from "./Chip.types";
 import sizeMap from "./Chip.theme";
 
 function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return <IconComponent {...props} />;
 }
 

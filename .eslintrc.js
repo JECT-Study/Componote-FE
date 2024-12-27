@@ -23,4 +23,16 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: [
+        "src/components/**/*.js",
+        "src/components/**/*.ts",
+        "src/components/**/*.tsx",
+      ], // components 디렉토리의 파일에만 적용
+      rules: {
+        "import/no-cycle": "off",
+      },
+    },
+  ],
 };
