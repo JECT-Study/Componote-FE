@@ -1,20 +1,22 @@
-"use client";
-
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import chevronRightLine from "@/assets/icons/chevron-right-line.svg";
 
 /**
- * Callout 컴포넌트에 필요한 style props입니다
+ * Callout/Interactive 컴포넌트에 필요한 style props입니다
  */
-export interface ICalloutStyle {
+export interface ICalloutInteractiveStyle {
   $size: keyof typeof sizeMap;
+  $disabled?: boolean;
 }
 
 const sizeMap = {
   sm: {
     containerPadding: `${DESIGN_SYSTEM.gap.lg} ${DESIGN_SYSTEM.gap.xl}`,
+    iconSize: DESIGN_SYSTEM.iconSize.lg,
     titleText: `
     ${DESIGN_SYSTEM.typography.label.bold.lg};
+    height: 1.6875rem;
     max-height: 3.375rem;
   `,
     bodyText: `
@@ -24,8 +26,10 @@ const sizeMap = {
   },
   md: {
     containerPadding: `${DESIGN_SYSTEM.gap.xl} ${DESIGN_SYSTEM.gap["2xl"]}`,
+    iconSize: DESIGN_SYSTEM.iconSize.xl,
     titleText: `
     ${DESIGN_SYSTEM.typography.title[1]};
+    height: 1.75rem;
     max-height: 3.5rem;
   `,
     bodyText: `
@@ -35,7 +39,8 @@ const sizeMap = {
   },
 };
 
-export const CalloutContainer = styled.div<ICalloutStyle>`
+export const CalloutInteractiveContainer = styled.div<ICalloutInteractiveStyle>`
+  position: relative;
   width: 30rem;
   max-width: 70rem;
 
@@ -47,13 +52,22 @@ export const CalloutContainer = styled.div<ICalloutStyle>`
   padding: ${(props) => sizeMap[props.$size].containerPadding};
 
   border-radius: ${DESIGN_SYSTEM.radius.xs};
-  border: ${({ theme }) =>
-    `${DESIGN_SYSTEM.stroke.normal} solid ${theme.light["border-trans-normal"]}`};
+  border: ${(props) =>
+    `${DESIGN_SYSTEM.stroke.normal} solid ${
+      props.theme.light[
+        `border-trans-${props.$disabled ? "subtler" : "normal"}`
+      ]
+    }`};
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme }) => theme.light["surface-raised"]};
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: ${DESIGN_SYSTEM.shadow.raised};
+  }
 `;
 
-export const CalloutTitleContainer = styled.div`
+export const CalloutInteractiveTitleContainer = styled.div`
   display: flex;
   align-items: flex-start;
   align-self: stretch;
@@ -64,20 +78,34 @@ export const CalloutTitleContainer = styled.div`
   opacity: ${DESIGN_SYSTEM.opacity.visible};
 `;
 
-export const CalloutTitleText = styled.span<ICalloutStyle>`
+export const CalloutInteractiveTitleText = styled.span<ICalloutInteractiveStyle>`
   ${(props) => sizeMap[props.$size].titleText}
   flex: 1 0 0;
 
-  color: ${({ theme }) => theme.light["object-hero"]};
+  color: ${(props) =>
+    props.theme.light[`object-${props.$disabled ? "subtlest" : "hero"}`]};
 `;
 
-export const CalloutBodyText = styled.span<ICalloutStyle>`
+export const CalloutInteractiveBodyText = styled.span<ICalloutInteractiveStyle>`
   ${(props) => sizeMap[props.$size].bodyText}
 
   align-self: stretch;
   overflow: hidden;
 
-  color: ${({ theme }) => theme.light["object-subtle"]};
+  color: ${(props) =>
+    props.theme.light[`object-${props.$disabled ? "subtlest" : "subtle"}`]};
   text-overflow: ellipsis;
   white-space: nowrap;
+`;
+
+export const CalloutInteractiveIcon = styled(
+  chevronRightLine
+)<ICalloutInteractiveStyle>`
+  width: ${(props) => sizeMap[props.$size].iconSize};
+  height: ${(props) => sizeMap[props.$size].iconSize};
+
+  path {
+    fill: ${(props) =>
+      props.theme.light[`object-${props.$disabled ? "subtlest" : "subtle"}`]};
+  }
 `;
