@@ -27,9 +27,6 @@ export const IndexPanelItem = styled.div<IIndexPanelItemStyle>`
   ${(props) =>
     props.$isSelected &&
     `background-color: ${props.theme.light["object-hero"]}`};
-`;
-
-export const IndexPanelItemLabelText = styled.span<IIndexPanelItemStyle>`
   color: ${(props) =>
     props.$isSelected
       ? props.theme.light["object-hero"]

@@ -27,14 +27,12 @@ function IndexPanelItem({
   };
 
   return (
-    <S.IndexPanelItem $isSelected={isSelected} $isDisabled={$isDisabled}>
-      <S.IndexPanelItemLabelText
-        $isSelected={$isSelected}
-        $isDisabled={$isDisabled}
-        onClick={onContentClick}
-      >
-        {text || ""}
-      </S.IndexPanelItemLabelText>
+    <S.IndexPanelItem
+      $isSelected={isSelected}
+      $isDisabled={$isDisabled}
+      onClick={onContentClick}
+    >
+      {text || ""}
       <InteractionContainer $variant="default" $density="subtle" />
     </S.IndexPanelItem>
   );
