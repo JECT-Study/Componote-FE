@@ -6,12 +6,12 @@ import Badge from "../Badge/Badge";
  */
 export default function Avatar({ $src, $size }: S.IAvatarStyle) {
   return (
-    <S.AvatarContainer>
+    <S.AvatarContainer $size={$size}>
       <S.ImageContainer>
         <S.AvatarImage $src={$src} />
       </S.ImageContainer>
       <S.BadgeContainer>
-        <Badge $variant="new" />
+        <Badge $variant={$size === "sm" || $size === "xs" ? "dot" : "new"} />
       </S.BadgeContainer>
     </S.AvatarContainer>
   );

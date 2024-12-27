@@ -1,25 +1,17 @@
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import AVATAR_SIZE from "./Avatar.theme";
 
 export interface IAvatarStyle {
   $src?: string;
-  $size?: keyof typeof sizeMap;
+  $size: keyof typeof AVATAR_SIZE;
 }
 
-const sizeMap = {
-  xs: 16,
-  sm: 24,
-  md: 28,
-  lg: 36,
-  xl: 44,
-  "2xl": 80,
-};
-
-export const AvatarContainer = styled.div`
+export const AvatarContainer = styled.div<IAvatarStyle>`
   position: relative;
 
-  width: 5rem;
-  height: 5rem;
+  width: ${({ $size }) => AVATAR_SIZE[$size].avatarSize};
+  height: ${({ $size }) => AVATAR_SIZE[$size].avatarSize};
 
   display: flex;
   justify-content: center;
@@ -38,7 +30,7 @@ export const ImageContainer = styled.div`
   flex: 1 0 0;
 `;
 
-export const AvatarImage = styled.div<IAvatarStyle>`
+export const AvatarImage = styled.div<{ $src?: string }>`
   border-radius: 5rem;
   width: 100%;
   height: 100%;
@@ -55,6 +47,6 @@ export const AvatarImage = styled.div<IAvatarStyle>`
 
 export const BadgeContainer = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -0.5rem;
+  right: -0.5rem;
 `;
