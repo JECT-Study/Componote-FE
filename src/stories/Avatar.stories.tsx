@@ -38,3 +38,45 @@ export const AvatarImage = {
     $src: "https://i.natgeofe.com/n/4cebbf38-5df4-4ed0-864a-4ebeb64d33a4/NationalGeographic_1468962_3x4.jpg",
   },
 };
+
+export const AvatarXs = {
+  args: {
+    ...Default.args,
+    $size: "xs",
+  },
+};
+
+export const AvatarSm = {
+  args: {
+    ...Default.args,
+    $size: "sm",
+  },
+};
+
+export const AvatarMd = {
+  args: {
+    ...Default.args,
+    $size: "md",
+  },
+};
+
+export const AvatarLg = {
+  args: {
+    ...Default.args,
+    $size: "lg",
+  },
+};
+
+export const AvatarXl = {
+  args: {
+    ...Default.args,
+    $size: "xl",
+  },
+};
+
+export const Avatar2xl = {
+  args: {
+    ...Default.args,
+    $size: "2xl",
+  },
+};
