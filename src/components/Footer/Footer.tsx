@@ -1,15 +1,15 @@
 "use client";
 
+import FOOTER_TEXT from "@/constants/messages";
+import { Logo } from "@/components";
 import * as S from "./Footer.style";
-import { FOOTER_TEXT } from "@/constants/messages";
-import { Logo } from "../../components";
 
 export default function Footer() {
   return (
     <S.FooterContainer>
       <S.FooterSection>
         <S.FooterBox>
-          <Logo isFooter={true} />
+          <Logo $isFooter />
           <S.TermsAndPolicyAnchor href="/">
             {FOOTER_TEXT.termsText}
           </S.TermsAndPolicyAnchor>
