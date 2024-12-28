@@ -11,3 +11,4 @@ export { default as Callout } from "./Callout/Callout";
 export { default as Chip } from "./Chip/Chip";
 export { default as ChipGroup } from "./Chip/Chip.group";
 export { default as CalloutInteractive } from "./Callout/Callout.Interactive";
+export { default as IndexPanel } from "./IndexPanel/IndexPanel";
