@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import { IIconWrapper, IInputComponent } from "./InputField.types";
 
