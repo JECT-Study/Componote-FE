@@ -1,7 +1,12 @@
-const FOOTER_TEXT = {
+export const FOOTER_TEXT = {
   termsText: "이용약관",
   policyText: "개인정보 처리방침",
   reservedText: "© 2024 Componote. All rights reserved.",
 };
 
-export default FOOTER_TEXT;
+export const NAVBAR_ITEM_TEXT = {
+  component: "컴포넌트",
+  designSystem: "디자인 시스템",
+  serviceInfo: "서비스 안내",
+  login: "로그인",
+};
