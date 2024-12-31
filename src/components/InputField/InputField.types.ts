@@ -16,5 +16,4 @@ export interface IInputField extends IInputComponent {
   $iconVisible: boolean;
   $labelVisible: boolean;
   $helperVisible: boolean;
-  $countVisible: boolean;
 }

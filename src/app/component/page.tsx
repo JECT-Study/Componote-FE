@@ -16,7 +16,6 @@ export default function Component() {
         $iconVisible
         $labelVisible
         $helperVisible
-        $countVisible
       />
     </div>
   );

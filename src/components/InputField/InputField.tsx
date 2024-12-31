@@ -14,7 +14,6 @@ export default function InputField({
   $labelVisible,
   $iconVisible,
   $helperVisible,
-  $countVisible,
 }: IInputField) {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -54,7 +53,7 @@ export default function InputField({
       {$helperVisible && (
         <S.HelperContainer $isNagative={$isNagative}>
           <S.HelperText>{helperText}</S.HelperText>
-          {$countVisible && <S.CountText>{inputValue.length}/40</S.CountText>}
+          <S.CountText>{inputValue.length}/40</S.CountText>
         </S.HelperContainer>
       )}
     </S.InputFieldContainer>
