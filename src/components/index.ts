@@ -13,3 +13,4 @@ export { default as ChipGroup } from "./Chip/Chip.group";
 export { default as CalloutInteractive } from "./Callout/Callout.Interactive";
 export { default as Button } from "./Button/Button";
 export { default as IndexPanel } from "./IndexPanel/IndexPanel";
+export { default as InputField } from "./InputField/InputField";
