@@ -33,7 +33,11 @@ export default function Button({
   $isRightIconVisible = true,
 }: IButton) {
   return (
-    <S.Button $buttonStyle={$buttonStyle} $size={$size}>
+    <S.Button
+      $buttonType={$buttonType}
+      $buttonStyle={$buttonStyle}
+      $size={$size}
+    >
       <S.LabelContainer>
         {$buttonType === "iconButton" &&
           renderIcon($leftIcon, $buttonType, $buttonStyle, $size, true)}
