@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     text: {
       control: { type: "text" },
-      defaultValue: "버튼",
+      defaultValue: "레이블",
     },
     $leftIcon: {
       defaultValue: BlankLine,
@@ -40,7 +40,7 @@ const meta = {
         ButtonStyle.EmptySecondary,
         ButtonStyle.EmptyTertiary,
       ],
-      defaultValue: ButtonStyle.SolidPrimary,
+      defaultValue: ButtonStyle.SolidBrand,
     },
     $buttonType: {
       control: { type: "select" },
@@ -64,9 +64,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: "버튼",
+    text: "레이블",
     $size: "md",
-    $buttonStyle: ButtonStyle.SolidPrimary,
+    $buttonStyle: ButtonStyle.SolidBrand,
     $buttonType: "button",
     $leftIcon: BlankLine,
     $rightIcon: BlankLine,
@@ -75,35 +75,100 @@ export const Default: Story = {
   },
 };
 
-export const WithLeftIcon: Story = {
+export const ButtonSolidPrimary: Story = {
   args: {
     ...Default.args,
+    $buttonStyle: ButtonStyle.SolidPrimary,
+  },
+};
+
+export const ButtonSolidSecondary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.SolidSecondary,
+  },
+};
+
+export const ButtonSolidTertiary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.SolidTertiary,
+  },
+};
+
+export const ButtonOutlinedPrimary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.OutlinedPrimary,
+  },
+};
+
+export const ButtonOutlinedSecondary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.OutlinedSecondary,
+  },
+};
+
+export const ButtonOutlinedTertiary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.OutlinedTertiary,
+  },
+};
+
+export const ButtonEmptyPrimary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.EmptyPrimary,
+  },
+};
+
+export const ButtonEmptySecondary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.EmptySecondary,
+  },
+};
+
+export const ButtonEmptyTertiary: Story = {
+  args: {
+    ...Default.args,
+    $buttonStyle: ButtonStyle.EmptyTertiary,
+  },
+};
+
+export const isLeftIconVisible: Story = {
+  args: {
+    ...Default.args,
+    $isRightIconVisible: false,
     $leftIcon: BlankLine,
   },
 };
 
-export const WithRightIcon: Story = {
+export const isRightIconVisible: Story = {
   args: {
     ...Default.args,
+    $isLeftIconVisible: false,
     $rightIcon: BlankLine,
   },
 };
 
-export const IconButton: Story = {
+export const isIconInvisible: Story = {
   args: {
-    $size: "lg",
-    $buttonStyle: ButtonStyle.SolidPrimary,
-    $buttonType: "iconButton",
-    $leftIcon: BlankLine,
-    $isLeftIconVisible: true,
+    ...Default.args,
+    $isLeftIconVisible: false,
     $isRightIconVisible: false,
   },
 };
 
-export const Disabled: Story = {
+export const IcBtn: Story = {
   args: {
-    ...Default.args,
-    $isLeftIconVisible: false,
+    $size: "md",
+    $buttonStyle: ButtonStyle.SolidBrand,
+    $buttonType: "iconButton",
+    $leftIcon: BlankLine,
+    $isLeftIconVisible: true,
     $isRightIconVisible: false,
   },
 };
