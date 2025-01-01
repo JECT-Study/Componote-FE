@@ -1,6 +1,6 @@
 "use client";
 
-import FOOTER_TEXT from "@/constants/messages";
+import { FOOTER_TEXT } from "@/constants/messages";
 import { Logo } from "@/components";
 import * as S from "./Footer.style";
 

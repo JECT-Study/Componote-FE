@@ -1,3 +1,4 @@
+import { BADGE_COMPONENT_TYPE_TEXT } from "@/constants/messages";
 import BadgeComponentTypeContainer from "./Badge.ComponentType.style";
 import { IBadgeComponentType } from "./Badge.types";
 
@@ -9,14 +10,7 @@ export default function BadgeComponentType({
   $style,
   $size,
 }: IBadgeComponentType) {
-  const textMap = {
-    input: "Input 입력",
-    display: "Display 표시",
-    feedback: "Feedback 반응",
-    navigation: "Navigation 안내",
-  };
-  const text = textMap[$type];
-
+  const text = BADGE_COMPONENT_TYPE_TEXT[$type];
   return (
     <BadgeComponentTypeContainer $type={$type} $style={$style} $size={$size}>
       {text}
