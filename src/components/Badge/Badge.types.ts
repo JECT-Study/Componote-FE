@@ -29,6 +29,14 @@ export interface IStyle {
   outlined: IColor & { border: string };
 }
 
+export enum BadgeLabelFeedback {
+  NONE = "none",
+  NEGATIVE = "negative",
+  INFO = "info",
+  POSITIVE = "positive",
+  NOTIFICATION = "notification",
+}
+
 export interface IBadgeLabelFeedbackColor {
   none: IStyle;
   negative: IStyle;
@@ -41,7 +49,7 @@ export interface IBadgeLabelFeedbackColor {
  * Badge/Label 컴포넌트의 styled-component에 기본적으로 필요한 props입니다
  */
 export interface IBadgeLabelBasicStyle {
-  $feedback: keyof IBadgeLabelFeedbackColor;
+  $feedback: BadgeLabelFeedback;
   $style: keyof IStyle;
   $size: keyof typeof BADGE_LABEL_SIZE;
 }
