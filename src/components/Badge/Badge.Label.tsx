@@ -1,11 +1,5 @@
 import * as S from "./Badge.Label.style";
-
-/**
- * Badge/Label 컴포넌트의 styled-component에 필요한 props입니다
- */
-interface IBadgeLabel extends S.IBadgeLabelStyle {
-  text: string;
-}
+import { IBadgeLabel } from "./Badge.types";
 
 /**
  * Badge/Label 컴포넌트입니다

@@ -1,12 +1,5 @@
 import * as S from "./Callout.style";
-
-/**
- * Callout 컴포넌트에 필요한 props입니다
- */
-interface ICallout extends S.ICalloutStyle {
-  titleText: string;
-  bodyText?: string;
-}
+import { ICallout } from "./Callout.types";
 
 /**
  * Callout 컴포넌트입니다

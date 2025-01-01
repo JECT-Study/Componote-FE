@@ -1,43 +1,8 @@
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import chevronRightLine from "@/assets/icons/chevron-right-line.svg";
-
-/**
- * Callout/Interactive 컴포넌트에 필요한 style props입니다
- */
-export interface ICalloutInteractiveStyle {
-  $size: keyof typeof sizeMap;
-  $disabled?: boolean;
-}
-
-const sizeMap = {
-  sm: {
-    containerPadding: `${DESIGN_SYSTEM.gap.lg} ${DESIGN_SYSTEM.gap.xl}`,
-    iconSize: DESIGN_SYSTEM.iconSize.lg,
-    titleText: `
-    ${DESIGN_SYSTEM.typography.label.bold.lg};
-    height: 1.6875rem;
-    max-height: 3.375rem;
-  `,
-    bodyText: `
-    ${DESIGN_SYSTEM.typography.label.xs};
-    height: 2.625rem;
-  `,
-  },
-  md: {
-    containerPadding: `${DESIGN_SYSTEM.gap.xl} ${DESIGN_SYSTEM.gap["2xl"]}`,
-    iconSize: DESIGN_SYSTEM.iconSize.xl,
-    titleText: `
-    ${DESIGN_SYSTEM.typography.title[1]};
-    height: 1.75rem;
-    max-height: 3.5rem;
-  `,
-    bodyText: `
-    ${DESIGN_SYSTEM.typography.label.md};
-    height: 3rem;
-  `,
-  },
-};
+import { CALLOUT_INTERACTIVE_SIZE } from "./Callout.theme";
+import { ICalloutInteractiveStyle } from "./Callout.types";
 
 export const CalloutInteractiveContainer = styled.div<ICalloutInteractiveStyle>`
   position: relative;
@@ -49,7 +14,7 @@ export const CalloutInteractiveContainer = styled.div<ICalloutInteractiveStyle>`
   align-items: flex-start;
   gap: ${DESIGN_SYSTEM.gap["3xs"]};
 
-  padding: ${(props) => sizeMap[props.$size].containerPadding};
+  padding: ${(props) => CALLOUT_INTERACTIVE_SIZE[props.$size].containerPadding};
 
   border-radius: ${DESIGN_SYSTEM.radius.xs};
   border: ${(props) =>
@@ -79,7 +44,7 @@ export const CalloutInteractiveTitleContainer = styled.div`
 `;
 
 export const CalloutInteractiveTitleText = styled.span<ICalloutInteractiveStyle>`
-  ${(props) => sizeMap[props.$size].titleText}
+  ${(props) => CALLOUT_INTERACTIVE_SIZE[props.$size].titleText}
   flex: 1 0 0;
 
   color: ${(props) =>
@@ -87,7 +52,7 @@ export const CalloutInteractiveTitleText = styled.span<ICalloutInteractiveStyle>
 `;
 
 export const CalloutInteractiveBodyText = styled.span<ICalloutInteractiveStyle>`
-  ${(props) => sizeMap[props.$size].bodyText}
+  ${(props) => CALLOUT_INTERACTIVE_SIZE[props.$size].bodyText}
 
   align-self: stretch;
   overflow: hidden;
@@ -101,8 +66,8 @@ export const CalloutInteractiveBodyText = styled.span<ICalloutInteractiveStyle>`
 export const CalloutInteractiveIcon = styled(
   chevronRightLine
 )<ICalloutInteractiveStyle>`
-  width: ${(props) => sizeMap[props.$size].iconSize};
-  height: ${(props) => sizeMap[props.$size].iconSize};
+  width: ${(props) => CALLOUT_INTERACTIVE_SIZE[props.$size].iconSize};
+  height: ${(props) => CALLOUT_INTERACTIVE_SIZE[props.$size].iconSize};
 
   path {
     fill: ${(props) =>
