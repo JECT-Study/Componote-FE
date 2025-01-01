@@ -1,21 +1,25 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
-import { CONTEXT_MENU_ITEM_SIZE } from "./ContextMenu.theme";
 import checkboxBlankLine from "@/assets/icons/checkbox-blank-line.svg";
 import blankLine from "@/assets/icons/blank-line.svg";
+import {
+  CONTEXT_MENU_ITEM_FEEDBACK_COLOR,
+  CONTEXT_MENU_ITEM_SIZE,
+} from "./ContextMenu.theme";
 
 export interface IContextMenuItemStyle {
   $variant: "labelOnly" | "checkbox" | "leftIcon" | "rightIcon" | "badge";
   $size: keyof typeof CONTEXT_MENU_ITEM_SIZE;
+  $feedback?: keyof typeof CONTEXT_MENU_ITEM_FEEDBACK_COLOR;
 }
 
 export const ContextMenuItem = styled.div<IContextMenuItemStyle>`
   position: relative;
 
-  width: ${(props) =>
-    CONTEXT_MENU_ITEM_SIZE[props.$size][props.$variant].width};
-  height: ${(props) =>
-    CONTEXT_MENU_ITEM_SIZE[props.$size][props.$variant].height};
+  width: ${({ $variant, $size }) =>
+    CONTEXT_MENU_ITEM_SIZE[$size][$variant].width};
+  height: ${({ $variant, $size }) =>
+    CONTEXT_MENU_ITEM_SIZE[$size][$variant].height};
 
   display: inline-flex;
   align-items: center;
@@ -29,8 +33,8 @@ export const ContextMenuItem = styled.div<IContextMenuItemStyle>`
 export const ContextMenuCheckboxIcon = styled(
   checkboxBlankLine
 )<IContextMenuItemStyle>`
-  width: ${(props) => CONTEXT_MENU_ITEM_SIZE[props.$size].iconSize};
-  height: ${(props) => CONTEXT_MENU_ITEM_SIZE[props.$size].iconSize};
+  width: ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].iconSize};
+  height: ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].iconSize};
 
   path {
     fill: ${({ theme }) => theme.light["object-subtle"]};
@@ -38,8 +42,8 @@ export const ContextMenuCheckboxIcon = styled(
 `;
 
 export const ContextMenuBlankLine = styled(blankLine)<IContextMenuItemStyle>`
-  width: ${(props) => CONTEXT_MENU_ITEM_SIZE[props.$size].iconSize};
-  height: ${(props) => CONTEXT_MENU_ITEM_SIZE[props.$size].iconSize};
+  width: ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].iconSize};
+  height: ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].iconSize};
 
   path {
     fill: ${({ theme }) => theme.light["object-subtle"]};
@@ -90,9 +94,11 @@ export const ContextMenuItemLabelContainer = styled.div`
 `;
 
 export const ContextMenuItemItemLabelText = styled.span<IContextMenuItemStyle>`
-  color: ${({ theme }) => theme.light["object-boldest"]};
+  color: ${({ $feedback, theme }) =>
+    $feedback &&
+    CONTEXT_MENU_ITEM_FEEDBACK_COLOR[$feedback].itemLabelTextColor(theme)};
 
-  ${(props) => CONTEXT_MENU_ITEM_SIZE[props.$size].itemLabelText};
+  ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].itemLabelText};
 `;
 
 export const ContextMenuItemSubLabelText = styled.span`

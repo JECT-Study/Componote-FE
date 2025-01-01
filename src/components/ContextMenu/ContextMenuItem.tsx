@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./ContextMenuItem.style";
 import InteractionContainer from "../Interaction/Interaction.style";
 import BadgeLabel from "../Badge/Badge.Label";
+import { CONTEXT_MENU_ITEM_FEEDBACK_COLOR } from "./ContextMenu.theme";
 
 interface IContextMenuItem extends S.IContextMenuItemStyle {
   labelText: string;
@@ -13,6 +14,7 @@ interface IContextMenuItem extends S.IContextMenuItemStyle {
 export default function ContextMenuItem({
   $variant,
   $size,
+  $feedback = "normal",
   labelText,
   subLabelText,
   captionText,
@@ -30,12 +32,16 @@ export default function ContextMenuItem({
         {$variant === "badge" ? (
           <S.ContextMenuItemWrap>
             <S.ContextMenuItemContainer>
-              <S.ContextMenuItemItemLabelText $variant={$variant} $size={$size}>
+              <S.ContextMenuItemItemLabelText
+                $variant={$variant}
+                $size={$size}
+                $feedback={$feedback}
+              >
                 {labelText}
               </S.ContextMenuItemItemLabelText>
               <BadgeLabel
                 $variant="labelOnly"
-                $feedback="none"
+                $feedback={CONTEXT_MENU_ITEM_FEEDBACK_COLOR[$feedback].label}
                 $style="transparent"
                 $size="xs"
                 text={badgeLabelText || "레이블"}
@@ -49,7 +55,11 @@ export default function ContextMenuItem({
           </S.ContextMenuItemWrap>
         ) : (
           <S.ContextMenuItemLabelContainer>
-            <S.ContextMenuItemItemLabelText $variant={$variant} $size={$size}>
+            <S.ContextMenuItemItemLabelText
+              $variant={$variant}
+              $size={$size}
+              $feedback={$feedback}
+            >
               {labelText}
             </S.ContextMenuItemItemLabelText>
             {subLabelText && (
@@ -68,7 +78,10 @@ export default function ContextMenuItem({
       {$variant === "rightIcon" && (
         <S.ContextMenuBlankLine $variant={$variant} $size={$size} />
       )}
-      <InteractionContainer $variant="default" $density="normal" />
+      <InteractionContainer
+        $variant={CONTEXT_MENU_ITEM_FEEDBACK_COLOR[$feedback].interaction}
+        $density="normal"
+      />
     </S.ContextMenuItem>
   );
 }

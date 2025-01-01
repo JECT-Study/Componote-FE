@@ -17,6 +17,10 @@ const meta = {
       control: { type: "radio" },
       options: ["md", "sm"],
     },
+    $feedback: {
+      control: { type: "radio" },
+      options: ["normal", "info", "negative"],
+    },
   },
 } satisfies Meta<typeof ContextMenuItem>;
 
