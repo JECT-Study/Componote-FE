@@ -40,9 +40,3 @@ export const AvatarImage = styled.div<{ $src?: string }>`
   border: ${(props) =>
     props.$src && `${props.theme.light["border-trans-subtler"]} solid 1px`};
 `;
-
-export const BadgeContainer = styled.div`
-  position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
-`;

@@ -3,6 +3,10 @@ import DESIGN_SYSTEM from "@/styles/designSystem";
 import { IBadgeStyle } from "./Badge.types";
 
 export const DotBadgeContainer = styled.div<IBadgeStyle>`
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +24,10 @@ export const Dot = styled.div`
 `;
 
 export const TextBadgeContainer = styled.div<IBadgeStyle>`
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+
   height: 20px;
   width: ${(props) => (props.$variant === "new" ? "20px" : "fit-content")};
   min-width: 20px;

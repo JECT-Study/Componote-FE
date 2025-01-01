@@ -11,9 +11,7 @@ export default function Avatar({ $src, $size }: IAvatar) {
       <S.ImageContainer>
         <S.AvatarImage $src={$src} />
       </S.ImageContainer>
-      <S.BadgeContainer>
-        <Badge $variant={$size === "sm" || $size === "xs" ? "dot" : "new"} />
-      </S.BadgeContainer>
+      <Badge $variant={$size === "sm" || $size === "xs" ? "dot" : "new"} />
     </S.AvatarContainer>
   );
 }
