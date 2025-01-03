@@ -27,6 +27,10 @@ export const Button = styled.button<IButtonComponent>`
     if (!$buttonStyle) return BUTTON_STYLES.solidBrand(theme);
     return BUTTON_STYLES[$buttonStyle](theme);
   }}
+
+  &:focus-visible {
+    ${({ theme }) => DESIGN_SYSTEM.focus(theme)}
+  }
 `;
 
 export const LabelContainer = styled.div`

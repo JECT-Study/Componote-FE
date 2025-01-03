@@ -19,22 +19,16 @@ const stateMap = {
     enabled: DESIGN_SYSTEM.opacity.invisible,
     hover: DESIGN_SYSTEM.opacity[12],
     pressed: DESIGN_SYSTEM.opacity[22],
-    focused: DESIGN_SYSTEM.opacity.visible,
-    disabled: DESIGN_SYSTEM.opacity.invisible,
   },
   normal: {
     enabled: DESIGN_SYSTEM.opacity.invisible,
     hover: DESIGN_SYSTEM.opacity[8],
     pressed: DESIGN_SYSTEM.opacity[16],
-    focused: DESIGN_SYSTEM.opacity.visible,
-    disabled: DESIGN_SYSTEM.opacity.invisible,
   },
   subtle: {
     enabled: DESIGN_SYSTEM.opacity.invisible,
     hover: DESIGN_SYSTEM.opacity[5],
     pressed: DESIGN_SYSTEM.opacity[12],
-    focused: DESIGN_SYSTEM.opacity.visible,
-    disabled: DESIGN_SYSTEM.opacity.invisible,
   },
 };
 
@@ -60,13 +54,6 @@ const InteractionContainer = styled.span<IInteractionContainer>`
 
   &:active {
     opacity: ${(props) => stateMap[props.$density].pressed};
-  }
-
-  &:focus-visible {
-    outline: ${({ theme }) =>
-      `${DESIGN_SYSTEM.stroke.bolder} solid ${theme.light["interactive-focus"]}`};
-    opacity: ${(props) => stateMap[props.$density].focused};
-    background-color: transparent;
   }
 `;
 
