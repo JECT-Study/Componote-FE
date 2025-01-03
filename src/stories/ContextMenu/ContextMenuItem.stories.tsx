@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ContextMenuItem } from "../../components";
+import { ContextMenu } from "../../components";
 
 const meta = {
   title: "Components/ContextMenu/Item",
-  component: ContextMenuItem,
+  component: ContextMenu.Item,
   parameters: {
     layout: "centered",
   },
@@ -22,7 +22,7 @@ const meta = {
       options: ["normal", "info", "negative"],
     },
   },
-} satisfies Meta<typeof ContextMenuItem>;
+} satisfies Meta<typeof ContextMenu.Item>;
 
 export default meta;
 
