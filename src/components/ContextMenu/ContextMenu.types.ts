@@ -15,3 +15,7 @@ export interface IContextMenuItem extends IContextMenuItemStyle {
   captionText?: string;
   badgeLabelText?: string;
 }
+
+export interface IContextMenu {
+  children: React.ReactNode;
+}
