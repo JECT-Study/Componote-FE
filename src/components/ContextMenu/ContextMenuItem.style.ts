@@ -6,12 +6,7 @@ import {
   CONTEXT_MENU_ITEM_FEEDBACK_COLOR,
   CONTEXT_MENU_ITEM_SIZE,
 } from "./ContextMenu.theme";
-
-export interface IContextMenuItemStyle {
-  $variant: "labelOnly" | "checkbox" | "leftIcon" | "rightIcon" | "badge";
-  $size: keyof typeof CONTEXT_MENU_ITEM_SIZE;
-  $feedback?: keyof typeof CONTEXT_MENU_ITEM_FEEDBACK_COLOR;
-}
+import { IContextMenuItemStyle } from "./ContextMenu.types";
 
 export const ContextMenuItem = styled.div<IContextMenuItemStyle>`
   position: relative;

@@ -3,13 +3,7 @@ import * as S from "./ContextMenuItem.style";
 import InteractionContainer from "../Interaction/Interaction.style";
 import BadgeLabel from "../Badge/Badge.Label";
 import { CONTEXT_MENU_ITEM_FEEDBACK_COLOR } from "./ContextMenu.theme";
-
-interface IContextMenuItem extends S.IContextMenuItemStyle {
-  labelText: string;
-  subLabelText?: string;
-  captionText?: string;
-  badgeLabelText?: string;
-}
+import { IContextMenuItem } from "./ContextMenu.types";
 
 export default function ContextMenuItem({
   $variant,
