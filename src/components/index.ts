@@ -15,3 +15,4 @@ export { default as Button } from "./Button/Button";
 export { default as IndexPanel } from "./IndexPanel/IndexPanel";
 export { default as Avatar } from "./Avatar/Avatar";
 export { default as ContextMenu } from "./ContextMenu/ContextMenu";
+export { default as Combobox } from "./ContextMenu/Combobox";
