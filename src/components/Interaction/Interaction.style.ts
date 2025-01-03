@@ -1,8 +1,9 @@
 import styled, { DefaultTheme } from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import { InteractionVariant } from "./Interaction.types";
 
 export interface IInteractionContainer {
-  $variant: keyof typeof variantColorMap;
+  $variant: InteractionVariant;
   $density: keyof typeof stateMap;
 }
 
