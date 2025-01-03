@@ -17,6 +17,11 @@ export const ContextMenu = styled.div`
   background: ${({ theme }) => theme.light["surface-floated"]};
 
   ${DESIGN_SYSTEM.shadow.floated}
+
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ItemContainer = styled.div`
@@ -32,4 +37,9 @@ export const ItemContainer = styled.div`
 
   border-radius: ${DESIGN_SYSTEM.radius.none};
   opacity: ${DESIGN_SYSTEM.opacity.visible};
+
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
