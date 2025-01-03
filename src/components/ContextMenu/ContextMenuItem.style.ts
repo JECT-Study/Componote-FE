@@ -11,10 +11,8 @@ import { IContextMenuItemStyle } from "./ContextMenu.types";
 export const ContextMenuItem = styled.div<IContextMenuItemStyle>`
   position: relative;
 
-  width: ${({ $variant, $size }) =>
-    CONTEXT_MENU_ITEM_SIZE[$size][$variant].width};
-  height: ${({ $variant, $size }) =>
-    CONTEXT_MENU_ITEM_SIZE[$size][$variant].height};
+  width: 100%;
+  height: fit-content;
 
   display: inline-flex;
   align-items: center;
@@ -46,6 +44,9 @@ export const ContextMenuBlankLine = styled(blankLine)<IContextMenuItemStyle>`
 `;
 
 export const ContextMenuItemSection = styled.div`
+  width: fit-content;
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -78,6 +79,9 @@ export const ContextMenuItemContainer = styled.div`
 `;
 
 export const ContextMenuItemLabelContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
