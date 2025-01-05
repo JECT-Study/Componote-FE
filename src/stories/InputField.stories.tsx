@@ -73,7 +73,7 @@ export const SmallInputField: Story = {
   },
 };
 
-export const isNagative: Story = {
+export const IsNagative: Story = {
   args: {
     ...Default.args,
     $isNagative: true,

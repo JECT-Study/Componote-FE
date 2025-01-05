@@ -138,7 +138,7 @@ export const ButtonEmptyTertiary: Story = {
   },
 };
 
-export const isLeftIconVisible: Story = {
+export const IsLeftIconVisible: Story = {
   args: {
     ...Default.args,
     $isRightIconVisible: false,
@@ -146,7 +146,7 @@ export const isLeftIconVisible: Story = {
   },
 };
 
-export const isRightIconVisible: Story = {
+export const IsRightIconVisible: Story = {
   args: {
     ...Default.args,
     $isLeftIconVisible: false,
@@ -154,7 +154,7 @@ export const isRightIconVisible: Story = {
   },
 };
 
-export const isIconInvisible: Story = {
+export const IsIconInvisible: Story = {
   args: {
     ...Default.args,
     $isLeftIconVisible: false,

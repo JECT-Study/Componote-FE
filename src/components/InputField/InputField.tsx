@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { IInputField } from "./InputField.types";
 import CloseCircle from "@/assets/icons/close-circle-fill.svg";
 import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./InputField.style";
+import { IInputField } from "./InputField.types";
 
 export default function InputField({
   labelText,
