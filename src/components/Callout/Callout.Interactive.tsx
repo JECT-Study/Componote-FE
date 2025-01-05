@@ -1,13 +1,6 @@
 import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./Callout.Interactive.style";
-
-/**
- * Callout/Interactive 컴포넌트에 필요한 props입니다
- */
-interface ICalloutInteractive extends S.ICalloutInteractiveStyle {
-  titleText: string;
-  bodyText?: string;
-}
+import { ICalloutInteractive } from "./Callout.types";
 
 /**
  * Callout/Interactive 컴포넌트입니다

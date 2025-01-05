@@ -1,3 +1,5 @@
+import { DefaultTheme } from "styled-components";
+
 const alpha = {
   1: "rgba(9, 11, 18, 0.01)",
   2: "rgba(9, 11, 18, 0.02)",
@@ -242,6 +244,11 @@ const shadow = {
   0 0.5rem 1rem 0 ${alpha[16]}`,
 };
 
+const focus = (theme: DefaultTheme) => `
+    outline: 
+      ${stroke.bolder} solid ${theme.light["interactive-focus"]};
+  `;
+
 const DESIGN_SYSTEM = {
   alpha,
   typography,
@@ -251,5 +258,6 @@ const DESIGN_SYSTEM = {
   stroke,
   opacity,
   shadow,
+  focus,
 };
 export default DESIGN_SYSTEM;

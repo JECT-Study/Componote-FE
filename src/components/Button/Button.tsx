@@ -8,7 +8,7 @@ function renderIcon(
   $buttonType: "button" | "iconButton",
   $buttonStyle: ButtonStyle,
   $size: keyof typeof BUTTON_SIZE_MAP,
-  isVisible: boolean,
+  isVisible: boolean
 ) {
   if (!isVisible || !IconComponent) return null;
 
@@ -44,7 +44,7 @@ export default function Button({
               $buttonType,
               $buttonStyle,
               $size,
-              $isLeftIconVisible,
+              $isLeftIconVisible
             )}
             <S.LabelText $buttonStyle={$buttonStyle} $size={$size}>
               {text}
@@ -54,12 +54,12 @@ export default function Button({
               $buttonType,
               $buttonStyle,
               $size,
-              $isRightIconVisible,
+              $isRightIconVisible
             )}
           </>
         )}
       </S.LabelContainer>
-      <InteractionContainer $variant="default" $density="normal" tabIndex={0} />
+      <InteractionContainer $variant="default" $density="normal" />
     </S.Button>
   );
 }

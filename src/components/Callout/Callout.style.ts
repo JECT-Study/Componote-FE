@@ -1,39 +1,7 @@
-"use client";
-
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
-
-/**
- * Callout 컴포넌트에 필요한 style props입니다
- */
-export interface ICalloutStyle {
-  $size: keyof typeof sizeMap;
-}
-
-const sizeMap = {
-  sm: {
-    containerPadding: `${DESIGN_SYSTEM.gap.lg} ${DESIGN_SYSTEM.gap.xl}`,
-    titleText: `
-    ${DESIGN_SYSTEM.typography.label.bold.lg};
-    max-height: 3.375rem;
-  `,
-    bodyText: `
-    ${DESIGN_SYSTEM.typography.label.xs};
-    height: 2.625rem;
-  `,
-  },
-  md: {
-    containerPadding: `${DESIGN_SYSTEM.gap.xl} ${DESIGN_SYSTEM.gap["2xl"]}`,
-    titleText: `
-    ${DESIGN_SYSTEM.typography.title[1]};
-    max-height: 3.5rem;
-  `,
-    bodyText: `
-    ${DESIGN_SYSTEM.typography.label.md};
-    height: 3rem;
-  `,
-  },
-};
+import { CALLOUT_SIZE } from "./Callout.theme";
+import { ICalloutStyle } from "./Callout.types";
 
 export const CalloutContainer = styled.div<ICalloutStyle>`
   width: 30rem;
@@ -44,7 +12,7 @@ export const CalloutContainer = styled.div<ICalloutStyle>`
   align-items: flex-start;
   gap: ${DESIGN_SYSTEM.gap["3xs"]};
 
-  padding: ${(props) => sizeMap[props.$size].containerPadding};
+  padding: ${(props) => CALLOUT_SIZE[props.$size].containerPadding};
 
   border-radius: ${DESIGN_SYSTEM.radius.xs};
   border: ${({ theme }) =>
@@ -65,14 +33,14 @@ export const CalloutTitleContainer = styled.div`
 `;
 
 export const CalloutTitleText = styled.span<ICalloutStyle>`
-  ${(props) => sizeMap[props.$size].titleText}
+  ${(props) => CALLOUT_SIZE[props.$size].titleText}
   flex: 1 0 0;
 
   color: ${({ theme }) => theme.light["object-hero"]};
 `;
 
 export const CalloutBodyText = styled.span<ICalloutStyle>`
-  ${(props) => sizeMap[props.$size].bodyText}
+  ${(props) => CALLOUT_SIZE[props.$size].bodyText}
 
   align-self: stretch;
   overflow: hidden;

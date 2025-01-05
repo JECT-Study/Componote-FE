@@ -1,11 +1,5 @@
 import * as S from "./Badge.style";
-
-/**
- * Badge 컴포넌트에 필요한 props입니다
- */
-interface IBadge extends S.IBadgeStyle {
-  text?: string;
-}
+import { IBadge } from "./Badge.types";
 
 /**
  * Badge 컴포넌트입니다
