@@ -10,3 +10,10 @@ export const BADGE_COMPONENT_TYPE_TEXT = {
   feedback: "Feedback 반응",
   navigation: "Navigation 안내",
 };
+
+export const NAVBAR_ITEM_TEXT = {
+  component: "컴포넌트",
+  designSystem: "디자인 시스템",
+  serviceInfo: "서비스 안내",
+  login: "로그인",
+};

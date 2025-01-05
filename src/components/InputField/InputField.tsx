@@ -3,6 +3,7 @@ import CloseCircle from "@/assets/icons/close-circle-fill.svg";
 import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./InputField.style";
 import { IInputField } from "./InputField.types";
+import { InteractionVariant } from "../Interaction/Interaction.types";
 
 export default function InputField({
   labelText,
@@ -46,7 +47,10 @@ export default function InputField({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
-          <InteractionContainer $variant="default" $density="normal" />
+          <InteractionContainer
+            $variant={InteractionVariant.DEFAULT}
+            $density="normal"
+          />
         </S.InputBox>
         {isFocused && <S.InputFieldIcon IconComponent={CloseCircle} />}
       </S.FieldContainer>
