@@ -6,6 +6,9 @@ const meta = {
   title: "Components/Callout",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     $size: {
       options: ["sm", "md"],
