@@ -20,3 +20,4 @@ export { default as Combobox } from "./ContextMenu/Combobox";
 export { default as SocialAuthButton } from "./SocialAuth/SocialAuthButton";
 export { default as NavItem } from "./NavigationBar/NavItem";
 export { default as NavigationBar } from "./NavigationBar/NavigationBar";
+export { default as DefaultBanner } from "./Banner/Banner.default";
