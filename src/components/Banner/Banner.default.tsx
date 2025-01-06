@@ -1,4 +1,4 @@
-import * as S from "./Banner.style";
+import * as S from "./Banner.default.style";
 
 export interface IDefaultBanner {
   titleText: string;
