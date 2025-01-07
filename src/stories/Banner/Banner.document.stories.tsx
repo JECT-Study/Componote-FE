@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DocumentBanner } from "@/components";
-import { BANNER_TEXT } from "@/constants/messages";
 
 const meta = {
   title: "Components/Banner/DocumentBanner",
