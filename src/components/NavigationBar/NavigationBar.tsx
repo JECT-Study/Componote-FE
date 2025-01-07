@@ -37,7 +37,7 @@ export default function NavigationBar({
           {$isAuthorized ? (
             <S.NavItemBox>
               <S.AvatarBox>
-                <Avatar $size="md" />
+                <Avatar $size="md" $badgeVisible />
               </S.AvatarBox>
             </S.NavItemBox>
           ) : (
