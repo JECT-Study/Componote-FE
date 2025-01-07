@@ -1,4 +1,5 @@
 import DialogBasic from "./Dialog.Basic";
+import DialogLogin from "./Dialog.Login";
 import * as S from "./Dialog.style";
 
 export default function Dialog({ children }: { children: React.ReactNode }) {
@@ -6,3 +7,4 @@ export default function Dialog({ children }: { children: React.ReactNode }) {
 }
 
 Dialog.Basic = DialogBasic;
+Dialog.Login = DialogLogin;
