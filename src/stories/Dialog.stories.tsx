@@ -25,3 +25,9 @@ export const Login: Story = {
     children: <Dialog.Login />,
   },
 };
+
+export const Report: Story = {
+  args: {
+    children: <Dialog.Report />,
+  },
+};
