@@ -1,5 +1,5 @@
-import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
+import DESIGN_SYSTEM from "@/styles/designSystem";
 
 export const BannerContainer = styled.div`
   display: flex;

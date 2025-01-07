@@ -1,9 +1,10 @@
 import { Button } from "@/components";
-import * as S from "./Banner.document.style";
-import { IDocumentBanner } from "./Banner.types";
-import { ButtonStyle } from "../Button/Button.types";
 import chatIcon from "@/assets/icons/chat-line.svg";
 import bookmarkIcon from "@/assets/icons/bookmark-line.svg";
+import * as S from "./Banner.document.style";
+
+import { IDocumentBanner } from "./Banner.types";
+import { ButtonStyle } from "../Button/Button.types";
 
 export default function DocumentBanner({
   titleText,

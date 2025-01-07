@@ -1,8 +1,8 @@
 import { Button } from "@/components";
+import rightIcon from "@/assets/icons/chevron-right-line.svg";
 import { ButtonStyle } from "../Button/Button.types";
 import * as S from "./Callout.style";
 import { ICallout } from "./Callout.types";
-import rightIcon from "@/assets/icons/chevron-right-line.svg";
 
 /**
  * Callout 컴포넌트입니다
