@@ -1,9 +1,5 @@
 import * as S from "./Banner.default.style";
-
-export interface IDefaultBanner {
-  titleText: string;
-  descriptionText: string;
-}
+import { IDefaultBanner } from "./Banner.types";
 
 export default function DefaultBanner({
   titleText,
