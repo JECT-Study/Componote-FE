@@ -1,4 +1,5 @@
 import DialogBasic from "./Dialog.Basic";
+import DialogComplete from "./Dialog.Complete";
 import DialogEmailVerification from "./Dialog.EmailVerification";
 import DialogLogin from "./Dialog.Login";
 import DialogReport from "./Dialog.Report";
@@ -14,3 +15,4 @@ Dialog.Login = DialogLogin;
 Dialog.Report = DialogReport;
 Dialog.EmailVerification = DialogEmailVerification;
 Dialog.Verification = DialogVerification;
+Dialog.Complete = DialogComplete;

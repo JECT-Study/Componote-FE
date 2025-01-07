@@ -43,3 +43,9 @@ export const Verification: Story = {
     children: <Dialog.Verification />,
   },
 };
+
+export const Complete: Story = {
+  args: {
+    children: <Dialog.Complete />,
+  },
+};
