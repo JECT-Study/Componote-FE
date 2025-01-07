@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { BadgeLabel } from "../../components";
 
 const meta = {
@@ -6,6 +7,9 @@ const meta = {
   title: "Components/Badge/Label",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     $variant: {
       options: ["labelOnly", "rightIcon"],
@@ -34,7 +38,7 @@ export const Default: Story = {
   args: {
     $variant: "labelOnly",
     text: "레이블",
-    $feedback: "none",
+    $feedback: BadgeLabelFeedback.NONE,
     $style: "solid",
     $size: "md",
   },
@@ -80,14 +84,14 @@ export const IconNoneOutlined: Story = {
 export const LabelNegativeSolid: Story = {
   args: {
     ...Default.args,
-    $feedback: "negative",
+    $feedback: BadgeLabelFeedback.NEGATIVE,
   },
 };
 
 export const IconNegativeSolid: Story = {
   args: {
     ...Default.args,
-    $feedback: "negative",
+    $feedback: BadgeLabelFeedback.NEGATIVE,
     $variant: "rightIcon",
   },
 };
@@ -95,7 +99,7 @@ export const IconNegativeSolid: Story = {
 export const LabelNegativeTransparent: Story = {
   args: {
     ...Default.args,
-    $feedback: "negative",
+    $feedback: BadgeLabelFeedback.NEGATIVE,
     $style: "transparent",
   },
 };
@@ -103,7 +107,7 @@ export const LabelNegativeTransparent: Story = {
 export const IconNegativeTransparent: Story = {
   args: {
     ...Default.args,
-    $feedback: "negative",
+    $feedback: BadgeLabelFeedback.NEGATIVE,
     $style: "transparent",
     $variant: "rightIcon",
   },
@@ -112,7 +116,7 @@ export const IconNegativeTransparent: Story = {
 export const LabelNegativeOutlined: Story = {
   args: {
     ...Default.args,
-    $feedback: "negative",
+    $feedback: BadgeLabelFeedback.NEGATIVE,
     $style: "outlined",
   },
 };
@@ -120,7 +124,7 @@ export const LabelNegativeOutlined: Story = {
 export const IconNegativeOutlined: Story = {
   args: {
     ...Default.args,
-    $feedback: "negative",
+    $feedback: BadgeLabelFeedback.NEGATIVE,
     $style: "outlined",
     $variant: "rightIcon",
   },

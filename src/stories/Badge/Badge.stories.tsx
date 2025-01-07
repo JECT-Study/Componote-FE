@@ -6,6 +6,9 @@ const meta = {
   title: "Components/Badge",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     $variant: {
       options: ["dot", "new", "count"],
