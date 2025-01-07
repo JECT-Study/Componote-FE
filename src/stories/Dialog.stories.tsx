@@ -37,3 +37,9 @@ export const EmailVerification: Story = {
     children: <Dialog.EmailVerification />,
   },
 };
+
+export const Verification: Story = {
+  args: {
+    children: <Dialog.Verification />,
+  },
+};
