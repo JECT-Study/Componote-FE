@@ -31,3 +31,9 @@ export const Report: Story = {
     children: <Dialog.Report />,
   },
 };
+
+export const EmailVerification: Story = {
+  args: {
+    children: <Dialog.EmailVerification />,
+  },
+};
