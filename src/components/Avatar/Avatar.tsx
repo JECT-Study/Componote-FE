@@ -5,13 +5,15 @@ import IAvatar from "./Avatar.types";
 /**
  * 프로필 사진을 보여주는 Avatar 컴포넌트입니다
  */
-export default function Avatar({ $src, $size }: IAvatar) {
+export default function Avatar({ $src, $size, isBadge = true }: IAvatar) {
   return (
     <S.AvatarContainer $size={$size}>
       <S.ImageContainer>
         <S.AvatarImage $src={$src} />
       </S.ImageContainer>
-      <Badge $variant={$size === "sm" || $size === "xs" ? "dot" : "new"} />
+      {isBadge && (
+        <Badge $variant={$size === "sm" || $size === "xs" ? "dot" : "new"} />
+      )}
     </S.AvatarContainer>
   );
 }

@@ -20,6 +20,9 @@ const meta = {
       control: { type: "radio" },
       options: ["xs", "sm", "md", "lg", "xl", "2xl"],
     },
+    isBadge: {
+      control: { type: "boolean" },
+    },
   },
 } satisfies Meta<typeof Avatar>;
 
