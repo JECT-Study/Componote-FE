@@ -13,6 +13,7 @@ export interface ICalloutStyle {
 export interface ICallout extends ICalloutStyle {
   titleText: string;
   bodyText?: string;
+  buttonLabelText?: string;
 }
 
 /**
