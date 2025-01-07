@@ -43,8 +43,8 @@ export const BANNER_TEXT = {
     descriptionText: `컴포노트는 UI를 디자인하고 개발하는 데에 사용되는 컴포넌트에 대한 정보를 소개합니다.\n여러 직군들이 컴포넌트를 어떻게 디자인하고 개발하는지 경험을 나눌 수 있어요.`,
     buttonText: "컴포넌트 목록 보러가기",
     calloutTitleText1: "컴포노트가 처음이신가요?",
-    calloutSubText1: "간단한 서비스 이용 안내를 도와드릴게요",
+    calloutBodyText1: "간단한 서비스 이용 안내를 도와드릴게요",
     calloutTitleText2: "컴포넌트가 무엇인가요?",
-    calloutSubText2: "사용자 인터페이스를 구성하는 컴포넌트에 대해 알려드려요",
+    calloutBodyText2: "사용자 인터페이스를 구성하는 컴포넌트에 대해 알려드려요",
   },
 };
