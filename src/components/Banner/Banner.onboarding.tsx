@@ -1,8 +1,8 @@
-import * as S from "./Banner.onboarding.style";
-
-import { BANNER_TEXT } from "@/constants/messages";
 import { Button, Callout } from "@/components";
 import rightIcon from "@/assets/icons/chevron-right-line.svg";
+import { BANNER_TEXT } from "@/constants/messages";
+import * as S from "./Banner.onboarding.style";
+
 import { ButtonStyle } from "../Button/Button.types";
 import { IOnboardingBanner } from "./Banner.types";
 
