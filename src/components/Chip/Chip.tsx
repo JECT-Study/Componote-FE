@@ -1,6 +1,7 @@
 import * as S from "./Chip.style";
 import InteractionContainer from "../Interaction/Interaction.style";
 import { IChip, IChipComponent } from "./Chip.types";
+import { InteractionVariant } from "../Interaction/Interaction.types";
 
 export default function Chip({
   $isInversed = false,
@@ -34,7 +35,10 @@ export default function Chip({
         <S.CheckLineIconImg $size={$size} $isInversed={$isInversed} />
       )}
       {!$isDisabled && (
-        <InteractionContainer $variant="default" $density="subtle" />
+        <InteractionContainer
+          $variant={InteractionVariant.DEFAULT}
+          $density="subtle"
+        />
       )}
     </S.ChipContainer>
   );

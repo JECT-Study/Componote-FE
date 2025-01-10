@@ -1,4 +1,5 @@
 import InteractionContainer from "../Interaction/Interaction.style";
+import { InteractionVariant } from "../Interaction/Interaction.types";
 import * as S from "./Callout.Interactive.style";
 import { ICalloutInteractive } from "./Callout.types";
 
@@ -24,7 +25,10 @@ export default function CalloutInteractive({
           {bodyText}
         </S.CalloutInteractiveBodyText>
       )}
-      <InteractionContainer $variant="default" $density="subtle" />
+      <InteractionContainer
+        $variant={InteractionVariant.DEFAULT}
+        $density="subtle"
+      />
     </S.CalloutInteractiveContainer>
   );
 }
