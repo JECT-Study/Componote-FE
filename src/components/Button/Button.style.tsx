@@ -20,6 +20,8 @@ export const Button = styled.button<IButtonComponent>`
       ? BUTTON_SIZE_MAP[props.$size].padding
       : BUTTON_SIZE_MAP[props.$size].icBtnPadding};
 
+  width: ${(props) => props.$width};
+
   border: ${DESIGN_SYSTEM.stroke.none};
   border-radius: ${DESIGN_SYSTEM.radius.xs};
 

@@ -29,12 +29,14 @@ export default function Button({
   $size,
   $buttonStyle,
   $buttonType = "button",
+  $width,
 }: IButton) {
   return (
     <S.Button
       $buttonType={$buttonType}
       $buttonStyle={$buttonStyle}
       $size={$size}
+      $width={$width}
     >
       <S.LabelContainer>
         {$buttonType === "iconButton" &&

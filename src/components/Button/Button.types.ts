@@ -21,6 +21,7 @@ export interface IButtonComponent {
   $size: keyof typeof BUTTON_SIZE_MAP;
   $buttonStyle: ButtonStyle;
   $buttonType?: "button" | "iconButton";
+  $width?: string;
 }
 
 export interface IButton extends IButtonComponent {
