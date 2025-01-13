@@ -27,6 +27,4 @@ export interface IButton extends IButtonComponent {
   text?: string;
   $leftIcon?: React.ElementType;
   $rightIcon?: React.ElementType;
-  $isLeftIconVisible: boolean;
-  $isRightIconVisible: boolean;
 }

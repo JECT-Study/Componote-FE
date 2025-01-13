@@ -47,14 +47,6 @@ const meta = {
       options: ["button", "iconButton"],
       defaultValue: "button",
     },
-    $isLeftIconVisible: {
-      control: { type: "boolean" },
-      defaultValue: true,
-    },
-    $isRightIconVisible: {
-      control: { type: "boolean" },
-      defaultValue: true,
-    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -70,8 +62,6 @@ export const Default: Story = {
     $buttonType: "button",
     $leftIcon: BlankLine,
     $rightIcon: BlankLine,
-    $isLeftIconVisible: true,
-    $isRightIconVisible: true,
   },
 };
 
@@ -141,7 +131,6 @@ export const ButtonEmptyTertiary: Story = {
 export const IsLeftIconVisible: Story = {
   args: {
     ...Default.args,
-    $isRightIconVisible: false,
     $leftIcon: BlankLine,
   },
 };
@@ -149,7 +138,6 @@ export const IsLeftIconVisible: Story = {
 export const IsRightIconVisible: Story = {
   args: {
     ...Default.args,
-    $isLeftIconVisible: false,
     $rightIcon: BlankLine,
   },
 };
@@ -157,8 +145,6 @@ export const IsRightIconVisible: Story = {
 export const IsIconInvisible: Story = {
   args: {
     ...Default.args,
-    $isLeftIconVisible: false,
-    $isRightIconVisible: false,
   },
 };
 
@@ -168,7 +154,5 @@ export const IcBtn: Story = {
     $buttonStyle: ButtonStyle.SolidBrand,
     $buttonType: "iconButton",
     $leftIcon: BlankLine,
-    $isLeftIconVisible: true,
-    $isRightIconVisible: false,
   },
 };
