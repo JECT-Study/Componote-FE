@@ -2,6 +2,7 @@ import InteractionContainer from "../Interaction/Interaction.style";
 import { IButton, ButtonStyle } from "./Button.types";
 import * as S from "./Button.style";
 import { BUTTON_SIZE_MAP } from "./Button.theme";
+import { InteractionVariant } from "../Interaction/Interaction.types";
 
 function renderIcon(
   IconComponent: React.ElementType | undefined,
@@ -63,7 +64,10 @@ export default function Button({
           </>
         )}
       </S.LabelContainer>
-      <InteractionContainer $variant="default" $density="normal" />
+      <InteractionContainer
+        $variant={InteractionVariant.DEFAULT}
+        $density="normal"
+      />
     </S.Button>
   );
 }
