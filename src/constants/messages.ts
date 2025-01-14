@@ -47,4 +47,9 @@ export const BANNER_TEXT = {
     calloutTitleText2: "컴포넌트가 무엇인가요?",
     calloutBodyText2: "사용자 인터페이스를 구성하는 컴포넌트에 대해 알려드려요",
   },
+  profile: {
+    loginInfoText: "로그인으로 가입했어요",
+    emailButtonText: "이메일 인증하기",
+    editButtonText: "프로필 편집하기",
+  },
 };
