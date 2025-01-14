@@ -38,8 +38,8 @@ export const FieldContainer = styled.div<IInputComponent>`
   padding: ${DESIGN_SYSTEM.gap.xs} ${DESIGN_SYSTEM.gap.lg};
 
   border-radius: ${DESIGN_SYSTEM.radius.xs};
-  border: ${({ theme, $isFocused, $isNagative }) => {
-    if ($isNagative) {
+  border: ${({ theme, $isFocused, $isNegative }) => {
+    if ($isNegative) {
       return `${DESIGN_SYSTEM.stroke.bold} solid
           ${theme.light["feedback-negative"]};`;
     }
@@ -122,8 +122,8 @@ export const HelperContainer = styled.div<IInputComponent>`
   padding: ${DESIGN_SYSTEM.gap.none} ${DESIGN_SYSTEM.gap["4xs"]};
 
   ${DESIGN_SYSTEM.typography.body.xs};
-  color: ${({ theme, $isNagative }) =>
-    $isNagative
+  color: ${({ theme, $isNegative }) =>
+    $isNegative
       ? theme.light["feedback-negative"]
       : theme.light["object-subtle"]};
 `;

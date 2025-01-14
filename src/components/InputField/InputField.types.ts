@@ -4,7 +4,7 @@ export interface IIconWrapper extends React.HTMLProps<HTMLElement> {
 
 export interface IInputComponent {
   $size?: "md" | "sm";
-  $isNagative?: boolean;
+  $isNegative?: boolean;
   $isFocused?: boolean;
 }
 

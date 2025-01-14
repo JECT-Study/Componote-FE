@@ -11,7 +11,7 @@ export default function InputField({
   placeholderText,
   $icon,
   $size,
-  $isNagative,
+  $isNegative,
   $labelVisible,
   $iconVisible,
   $helperVisible,
@@ -31,7 +31,7 @@ export default function InputField({
           <S.LabelText>{labelText}</S.LabelText>
         </S.LabelContainer>
       )}
-      <S.FieldContainer $isFocused={isFocused} $isNagative={$isNagative}>
+      <S.FieldContainer $isFocused={isFocused} $isNegative={$isNegative}>
         {$iconVisible && (
           <S.InputFieldIconBox>
             <S.InputFieldIcon IconComponent={$icon} />
@@ -55,7 +55,7 @@ export default function InputField({
         {isFocused && <S.InputFieldIcon IconComponent={CloseCircle} />}
       </S.FieldContainer>
       {$helperVisible && (
-        <S.HelperContainer $isNagative={$isNagative}>
+        <S.HelperContainer $isNegative={$isNegative}>
           <S.HelperText>{helperText}</S.HelperText>
           <S.CountText>{inputValue.length}/40</S.CountText>
         </S.HelperContainer>

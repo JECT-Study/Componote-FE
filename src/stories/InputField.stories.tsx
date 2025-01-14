@@ -15,7 +15,7 @@ const meta = {
       options: ["md", "sm"],
       defaultValue: "md",
     },
-    $isNagative: {
+    $isNegative: {
       control: { type: "boolean" },
       defaultValue: false,
     },
@@ -45,7 +45,7 @@ export const Default: Story = {
     placeholderText: "플레이스 홀더",
     $size: "md",
     $icon: BlankLine,
-    $isNagative: false,
+    $isNegative: false,
     $iconVisible: true,
     $labelVisible: true,
     $helperVisible: true,
@@ -73,9 +73,9 @@ export const SmallInputField: Story = {
   },
 };
 
-export const IsNagative: Story = {
+export const isNegative: Story = {
   args: {
     ...Default.args,
-    $isNagative: true,
+    $isNegative: true,
   },
 };
