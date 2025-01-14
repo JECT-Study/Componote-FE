@@ -21,3 +21,4 @@ export { default as SocialAuthButton } from "./SocialAuth/SocialAuthButton";
 export { default as NavItem } from "./NavigationBar/NavItem";
 export { default as NavigationBar } from "./NavigationBar/NavigationBar";
 export { default as Tab } from "./Tab/Tab";
+export { default as CardItem } from "./Card/CardItem";
