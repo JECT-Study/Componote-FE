@@ -48,7 +48,7 @@ export const FieldContainer = styled.div<IInputComponent>`
       return `${DESIGN_SYSTEM.stroke.bold} solid ${theme.light["accent-bold"]}`;
     }
 
-    return `${DESIGN_SYSTEM.stroke.bold} solid ${theme.light["border-trans-subtle"]}`;
+    return `${DESIGN_SYSTEM.stroke.normal} solid ${theme.light["border-trans-subtle"]}`;
   }};
 
   background: ${({ theme }) => theme.light["surface-standard"]};
