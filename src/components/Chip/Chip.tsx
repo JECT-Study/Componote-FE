@@ -5,7 +5,6 @@ import { InteractionVariant } from "../Interaction/Interaction.types";
 
 export default function Chip({
   $isInversed = false,
-  $iconVisible = false,
   $isSelected = false,
   $isDisabled = false,
   $size,
@@ -21,7 +20,7 @@ export default function Chip({
       $isDisabled={$isDisabled}
       onClick={onClick}
     >
-      {$iconVisible && (
+      {IconComponent && (
         <S.ChipLeftIconImg
           $size={$size}
           IconComponent={IconComponent}

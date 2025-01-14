@@ -24,7 +24,6 @@ export default function ChipGroup({ $variant }: IChipGroup) {
           text={chip}
           $size="md"
           IconComponent={$variant === "platform" ? CHIP_ICONS[index] : null}
-          $iconVisible={$variant === "platform"}
           $isSelected={selectedChip.includes(index)}
           onClick={() => handleChipClick(index)}
         />

@@ -9,7 +9,6 @@ export interface IChip {
 export interface IChipComponent {
   $isInversed?: boolean;
   $isSelected?: boolean;
-  $iconVisible?: boolean;
   $isDisabled?: boolean;
   $size: keyof typeof sizeMap;
 }
