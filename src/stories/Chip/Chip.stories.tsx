@@ -14,10 +14,6 @@ const meta = {
       control: { type: "boolean" },
       defaultValue: false,
     },
-    $iconVisible: {
-      control: { type: "boolean" },
-      defaultValue: true,
-    },
     $isSelected: {
       control: { type: "boolean" },
       defaultValue: false,
@@ -43,7 +39,6 @@ export const Default: Story = {
     text: "레이블",
     $size: "md",
     IconComponent: BlankLine,
-    $iconVisible: true,
     $isSelected: false,
     $isInversed: false,
     $isDisabled: false,
@@ -69,6 +64,5 @@ export const Disabled: Story = {
   args: {
     ...Default.args,
     $isDisabled: true,
-    $iconVisible: false,
   },
 };

@@ -2,14 +2,13 @@ import sizeMap from "./Chip.theme";
 
 export interface IChip {
   text: string;
-  IconComponent: React.ElementType;
+  IconComponent?: React.ElementType;
   onClick: () => void;
 }
 
 export interface IChipComponent {
   $isInversed?: boolean;
   $isSelected?: boolean;
-  $iconVisible?: boolean;
   $isDisabled?: boolean;
   $size: keyof typeof sizeMap;
 }
