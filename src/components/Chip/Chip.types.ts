@@ -2,7 +2,7 @@ import sizeMap from "./Chip.theme";
 
 export interface IChip {
   text: string;
-  IconComponent: React.ElementType;
+  IconComponent?: React.ElementType;
   onClick: () => void;
 }
 
