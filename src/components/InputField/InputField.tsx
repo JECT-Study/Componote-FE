@@ -13,7 +13,6 @@ export default function InputField({
   $size,
   $isNegative,
   $labelVisible,
-  $iconVisible,
   $helperVisible,
 }: IInputField) {
   const [isFocused, setIsFocused] = useState(false);
@@ -32,7 +31,7 @@ export default function InputField({
         </S.LabelContainer>
       )}
       <S.FieldContainer $isFocused={isFocused} $isNegative={$isNegative}>
-        {$iconVisible && (
+        {$icon && (
           <S.InputFieldIconBox>
             <S.InputFieldIcon IconComponent={$icon} />
           </S.InputFieldIconBox>

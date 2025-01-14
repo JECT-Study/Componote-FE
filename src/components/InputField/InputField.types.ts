@@ -13,7 +13,6 @@ export interface IInputField extends IInputComponent {
   helperText?: string;
   labelText?: string;
   placeholderText: string;
-  $iconVisible: boolean;
   $labelVisible: boolean;
   $helperVisible: boolean;
 }

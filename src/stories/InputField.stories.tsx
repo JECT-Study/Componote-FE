@@ -19,10 +19,6 @@ const meta = {
       control: { type: "boolean" },
       defaultValue: false,
     },
-    $iconVisible: {
-      control: { type: "boolean" },
-      defaultValue: true,
-    },
     $labelVisible: {
       control: { type: "boolean" },
       defaultValue: true,
@@ -46,7 +42,6 @@ export const Default: Story = {
     $size: "md",
     $icon: BlankLine,
     $isNegative: false,
-    $iconVisible: true,
     $labelVisible: true,
     $helperVisible: true,
   },
