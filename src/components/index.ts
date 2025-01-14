@@ -23,3 +23,4 @@ export { default as NavigationBar } from "./NavigationBar/NavigationBar";
 export { default as DefaultBanner } from "./Banner/Banner.default";
 export { default as OnboardingBanner } from "./Banner/Banner.onboarding";
 export { default as DocumentBanner } from "./Banner/Banner.document";
+export { default as ProfileBanner } from "./Banner/Banner.profile";

@@ -25,3 +25,14 @@ export interface IDocumentBanner {
   componentListText: TPropsText;
   bodyText: TPropsText;
 }
+
+/**
+ * Banner variant @profile 필요한 props입니다
+ */
+export interface IProfileBanner {
+  $src?: string;
+  userName: string;
+  userJob: string;
+  emailAddress: string;
+  loginInfo: string;
+}
