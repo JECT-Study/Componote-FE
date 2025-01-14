@@ -11,6 +11,11 @@ const BadgeComponentTypeContainer = styled.div<IBadgeComponentType>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+
   gap: ${(props) => BADGE_COMPONENT_TYPE_SIZE[props.$size].gap};
 
   width: fit-content;
