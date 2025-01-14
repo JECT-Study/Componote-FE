@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
-import { IInputComponent } from "./InputField.types";
 import { IconWrapper } from "@/utils/IconWrapper";
+import { IInputComponent } from "./InputField.types";
 
 export const InputFieldContainer = styled.div<IInputComponent>`
   display: flex;
