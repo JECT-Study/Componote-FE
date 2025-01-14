@@ -29,7 +29,6 @@ export default function NavigationBar({
           <InputField
             placeholderText={placeholderText}
             $size="sm"
-            $iconVisible
             $icon={searchIcon}
             $labelVisible={false}
             $helperVisible={false}
@@ -45,20 +44,16 @@ export default function NavigationBar({
               <Button
                 text={NAVBAR_ITEM_TEXT.login}
                 $size="sm"
-                $buttonStyle={ButtonStyle.SolidPrimary}
                 $buttonType="button"
-                $isLeftIconVisible={false}
-                $isRightIconVisible={false}
+                $buttonStyle={ButtonStyle.SolidPrimary}
               />
             </S.NavItemBox>
           )}
           <Button
             $size="sm"
-            $buttonStyle={ButtonStyle.OutlinedSecondary}
             $buttonType="iconButton"
-            $isLeftIconVisible
-            $isRightIconVisible={false}
             $leftIcon={sunIcon}
+            $buttonStyle={ButtonStyle.OutlinedSecondary}
           />
         </S.RightItemContainer>
       </S.NavigationBarSection>

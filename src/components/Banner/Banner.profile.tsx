@@ -31,8 +31,6 @@ export default function ProfileBanner({
               $buttonStyle={ButtonStyle.EmptyPrimary}
               $buttonType="button"
               $rightIcon={rightIcon}
-              $isLeftIconVisible={false}
-              $isRightIconVisible
             />
           </S.UserEmailBox>
           <S.LoginInfoText>
@@ -44,8 +42,6 @@ export default function ProfileBanner({
           $size="sm"
           $buttonStyle={ButtonStyle.OutlinedSecondary}
           $buttonType="button"
-          $isLeftIconVisible={false}
-          $isRightIconVisible={false}
         />
       </S.ContentContainer>
     </S.BannerContainer>

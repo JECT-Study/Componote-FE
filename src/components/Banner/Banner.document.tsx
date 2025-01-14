@@ -24,21 +24,17 @@ export default function DocumentBanner({
           </S.DisplayContainer>
           <S.ButtonContainer>
             <Button
-              $isLeftIconVisible
-              $isRightIconVisible={false}
-              $leftIcon={chatIcon}
               text="댓글 보기"
               $size="lg"
               $buttonType="button"
+              $leftIcon={chatIcon}
               $buttonStyle={ButtonStyle.OutlinedSecondary}
             />
             <Button
-              $isLeftIconVisible
-              $isRightIconVisible={false}
-              $leftIcon={bookmarkIcon}
               text="북마크 하기"
               $size="lg"
               $buttonType="button"
+              $leftIcon={bookmarkIcon}
               $buttonStyle={ButtonStyle.OutlinedSecondary}
             />
           </S.ButtonContainer>

@@ -21,13 +21,11 @@ export default function OnboardingBanner({
           </S.MainTitleBox>
           <S.DescriptionText>{descriptionText}</S.DescriptionText>
           <Button
-            $isLeftIconVisible={false}
-            $isRightIconVisible
-            $rightIcon={rightIcon}
-            $size="md"
             text={BANNER_TEXT.onboarding.buttonText}
+            $size="md"
             $buttonType="button"
             $buttonStyle={ButtonStyle.SolidBrand}
+            $rightIcon={rightIcon}
           />
         </S.TopSection>
         <S.BottomSection>

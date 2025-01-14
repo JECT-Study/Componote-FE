@@ -18,12 +18,10 @@ export default function Callout({
       <S.CalloutTitleContainer>
         <S.CalloutTitleText $size={$size}>{titleText}</S.CalloutTitleText>
         <Button
-          $isLeftIconVisible
-          $isRightIconVisible={false}
-          $leftIcon={rightIcon}
           text={buttonLabelText}
           $size="sm"
           $buttonType="iconButton"
+          $leftIcon={rightIcon}
           $buttonStyle={ButtonStyle.EmptySecondary}
         />
       </S.CalloutTitleContainer>
