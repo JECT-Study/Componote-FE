@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
-import { IIconWrapper, IInputComponent } from "./InputField.types";
+import { IInputComponent } from "./InputField.types";
+import { IconWrapper } from "@/utils/IconWrapper";
 
 export const InputFieldContainer = styled.div<IInputComponent>`
   display: flex;
@@ -53,13 +54,6 @@ export const FieldContainer = styled.div<IInputComponent>`
 
   background: ${({ theme }) => theme.light["surface-standard"]};
 `;
-
-function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
-  if (!IconComponent) return null;
-
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <IconComponent {...props} />;
-}
 
 export const InputFieldIconBox = styled.div`
   display: flex;
