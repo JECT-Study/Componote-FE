@@ -2,7 +2,7 @@ import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import { IIconWrapper, IInputComponent } from "./InputField.types";
 
-export const InputFieldContainer = styled.div`
+export const InputFieldContainer = styled.div<IInputComponent>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,7 +10,7 @@ export const InputFieldContainer = styled.div`
   gap: ${DESIGN_SYSTEM.gap["5xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
 
-  width: 21.25rem;
+  width: ${(props) => props.$width || "21.25rem"};
 `;
 
 export const LabelContainer = styled.div`

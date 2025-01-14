@@ -6,6 +6,7 @@ export interface IInputComponent {
   $size?: "md" | "sm";
   $isNegative?: boolean;
   $isFocused?: boolean;
+  $width?: string;
 }
 
 export interface IInputField extends IInputComponent {

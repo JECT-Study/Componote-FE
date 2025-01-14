@@ -11,6 +11,7 @@ export default function InputField({
   placeholderText,
   $icon,
   $size,
+  $width,
   countLimit,
   $isNegative,
   $labelVisible,
@@ -25,7 +26,7 @@ export default function InputField({
   };
 
   return (
-    <S.InputFieldContainer>
+    <S.InputFieldContainer $width={$width}>
       {$labelVisible && (
         <S.LabelContainer>
           <S.LabelText>{label}</S.LabelText>

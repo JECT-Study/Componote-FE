@@ -31,6 +31,9 @@ const meta = {
       control: { type: "text" },
       defaultValue: 40,
     },
+    $width: {
+      control: { type: "text" },
+    },
   },
 } satisfies Meta<typeof InputField>;
 
