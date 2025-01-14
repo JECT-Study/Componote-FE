@@ -9,9 +9,8 @@ function renderIcon(
   $buttonType: "button" | "iconButton",
   $buttonStyle: ButtonStyle,
   $size: keyof typeof BUTTON_SIZE_MAP,
-  isVisible: boolean
 ) {
-  if (!isVisible || !IconComponent) return null;
+  if (!IconComponent) return null;
 
   return (
     <S.LeftIconImg
@@ -30,37 +29,25 @@ export default function Button({
   $size,
   $buttonStyle,
   $buttonType = "button",
-  $isLeftIconVisible = true,
-  $isRightIconVisible = true,
+  $width,
 }: IButton) {
   return (
     <S.Button
       $buttonType={$buttonType}
       $buttonStyle={$buttonStyle}
       $size={$size}
+      $width={$width}
     >
       <S.LabelContainer>
         {$buttonType === "iconButton" &&
-          renderIcon($leftIcon, $buttonType, $buttonStyle, $size, true)}
+          renderIcon($leftIcon, $buttonType, $buttonStyle, $size)}
         {$buttonType === "button" && (
           <>
-            {renderIcon(
-              $leftIcon,
-              $buttonType,
-              $buttonStyle,
-              $size,
-              $isLeftIconVisible
-            )}
+            {renderIcon($leftIcon, $buttonType, $buttonStyle, $size)}
             <S.LabelText $buttonStyle={$buttonStyle} $size={$size}>
               {text}
             </S.LabelText>
-            {renderIcon(
-              $rightIcon,
-              $buttonType,
-              $buttonStyle,
-              $size,
-              $isRightIconVisible
-            )}
+            {renderIcon($rightIcon, $buttonType, $buttonStyle, $size)}
           </>
         )}
       </S.LabelContainer>

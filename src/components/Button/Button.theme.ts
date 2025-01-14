@@ -50,16 +50,22 @@ export const BUTTON_STYLES = {
     background-color: ${theme.light["fill-trans-subtler"]};
   `,
   outlinedPrimary: (theme: DefaultTheme) => css`
+    background: transparent;
+
     border: ${DESIGN_SYSTEM.stroke.normal} solid
       ${theme.light["border-trans-normal"]};
     color: ${theme.light["object-hero"]};
   `,
   outlinedSecondary: (theme: DefaultTheme) => css`
+    background: transparent;
+
     border: ${DESIGN_SYSTEM.stroke.normal} solid
       ${theme.light["border-trans-subtle"]};
     color: ${theme.light["object-normal"]};
   `,
   outlinedTertiary: (theme: DefaultTheme) => css`
+    background: transparent;
+
     border: ${DESIGN_SYSTEM.stroke.normal} solid
       ${theme.light["border-trans-subtle"]};
     color: ${theme.light["object-subtle"]};
