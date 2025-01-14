@@ -36,7 +36,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    labelText: "필드 레이블",
+    label: (
+      <span>
+        필드 레이블<span style={{ color: "orange" }}>*</span>
+      </span>
+    ),
     helperText: "헬퍼 메시지",
     placeholderText: "플레이스 홀더",
     $size: "md",

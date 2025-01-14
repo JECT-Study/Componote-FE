@@ -6,7 +6,7 @@ import { IInputField } from "./InputField.types";
 import { InteractionVariant } from "../Interaction/Interaction.types";
 
 export default function InputField({
-  labelText,
+  label,
   helperText,
   placeholderText,
   $icon,
@@ -27,7 +27,7 @@ export default function InputField({
     <S.InputFieldContainer>
       {$labelVisible && (
         <S.LabelContainer>
-          <S.LabelText>{labelText}</S.LabelText>
+          <S.LabelText>{label}</S.LabelText>
         </S.LabelContainer>
       )}
       <S.FieldContainer $isFocused={isFocused} $isNegative={$isNegative}>
