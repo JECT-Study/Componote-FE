@@ -12,6 +12,7 @@ export interface IInputField extends IInputComponent {
   $icon?: React.ElementType;
   helperText?: string;
   label?: React.ReactNode;
+  countLimit?: string;
   placeholderText: string;
   $labelVisible: boolean;
   $helperVisible: boolean;

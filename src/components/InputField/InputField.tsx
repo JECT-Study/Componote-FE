@@ -11,6 +11,7 @@ export default function InputField({
   placeholderText,
   $icon,
   $size,
+  countLimit,
   $isNegative,
   $labelVisible,
   $helperVisible,
@@ -56,7 +57,9 @@ export default function InputField({
       {$helperVisible && (
         <S.HelperContainer $isNegative={$isNegative}>
           <S.HelperText>{helperText}</S.HelperText>
-          <S.CountText>{inputValue.length}/40</S.CountText>
+          <S.CountText>
+            {inputValue.length}/{countLimit}
+          </S.CountText>
         </S.HelperContainer>
       )}
     </S.InputFieldContainer>

@@ -27,6 +27,10 @@ const meta = {
       control: { type: "boolean" },
       defaultValue: true,
     },
+    countLimit: {
+      control: { type: "text" },
+      defaultValue: 40,
+    },
   },
 } satisfies Meta<typeof InputField>;
 
@@ -43,6 +47,7 @@ export const Default: Story = {
     ),
     helperText: "헬퍼 메시지",
     placeholderText: "플레이스 홀더",
+    countLimit: "10",
     $size: "md",
     $icon: BlankLine,
     $isNegative: false,
