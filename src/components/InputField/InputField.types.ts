@@ -4,16 +4,17 @@ export interface IIconWrapper extends React.HTMLProps<HTMLElement> {
 
 export interface IInputComponent {
   $size?: "md" | "sm";
-  $isNagative?: boolean;
+  $isNegative?: boolean;
   $isFocused?: boolean;
+  $width?: string;
 }
 
 export interface IInputField extends IInputComponent {
   $icon?: React.ElementType;
   helperText?: string;
-  labelText?: string;
+  label?: React.ReactNode;
+  countLimit?: string;
   placeholderText: string;
-  $iconVisible: boolean;
   $labelVisible: boolean;
   $helperVisible: boolean;
 }

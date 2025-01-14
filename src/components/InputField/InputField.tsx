@@ -6,14 +6,15 @@ import { IInputField } from "./InputField.types";
 import { InteractionVariant } from "../Interaction/Interaction.types";
 
 export default function InputField({
-  labelText,
+  label,
   helperText,
   placeholderText,
   $icon,
   $size,
-  $isNagative,
+  $width,
+  countLimit,
+  $isNegative,
   $labelVisible,
-  $iconVisible,
   $helperVisible,
 }: IInputField) {
   const [isFocused, setIsFocused] = useState(false);
@@ -25,14 +26,14 @@ export default function InputField({
   };
 
   return (
-    <S.InputFieldContainer>
+    <S.InputFieldContainer $width={$width}>
       {$labelVisible && (
         <S.LabelContainer>
-          <S.LabelText>{labelText}</S.LabelText>
+          <S.LabelText>{label}</S.LabelText>
         </S.LabelContainer>
       )}
-      <S.FieldContainer $isFocused={isFocused} $isNagative={$isNagative}>
-        {$iconVisible && (
+      <S.FieldContainer $isFocused={isFocused} $isNegative={$isNegative}>
+        {$icon && (
           <S.InputFieldIconBox>
             <S.InputFieldIcon IconComponent={$icon} />
           </S.InputFieldIconBox>
@@ -55,9 +56,11 @@ export default function InputField({
         {isFocused && <S.InputFieldIcon IconComponent={CloseCircle} />}
       </S.FieldContainer>
       {$helperVisible && (
-        <S.HelperContainer $isNagative={$isNagative}>
+        <S.HelperContainer $isNegative={$isNegative}>
           <S.HelperText>{helperText}</S.HelperText>
-          <S.CountText>{inputValue.length}/40</S.CountText>
+          <S.CountText>
+            {inputValue.length}/{countLimit}
+          </S.CountText>
         </S.HelperContainer>
       )}
     </S.InputFieldContainer>

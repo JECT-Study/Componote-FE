@@ -2,7 +2,7 @@ import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import { IIconWrapper, IInputComponent } from "./InputField.types";
 
-export const InputFieldContainer = styled.div`
+export const InputFieldContainer = styled.div<IInputComponent>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,7 +10,7 @@ export const InputFieldContainer = styled.div`
   gap: ${DESIGN_SYSTEM.gap["5xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
 
-  width: 21.25rem;
+  width: ${(props) => props.$width || "21.25rem"};
 `;
 
 export const LabelContainer = styled.div`
@@ -38,8 +38,8 @@ export const FieldContainer = styled.div<IInputComponent>`
   padding: ${DESIGN_SYSTEM.gap.xs} ${DESIGN_SYSTEM.gap.lg};
 
   border-radius: ${DESIGN_SYSTEM.radius.xs};
-  border: ${({ theme, $isFocused, $isNagative }) => {
-    if ($isNagative) {
+  border: ${({ theme, $isFocused, $isNegative }) => {
+    if ($isNegative) {
       return `${DESIGN_SYSTEM.stroke.bold} solid
           ${theme.light["feedback-negative"]};`;
     }
@@ -48,7 +48,7 @@ export const FieldContainer = styled.div<IInputComponent>`
       return `${DESIGN_SYSTEM.stroke.bold} solid ${theme.light["accent-bold"]}`;
     }
 
-    return `${DESIGN_SYSTEM.stroke.bold} solid ${theme.light["border-trans-subtle"]}`;
+    return `${DESIGN_SYSTEM.stroke.normal} solid ${theme.light["border-trans-subtle"]}`;
   }};
 
   background: ${({ theme }) => theme.light["surface-standard"]};
@@ -122,8 +122,8 @@ export const HelperContainer = styled.div<IInputComponent>`
   padding: ${DESIGN_SYSTEM.gap.none} ${DESIGN_SYSTEM.gap["4xs"]};
 
   ${DESIGN_SYSTEM.typography.body.xs};
-  color: ${({ theme, $isNagative }) =>
-    $isNagative
+  color: ${({ theme, $isNegative }) =>
+    $isNegative
       ? theme.light["feedback-negative"]
       : theme.light["object-subtle"]};
 `;

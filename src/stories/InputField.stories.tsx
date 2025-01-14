@@ -15,13 +15,9 @@ const meta = {
       options: ["md", "sm"],
       defaultValue: "md",
     },
-    $isNagative: {
+    $isNegative: {
       control: { type: "boolean" },
       defaultValue: false,
-    },
-    $iconVisible: {
-      control: { type: "boolean" },
-      defaultValue: true,
     },
     $labelVisible: {
       control: { type: "boolean" },
@@ -30,6 +26,13 @@ const meta = {
     $helperVisible: {
       control: { type: "boolean" },
       defaultValue: true,
+    },
+    countLimit: {
+      control: { type: "text" },
+      defaultValue: 40,
+    },
+    $width: {
+      control: { type: "text" },
     },
   },
 } satisfies Meta<typeof InputField>;
@@ -40,13 +43,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    labelText: "필드 레이블",
+    label: (
+      <span>
+        필드 레이블<span style={{ color: "orange" }}>*</span>
+      </span>
+    ),
     helperText: "헬퍼 메시지",
     placeholderText: "플레이스 홀더",
+    countLimit: "10",
     $size: "md",
     $icon: BlankLine,
-    $isNagative: false,
-    $iconVisible: true,
+    $isNegative: false,
     $labelVisible: true,
     $helperVisible: true,
   },
@@ -73,9 +80,9 @@ export const SmallInputField: Story = {
   },
 };
 
-export const IsNagative: Story = {
+export const isNegative: Story = {
   args: {
     ...Default.args,
-    $isNagative: true,
+    $isNegative: true,
   },
 };
