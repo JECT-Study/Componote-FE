@@ -1,4 +1,5 @@
 import InteractionContainer from "../Interaction/Interaction.style";
+import { InteractionVariant } from "../Interaction/Interaction.types";
 import * as S from "./SocialAuthButton.style";
 import { SocialAuthIcGithub, SocialAuthIcGoogle } from "./SocialAuthIcon.style";
 
@@ -15,7 +16,10 @@ export default function SocialAuthButton({
     <S.SocialAuthBtn>
       {variant === "google" ? <SocialAuthIcGoogle /> : <SocialAuthIcGithub />}
       <S.SocialAuthLabelText>{labelText}</S.SocialAuthLabelText>
-      <InteractionContainer $variant="default" $density="subtle" />
+      <InteractionContainer
+        $variant={InteractionVariant.DEFAULT}
+        $density="subtle"
+      />
     </S.SocialAuthBtn>
   );
 }

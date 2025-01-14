@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./IndexPanel.style";
+import { InteractionVariant } from "../Interaction/Interaction.types";
 
 /**
  * IndexPanel/Item 컴포넌트에 필요한 props입니다
@@ -33,7 +34,10 @@ function IndexPanelItem({
       onClick={onContentClick}
     >
       {text}
-      <InteractionContainer $variant="default" $density="subtle" />
+      <InteractionContainer
+        $variant={InteractionVariant.DEFAULT}
+        $density="subtle"
+      />
     </S.IndexPanelItem>
   );
 }
