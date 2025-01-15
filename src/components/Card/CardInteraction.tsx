@@ -57,4 +57,6 @@ const DimmedScreenContainer = styled.div`
 
   border-radius: ${DESIGN_SYSTEM.radius.xs};
   background: ${({ theme }) => theme.light["surface-dimmed"]};
+
+  z-index: 2;
 `;

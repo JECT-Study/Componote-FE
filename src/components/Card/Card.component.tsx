@@ -7,6 +7,7 @@ import CardItem from "./CardItem";
 import * as S from "./Card.component.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IComponentCard, ICardComponent } from "./Card.types";
+import { DimmedScreen, DisabledInteraction } from "./CardInteraction";
 
 export default function ComponentCard({
   $src,
@@ -22,6 +23,7 @@ export default function ComponentCard({
       <S.ImageBox>
         <S.CardImage $src={$src} />
         <BadgeComponentType $size="xs" $type="input" $style="solid" />
+        {$isDisabled && <DimmedScreen />}
       </S.ImageBox>
       <S.DescriptionBox>
         <S.TitleText>{componentName}</S.TitleText>
@@ -40,6 +42,7 @@ export default function ComponentCard({
           $buttonStyle={ButtonStyle.OutlinedSecondary}
         />
       </S.ContentSection>
+      {$isDisabled && <DisabledInteraction />}
     </S.CardContainer>
   );
 }
