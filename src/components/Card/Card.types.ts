@@ -1,4 +1,4 @@
-export interface IComponentCardComponent {
+export interface ICardComponent {
   $src?: string;
   $isDisabled?: boolean;
 }

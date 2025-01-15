@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
-import { IComponentCardComponent } from "./Card.types";
+import { ICardComponent } from "./Card.types";
 
-export const CardContainer = styled.div<IComponentCardComponent>`
+export const CardContainer = styled.div<ICardComponent>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

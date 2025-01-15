@@ -6,7 +6,7 @@ import bookmarkIcon from "@/assets/icons/bookmark-line.svg";
 import CardItem from "./CardItem";
 import * as S from "./Card.component.style";
 import { ButtonStyle } from "../Button/Button.types";
-import { IComponentCard, IComponentCardComponent } from "./Card.types";
+import { IComponentCard, ICardComponent } from "./Card.types";
 
 export default function ComponentCard({
   $src,
@@ -16,7 +16,7 @@ export default function ComponentCard({
   $sampleCount,
   $commentCount,
   $bookmarkCount,
-}: IComponentCard & IComponentCardComponent) {
+}: IComponentCard & ICardComponent) {
   return (
     <S.CardContainer $isDisabled={$isDisabled}>
       <S.ImageBox>
