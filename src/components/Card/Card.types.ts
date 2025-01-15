@@ -17,3 +17,13 @@ export interface ICardItem {
   $icon: React.ElementType;
   text: string;
 }
+
+export interface IDesignSystemCard {
+  designSystemName: string;
+  organizationName: string;
+  descriptionText: string;
+  deviceLabels: React.ReactNode;
+  labels: React.ReactNode;
+  platformButtons: React.ReactNode;
+  $bookmarkCount: string;
+}

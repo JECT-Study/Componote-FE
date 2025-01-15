@@ -22,3 +22,4 @@ export { default as NavItem } from "./NavigationBar/NavItem";
 export { default as NavigationBar } from "./NavigationBar/NavigationBar";
 export { default as Tab } from "./Tab/Tab";
 export { default as ComponentCard } from "./Card/Card.component";
+export { default as DesignSystemCard } from "./Card/Card.designSystem";
