@@ -23,6 +23,7 @@ function renderIcon(
 }
 
 export default function Button({
+  onClick,
   text,
   $leftIcon,
   $rightIcon,
@@ -33,6 +34,7 @@ export default function Button({
 }: IButton) {
   return (
     <S.Button
+      onClick={onClick}
       $buttonType={$buttonType}
       $buttonStyle={$buttonStyle}
       $size={$size}
