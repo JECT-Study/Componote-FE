@@ -37,6 +37,8 @@ const BadgeComponentTypeContainer = styled.div<IBadgeComponentType>`
       : props.theme.light[`custom-${BADGE_COMPONENT_TYPE_COLOR[props.$type]}`]};
 
   ${(props) => BADGE_COMPONENT_TYPE_SIZE[props.$size].typography}
+
+  z-index: 5;
 `;
 
 export default BadgeComponentTypeContainer;
