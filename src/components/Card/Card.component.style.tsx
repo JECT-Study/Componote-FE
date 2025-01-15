@@ -60,7 +60,7 @@ export const ImageBox = styled.div`
   border-radius: ${DESIGN_SYSTEM.radius.xs};
 `;
 
-export const CardImage = styled.div<IComponentCardComponent>`
+export const CardImage = styled.div<ICardComponent>`
   flex: 1 0 0;
   align-self: stretch;
 
