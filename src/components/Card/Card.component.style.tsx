@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import { IComponentCardComponent } from "./Card.types";
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<IComponentCardComponent>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -20,6 +20,29 @@ export const CardContainer = styled.div`
     ${({ theme }) => theme.light["border-trans-normal"]};
 
   background: ${({ theme }) => theme.light["surface-embossed"]};
+
+  ${({ theme, $isDisabled }) => {
+    if ($isDisabled) {
+      return css`
+        border: ${DESIGN_SYSTEM.stroke.normal} solid
+          ${theme.light["border-trans-subtler"]};
+
+        background: ${theme.light["fill-trans-disabled"]};
+      `;
+    }
+  }}
+
+  &:hover {
+    border-radius: ${DESIGN_SYSTEM.radius.sm};
+    border: ${DESIGN_SYSTEM.stroke.normal} solid
+      ${({ theme }) => theme.light["border-trans-normal"]};
+
+    box-shadow: ${DESIGN_SYSTEM.shadow.floated};
+  }
+
+  &:focus-visible {
+    ${({ theme }) => DESIGN_SYSTEM.focus(theme)}
+  }
 `;
 
 export const ImageBox = styled.div`

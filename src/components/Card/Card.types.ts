@@ -1,5 +1,6 @@
 export interface IComponentCardComponent {
   $src?: string;
+  $isDisabled?: boolean;
 }
 
 /* component card에 사용되는 props type입니다. */

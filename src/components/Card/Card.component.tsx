@@ -10,6 +10,7 @@ import { IComponentCard, IComponentCardComponent } from "./Card.types";
 
 export default function ComponentCard({
   $src,
+  $isDisabled,
   componentName,
   descriptionText,
   $sampleCount,
@@ -17,7 +18,7 @@ export default function ComponentCard({
   $bookmarkCount,
 }: IComponentCard & IComponentCardComponent) {
   return (
-    <S.CardContainer>
+    <S.CardContainer $isDisabled={$isDisabled}>
       <S.ImageBox>
         <S.CardImage $src={$src} />
         <BadgeComponentType $size="xs" $type="input" $style="solid" />
