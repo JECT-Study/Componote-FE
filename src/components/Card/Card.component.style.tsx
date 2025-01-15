@@ -27,21 +27,21 @@ export const CardContainer = styled.div<ICardComponent>`
         border: ${DESIGN_SYSTEM.stroke.normal} solid
           ${theme.light["border-trans-subtler"]};
       `;
-    } else {
-      return css`
-        &:hover {
-          border-radius: ${DESIGN_SYSTEM.radius.sm};
-          border: ${DESIGN_SYSTEM.stroke.normal} solid
-            ${theme.light["border-trans-normal"]};
-
-          box-shadow: ${DESIGN_SYSTEM.shadow.floated};
-        }
-
-        &:focus-visible {
-          ${DESIGN_SYSTEM.focus(theme)}
-        }
-      `;
     }
+
+    return css`
+      &:hover {
+        border-radius: ${DESIGN_SYSTEM.radius.sm};
+        border: ${DESIGN_SYSTEM.stroke.normal} solid
+          ${theme.light["border-trans-normal"]};
+
+        box-shadow: ${DESIGN_SYSTEM.shadow.floated};
+      }
+
+      &:focus-visible {
+        ${DESIGN_SYSTEM.focus(theme)}
+      }
+    `;
   }}
 `;
 

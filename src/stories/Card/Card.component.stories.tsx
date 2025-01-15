@@ -34,7 +34,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const CardContainer = (StoryFn: () => JSX.Element) => {
+function CardContainer(StoryFn: () => JSX.Element) {
   return (
     <div
       style={{
@@ -46,7 +46,7 @@ const CardContainer = (StoryFn: () => JSX.Element) => {
       <StoryFn />
     </div>
   );
-};
+}
 
 export const Default: Story = {
   args: {

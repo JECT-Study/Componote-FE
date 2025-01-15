@@ -1,15 +1,6 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-export function DisabledInteraction() {
-  return (
-    <>
-      <InteractionContainer />
-      <OverlayContainer />
-    </>
-  );
-}
-
 const InteractionContainer = styled.div`
   position: absolute;
   top: 0;
@@ -41,8 +32,13 @@ const OverlayContainer = styled.div`
   background: #e7e7e794;
 `;
 
-export function DimmedScreen() {
-  return <DimmedScreenContainer />;
+export function DisabledInteraction() {
+  return (
+    <>
+      <InteractionContainer />
+      <OverlayContainer />
+    </>
+  );
 }
 
 const DimmedScreenContainer = styled.div`
@@ -60,3 +56,7 @@ const DimmedScreenContainer = styled.div`
 
   z-index: 2;
 `;
+
+export function DimmedScreen() {
+  return <DimmedScreenContainer />;
+}

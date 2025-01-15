@@ -26,7 +26,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const CardContainer = (StoryFn: () => JSX.Element) => {
+function CardContainer(StoryFn: () => JSX.Element) {
   return (
     <div
       style={{
@@ -38,7 +38,7 @@ const CardContainer = (StoryFn: () => JSX.Element) => {
       <StoryFn />
     </div>
   );
-};
+}
 
 export const Default: Story = {
   args: {
@@ -64,9 +64,9 @@ export const Default: Story = {
         />
       </>
     ),
-    labels: Array.from({ length: 16 }).map((_, index) => (
+    labels: Array.from({ length: 16 }).map(() => (
       <BadgeLabel
-        key={index}
+        key="badge-key"
         $variant="labelOnly"
         text="레이블"
         $feedback={BadgeLabelFeedback.NONE}
