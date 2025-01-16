@@ -2,10 +2,13 @@ import React, { useState } from "react";
 
 import { Chip } from "@/components";
 import { CHIP_GROUP, CHIP_ICONS } from "./chipGroup";
-import { IChipGroup } from "./Chip.types";
+import { IChipGroup, IChipGroupComponent } from "./Chip.types";
 import ChipGroupContainer from "./Chip.group.style";
 
-export default function ChipGroup({ $variant }: IChipGroup) {
+export default function ChipGroup({
+  $variant,
+  $width,
+}: IChipGroup & IChipGroupComponent) {
   const chipGroup = CHIP_GROUP[$variant];
   const [selectedChip, setSelectedChip] = useState<number[]>([]);
 
@@ -17,7 +20,7 @@ export default function ChipGroup({ $variant }: IChipGroup) {
   };
 
   return (
-    <ChipGroupContainer>
+    <ChipGroupContainer $width={$width}>
       {chipGroup.map((chip, index) => (
         <Chip
           key={chip}

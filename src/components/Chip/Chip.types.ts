@@ -20,3 +20,7 @@ export interface IIconWrapper {
 export interface IChipGroup {
   $variant: "platform" | "tech" | "contents" | "device";
 }
+
+export interface IChipGroupComponent {
+  $width: string;
+}
