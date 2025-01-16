@@ -1,20 +1,18 @@
-import { useState } from "react";
 import InteractionContainer from "../Interaction/Interaction.style";
 import { InteractionVariant } from "../Interaction/Interaction.types";
 import * as S from "./Tab.style";
 import { ITab, ITapComponent } from "./Tab.types";
 
-export default function Tab({ labelText, $isDisabled }: ITab & ITapComponent) {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleTab = () => {
-    setIsSelected((prev) => !prev);
-  };
-
+export default function Tab({
+  labelText,
+  $isDisabled,
+  $isSelected,
+  onSelect,
+}: ITab & ITapComponent) {
   return (
     <S.TabContainer
-      onClick={handleTab}
-      $isSelected={isSelected}
+      onClick={onSelect}
+      $isSelected={$isSelected}
       $isDisabled={$isDisabled}
     >
       <S.LabelText $isDisabled={$isDisabled}>{labelText}</S.LabelText>

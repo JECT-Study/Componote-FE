@@ -5,4 +5,5 @@ export interface ITapComponent {
 
 export interface ITab {
   labelText: string;
+  onSelect: () => void;
 }
