@@ -21,3 +21,6 @@ export { default as SocialAuthButton } from "./SocialAuth/SocialAuthButton";
 export { default as NavItem } from "./NavigationBar/NavItem";
 export { default as NavigationBar } from "./NavigationBar/NavigationBar";
 export { default as Tab } from "./Tab/Tab";
+export { default as Toolbar } from "./Toolbar/Toolbar";
+export { ButtonList as ButtonList } from "./Toolbar/Toolbar.variant";
+export { ChipList as ChipList } from "./Toolbar/Toolbar.variant";
