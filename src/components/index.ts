@@ -25,5 +25,8 @@ export { default as OnboardingBanner } from "./Banner/Banner.onboarding";
 export { default as DocumentBanner } from "./Banner/Banner.document";
 export { default as ProfileBanner } from "./Banner/Banner.profile";
 export { default as Tab } from "./Tab/Tab";
+export { default as Toolbar } from "./Toolbar/Toolbar";
+export { ButtonList as ButtonList } from "./Toolbar/Toolbar.variant";
+export { ChipList as ChipList } from "./Toolbar/Toolbar.variant";
 export { default as ComponentCard } from "./Card/Card.component";
 export { default as DesignSystemCard } from "./Card/Card.designSystem";
