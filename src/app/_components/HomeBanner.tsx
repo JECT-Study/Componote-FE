@@ -30,10 +30,8 @@ export default function HomeBanner() {
             </S.HomeBannerSection>
             <Button
               text="컴포넌트 목록 보러가기"
-              $rightIcon={rightLine}
-              $isLeftIconVisible={false}
-              $isRightIconVisible
               $size="md"
+              $rightIcon={rightLine}
               $buttonStyle={ButtonStyle.SolidBrand}
             />
           </S.HomeBannerRegion>
