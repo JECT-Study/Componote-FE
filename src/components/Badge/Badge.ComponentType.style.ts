@@ -11,6 +11,11 @@ const BadgeComponentTypeContainer = styled.div<IBadgeComponentType>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+
   gap: ${(props) => BADGE_COMPONENT_TYPE_SIZE[props.$size].gap};
 
   width: fit-content;
@@ -32,6 +37,8 @@ const BadgeComponentTypeContainer = styled.div<IBadgeComponentType>`
       : props.theme.light[`custom-${BADGE_COMPONENT_TYPE_COLOR[props.$type]}`]};
 
   ${(props) => BADGE_COMPONENT_TYPE_SIZE[props.$size].typography}
+
+  z-index: 5;
 `;
 
 export default BadgeComponentTypeContainer;

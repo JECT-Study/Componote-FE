@@ -4,13 +4,9 @@ import styled from "styled-components";
 
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import checkLine from "@/assets/icons/check-line.svg";
-import { IIconWrapper, IChipComponent } from "./Chip.types";
+import { IconWrapper } from "@/utils/IconWrapper";
+import { IChipComponent } from "./Chip.types";
 import CHIP_SIZE_MAP from "./Chip.theme";
-
-function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <IconComponent {...props} />;
-}
 
 export const ChipContainer = styled.div<IChipComponent>`
   display: inline-flex;

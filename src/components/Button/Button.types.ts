@@ -1,9 +1,5 @@
 import { BUTTON_SIZE_MAP } from "./Button.theme";
 
-export interface IIconWrapper {
-  IconComponent: React.ElementType;
-}
-
 export enum ButtonStyle {
   SolidBrand = "solidBrand",
   SolidPrimary = "solidPrimary",

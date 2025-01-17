@@ -1,12 +1,8 @@
 import styled, { css } from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import { IconWrapper } from "@/utils/IconWrapper";
 import { BUTTON_SIZE_MAP, BUTTON_STYLES } from "./Button.theme";
-import { IButtonComponent, IIconWrapper } from "./Button.types";
-
-function IconWrapper({ IconComponent, ...props }: IIconWrapper) {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <IconComponent {...props} />;
-}
+import { IButtonComponent } from "./Button.types";
 
 export const Button = styled.button<IButtonComponent>`
   display: inline-flex;

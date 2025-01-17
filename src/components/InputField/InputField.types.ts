@@ -1,7 +1,3 @@
-export interface IIconWrapper extends React.HTMLProps<HTMLElement> {
-  IconComponent: React.ElementType | undefined;
-}
-
 export interface IInputComponent {
   $size?: "md" | "sm";
   $isNegative?: boolean;

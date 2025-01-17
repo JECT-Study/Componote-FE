@@ -13,10 +13,6 @@ export interface IChipComponent {
   $size: keyof typeof sizeMap;
 }
 
-export interface IIconWrapper {
-  IconComponent: React.ElementType;
-}
-
 export interface IChipGroup {
   $variant: "platform" | "tech" | "contents" | "device";
 }

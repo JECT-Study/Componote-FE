@@ -18,7 +18,7 @@ export const Divider = styled.div<IDivider>`
 
     return css`
       height: ${$layout === "horizontal" ? size : "4.6875rem"};
-      width: ${$layout === "vertical" ? size : "22.5rem"};
+      width: ${$layout === "vertical" ? size : "100%"};
 
       background: ${({ theme }) => theme.light["border-trans-subtler"]};
     `;
