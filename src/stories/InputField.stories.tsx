@@ -80,7 +80,7 @@ export const SmallInputField: Story = {
   },
 };
 
-export const isNegative: Story = {
+export const IsNegative: Story = {
   args: {
     ...Default.args,
     $isNegative: true,
