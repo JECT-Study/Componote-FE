@@ -9,15 +9,11 @@ export default function SignInButton() {
         text="취소하기"
         $size="md"
         $buttonStyle={ButtonStyle.OutlinedSecondary}
-        $isLeftIconVisible={false}
-        $isRightIconVisible={false}
       />
       <Button
         text="회원가입 완료"
         $size="md"
         $buttonStyle={ButtonStyle.SolidBrand}
-        $isLeftIconVisible={false}
-        $isRightIconVisible={false}
       />
     </S.SigninButtonContainer>
   );
