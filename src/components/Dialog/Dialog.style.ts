@@ -1,7 +1,6 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-// eslint-disable-next-line import/prefer-default-export
 export const DimmedScreen = styled.div`
   position: fixed;
   top: 0;
@@ -15,8 +14,7 @@ export const DimmedScreen = styled.div`
   align-items: center;
   padding: 0rem 37.75rem;
 
-  /* TODO: color 토큰으로 변경 */
-  background: rgba(18, 17, 16, 0.4);
+  background: ${({ theme }) => theme.light["surface-dimmed"]};
 `;
 
 export const DialogWrapper = styled.div`
