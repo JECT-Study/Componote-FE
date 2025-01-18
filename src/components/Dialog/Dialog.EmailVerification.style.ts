@@ -1,6 +1,5 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
-// import sampleImage from "@/assets/images/sampleImage.png";
 
 export const DialogEmailVerificationWrapper = styled.div`
   width: 32.5rem;
