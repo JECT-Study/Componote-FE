@@ -7,7 +7,11 @@ import DialogVerification from "./Dialog.Verification";
 import * as S from "./Dialog.style";
 
 export default function Dialog({ children }: { children: React.ReactNode }) {
-  return <S.DialogWrapper>{children}</S.DialogWrapper>;
+  return (
+    <S.DimmedScreen>
+      <S.DialogWrapper>{children}</S.DialogWrapper>
+    </S.DimmedScreen>
+  );
 }
 
 Dialog.Basic = DialogBasic;
