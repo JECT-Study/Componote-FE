@@ -25,15 +25,11 @@ export default function DialogBasic({
           text={button1Text}
           $size="md"
           $buttonStyle={ButtonStyle.OutlinedSecondary}
-          $isLeftIconVisible={false}
-          $isRightIconVisible={false}
         />
         <Button
           text={button2Text}
           $size="md"
           $buttonStyle={ButtonStyle.SolidPrimary}
-          $isLeftIconVisible={false}
-          $isRightIconVisible={false}
         />
       </S.DialogBasicButtonContainer>
     </S.DialogBasicWrapper>

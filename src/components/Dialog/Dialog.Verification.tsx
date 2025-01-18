@@ -16,8 +16,6 @@ export default function DialogVerification() {
               text="닫기"
               $buttonStyle={ButtonStyle.EmptySecondary}
               $size="sm"
-              $isLeftIconVisible={false}
-              $isRightIconVisible={false}
             />
           </S.DialogVerificationTitleContainer>
           <S.DialogVerificationBodyText>

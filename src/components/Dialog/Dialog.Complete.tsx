@@ -44,8 +44,6 @@ export default function DialogComplete() {
           text="확인"
           $buttonStyle={ButtonStyle.SolidPrimary}
           $size="md"
-          $isLeftIconVisible={false}
-          $isRightIconVisible={false}
         />
       </S.DialogCompleteButtonContainer>
     </S.DialogCompleteWrapper>

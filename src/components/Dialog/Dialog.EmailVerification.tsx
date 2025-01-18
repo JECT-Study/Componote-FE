@@ -25,15 +25,11 @@ export default function DialogEmailVerification() {
           text="나중에 할게요"
           $buttonStyle={ButtonStyle.OutlinedSecondary}
           $size="md"
-          $isRightIconVisible={false}
-          $isLeftIconVisible={false}
         />
         <Button
           text="이메일 인증하기"
           $buttonStyle={ButtonStyle.SolidBrand}
           $size="md"
-          $isRightIconVisible={false}
-          $isLeftIconVisible={false}
         />
       </S.DialogEmailVerificationButtonContainer>
     </S.DialogEmailVerificationWrapper>

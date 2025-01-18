@@ -15,8 +15,6 @@ export default function DialogLogin() {
               text="닫기"
               $buttonStyle={ButtonStyle.EmptySecondary}
               $size="sm"
-              $isLeftIconVisible={false}
-              $isRightIconVisible={false}
             />
           </S.DialogLoginTitleContainer>
           <S.DialogLoginBodyText>

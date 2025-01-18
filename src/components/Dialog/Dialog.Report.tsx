@@ -18,24 +18,19 @@ export default function DialogReport() {
         text="신고 사유를 선택해주세요..."
         $buttonStyle={ButtonStyle.OutlinedSecondary}
         $size="md"
-        $isRightIconVisible
-        $isLeftIconVisible={false}
         $rightIcon={ArrowDown}
+        $width="100%"
       />
       <S.DialogReportButtonContainer>
         <Button
           text="취소하기"
           $buttonStyle={ButtonStyle.OutlinedSecondary}
           $size="md"
-          $isLeftIconVisible={false}
-          $isRightIconVisible={false}
         />
         <Button
           text="신고하기"
           $buttonStyle={ButtonStyle.SolidPrimary}
           $size="md"
-          $isLeftIconVisible={false}
-          $isRightIconVisible={false}
         />
       </S.DialogReportButtonContainer>
     </S.DialogReportWrapper>
