@@ -73,3 +73,17 @@ export const DialogCompleteCardContainer = styled.div`
 
   ${DESIGN_SYSTEM.typography.label.md}
 `;
+
+export const DialogCompleteImageContainer = styled.div`
+  height: 15.625rem;
+
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: ${DESIGN_SYSTEM.gap.none};
+  padding: ${DESIGN_SYSTEM.gap.none};
+
+  border-radius: ${DESIGN_SYSTEM.radius.xs};
+  border: ${DESIGN_SYSTEM.stroke.normal} solid
+    ${({ theme }) => theme.light["border-trans-subtle"]};
+`;
