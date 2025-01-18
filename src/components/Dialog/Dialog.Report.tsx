@@ -1,6 +1,7 @@
 "use client";
 
 import ArrowDown from "@/assets/icons/arrow-down.svg";
+import { DIALOG_TEXT } from "@/constants/messages";
 import Button from "../Button/Button";
 import * as S from "./Dialog.Report.style";
 import { ButtonStyle } from "../Button/Button.types";
@@ -9,13 +10,15 @@ export default function DialogReport() {
   return (
     <S.DialogReportWrapper>
       <S.DialogReportTitleContainer>
-        <S.DialogReportTitleText>댓글 신고하기</S.DialogReportTitleText>
+        <S.DialogReportTitleText>
+          {DIALOG_TEXT.report.titleText}
+        </S.DialogReportTitleText>
         <S.DialogReportBodyText>
-          신고 사유가 적합하지 않다고 판단될 경우, 해당 신고는 처리되지 않아요.
+          {DIALOG_TEXT.report.bodyText}
         </S.DialogReportBodyText>
       </S.DialogReportTitleContainer>
       <Button
-        text="신고 사유를 선택해주세요..."
+        text={DIALOG_TEXT.report.placeholderText}
         $buttonStyle={ButtonStyle.OutlinedSecondary}
         $size="md"
         $rightIcon={ArrowDown}
@@ -23,12 +26,12 @@ export default function DialogReport() {
       />
       <S.DialogReportButtonContainer>
         <Button
-          text="취소하기"
+          text={DIALOG_TEXT.report.cancelButtonText}
           $buttonStyle={ButtonStyle.OutlinedSecondary}
           $size="md"
         />
         <Button
-          text="신고하기"
+          text={DIALOG_TEXT.report.submitButtonText}
           $buttonStyle={ButtonStyle.SolidPrimary}
           $size="md"
         />

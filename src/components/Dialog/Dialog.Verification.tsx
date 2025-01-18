@@ -1,3 +1,4 @@
+import { DIALOG_TEXT } from "@/constants/messages";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import SocialAuthButton from "../SocialAuth/SocialAuthButton";
@@ -10,23 +11,22 @@ export default function DialogVerification() {
         <S.DialogVerificationWrap>
           <S.DialogVerificationTitleContainer>
             <S.DialogVerificationTitleText>
-              이메일 인증하기
+              {DIALOG_TEXT.verification.titleText}
             </S.DialogVerificationTitleText>
             <Button
-              text="닫기"
+              text={DIALOG_TEXT.close}
               $buttonStyle={ButtonStyle.EmptySecondary}
               $size="sm"
             />
           </S.DialogVerificationTitleContainer>
           <S.DialogVerificationBodyText>
-            이메일 정보를 추가하고, 컴포노트에서 일어나는 다양한 일들을
-            알아보세요.
+            {DIALOG_TEXT.verification.bodyText}
           </S.DialogVerificationBodyText>
         </S.DialogVerificationWrap>
         <S.DialogVerificationButtonContainer>
           <SocialAuthButton
             variant="google"
-            labelText="Google 이메일 인증하기"
+            labelText={DIALOG_TEXT.verification.socialGoogle}
           />
         </S.DialogVerificationButtonContainer>
       </S.DialogVerificationSection>

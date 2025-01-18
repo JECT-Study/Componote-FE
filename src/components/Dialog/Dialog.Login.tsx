@@ -1,3 +1,4 @@
+import { DIALOG_TEXT } from "@/constants/messages";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import Divider from "../Divider/Divider";
@@ -10,20 +11,28 @@ export default function DialogLogin() {
       <S.DialogLoginSection>
         <S.DialogLoginWrap>
           <S.DialogLoginTitleContainer>
-            <S.DialogLoginTitleText>로그인/회원가입</S.DialogLoginTitleText>
+            <S.DialogLoginTitleText>
+              {DIALOG_TEXT.login.titleText}
+            </S.DialogLoginTitleText>
             <Button
-              text="닫기"
+              text={DIALOG_TEXT.close}
               $buttonStyle={ButtonStyle.EmptySecondary}
               $size="sm"
             />
           </S.DialogLoginTitleContainer>
           <S.DialogLoginBodyText>
-            컴포노트에 로그인하면, 사람들과 컴포넌트에 대해 소통할 수 있어요.
+            {DIALOG_TEXT.login.bodyText}
           </S.DialogLoginBodyText>
         </S.DialogLoginWrap>
         <S.DialogLoginButtonContainer>
-          <SocialAuthButton variant="google" labelText="Google 로 시작하기" />
-          <SocialAuthButton variant="github" labelText="GitHub 으로 시작하기" />
+          <SocialAuthButton
+            variant="google"
+            labelText={DIALOG_TEXT.login.socialGoogle}
+          />
+          <SocialAuthButton
+            variant="github"
+            labelText={DIALOG_TEXT.login.socialGitHub}
+          />
         </S.DialogLoginButtonContainer>
       </S.DialogLoginSection>
       <Divider $layout="horizontal" $stroke="normal" />

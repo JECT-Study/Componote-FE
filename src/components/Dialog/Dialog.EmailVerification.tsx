@@ -1,5 +1,6 @@
 import sampleImage from "@/assets/images/sampleImage.png";
 import Image from "next/image";
+import { DIALOG_TEXT } from "@/constants/messages";
 import * as S from "./Dialog.EmailVerification.style";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
@@ -13,21 +14,21 @@ export default function DialogEmailVerification() {
         </S.DialogEmailVerificationImageContainer>
         <S.DialogEmailVerificationTitleWrap>
           <S.DialogEmailVerificationTitleText>
-            컴포노트의 다양한 소식을 받아보세요!
+            {DIALOG_TEXT.emailVerification.titleText}
           </S.DialogEmailVerificationTitleText>
           <S.DialogEmailVerificationBodyText>
-            컴포노트의 다양한 소식을 이메일로 빠르게 알려드려요.
+            {DIALOG_TEXT.emailVerification.bodyText}
           </S.DialogEmailVerificationBodyText>
         </S.DialogEmailVerificationTitleWrap>
       </S.DialogEmailVerificationTitleContainer>
       <S.DialogEmailVerificationButtonContainer>
         <Button
-          text="나중에 할게요"
+          text={DIALOG_TEXT.emailVerification.cancelButtonText}
           $buttonStyle={ButtonStyle.OutlinedSecondary}
           $size="md"
         />
         <Button
-          text="이메일 인증하기"
+          text={DIALOG_TEXT.emailVerification.confirmButtonText}
           $buttonStyle={ButtonStyle.SolidBrand}
           $size="md"
         />

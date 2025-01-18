@@ -1,3 +1,4 @@
+import { DIALOG_TEXT } from "@/constants/messages";
 import Image from "next/image";
 import sampleImage from "@/assets/images/dialogCompleteSampleImage.png";
 import Button from "../Button/Button";
@@ -8,15 +9,17 @@ export default function DialogComplete() {
   return (
     <S.DialogCompleteWrapper>
       <S.DialogCompleteTitleContainer>
-        <S.DialogCompleteTitleText>이메일 인증 완료</S.DialogCompleteTitleText>
+        <S.DialogCompleteTitleText>
+          {DIALOG_TEXT.complete.titleText}
+        </S.DialogCompleteTitleText>
         <S.DialogCompleteBodyText>
-          앞으로 아래와 같은 알림들을 이메일로 받아 보실 수 있어요.
+          {DIALOG_TEXT.complete.bodyText}
         </S.DialogCompleteBodyText>
       </S.DialogCompleteTitleContainer>
       <S.DialogCompleteSection>
         <S.DialogCompleteCardWrap>
           <S.DialogCompleteCardContainer>
-            내가 작성한 댓글 좋아요, 대댓글 알림
+            {DIALOG_TEXT.complete.cardText}
           </S.DialogCompleteCardContainer>
           <S.DialogCompleteImageContainer>
             <Image src={sampleImage} alt="sampleImage" />
@@ -25,7 +28,7 @@ export default function DialogComplete() {
       </S.DialogCompleteSection>
       <S.DialogCompleteButtonContainer>
         <Button
-          text="확인"
+          text={DIALOG_TEXT.complete.confirmButtonText}
           $buttonStyle={ButtonStyle.SolidPrimary}
           $size="md"
         />
