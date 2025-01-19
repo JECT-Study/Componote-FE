@@ -17,7 +17,7 @@ export const Divider = styled.div<IDivider>`
     const size = strokeSizes[$stroke];
 
     return css`
-      height: ${$layout === "horizontal" ? size : "4.6875rem"};
+      height: ${$layout === "horizontal" ? size : "100%"};
       width: ${$layout === "vertical" ? size : "100%"};
 
       background: ${({ theme }) => theme.light["border-trans-subtler"]};

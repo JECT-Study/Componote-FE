@@ -53,3 +53,41 @@ export const BANNER_TEXT = {
     editButtonText: "프로필 편집하기",
   },
 };
+
+export const DIALOG_TEXT = {
+  close: "닫기",
+  login: {
+    titleText: "로그인/회원가입",
+    bodyText:
+      "컴포노트에 로그인하면, 사람들과 컴포넌트에 대해 소통할 수 있어요.",
+    socialGoogle: "Google 로 시작하기",
+    socialGitHub: "GitHub 으로 시작하기",
+  },
+  report: {
+    titleText: "댓글 신고하기",
+    bodyText:
+      "신고 사유가 적합하지 않다고 판단될 경우, 해당 신고는 처리되지 않아요.",
+    placeholderText: "신고 사유를 선택해주세요...",
+    cancelButtonText: "취소하기",
+    submitButtonText: "신고하기",
+  },
+  emailVerification: {
+    titleText: "컴포노트의 다양한 소식을 받아보세요!",
+    bodyText: "컴포노트의 다양한 소식을 이메일로 빠르게 알려드려요.",
+    cancelButtonText: "나중에 할게요",
+    confirmButtonText: "이메일 인증하기",
+  },
+  verification: {
+    titleText: "이메일 인증하기",
+    bodyText:
+      "이메일 정보를 추가하고, 컴포노트에서 일어나는 다양한 일들을 알아보세요.",
+    socialGoogle: "Google 이메일 인증하기",
+  },
+  complete: {
+    titleText: "이메일 인증 완료",
+    bodyText: "앞으로 아래와 같은 알림들을 이메일로 받아 보실 수 있어요.",
+    buttonText: "시작하기",
+    cardText: "내가 작성한 댓글 좋아요, 대댓글 알림",
+    confirmButtonText: "확인",
+  },
+};

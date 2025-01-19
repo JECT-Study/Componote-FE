@@ -4,7 +4,7 @@ import DESIGN_SYSTEM from "@/styles/designSystem";
 export const SocialAuthBtn = styled.button`
   position: relative;
 
-  width: 18.5rem;
+  width: 100%;
 
   display: flex;
   justify-content: center;

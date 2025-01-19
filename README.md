@@ -11,4 +11,5 @@ JECT 2기 1팀
 # [♻️refactor]: 코드 리팩토링 (기능에 영향을 주지 않을 때)
 # [🎨style]: css 스타일링
 # [🔨chore]: 빌드 부분 혹은 패키지 매니저 수정사항
+# [📚story]: storybook 관련 사항
 ```

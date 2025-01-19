@@ -30,3 +30,4 @@ export { ButtonList as ButtonList } from "./Toolbar/Toolbar.variant";
 export { ChipList as ChipList } from "./Toolbar/Toolbar.variant";
 export { default as ComponentCard } from "./Card/Card.component";
 export { default as DesignSystemCard } from "./Card/Card.designSystem";
+export { default as Dialog } from "./Dialog/Dialog";
