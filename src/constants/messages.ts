@@ -91,3 +91,16 @@ export const DIALOG_TEXT = {
     confirmButtonText: "확인",
   },
 };
+
+export const SIGNIN_TEXT = {
+  titleText: "회원가입",
+  profileText: "사용하실 프로필을 설정해 주세요.",
+  job: {
+    titleText: "직군을 선택해 주세요.",
+    bodyText: "여러 직군을 겸하고 계신다면, 가장 가까운 직군을 골라주세요.",
+  },
+  cancelButtonText: "취소하기",
+  submitButtonText: "회원가입 완료",
+};
+
+export const STAR_ICON = "*";

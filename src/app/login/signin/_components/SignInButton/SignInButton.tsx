@@ -1,17 +1,18 @@
 import { Button } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
+import { SIGNIN_TEXT } from "@/constants/messages";
 import * as S from "./SignInButton.style";
 
 export default function SignInButton() {
   return (
     <S.SigninButtonContainer>
       <Button
-        text="취소하기"
+        text={SIGNIN_TEXT.cancelButtonText}
         $size="md"
         $buttonStyle={ButtonStyle.OutlinedSecondary}
       />
       <Button
-        text="회원가입 완료"
+        text={SIGNIN_TEXT.submitButtonText}
         $size="md"
         $buttonStyle={ButtonStyle.SolidBrand}
       />
