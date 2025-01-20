@@ -9,9 +9,6 @@ export const CardContainer = styled.div<ICardComponent>`
 
   width: 24.5625rem;
 
-  position: absolute;
-  bottom: -0.125rem;
-
   gap: ${DESIGN_SYSTEM.gap.md};
   padding: ${DESIGN_SYSTEM.gap.xl};
 
@@ -24,6 +21,7 @@ export const CardContainer = styled.div<ICardComponent>`
   ${({ theme, $isDisabled }) => {
     if ($isDisabled) {
       return css`
+        position: relative;
         border: ${DESIGN_SYSTEM.stroke.normal} solid
           ${theme.light["border-trans-subtler"]};
       `;
