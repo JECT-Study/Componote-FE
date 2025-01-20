@@ -6,6 +6,8 @@ export const FooterContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
 
+  width: 100%;
+
   padding: ${`${DESIGN_SYSTEM.gap.xl} ${DESIGN_SYSTEM.gap["4xl"]}`};
   background: ${({ theme }) => theme.light["surface-static-inv-sunken"]};
 `;
