@@ -1,19 +1,27 @@
-import { Footer, NavigationBar } from "@/components";
-import * as S from "./_components/Home.style";
-import HomeBanner from "./_components/HomeBanner";
+import {
+  Footer,
+  NavigationBar,
+  Layout,
+  OnboardingBanner,
+  ImageContainer,
+} from "@/components";
+import { BANNER_TEXT } from "@/constants/messages";
 
 export default function Home() {
   return (
-    <S.HomeWrapper>
+    <Layout>
       <NavigationBar
         $isSeparated={false}
         $isAuthorized={false}
         placeholderText="플레이스 홀더"
       />
-      <S.HomeViewport>
-        <HomeBanner />
-      </S.HomeViewport>
+      <OnboardingBanner
+        titleText={BANNER_TEXT.onboarding.titleText}
+        subTitleText={BANNER_TEXT.onboarding.subTitleText}
+        descriptionText={BANNER_TEXT.onboarding.descriptionText}
+      />
+      <ImageContainer />
       <Footer />
-    </S.HomeWrapper>
+    </Layout>
   );
 }
