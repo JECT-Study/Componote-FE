@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Layout,
   NavigationBar,
@@ -7,10 +5,10 @@ import {
   Toolbar,
   ChipList,
   ComponentCard,
+  CardContainer,
   Footer,
 } from "@/components";
 import { BANNER_TEXT } from "@/constants/messages";
-import CardContainer from "./_components/CardContainer";
 
 export default function Component() {
   return (
