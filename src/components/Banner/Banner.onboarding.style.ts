@@ -6,6 +6,7 @@ export const BannerContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
 
+  width: 100%;
   min-width: 50rem;
 
   gap: ${DESIGN_SYSTEM.gap["8xl"]};
