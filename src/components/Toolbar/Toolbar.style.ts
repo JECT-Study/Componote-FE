@@ -38,8 +38,8 @@ export const TabContainer = styled.div`
 export const ToolContainer = styled.div`
   display: flex;
   align-items: center;
-  align-self: stretch;
 
+  width: 100%;
   max-width: 60rem;
 
   gap: ${DESIGN_SYSTEM.gap["2xl"]};
@@ -51,6 +51,8 @@ export const ToolBox = styled.div`
   flex: 1 0 0;
   align-self: stretch;
   align-items: center;
+
+  min-width: 40rem;
 
   gap: ${DESIGN_SYSTEM.gap.xs};
   padding: ${DESIGN_SYSTEM.gap.none};
@@ -73,6 +75,8 @@ export const ButtonBox = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  min-width: 9rem;
 
   gap: ${DESIGN_SYSTEM.gap.md};
   padding: ${DESIGN_SYSTEM.gap.none};

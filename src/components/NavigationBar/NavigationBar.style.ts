@@ -7,6 +7,7 @@ export const NavigationBarContainer = styled.div<INavigation>`
   align-items: center;
   justify-content: center;
 
+  width: 100%;
   height: 3.75rem;
   min-width: 64.0625rem;
 
@@ -25,6 +26,8 @@ export const NavigationBarSection = styled.section`
   align-items: center;
   align-self: stretch;
   flex: 1 0 0;
+
+  width: 100%;
 
   max-width: 60rem;
   padding: ${DESIGN_SYSTEM.gap.none};
