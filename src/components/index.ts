@@ -32,4 +32,4 @@ export { default as ComponentCard } from "./Card/Card.component";
 export { default as DesignSystemCard } from "./Card/Card.designSystem";
 export { default as Dialog } from "./Dialog/Dialog";
 export { default as Layout } from "./Layout/Layout";
-export { default as CardContainer } from "./CardContainer/CardContainer";
+export { default as CardContainer } from "./Container/Component/CardContainer";
