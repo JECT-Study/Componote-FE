@@ -8,13 +8,14 @@ import { ICallout } from "./Callout.types";
  * Callout 컴포넌트입니다
  */
 export default function Callout({
+  onClick,
   $size,
   titleText,
   bodyText,
   buttonLabelText,
 }: ICallout) {
   return (
-    <S.CalloutContainer $size={$size}>
+    <S.CalloutContainer $size={$size} onClick={onClick}>
       <S.CalloutTitleContainer>
         <S.CalloutTitleText $size={$size}>{titleText}</S.CalloutTitleText>
         <Button
