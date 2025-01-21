@@ -1,5 +1,5 @@
-import * as S from "./Logo.style";
 import { useRouter } from "next/navigation";
+import * as S from "./Logo.style";
 
 export default function Logo({ $isFooter = false }: S.ILogo) {
   const router = useRouter();

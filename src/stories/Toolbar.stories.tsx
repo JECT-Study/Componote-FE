@@ -28,21 +28,13 @@ type Story = StoryObj<typeof meta>;
 
 export const ComponentToolbar: Story = {
   args: {
-    children: (
-      <>
-        <ChipList />
-      </>
-    ),
+    children: <ChipList />,
   },
 };
 
 export const DesignSystemToolbar: Story = {
   args: {
-    children: (
-      <>
-        <ButtonList />
-      </>
-    ),
+    children: <ButtonList />,
   },
 };
 

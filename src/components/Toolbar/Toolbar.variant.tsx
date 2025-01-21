@@ -1,10 +1,8 @@
-"use client";
-
 import { useState } from "react";
 import styled from "styled-components";
 import { Chip, Button, ChipGroup } from "@/components";
-import { ButtonStyle } from "../Button/Button.types";
 import arrowDown from "@/assets/icons/arrow-down.svg";
+import { ButtonStyle } from "../Button/Button.types";
 
 export function ChipList() {
   const [selectedChip, setSelectedChip] = useState<number[]>([]);
