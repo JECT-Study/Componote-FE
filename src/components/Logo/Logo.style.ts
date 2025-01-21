@@ -15,6 +15,8 @@ export const LogoContainer = styled.div`
   align-self: stretch;
 
   gap: ${DESIGN_SYSTEM.gap["4xs"]};
+
+  cursor: pointer;
 `;
 
 export const LogoIconImg = styled(LogoIcon)<ILogo>`
