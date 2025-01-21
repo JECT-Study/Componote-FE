@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import LogoText from "@/assets/logo/logo.svg";
