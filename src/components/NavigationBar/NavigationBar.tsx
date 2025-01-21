@@ -21,8 +21,11 @@ export default function NavigationBar({
           <Logo />
           <S.NavItemContainer>
             <NavItem href="/component" text={NAVBAR_ITEM_TEXT.component} />
-            <NavItem href="/component" text={NAVBAR_ITEM_TEXT.designSystem} />
-            <NavItem href="/component" text={NAVBAR_ITEM_TEXT.serviceInfo} />
+            <NavItem
+              href="/designsystem"
+              text={NAVBAR_ITEM_TEXT.designSystem}
+            />
+            <NavItem href="/announce" text={NAVBAR_ITEM_TEXT.serviceInfo} />
           </S.NavItemContainer>
         </S.LeftItemContainer>
         <S.RightItemContainer>

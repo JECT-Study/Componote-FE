@@ -9,15 +9,6 @@ export interface IDefaultBanner {
 }
 
 /**
- * Banner variant @onboarding에 필요한 props입니다
- */
-export interface IOnboardingBanner {
-  subTitleText: TPropsText;
-  titleText: TPropsText;
-  descriptionText: TPropsText;
-}
-
-/**
  * Banner variant @document에 필요한 props입니다
  */
 export interface IDocumentBanner {

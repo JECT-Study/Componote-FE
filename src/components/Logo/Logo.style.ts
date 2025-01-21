@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import LogoText from "@/assets/logo/logo.svg";
@@ -15,6 +13,8 @@ export const LogoContainer = styled.div`
   align-self: stretch;
 
   gap: ${DESIGN_SYSTEM.gap["4xs"]};
+
+  cursor: pointer;
 `;
 
 export const LogoIconImg = styled(LogoIcon)<ILogo>`

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button, ButtonList, ChipList, Tab } from "@/components";
-import { ButtonStyle } from "../Button/Button.types";
-import * as S from "./Toolbar.style";
 import resetIcon from "@/assets/icons/reset-left-line.svg";
 import arrowDown from "@/assets/icons/arrow-down.svg";
+import * as S from "./Toolbar.style";
+import { ButtonStyle } from "../Button/Button.types";
 
 interface IToolbar {
   children?: React.ReactNode;
@@ -17,7 +17,7 @@ export default function Toolbar({ children }: IToolbar) {
   };
 
   const renderToolList = () => {
-    if (children) return <>{children}</>;
+    if (children) return children;
     return selectedTabIndex === 0 ? <ChipList /> : <ButtonList />;
   };
 

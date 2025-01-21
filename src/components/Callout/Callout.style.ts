@@ -19,6 +19,8 @@ export const CalloutContainer = styled.div<ICalloutStyle>`
     `${DESIGN_SYSTEM.stroke.normal} solid ${theme.light["border-trans-normal"]}`};
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme }) => theme.light["surface-raised"]};
+
+  cursor: pointer;
 `;
 
 export const CalloutTitleContainer = styled.div`

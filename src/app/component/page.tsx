@@ -22,7 +22,9 @@ export default function Component() {
         titleText={BANNER_TEXT.component.titleText}
         descriptionText={BANNER_TEXT.component.descriptionText}
       />
-      <Toolbar children={<ChipList />} />
+      <Toolbar>
+        <ChipList />
+      </Toolbar>
       <CardContainer>
         <ComponentCard
           componentName="컴포넌트 명"

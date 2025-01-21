@@ -1,19 +1,22 @@
-import { Footer, NavigationBar } from "@/components";
-import * as S from "./_components/Home.style";
-import HomeBanner from "./_components/HomeBanner";
+import {
+  Footer,
+  NavigationBar,
+  Layout,
+  OnboardingBanner,
+  ImageContainer,
+} from "@/components";
 
 export default function Home() {
   return (
-    <S.HomeWrapper>
+    <Layout>
       <NavigationBar
         $isSeparated={false}
         $isAuthorized={false}
         placeholderText="플레이스 홀더"
       />
-      <S.HomeViewport>
-        <HomeBanner />
-      </S.HomeViewport>
+      <OnboardingBanner />
+      <ImageContainer />
       <Footer />
-    </S.HomeWrapper>
+    </Layout>
   );
 }
