@@ -4,22 +4,21 @@ import { BANNER_TEXT } from "@/constants/messages";
 import * as S from "./Banner.onboarding.style";
 
 import { ButtonStyle } from "../Button/Button.types";
-import { IOnboardingBanner } from "./Banner.types";
 
-export default function OnboardingBanner({
-  subTitleText,
-  titleText,
-  descriptionText,
-}: IOnboardingBanner) {
+export default function OnboardingBanner() {
   return (
     <S.BannerContainer>
       <S.ContentContainer>
         <S.TopSection>
           <S.MainTitleBox>
-            <S.SubTitleText>{subTitleText}</S.SubTitleText>
-            <S.TitleText>{titleText}</S.TitleText>
+            <S.SubTitleText>
+              {BANNER_TEXT.onboarding.subTitleText}
+            </S.SubTitleText>
+            <S.TitleText>{BANNER_TEXT.onboarding.titleText}</S.TitleText>
           </S.MainTitleBox>
-          <S.DescriptionText>{descriptionText}</S.DescriptionText>
+          <S.DescriptionText>
+            {BANNER_TEXT.onboarding.descriptionText}
+          </S.DescriptionText>
           <Button
             text={BANNER_TEXT.onboarding.buttonText}
             $size="md"

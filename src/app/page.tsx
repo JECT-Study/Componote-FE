@@ -5,7 +5,6 @@ import {
   OnboardingBanner,
   ImageContainer,
 } from "@/components";
-import { BANNER_TEXT } from "@/constants/messages";
 
 export default function Home() {
   return (
@@ -15,11 +14,7 @@ export default function Home() {
         $isAuthorized={false}
         placeholderText="플레이스 홀더"
       />
-      <OnboardingBanner
-        titleText={BANNER_TEXT.onboarding.titleText}
-        subTitleText={BANNER_TEXT.onboarding.subTitleText}
-        descriptionText={BANNER_TEXT.onboarding.descriptionText}
-      />
+      <OnboardingBanner />
       <ImageContainer />
       <Footer />
     </Layout>
