@@ -35,7 +35,11 @@ module.exports = {
       rules: {
         "import/no-cycle": "off",
         "import/named": "off",
-        "import/no-extraneous-dependencies": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          { bundledDependencies: false },
+          { includeTypes: true },
+        ],
       },
     },
   ],
