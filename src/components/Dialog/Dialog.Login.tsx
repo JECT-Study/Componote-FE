@@ -1,5 +1,9 @@
 import { DIALOG_TEXT } from "@/constants/messages";
 import { useRouter } from "next/navigation";
+import {
+  useGithubAuthUrlQuery,
+  useGoogleAuthUrlQuery,
+} from "@/hooks/api/useAuthUrlQuery";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import Divider from "../Divider/Divider";
@@ -11,6 +15,21 @@ export default function DialogLogin({
 }: {
   router: ReturnType<typeof useRouter>;
 }) {
+  const { authUrl: googleUrl } = useGoogleAuthUrlQuery();
+  const { authUrl: githubUrl } = useGithubAuthUrlQuery();
+
+  const handleGoogleClick = () => {
+    if (googleUrl) {
+      router.replace(googleUrl.url);
+    }
+  };
+
+  const handleGithubClick = () => {
+    if (githubUrl) {
+      router.replace(githubUrl.url);
+    }
+  };
+
   return (
     <S.DialogLoginWrapper>
       <S.DialogLoginSection>
@@ -34,10 +53,12 @@ export default function DialogLogin({
           <SocialAuthButton
             variant="google"
             labelText={DIALOG_TEXT.login.socialGoogle}
+            onClick={handleGoogleClick}
           />
           <SocialAuthButton
             variant="github"
             labelText={DIALOG_TEXT.login.socialGitHub}
+            onClick={handleGithubClick}
           />
         </S.DialogLoginButtonContainer>
       </S.DialogLoginSection>
