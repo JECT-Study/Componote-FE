@@ -2,7 +2,9 @@ module.exports = {
   parser: "@typescript-eslint/parser", // TypeScript 구문을 파싱할 파서 설정
   parserOptions: {
     project: "./tsconfig.json", // TypeScript 프로젝트 설정 파일 경로
+    tsconfigRootDir: __dirname,
   },
+
   extends: [
     "airbnb",
     "airbnb-typescript",
@@ -32,6 +34,8 @@ module.exports = {
       ], // components 디렉토리의 파일에만 적용
       rules: {
         "import/no-cycle": "off",
+        "import/named": "off",
+        "import/no-extraneous-dependencies": "off",
       },
     },
   ],
