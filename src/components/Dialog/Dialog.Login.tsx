@@ -1,11 +1,16 @@
 import { DIALOG_TEXT } from "@/constants/messages";
+import { useRouter } from "next/navigation";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import Divider from "../Divider/Divider";
 import SocialAuthButton from "../SocialAuth/SocialAuthButton";
 import * as S from "./Dialog.Login.style";
 
-export default function DialogLogin() {
+export default function DialogLogin({
+  router,
+}: {
+  router: ReturnType<typeof useRouter>;
+}) {
   return (
     <S.DialogLoginWrapper>
       <S.DialogLoginSection>
@@ -18,6 +23,7 @@ export default function DialogLogin() {
               text={DIALOG_TEXT.close}
               $buttonStyle={ButtonStyle.EmptySecondary}
               $size="sm"
+              onClick={() => router.back()}
             />
           </S.DialogLoginTitleContainer>
           <S.DialogLoginBodyText>
