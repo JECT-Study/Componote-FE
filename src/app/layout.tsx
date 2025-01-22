@@ -13,14 +13,16 @@ const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="ko" className={pretendard.className}>
       <title>{metadata.title as string}</title>
       <body>
-        <ClientComponentContainer>{children}</ClientComponentContainer>
+        <ClientComponentContainer>{children}{modal}</ClientComponentContainer>
       </body>
     </html>
   );
