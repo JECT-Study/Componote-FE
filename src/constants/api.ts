@@ -1,4 +1,4 @@
-export const END_POINT = {
+const END_POINT = {
   /* user end point */
   login: "/auth/login",
   signup: "/auth/signup",
@@ -57,3 +57,5 @@ export const END_POINT = {
   imageUpload: "/images/upload",
   imageMove: "/move",
 };
+
+export default END_POINT;
