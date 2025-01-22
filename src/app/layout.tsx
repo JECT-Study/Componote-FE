@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import ClientComponentContainer from "@/styles/ClientComponentContainer";
+import ReactQueryProviders from "@/hooks/useReactQuery";
 
 const pretendard = localFont({
   src: "./font/PretendardVariable.woff2",
@@ -13,7 +14,7 @@ const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal
+  modal,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
@@ -22,7 +23,12 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.className}>
       <title>{metadata.title as string}</title>
       <body>
-        <ClientComponentContainer>{children}{modal}</ClientComponentContainer>
+        <ReactQueryProviders>
+          <ClientComponentContainer>
+            {children}
+            {modal}
+          </ClientComponentContainer>
+        </ReactQueryProviders>
       </body>
     </html>
   );
