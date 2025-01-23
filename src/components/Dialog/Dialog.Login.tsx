@@ -22,15 +22,11 @@ export default function DialogLogin({
   // const { authUrl: naverUrl } = useNaverAuthUrlQuery();
 
   const handleGoogleClick = () => {
-    if (googleUrl) {
-      router.replace(googleUrl.url);
-    }
+    if (googleUrl) router.replace(googleUrl.url);
   };
 
   const handleGithubClick = () => {
-    if (githubUrl) {
-      router.replace(githubUrl.url);
-    }
+    if (githubUrl) router.replace(githubUrl.url);
   };
 
   // test를 위한 임시 코드입니다.
