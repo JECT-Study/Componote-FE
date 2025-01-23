@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import {
   useGithubAuthUrlQuery,
   useGoogleAuthUrlQuery,
+  // useNaverAuthUrlQuery,
 } from "@/hooks/api/useAuthUrlQuery";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
@@ -17,6 +18,8 @@ export default function DialogLogin({
 }) {
   const { authUrl: googleUrl } = useGoogleAuthUrlQuery();
   const { authUrl: githubUrl } = useGithubAuthUrlQuery();
+  // test를 위한 임시 코드입니다.
+  // const { authUrl: naverUrl } = useNaverAuthUrlQuery();
 
   const handleGoogleClick = () => {
     if (googleUrl) {
@@ -29,6 +32,13 @@ export default function DialogLogin({
       router.replace(githubUrl.url);
     }
   };
+
+  // test를 위한 임시 코드입니다.
+  // const handleNaverClick = () => {
+  //   if (naverUrl) {
+  //     router.replace(naverUrl.url);
+  //   }
+  // };
 
   return (
     <S.DialogLoginWrapper>
@@ -60,6 +70,12 @@ export default function DialogLogin({
             labelText={DIALOG_TEXT.login.socialGitHub}
             onClick={handleGithubClick}
           />
+          {/* 테스트를 위한 임시 코드입니다. */}
+          {/* <SocialAuthButton
+            variant="github"
+            labelText="네이버로 로그인(임시)"
+            onClick={handleNaverClick}
+          /> */}
         </S.DialogLoginButtonContainer>
       </S.DialogLoginSection>
       <Divider $layout="horizontal" $stroke="normal" />
