@@ -1,11 +1,41 @@
 import { DIALOG_TEXT } from "@/constants/messages";
+import { useRouter } from "next/navigation";
+import {
+  useGithubAuthUrlQuery,
+  useGoogleAuthUrlQuery,
+  // useNaverAuthUrlQuery,
+} from "@/hooks/api/useAuthUrlQuery";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import Divider from "../Divider/Divider";
 import SocialAuthButton from "../SocialAuth/SocialAuthButton";
 import * as S from "./Dialog.Login.style";
 
-export default function DialogLogin() {
+export default function DialogLogin({
+  router,
+}: {
+  router: ReturnType<typeof useRouter>;
+}) {
+  const { authUrl: googleUrl } = useGoogleAuthUrlQuery();
+  const { authUrl: githubUrl } = useGithubAuthUrlQuery();
+  // test를 위한 임시 코드입니다.
+  // const { authUrl: naverUrl } = useNaverAuthUrlQuery();
+
+  const handleGoogleClick = () => {
+    if (googleUrl) router.replace(googleUrl.url);
+  };
+
+  const handleGithubClick = () => {
+    if (githubUrl) router.replace(githubUrl.url);
+  };
+
+  // test를 위한 임시 코드입니다.
+  // const handleNaverClick = () => {
+  //   if (naverUrl) {
+  //     router.replace(naverUrl.url);
+  //   }
+  // };
+
   return (
     <S.DialogLoginWrapper>
       <S.DialogLoginSection>
@@ -18,6 +48,7 @@ export default function DialogLogin() {
               text={DIALOG_TEXT.close}
               $buttonStyle={ButtonStyle.EmptySecondary}
               $size="sm"
+              onClick={() => router.back()}
             />
           </S.DialogLoginTitleContainer>
           <S.DialogLoginBodyText>
@@ -28,11 +59,19 @@ export default function DialogLogin() {
           <SocialAuthButton
             variant="google"
             labelText={DIALOG_TEXT.login.socialGoogle}
+            onClick={handleGoogleClick}
           />
           <SocialAuthButton
             variant="github"
             labelText={DIALOG_TEXT.login.socialGitHub}
+            onClick={handleGithubClick}
           />
+          {/* 테스트를 위한 임시 코드입니다. */}
+          {/* <SocialAuthButton
+            variant="github"
+            labelText="네이버로 로그인(임시)"
+            onClick={handleNaverClick}
+          /> */}
         </S.DialogLoginButtonContainer>
       </S.DialogLoginSection>
       <Divider $layout="horizontal" $stroke="normal" />

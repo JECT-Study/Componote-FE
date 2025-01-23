@@ -3,7 +3,7 @@
 import { Dialog } from "@/components";
 import { useRouter } from "next/navigation";
 
-export default function Login() {
+export default function LoginModal() {
   const router = useRouter();
 
   return (

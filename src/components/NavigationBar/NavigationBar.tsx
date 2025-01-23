@@ -2,6 +2,7 @@ import { Logo, Button, NavItem, Avatar, InputField } from "@/components";
 import sunIcon from "@/assets/icons/sun-line.svg";
 import searchIcon from "@/assets/icons/search-line.svg";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
+import { useRouter } from "next/navigation";
 import * as S from "./NavigationBar.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IInputField, INavigation } from "./NavigationBar.types";
@@ -11,6 +12,8 @@ export default function NavigationBar({
   $isSeparated,
   $isAuthorized,
 }: INavigation & IInputField) {
+  const router = useRouter();
+
   return (
     <S.NavigationBarContainer
       $isAuthorized={$isAuthorized}
@@ -49,6 +52,7 @@ export default function NavigationBar({
                 $size="sm"
                 $buttonType="button"
                 $buttonStyle={ButtonStyle.SolidPrimary}
+                onClick={() => router.push("/login")}
               />
             </S.NavItemBox>
           )}
