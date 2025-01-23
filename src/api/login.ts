@@ -8,16 +8,16 @@ export const getSocialAuthUrl = async (provider: string) => {
   return response;
 };
 
-export const getSocialLogin = async (provider: string, code: string) => {
-  const response = await axiosInstance.get(
-    END_POINT.socialLogin(provider, code)
-  );
+export const getSocialLogin = async (provider: string, code: string | null) => {
+  const response = await axiosInstance.get(END_POINT.socialLogin(provider), {
+    params: { code },
+  });
   return response;
 };
 
 export const postLogin = async (socialAccountId: number) => {
   const response = await axiosInstance.post(END_POINT.login, {
-    data: socialAccountId,
+    socialAccountId,
   });
   return response;
 };
