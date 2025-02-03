@@ -34,3 +34,4 @@ export { default as Dialog } from "./Dialog/Dialog";
 export { default as Layout } from "./Layout/Layout";
 export { default as CardContainer } from "./Pages/Component/CardContainer";
 export { default as ImageContainer } from "./Pages/Onboarding/ImageContainer";
+export { default as EmptyState } from "./EmptyState/EmptyState";
