@@ -36,3 +36,4 @@ export { default as CardContainer } from "./Pages/Component/CardContainer";
 export { default as ImageContainer } from "./Pages/Onboarding/ImageContainer";
 export { default as EmptyState } from "./EmptyState/EmptyState";
 export { default as Pagination } from "./Pagination/Pagination";
+export { default as Accordion } from "./Accordion/Accordion";
