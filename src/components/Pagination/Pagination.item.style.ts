@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { IPaginationItemComponent } from "./Pagination.types";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import { IPaginationItemComponent } from "./Pagination.types";
 
 export const PaginationItemContainer = styled.div<IPaginationItemComponent>`
   display: inline-flex;
@@ -19,8 +19,6 @@ export const PaginationItemContainer = styled.div<IPaginationItemComponent>`
 
   border-radius: ${DESIGN_SYSTEM.radius["2xs"]};
 
-  color: ${({ theme }) => theme.light["object-subtle"]};
-
   ${({ theme, $isActivated }) => {
     if ($isActivated) {
       return css`
@@ -28,6 +26,10 @@ export const PaginationItemContainer = styled.div<IPaginationItemComponent>`
         background: ${theme.light["accent-subtler"]};
       `;
     }
+
+    return css`
+      color: ${theme.light["object-subtle"]};
+    `;
   }}
 `;
 
