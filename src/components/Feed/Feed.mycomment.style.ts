@@ -75,6 +75,8 @@ export const CommentTitleBox = styled.div`
 
 export const LeftBox = styled.div`
   display: flex;
+  align-items: center;
+
   gap: ${DESIGN_SYSTEM.gap.xs};
 `;
 
