@@ -15,6 +15,7 @@ export interface IContextMenuItem extends IContextMenuItemStyle {
   subLabelText?: string;
   captionText?: string;
   badgeLabelText?: string;
+  onClick?: () => void;
 }
 
 export interface IContextMenu {

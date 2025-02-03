@@ -8,7 +8,7 @@ import {
 } from "./ContextMenu.theme";
 import { IContextMenuItemStyle } from "./ContextMenu.types";
 
-export const ContextMenuItem = styled.div<IContextMenuItemStyle>`
+export const ContextMenuItem = styled.button<IContextMenuItemStyle>`
   position: relative;
 
   width: 100%;

@@ -14,9 +14,15 @@ export default function ContextMenuItem({
   subLabelText,
   captionText,
   badgeLabelText,
+  onClick,
 }: IContextMenuItem) {
   return (
-    <S.ContextMenuItem $variant={$variant} $size={$size}>
+    <S.ContextMenuItem
+      type="button"
+      $variant={$variant}
+      $size={$size}
+      onClick={onClick}
+    >
       {$variant === "checkbox" && (
         <S.ContextMenuCheckboxIcon $variant={$variant} $size={$size} />
       )}
