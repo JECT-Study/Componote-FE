@@ -68,7 +68,7 @@ export const CommentTitleBox = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
+  width: 46.25rem;
 
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
