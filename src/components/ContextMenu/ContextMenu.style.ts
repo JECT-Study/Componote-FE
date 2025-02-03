@@ -1,13 +1,14 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
+import { IContextMenuStyle } from "./ContextMenu.types";
 
-export const ContextMenu = styled.div`
+export const ContextMenu = styled.div<IContextMenuStyle>`
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, 5px);
 
-  width: 11.875rem;
+  width: ${({ $width }) => $width || "11.875rem"};
   max-height: 21rem;
 
   display: flex;

@@ -62,7 +62,7 @@ export default function Toolbar({ children, contextMenuItemLabels }: IToolbar) {
             onClick={() => setIsContextMenuOpen(!isContextMenuOpen)}
           />
           {isContextMenuOpen && (
-            <ContextMenu>
+            <ContextMenu $width="160px">
               {contextMenuItemLabels?.map((label) => (
                 <ContextMenu.Item
                   key={label}

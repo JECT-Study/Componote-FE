@@ -18,6 +18,10 @@ export interface IContextMenuItem extends IContextMenuItemStyle {
   onClick?: () => void;
 }
 
+export interface IContextMenuStyle {
+  $width?: string;
+}
+
 export interface IContextMenu {
   children: React.ReactNode;
 }
