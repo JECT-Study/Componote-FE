@@ -19,6 +19,7 @@ module.exports = {
     "@typescript-eslint", // TypeScript 관련 ESLint 플러그인
   ],
   rules: {
+    "import/no-extraneous-dependencies": "off",
     "react/require-default-props": [
       "warn",
       {
@@ -36,7 +37,6 @@ module.exports = {
       rules: {
         "import/no-cycle": "off",
         "import/named": "off",
-        "import/no-extraneous-dependencies": "off",
       },
     },
   ],
