@@ -9,12 +9,17 @@ import { ButtonStyle } from "../Button/Button.types";
 interface IToolbar {
   children?: React.ReactNode;
   contextMenuItemLabels?: string[];
+  defaultItem?: string;
 }
 
-export default function Toolbar({ children, contextMenuItemLabels }: IToolbar) {
+export default function Toolbar({
+  children,
+  contextMenuItemLabels,
+  defaultItem,
+}: IToolbar) {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("");
+  const [isContextMenuOpen, setIsContextMenuOpen] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<string>(defaultItem || "");
 
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
@@ -54,7 +59,7 @@ export default function Toolbar({ children, contextMenuItemLabels }: IToolbar) {
         </S.ToolBox>
         <S.ButtonBox>
           <Button
-            text="이름 순으로 정렬"
+            text={selectedItem}
             $size="xs"
             $buttonType="button"
             $rightIcon={arrowDown}
