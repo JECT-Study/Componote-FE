@@ -14,6 +14,7 @@ interface IToolbar {
 export default function Toolbar({ children, contextMenuItemLabels }: IToolbar) {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("");
 
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
@@ -66,9 +67,10 @@ export default function Toolbar({ children, contextMenuItemLabels }: IToolbar) {
                 <ContextMenu.Item
                   key={label}
                   labelText={label}
-                  $variant="rightIcon"
-                  icon={checkLineIcon}
+                  $variant={selectedItem === label ? "rightIcon" : "labelOnly"}
+                  icon={selectedItem === label ? checkLineIcon : null}
                   $size="sm"
+                  onClick={() => setSelectedItem(label)}
                 />
               ))}
             </ContextMenu>
