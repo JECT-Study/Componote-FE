@@ -10,6 +10,7 @@ export interface IContextMenuItemStyle {
 }
 
 export interface IContextMenuItem extends IContextMenuItemStyle {
+  icon?: React.ElementType;
   labelText: string;
   subLabelText?: string;
   captionText?: string;
