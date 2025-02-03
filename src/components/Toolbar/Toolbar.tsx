@@ -30,6 +30,11 @@ export default function Toolbar({
     return selectedTabIndex === 0 ? <ChipList /> : <ButtonList />;
   };
 
+  const handleContextMenuSelect = (label: string) => {
+    setSelectedItem(label);
+    setIsContextMenuOpen(false);
+  };
+
   return (
     <S.ToolbarContainer>
       {!children && (
@@ -75,7 +80,7 @@ export default function Toolbar({
                   $variant={selectedItem === label ? "rightIcon" : "labelOnly"}
                   icon={selectedItem === label ? checkLineIcon : null}
                   $size="sm"
-                  onClick={() => setSelectedItem(label)}
+                  onClick={() => handleContextMenuSelect(label)}
                 />
               ))}
             </ContextMenu>
