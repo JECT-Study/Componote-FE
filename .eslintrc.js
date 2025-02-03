@@ -1,10 +1,9 @@
-import babelParser from "@babel/eslint-parser";
-
 module.exports = {
-  parser: babelParser, // TypeScript 구문을 파싱할 파서 설정
+  parser: "@typescript-eslint/parser", // 파서를 TypeScript 파서로 설정
   parserOptions: {
-    project: "./tsconfig.json", // TypeScript 프로젝트 설정 파일 경로
-    tsconfigRootDir: __dirname,
+    project: "./tsconfig.json", // tsconfig 파일 경로 설정
+    tsconfigRootDir: __dirname, // tsconfig 루트 디렉토리 설정
+    sourceType: "module", // 모듈 형식 설정
   },
 
   extends: [
