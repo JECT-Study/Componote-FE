@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Button, ButtonList, ChipList, Tab } from "@/components";
+import { Button, ButtonList, ChipList, ContextMenu, Tab } from "@/components";
 import resetIcon from "@/assets/icons/reset-left-line.svg";
 import arrowDown from "@/assets/icons/arrow-down.svg";
+import checkLineIcon from "@/assets/icons/check-line.svg";
 import * as S from "./Toolbar.style";
 import { ButtonStyle } from "../Button/Button.types";
 
 interface IToolbar {
   children?: React.ReactNode;
+  contextMenuItemLabels?: string[];
 }
 
-export default function Toolbar({ children }: IToolbar) {
+export default function Toolbar({ children, contextMenuItemLabels }: IToolbar) {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
 
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
@@ -55,7 +58,21 @@ export default function Toolbar({ children }: IToolbar) {
             $buttonType="button"
             $rightIcon={arrowDown}
             $buttonStyle={ButtonStyle.OutlinedSecondary}
+            onClick={() => setIsContextMenuOpen(!isContextMenuOpen)}
           />
+          {isContextMenuOpen && (
+            <ContextMenu>
+              {contextMenuItemLabels?.map((label) => (
+                <ContextMenu.Item
+                  key={label}
+                  labelText={label}
+                  $variant="rightIcon"
+                  icon={checkLineIcon}
+                  $size="sm"
+                />
+              ))}
+            </ContextMenu>
+          )}
         </S.ButtonBox>
       </S.ToolContainer>
     </S.ToolbarContainer>
