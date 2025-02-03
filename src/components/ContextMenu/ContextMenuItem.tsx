@@ -9,18 +9,29 @@ export default function ContextMenuItem({
   $variant,
   $size,
   $feedback = "normal",
+  icon,
   labelText,
   subLabelText,
   captionText,
   badgeLabelText,
+  onClick,
 }: IContextMenuItem) {
   return (
-    <S.ContextMenuItem $variant={$variant} $size={$size}>
+    <S.ContextMenuItem
+      type="button"
+      $variant={$variant}
+      $size={$size}
+      onClick={onClick}
+    >
       {$variant === "checkbox" && (
         <S.ContextMenuCheckboxIcon $variant={$variant} $size={$size} />
       )}
-      {$variant === "leftIcon" && (
-        <S.ContextMenuBlankLine $variant={$variant} $size={$size} />
+      {$variant === "leftIcon" && icon && (
+        <S.ContextMenuIcon
+          IconComponent={icon}
+          $variant={$variant}
+          $size={$size}
+        />
       )}
       <S.ContextMenuItemSection>
         {$variant === "badge" ? (
@@ -69,8 +80,12 @@ export default function ContextMenuItem({
           </S.ContextMenuItemCaptionText>
         )}
       </S.ContextMenuItemSection>
-      {$variant === "rightIcon" && (
-        <S.ContextMenuBlankLine $variant={$variant} $size={$size} />
+      {$variant === "rightIcon" && icon && (
+        <S.ContextMenuIcon
+          IconComponent={icon}
+          $variant={$variant}
+          $size={$size}
+        />
       )}
       <InteractionContainer
         $variant={CONTEXT_MENU_ITEM_FEEDBACK_COLOR[$feedback].interaction}

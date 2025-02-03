@@ -1,16 +1,25 @@
 import { useState } from "react";
-import { Button, ButtonList, ChipList, Tab } from "@/components";
+import { Button, ButtonList, ChipList, ContextMenu, Tab } from "@/components";
 import resetIcon from "@/assets/icons/reset-left-line.svg";
 import arrowDown from "@/assets/icons/arrow-down.svg";
+import checkLineIcon from "@/assets/icons/check-line.svg";
 import * as S from "./Toolbar.style";
 import { ButtonStyle } from "../Button/Button.types";
 
 interface IToolbar {
   children?: React.ReactNode;
+  contextMenuItemLabels?: string[];
+  defaultItem?: string;
 }
 
-export default function Toolbar({ children }: IToolbar) {
+export default function Toolbar({
+  children,
+  contextMenuItemLabels,
+  defaultItem,
+}: IToolbar) {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [isContextMenuOpen, setIsContextMenuOpen] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<string>(defaultItem || "");
 
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
@@ -19,6 +28,11 @@ export default function Toolbar({ children }: IToolbar) {
   const renderToolList = () => {
     if (children) return children;
     return selectedTabIndex === 0 ? <ChipList /> : <ButtonList />;
+  };
+
+  const handleContextMenuSelect = (label: string) => {
+    setSelectedItem(label);
+    setIsContextMenuOpen(false);
   };
 
   return (
@@ -50,12 +64,27 @@ export default function Toolbar({ children }: IToolbar) {
         </S.ToolBox>
         <S.ButtonBox>
           <Button
-            text="이름 순으로 정렬"
+            text={selectedItem}
             $size="xs"
             $buttonType="button"
             $rightIcon={arrowDown}
             $buttonStyle={ButtonStyle.OutlinedSecondary}
+            onClick={() => setIsContextMenuOpen(!isContextMenuOpen)}
           />
+          {isContextMenuOpen && (
+            <ContextMenu $width="160px">
+              {contextMenuItemLabels?.map((label) => (
+                <ContextMenu.Item
+                  key={label}
+                  labelText={label}
+                  $variant={selectedItem === label ? "rightIcon" : "labelOnly"}
+                  icon={selectedItem === label ? checkLineIcon : null}
+                  $size="sm"
+                  onClick={() => handleContextMenuSelect(label)}
+                />
+              ))}
+            </ContextMenu>
+          )}
         </S.ButtonBox>
       </S.ToolContainer>
     </S.ToolbarContainer>
