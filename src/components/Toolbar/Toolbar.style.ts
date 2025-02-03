@@ -72,6 +72,8 @@ export const FilterIcon = styled(filterIcon)`
 `;
 
 export const ButtonBox = styled.div`
+  position: relative;
+
   display: flex;
   justify-content: flex-end;
   align-items: center;
