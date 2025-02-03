@@ -37,3 +37,5 @@ export { default as ImageContainer } from "./Pages/Onboarding/ImageContainer";
 export { default as EmptyState } from "./EmptyState/EmptyState";
 export { default as Pagination } from "./Pagination/Pagination";
 export { default as Accordion } from "./Accordion/Accordion";
+export { default as MyCommentFeed } from "./Feed/Feed.mycomment";
+export { default as NotificationFeed } from "./Feed/Feed.notification";
