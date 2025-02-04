@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const BannerContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+
+  width: 100%;
 
   gap: ${DESIGN_SYSTEM.gap["7xl"]};
   padding: ${DESIGN_SYSTEM.gap["7xl"]};
