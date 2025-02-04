@@ -9,6 +9,7 @@ function renderIcon(
   $buttonType: "button" | "iconButton",
   $buttonStyle: ButtonStyle,
   $size: keyof typeof BUTTON_SIZE_MAP,
+  $isDisabled: boolean,
 ) {
   if (!IconComponent) return null;
 
@@ -18,6 +19,7 @@ function renderIcon(
       $buttonStyle={$buttonStyle}
       $size={$size}
       IconComponent={IconComponent}
+      $isDisabled={$isDisabled}
     />
   );
 }
@@ -31,6 +33,7 @@ export default function Button({
   $buttonStyle,
   $buttonType = "button",
   $width,
+  $isDisabled = false,
 }: IButton) {
   return (
     <S.Button
@@ -39,17 +42,34 @@ export default function Button({
       $buttonStyle={$buttonStyle}
       $size={$size}
       $width={$width}
+      $isDisabled={$isDisabled}
     >
       <S.LabelContainer>
         {$buttonType === "iconButton" &&
-          renderIcon($leftIcon, $buttonType, $buttonStyle, $size)}
+          renderIcon($leftIcon, $buttonType, $buttonStyle, $size, $isDisabled)}
         {$buttonType === "button" && (
           <>
-            {renderIcon($leftIcon, $buttonType, $buttonStyle, $size)}
-            <S.LabelText $buttonStyle={$buttonStyle} $size={$size}>
+            {renderIcon(
+              $leftIcon,
+              $buttonType,
+              $buttonStyle,
+              $size,
+              $isDisabled,
+            )}
+            <S.LabelText
+              $isDisabled={$isDisabled}
+              $buttonStyle={$buttonStyle}
+              $size={$size}
+            >
               {text}
             </S.LabelText>
-            {renderIcon($rightIcon, $buttonType, $buttonStyle, $size)}
+            {renderIcon(
+              $rightIcon,
+              $buttonType,
+              $buttonStyle,
+              $size,
+              $isDisabled,
+            )}
           </>
         )}
       </S.LabelContainer>

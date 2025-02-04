@@ -5,10 +5,14 @@ import { BadgeLabelFeedback } from "../Badge/Badge.types";
 
 export const CONTEXT_MENU_ITEM_SIZE = {
   sm: {
+    paddingY: DESIGN_SYSTEM.gap["3xs"],
+    paddingX: DESIGN_SYSTEM.gap.xs,
     itemLabelText: DESIGN_SYSTEM.typography.label.xs,
     iconSize: DESIGN_SYSTEM.iconSize.xs,
   },
   md: {
+    paddingY: DESIGN_SYSTEM.gap.xs,
+    paddingX: DESIGN_SYSTEM.gap.md,
     itemLabelText: DESIGN_SYSTEM.typography.label.md,
     iconSize: DESIGN_SYSTEM.iconSize.md,
   },

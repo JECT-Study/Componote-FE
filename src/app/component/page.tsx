@@ -8,6 +8,7 @@ import {
   CardContainer,
   Footer,
 } from "@/components";
+import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { BANNER_TEXT } from "@/constants/messages";
 
 export default function Component() {
@@ -22,7 +23,10 @@ export default function Component() {
         titleText={BANNER_TEXT.component.titleText}
         descriptionText={BANNER_TEXT.component.descriptionText}
       />
-      <Toolbar>
+      <Toolbar
+        contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}
+        defaultItem={COMPONENT_CONTEXT_MENU_ITEM_LABELS[0]}
+      >
         <ChipList />
       </Toolbar>
       <CardContainer>

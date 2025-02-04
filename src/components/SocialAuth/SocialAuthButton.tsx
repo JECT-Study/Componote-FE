@@ -6,14 +6,16 @@ import { SocialAuthIcGithub, SocialAuthIcGoogle } from "./SocialAuthIcon.style";
 interface ISocialAuthButton {
   variant: "google" | "github";
   labelText: string;
+  onClick?: () => void;
 }
 
 export default function SocialAuthButton({
   variant,
   labelText,
+  onClick,
 }: ISocialAuthButton) {
   return (
-    <S.SocialAuthBtn>
+    <S.SocialAuthBtn onClick={onClick}>
       {variant === "google" ? <SocialAuthIcGoogle /> : <SocialAuthIcGithub />}
       <S.SocialAuthLabelText>{labelText}</S.SocialAuthLabelText>
       <InteractionContainer

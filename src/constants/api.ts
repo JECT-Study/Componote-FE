@@ -9,8 +9,7 @@ const END_POINT = {
   modifyEmail: "/members/email",
   authorizationUrl: (providerType: string) =>
     `/oauth/${providerType}/authorization-url`,
-  socialLogin: (providerType: string, code: string) =>
-    `/oauth/${providerType}/login?code=${code}`,
+  socialLogin: (providerType: string) => `/oauth/${providerType}/login`,
 
   /* comment end point */
   createComment: "/comments",
@@ -23,7 +22,7 @@ const END_POINT = {
     componentId: number,
     page: number,
     size: number,
-    sort: string,
+    sort: string
   ) =>
     `components/${componentId}/comments?page=${page}&size=${size}&sort=${sort}`,
   like: (commentId: number) => `/comment-likes/${commentId}`, // POST, DELETE
@@ -35,7 +34,7 @@ const END_POINT = {
     types: string,
     page: number,
     size: number,
-    sort: string,
+    sort: string
   ) =>
     `/components/search?keyword=${keyword}&types=${types}&page=${page}&size=${size}&sort=${sort}`,
 

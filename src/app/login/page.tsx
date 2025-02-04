@@ -1,3 +1,14 @@
+"use client";
+
+import { Dialog } from "@/components";
+import { useRouter } from "next/navigation";
+
 export default function Login() {
-  return <div>Login</div>;
+  const router = useRouter();
+
+  return (
+    <Dialog router={router}>
+      <Dialog.Login router={router} />
+    </Dialog>
+  );
 }
