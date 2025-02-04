@@ -1,8 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import SocialLoginProvider from "../type/socialLoginProvider.types";
 
 interface ISocialLoginType {
-  provider: "google" | "gitHub" | "naver";
+  provider: SocialLoginProvider | null;
   authCode: string;
 }
 
@@ -11,12 +12,15 @@ interface ISocialLoginState {
 }
 
 interface ISocialLoginActions {
-  setProvider: (provider: "google" | "gitHub" | "naver") => void;
+  setProvider: (provider: SocialLoginProvider) => void;
   setAuthCode: (authCode: string) => void;
   logout: () => void;
 }
 
-const defaultState: ISocialLoginType = { provider: "google", authCode: "" };
+const defaultState: ISocialLoginType = {
+  provider: null,
+  authCode: "",
+};
 
 // eslint-disable-next-line import/prefer-default-export
 export const useSocialLoginStore = create<
@@ -25,7 +29,7 @@ export const useSocialLoginStore = create<
   persist(
     (set) => ({
       socialLoginState: defaultState,
-      setProvider: (provider: "google" | "gitHub" | "naver") =>
+      setProvider: (provider: SocialLoginProvider) =>
         set((state) => ({
           socialLoginState: { ...state.socialLoginState, provider },
         })),

@@ -28,7 +28,7 @@ export default function Home() {
   }, [searchParams, setAuthCode]);
 
   const { socialLoginData } = useSocialLoginQuery(
-    socialLoginState.provider,
+    socialLoginState.provider || "",
     socialLoginState.authCode
   );
   const { mutate: login } = useLoginMutation();
