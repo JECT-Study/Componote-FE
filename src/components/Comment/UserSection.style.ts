@@ -65,3 +65,7 @@ export const BodyText = styled.span<IUserSectionComponent>`
 
   ${DESIGN_SYSTEM.typography.body["2xs"]};
 `;
+
+export const ButtonBox = styled.div`
+  position: relative;
+`;

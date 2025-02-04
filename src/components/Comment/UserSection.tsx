@@ -1,5 +1,6 @@
-import { Avatar, Button } from "@/components";
+import { Avatar, Button, ContextMenu } from "@/components";
 import moreIcon from "@/assets/icons/more-fill.svg";
+import { useState } from "react";
 import { ButtonStyle } from "../Button/Button.types";
 import * as S from "./UserSection.style";
 import { IUserSection } from "./Comment.types";
@@ -11,6 +12,9 @@ export default function UserSection({
   jobText,
   dateText,
 }: IUserSection) {
+  const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
+  const contextMenuItemLabels = ["수정하기", "신고하기", "삭제하기"];
+
   return (
     <S.UserSectionContainer>
       <S.MainContainer>
@@ -25,14 +29,30 @@ export default function UserSection({
           </S.BodyText>
         </S.UserInfoContainer>
       </S.MainContainer>
-      {$status === "filled" && (
-        <Button
-          $size="sm"
-          $buttonType="iconButton"
-          $leftIcon={moreIcon}
-          $buttonStyle={ButtonStyle.EmptyTertiary}
-        />
-      )}
+      <S.ButtonBox>
+        {$status === "filled" && (
+          <Button
+            $size="sm"
+            $buttonType="iconButton"
+            $leftIcon={moreIcon}
+            $buttonStyle={ButtonStyle.EmptyTertiary}
+            onClick={() => setIsContextMenuOpen((prev) => !prev)}
+          />
+        )}
+        {isContextMenuOpen && (
+          <ContextMenu $width="8.75rem">
+            {contextMenuItemLabels?.map((label) => (
+              <ContextMenu.Item
+                key={label}
+                labelText={label}
+                $variant="labelOnly"
+                $size="sm"
+                $feedback={label === "삭제하기" ? "negative" : "normal"}
+              />
+            ))}
+          </ContextMenu>
+        )}
+      </S.ButtonBox>
     </S.UserSectionContainer>
   );
 }
