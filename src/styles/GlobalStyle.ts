@@ -89,10 +89,6 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  textarea:not([rows]) {
-    min-height: 10em;
-  }
-
   :target {
     scroll-margin-block: 5ex;
   }

@@ -21,7 +21,11 @@ export const Button = styled.button<IButtonComponent>`
   border: ${DESIGN_SYSTEM.stroke.none};
   border-radius: ${DESIGN_SYSTEM.radius.xs};
 
-  ${({ $buttonStyle, theme }) => {
+  ${({ $buttonStyle, theme, $isDisabled }) => {
+    if ($isDisabled)
+      return css`
+        background: ${theme.light["object-disabled"]};
+      `;
     if (!$buttonStyle) return BUTTON_STYLES.solidBrand(theme);
     return BUTTON_STYLES[$buttonStyle](theme);
   }}
@@ -50,7 +54,12 @@ const BaseIconImg = styled(IconWrapper)<IButtonComponent>`
       : BUTTON_SIZE_MAP[props.$size].icBtnIcon};
 
   path {
-    ${({ $buttonStyle, theme }) => {
+    ${({ $buttonStyle, theme, $isDisabled }) => {
+      if ($isDisabled)
+        return css`
+          fill: ${theme.light["object-subtlest"]};
+        `;
+
       switch ($buttonStyle) {
         case "solidPrimary":
           return css`
@@ -99,6 +108,17 @@ export const LeftIconImg = styled(BaseIconImg)``;
 
 export const LabelText = styled.span<IButtonComponent>`
   text-align: center;
+
+  ${({ theme, $isDisabled }) => {
+    if ($isDisabled) {
+      return css`
+        color: ${theme.light["object-subtlest"]};
+      `;
+    }
+
+    return null;
+  }}
+
   ${(props) => BUTTON_SIZE_MAP[props.$size].typo};
 `;
 

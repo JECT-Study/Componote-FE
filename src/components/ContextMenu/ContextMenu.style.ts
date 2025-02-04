@@ -22,7 +22,7 @@ export const ContextMenu = styled.div<IContextMenuStyle>`
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme }) => theme.light["surface-floated"]};
 
-  ${DESIGN_SYSTEM.shadow.floated}
+  box-shadow: ${DESIGN_SYSTEM.shadow.floated};
 
   overflow: auto;
   ::-webkit-scrollbar {

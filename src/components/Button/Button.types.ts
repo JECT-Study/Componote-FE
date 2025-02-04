@@ -18,6 +18,7 @@ export interface IButtonComponent {
   $buttonStyle: ButtonStyle;
   $buttonType?: "button" | "iconButton";
   $width?: string;
+  $isDisabled?: boolean;
 }
 
 export interface IButton extends IButtonComponent {
