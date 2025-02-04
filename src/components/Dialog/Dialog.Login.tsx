@@ -5,6 +5,7 @@ import {
   useGoogleAuthUrlQuery,
   // useNaverAuthUrlQuery,
 } from "@/hooks/api/useAuthUrlQuery";
+import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import Divider from "../Divider/Divider";
@@ -20,18 +21,26 @@ export default function DialogLogin({
   const { authUrl: githubUrl } = useGithubAuthUrlQuery();
   // test를 위한 임시 코드입니다.
   // const { authUrl: naverUrl } = useNaverAuthUrlQuery();
+  const setProvider = useSocialLoginStore((state) => state.setProvider);
 
   const handleGoogleClick = () => {
-    if (googleUrl) router.replace(googleUrl.url);
+    if (googleUrl) {
+      setProvider("google");
+      router.replace(googleUrl.url);
+    }
   };
 
   const handleGithubClick = () => {
-    if (githubUrl) router.replace(githubUrl.url);
+    if (githubUrl) {
+      setProvider("gitHub");
+      router.replace(githubUrl.url);
+    }
   };
 
   // test를 위한 임시 코드입니다.
   // const handleNaverClick = () => {
   //   if (naverUrl) {
+  //     setProvider("naver");
   //     router.replace(naverUrl.url);
   //   }
   // };
