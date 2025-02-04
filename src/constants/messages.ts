@@ -107,5 +107,5 @@ export const SIGNIN_TEXT = {
 export const STAR_ICON = "*";
 
 export const BOOKMARK_PAGE_TEXT = {
-  emptyState: (type: string) => `아직 북마크한 ${type} 없어요`,
+  emptyState: (tabLabel: string) => `아직 북마크한 ${tabLabel} 없어요`,
 };
