@@ -7,6 +7,7 @@ export const EmptyStateContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  width: 100%;
   min-height: 15rem;
 
   gap: ${DESIGN_SYSTEM.gap["3xs"]};
