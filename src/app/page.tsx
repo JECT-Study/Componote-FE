@@ -9,7 +9,7 @@ import {
 } from "@/components";
 import { useLoginMutation } from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
-import { useCounterStore } from "@/hooks/counter-store-provider";
+import { useLetterStore } from "@/hooks/store/useLetterStore";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -18,9 +18,7 @@ export default function Home() {
   const searchParams = useSearchParams();
   const [code, setCode] = useState<string | null>(null);
   // 예시
-  const { count, incrementCount, decrementCount } = useCounterStore(
-    (state) => state
-  );
+  const { letters } = useLetterStore();
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
@@ -54,14 +52,12 @@ export default function Home() {
       />
       {/* 예시 */}
       <div>
-        Count: {count}
-        <hr />
-        <button type="button" onClick={() => incrementCount()}>
-          Increment Count
-        </button>
-        <button type="button" onClick={() => decrementCount()}>
-          Decrement Count
-        </button>
+        {letters.map((letter) => (
+          <div key={letter.id}>
+            <h2>{letter.title}</h2>
+            <p>{letter.content}</p>
+          </div>
+        ))}
       </div>
       <OnboardingBanner />
       <ImageContainer />
