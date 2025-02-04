@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import {
   useGithubAuthUrlQuery,
   useGoogleAuthUrlQuery,
-  // useNaverAuthUrlQuery,
+  useNaverAuthUrlQuery,
 } from "@/hooks/api/useAuthUrlQuery";
 import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
 import SocialLoginProvider from "@/hooks/type/socialLoginProvider.types";
@@ -21,7 +21,7 @@ export default function DialogLogin({
   const { authUrl: googleUrl } = useGoogleAuthUrlQuery();
   const { authUrl: githubUrl } = useGithubAuthUrlQuery();
   // test를 위한 임시 코드입니다.
-  // const { authUrl: naverUrl } = useNaverAuthUrlQuery();
+  const { authUrl: naverUrl } = useNaverAuthUrlQuery();
   const setProvider = useSocialLoginStore((state) => state.setProvider);
 
   const handleGoogleClick = () => {
@@ -39,12 +39,12 @@ export default function DialogLogin({
   };
 
   // test를 위한 임시 코드입니다.
-  // const handleNaverClick = () => {
-  //   if (naverUrl) {
-  //     setProvider(SocialLoginProvider.NAVER);
-  //     router.replace(naverUrl.url);
-  //   }
-  // };
+  const handleNaverClick = () => {
+    if (naverUrl) {
+      setProvider(SocialLoginProvider.NAVER);
+      router.replace(naverUrl.url);
+    }
+  };
 
   return (
     <S.DialogLoginWrapper>
@@ -77,11 +77,11 @@ export default function DialogLogin({
             onClick={handleGithubClick}
           />
           {/* 테스트를 위한 임시 코드입니다. */}
-          {/* <SocialAuthButton
+          <SocialAuthButton
             variant="github"
             labelText="네이버로 로그인(임시)"
             onClick={handleNaverClick}
-          /> */}
+          />
         </S.DialogLoginButtonContainer>
       </S.DialogLoginSection>
       <Divider $layout="horizontal" $stroke="normal" />
