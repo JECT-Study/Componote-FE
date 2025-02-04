@@ -9,14 +9,21 @@ import {
   EmptyState,
 } from "@/components";
 import { AnnouncTab, AnnounceContainer } from "@/components/Pages";
-import { BANNER_TEXT } from "@/constants/messages";
+import {
+  ANNOUNCE_PAGE_TEXT,
+  BANNER_TEXT,
+  NAVBAR_ITEM_TEXT,
+} from "@/constants/messages";
 
 export default function Announce() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   const getEmptyStateText = () => {
-    if (!selectedTabIndex) return "아직 공지사항이 없어요";
-    return "아직 자주 묻는 질문이 없어요";
+    if (!selectedTabIndex) {
+      return `${ANNOUNCE_PAGE_TEXT.emptyState("공지사항")}`;
+    }
+
+    return `${ANNOUNCE_PAGE_TEXT.emptyState("자주 묻는 질문")}`;
   };
 
   return (
@@ -24,7 +31,7 @@ export default function Announce() {
       <NavigationBar
         $isAuthorized
         $isSeparated
-        placeholderText="컴포넌트나 디자인 시스템을 검색해 보세요..."
+        placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
       <DefaultBanner
         titleText={BANNER_TEXT.announcement.titleText}

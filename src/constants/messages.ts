@@ -16,6 +16,7 @@ export const NAVBAR_ITEM_TEXT = {
   designSystem: "디자인 시스템",
   serviceInfo: "서비스 안내",
   login: "로그인",
+  inputPlaceholder: "컴포넌트나 디자인 시스템을 검색해 보세요...",
 };
 
 export const BANNER_TEXT = {
@@ -104,3 +105,7 @@ export const SIGNIN_TEXT = {
 };
 
 export const STAR_ICON = "*";
+
+export const ANNOUNCE_PAGE_TEXT = {
+  emptyState: (tabLabel: string) => `아직 ${tabLabel}이 없어요`,
+};
