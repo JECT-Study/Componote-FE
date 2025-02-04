@@ -7,11 +7,12 @@ import { IUserSection } from "./Comment.types";
 
 export default function UserSection({
   $src,
-  $status,
+  $state,
   nicknameText,
   jobText,
   dateText,
-}: IUserSection) {
+  onEdit,
+}: IUserSection & { onEdit: () => void }) {
   const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
   const contextMenuItemLabels = ["수정하기", "신고하기", "삭제하기"];
 
@@ -24,13 +25,13 @@ export default function UserSection({
             <S.UserNameText>{nicknameText}</S.UserNameText>
             <S.JobText>{jobText}</S.JobText>
           </S.UserInfoBox>
-          <S.BodyText $status={$status}>
-            {$status === "editing" ? "현재 수정 중" : dateText}
+          <S.BodyText $state={$state}>
+            {$state === "editing" ? "현재 수정 중" : dateText}
           </S.BodyText>
         </S.UserInfoContainer>
       </S.MainContainer>
       <S.ButtonBox>
-        {$status === "filled" && (
+        {$state === "filled" && (
           <Button
             $size="sm"
             $buttonType="iconButton"
@@ -39,19 +40,22 @@ export default function UserSection({
             onClick={() => setIsContextMenuOpen((prev) => !prev)}
           />
         )}
-        {isContextMenuOpen && (
-          <ContextMenu $width="8.75rem">
-            {contextMenuItemLabels?.map((label) => (
-              <ContextMenu.Item
-                key={label}
-                labelText={label}
-                $variant="labelOnly"
-                $size="sm"
-                $feedback={label === "삭제하기" ? "negative" : "normal"}
-              />
-            ))}
-          </ContextMenu>
-        )}
+        {$state === "filled"
+          ? isContextMenuOpen && (
+              <ContextMenu $width="8.75rem">
+                {contextMenuItemLabels.map((label) => (
+                  <ContextMenu.Item
+                    key={label}
+                    labelText={label}
+                    $variant="labelOnly"
+                    $size="sm"
+                    $feedback={label === "삭제하기" ? "negative" : "normal"}
+                    onClick={label === "수정하기" ? onEdit : undefined}
+                  />
+                ))}
+              </ContextMenu>
+            )
+          : null}
       </S.ButtonBox>
     </S.UserSectionContainer>
   );

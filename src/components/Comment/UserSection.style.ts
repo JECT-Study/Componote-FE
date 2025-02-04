@@ -51,8 +51,8 @@ export const JobText = styled.span`
 `;
 
 export const BodyText = styled.span<IUserSectionComponent>`
-  ${({ theme, $status }) => {
-    if ($status === "editing") {
+  ${({ theme, $state }) => {
+    if ($state === "editing") {
       return css`
         color: ${theme.light["feedback-information"]};
       `;

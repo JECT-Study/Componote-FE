@@ -8,7 +8,7 @@ export interface IUserSection extends IUserSectionComponent {
 
 /** user section component의 style에 사용되는 props type입니다. */
 export interface IUserSectionComponent {
-  $status: "filled" | "editing";
+  $state: "filled" | "editing";
 }
 
 export interface IComment extends ICommentComponent {
@@ -18,4 +18,14 @@ export interface IComment extends ICommentComponent {
 
 export interface ICommentComponent {
   $state?: "enabled" | "focus" | "disabled";
+}
+
+export interface IReplyComment extends IReplyCommentComponent {
+  $isIndented: boolean;
+  commentText: string;
+}
+
+export interface IReplyCommentComponent {
+  $commentImgSrc?: string;
+  $state?: IUserSectionComponent["$state"];
 }
