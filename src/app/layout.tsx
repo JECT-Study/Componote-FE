@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 import ClientComponentContainer from "@/styles/ClientComponentContainer";
 import ReactQueryProviders from "@/hooks/useReactQuery";
+import { CounterStoreProvider } from "@/hooks/counter-store-provider";
 
 const pretendard = localFont({
   src: "./font/PretendardVariable.woff2",
@@ -25,8 +26,10 @@ export default function RootLayout({
       <body>
         <ReactQueryProviders>
           <ClientComponentContainer>
-            {children}
-            {modal}
+            <CounterStoreProvider>
+              {children}
+              {modal}
+            </CounterStoreProvider>
           </ClientComponentContainer>
         </ReactQueryProviders>
       </body>

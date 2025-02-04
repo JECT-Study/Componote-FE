@@ -9,6 +9,7 @@ import {
 } from "@/components";
 import { useLoginMutation } from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
+import { useCounterStore } from "@/hooks/counter-store-provider";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -16,6 +17,10 @@ export default function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [code, setCode] = useState<string | null>(null);
+  // 예시
+  const { count, incrementCount, decrementCount } = useCounterStore(
+    (state) => state
+  );
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
@@ -47,6 +52,17 @@ export default function Home() {
         $isAuthorized={false}
         placeholderText="플레이스 홀더"
       />
+      {/* 예시 */}
+      <div>
+        Count: {count}
+        <hr />
+        <button type="button" onClick={() => incrementCount()}>
+          Increment Count
+        </button>
+        <button type="button" onClick={() => decrementCount()}>
+          Decrement Count
+        </button>
+      </div>
       <OnboardingBanner />
       <ImageContainer />
       <Footer />
