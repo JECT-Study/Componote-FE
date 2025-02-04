@@ -1,0 +1,4 @@
+"use client";
+
+export { default as AnnouncTab } from "./Announce/AnnounceTab";
+export { default as AnnounceContainer } from "./Announce/AnnounceContainer";
