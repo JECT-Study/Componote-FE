@@ -24,8 +24,8 @@ export const ToolbarContainer = styled.div`
 export const TabContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  align-self: stretch;
 
+  width: 100%;
   max-width: 60rem;
 
   gap: ${DESIGN_SYSTEM.gap.none};
