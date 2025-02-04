@@ -10,3 +10,12 @@ export interface IUserSection extends IUserSectionComponent {
 export interface IUserSectionComponent {
   $status: "filled" | "editing";
 }
+
+export interface IComment extends ICommentComponent {
+  $src?: string;
+  $isDisabled: boolean;
+}
+
+export interface ICommentComponent {
+  $state?: "enabled" | "focus" | "disabled";
+}

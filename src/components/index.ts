@@ -39,3 +39,4 @@ export { default as Pagination } from "./Pagination/Pagination";
 export { default as Accordion } from "./Accordion/Accordion";
 export { default as MyCommentFeed } from "./Feed/Feed.mycomment";
 export { default as NotificationFeed } from "./Feed/Feed.notification";
+export { default as Comment } from "./Comment/Comment";
