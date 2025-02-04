@@ -9,8 +9,10 @@ import {
 } from "@/components";
 import { useLoginMutation } from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
+import { useUserInfoQuery } from "@/hooks/api/useUserInfoQuery";
 import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
@@ -19,7 +21,9 @@ export default function Home() {
   const searchParams = useSearchParams();
 
   const { socialLoginState, setAuthCode } = useSocialLoginStore();
-  const { accessToken, setAccessToken } = useTokenStore();
+  const { accessToken, memberId, setAccessToken, setMemberId } =
+    useTokenStore();
+  const { userInfo, setUserInfo } = useUserInfoStore();
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
@@ -51,8 +55,17 @@ export default function Home() {
   useEffect(() => {
     if (loginData) {
       setAccessToken(loginData.accessToken);
+      setMemberId(loginData.memberId);
     }
-  }, [accessToken, loginData, setAccessToken]);
+  }, [accessToken, loginData, setAccessToken, setMemberId]);
+
+  const { userInfoData } = useUserInfoQuery(accessToken, memberId);
+
+  useEffect(() => {
+    if (userInfoData) {
+      setUserInfo(userInfoData);
+    }
+  }, [userInfoData, setUserInfo]);
 
   return (
     <Layout>
