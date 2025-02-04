@@ -9,39 +9,63 @@ import {
 } from "@/components";
 import { useLoginMutation } from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
-import { useLetterStore } from "@/hooks/store/useLetterStore";
+import { useUserInfoQuery } from "@/hooks/api/useUserInfoQuery";
+import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
+import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [code, setCode] = useState<string | null>(null);
-  // 예시
-  const { letters } = useLetterStore();
+
+  const { socialLoginState, setAuthCode } = useSocialLoginStore();
+  const { accessToken, memberId, setAccessToken, setMemberId } =
+    useTokenStore();
+  const { userInfo, setUserInfo } = useUserInfoStore();
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
     const codeParam = searchParams.get("code");
     if (codeParam) {
-      setCode(codeParam);
+      setAuthCode(codeParam);
     }
-  }, [searchParams]);
+  }, [searchParams, setAuthCode]);
 
-  // TODO : 소셜 로그인 어떤 소셜인지 넣어주기! (현재 임시로 naver)
-  const { socialLoginData } = useSocialLoginQuery("naver", code);
-  const { mutate: login } = useLoginMutation();
+  const { socialLoginData } = useSocialLoginQuery(
+    socialLoginState.provider || "",
+    socialLoginState.authCode
+  );
+  const { mutate: login, data: loginData } = useLoginMutation();
 
   useEffect(() => {
-    if (!code) return;
+    if (!socialLoginState.authCode) return;
     if (!socialLoginData) return;
+
     if (!socialLoginData.isRegister) {
       router.push("/login/signin");
       return;
     }
+
     login({ socialAccountId: socialLoginData.socialAccountId });
     router.push("/");
-  }, [code, socialLoginData, login, router]);
+  }, [socialLoginState.authCode, socialLoginData, login, router]);
+
+  useEffect(() => {
+    if (loginData) {
+      setAccessToken(loginData.accessToken);
+      setMemberId(loginData.memberId);
+    }
+  }, [accessToken, loginData, setAccessToken, setMemberId]);
+
+  const { userInfoData } = useUserInfoQuery(accessToken, memberId);
+
+  useEffect(() => {
+    if (userInfoData) {
+      setUserInfo(userInfoData);
+    }
+  }, [userInfoData, setUserInfo]);
 
   return (
     <Layout>
@@ -50,15 +74,6 @@ export default function Home() {
         $isAuthorized={false}
         placeholderText="플레이스 홀더"
       />
-      {/* 예시 */}
-      <div>
-        {letters.map((letter) => (
-          <div key={letter.id}>
-            <h2>{letter.title}</h2>
-            <p>{letter.content}</p>
-          </div>
-        ))}
-      </div>
       <OnboardingBanner />
       <ImageContainer />
       <Footer />
