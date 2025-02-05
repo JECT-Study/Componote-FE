@@ -56,6 +56,8 @@ export const Default: Story = {
     $isNegative: false,
     $labelVisible: true,
     $helperVisible: true,
+    value: "",
+    onChange: () => {},
   },
 };
 
