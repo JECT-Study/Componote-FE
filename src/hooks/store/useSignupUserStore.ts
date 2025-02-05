@@ -1,8 +1,11 @@
 import SignupJobs from "@/types/enum/signupJobs";
-import { ISignupUser } from "@/types/user";
 import { create } from "zustand";
 
-interface ISignupUserState extends ISignupUser {}
+interface ISignupUserState {
+  nickname: string;
+  job: SignupJobs;
+  socialAccountId: number;
+}
 
 interface ISignupUserActions {
   setNickname: (nickName: string) => void;

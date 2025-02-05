@@ -8,6 +8,6 @@ export interface IMemberSummary {
 
 export interface ISignupUser {
   nickname: string;
-  job: SignupJobs;
+  job: keyof typeof SignupJobs;
   socialAccountId: number;
 }
