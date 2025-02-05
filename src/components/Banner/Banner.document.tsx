@@ -7,6 +7,7 @@ import { IDocumentBanner } from "./Banner.types";
 import { ButtonStyle } from "../Button/Button.types";
 
 export default function DocumentBanner({
+  $src,
   titleText,
   componentListText,
   bodyText,
@@ -39,7 +40,7 @@ export default function DocumentBanner({
             />
           </S.ButtonContainer>
         </S.TitleSection>
-        <S.ImageBox />
+        <S.ImageBox $src={$src} />
       </S.ContentContainer>
     </S.BannerContainer>
   );

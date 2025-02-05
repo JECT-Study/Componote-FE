@@ -11,10 +11,14 @@ export interface IDefaultBanner {
 /**
  * Banner variant @document에 필요한 props입니다
  */
-export interface IDocumentBanner {
+export interface IDocumentBanner extends IDocumentBannerComponent {
   titleText: TPropsText;
   componentListText: TPropsText;
   bodyText: TPropsText;
+}
+
+export interface IDocumentBannerComponent {
+  $src?: string;
 }
 
 /**
