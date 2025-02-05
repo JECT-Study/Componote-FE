@@ -54,13 +54,16 @@ export default function MainContent() {
     memberId,
   ]);
 
-  const { userInfoData } = useUserInfoQuery(accessToken || "", memberId);
+  const { data: userInfoData, isSuccess } = useUserInfoQuery(
+    accessToken || "",
+    memberId
+  );
 
   useEffect(() => {
-    if (userInfoData) {
+    if (isSuccess) {
       setUserInfo(userInfoData);
     }
-  }, [userInfoData, setUserInfo]);
+  }, [userInfoData, setUserInfo, isSuccess]);
 
   return (
     <>
