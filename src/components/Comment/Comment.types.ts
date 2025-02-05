@@ -27,5 +27,5 @@ export interface IReplyComment extends IReplyCommentComponent {
 
 export interface IReplyCommentComponent {
   $commentImgSrc?: string;
-  $state?: IUserSectionComponent["$state"];
+  $state?: "filled" | "editing";
 }
