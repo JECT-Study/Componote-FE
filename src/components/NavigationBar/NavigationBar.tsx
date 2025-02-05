@@ -3,6 +3,7 @@ import sunIcon from "@/assets/icons/sun-line.svg";
 import searchIcon from "@/assets/icons/search-line.svg";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import * as S from "./NavigationBar.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IInputField, INavigation } from "./NavigationBar.types";
@@ -13,6 +14,7 @@ export default function NavigationBar({
   $isAuthorized,
 }: INavigation & IInputField) {
   const router = useRouter();
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <S.NavigationBarContainer
@@ -38,6 +40,8 @@ export default function NavigationBar({
             $icon={searchIcon}
             $labelVisible={false}
             $helperVisible={false}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
           {$isAuthorized ? (
             <S.NavItemBox>
