@@ -4,7 +4,7 @@ import { CALLOUT_SIZE } from "./Callout.theme";
 import { ICalloutStyle } from "./Callout.types";
 
 export const CalloutContainer = styled.div<ICalloutStyle>`
-  width: 30rem;
+  width: 100%;
   max-width: 70rem;
 
   display: flex;
@@ -25,8 +25,9 @@ export const CalloutContainer = styled.div<ICalloutStyle>`
 
 export const CalloutTitleContainer = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   align-self: stretch;
+
   gap: ${DESIGN_SYSTEM.gap.xs};
   padding: ${DESIGN_SYSTEM.gap.none};
 
