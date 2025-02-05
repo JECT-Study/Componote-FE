@@ -4,6 +4,7 @@ import { OnboardingBanner, ImageContainer } from "@/components";
 import { useLoginMutation } from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
 import { useUserInfoQuery } from "@/hooks/api/useUserInfoQuery";
+import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
 import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
@@ -15,53 +16,53 @@ export default function MainContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const { socialLoginState, setAuthCode } = useSocialLoginStore();
-  const { accessToken, memberId, setAccessToken, setMemberId } =
-    useTokenStore();
+  const { provider, authCode, setAuthCode } = useSocialLoginStore();
+  const { accessToken, memberId } = useTokenStore();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면
   const { userInfo, setUserInfo } = useUserInfoStore();
+  const { setSocialAccountId } = useSignupUserStore();
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
     const codeParam = searchParams.get("code");
-    if (codeParam) {
-      setAuthCode(codeParam);
-    }
+    if (codeParam) setAuthCode(codeParam);
   }, [searchParams, setAuthCode]);
 
-  const { socialLoginData } = useSocialLoginQuery(
-    socialLoginState.provider || "",
-    socialLoginState.authCode
-  );
-  const { mutate: login, data: loginData } = useLoginMutation();
+  const { socialLoginData } = useSocialLoginQuery(provider || "", authCode);
+  const { mutate: loginMutate } = useLoginMutation();
 
   useEffect(() => {
-    if (!socialLoginState.authCode) return;
+    if (!authCode) return;
     if (!socialLoginData) return;
+    if (accessToken && memberId !== 0) return;
 
     if (!socialLoginData.isRegister) {
-      router.push("/login/signin");
+      setSocialAccountId(socialLoginData.socialAccountId);
+      router.push("/login/signup");
       return;
     }
 
-    login({ socialAccountId: socialLoginData.socialAccountId });
-    router.push("/");
-  }, [socialLoginState.authCode, socialLoginData, login, router]);
+    loginMutate({ socialAccountId: socialLoginData.socialAccountId });
+  }, [
+    authCode,
+    socialLoginData,
+    loginMutate,
+    router,
+    setSocialAccountId,
+    accessToken,
+    memberId,
+  ]);
+
+  const { data: userInfoData, isSuccess } = useUserInfoQuery(
+    accessToken || "",
+    memberId
+  );
 
   useEffect(() => {
-    if (loginData) {
-      setAccessToken(loginData.accessToken);
-      setMemberId(loginData.memberId);
-    }
-  }, [accessToken, loginData, setAccessToken, setMemberId]);
-
-  const { userInfoData } = useUserInfoQuery(accessToken, memberId);
-
-  useEffect(() => {
-    if (userInfoData) {
+    if (isSuccess) {
       setUserInfo(userInfoData);
     }
-  }, [userInfoData, setUserInfo]);
+  }, [userInfoData, setUserInfo, isSuccess]);
 
   return (
     <>

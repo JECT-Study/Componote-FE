@@ -3,32 +3,32 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-export const SigninProfileWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: stretch;
-  gap: ${DESIGN_SYSTEM.gap["2xl"]};
-  padding: ${DESIGN_SYSTEM.gap.none};
-`;
-
-export const SigninProfileTitleContainer = styled.div`
+export const SignupWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex: 1 0 0;
   align-self: stretch;
-  gap: ${DESIGN_SYSTEM.gap["2xs"]};
-  padding: ${DESIGN_SYSTEM.gap.none};
+  gap: ${DESIGN_SYSTEM.gap["8xl"]};
+  padding: ${DESIGN_SYSTEM.gap["7xl"]};
 
-  align-self: stretch;
-
-  color: ${({ theme }) => theme.light["object-hero"]};
-
-  ${DESIGN_SYSTEM.typography.title["2"]}
+  background: ${({ theme }) => theme.light["surface-standard"]};
 `;
 
-export const SigninProfileInputSection = styled.div`
+export const SignupModule = styled.div`
+  width: 100%;
+  max-width: 35rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // align-self: stretch;
+  gap: ${DESIGN_SYSTEM.gap["3xl"]};
+  padding: ${DESIGN_SYSTEM.gap.none};
+`;
+
+export const SignupBodyModule = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

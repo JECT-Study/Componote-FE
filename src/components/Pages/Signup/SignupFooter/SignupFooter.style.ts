@@ -3,13 +3,13 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-export const SigninFooterText = styled.span`
+export const SignupFooterText = styled.span`
   color: ${({ theme }) => theme.light["object-subtler"]};
 
   ${DESIGN_SYSTEM.typography.body.xs}
 `;
 
-export const SigninFooterLinkText = styled.a`
+export const SignupFooterLinkText = styled.a`
   color: ${({ theme }) => theme.light["object-static-normal"]};
 
   ${DESIGN_SYSTEM.typography.body.xs}

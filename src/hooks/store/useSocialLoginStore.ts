@@ -1,14 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import SocialLoginProvider from "../type/socialLoginProvider.types";
-
-interface ISocialLoginType {
-  provider: SocialLoginProvider | null;
-  authCode: string;
-}
+import SocialLoginProvider from "../../types/enum/socialLoginProvider";
 
 interface ISocialLoginState {
-  socialLoginState: ISocialLoginType;
+  provider: SocialLoginProvider | null;
+  authCode: string;
 }
 
 interface ISocialLoginActions {
@@ -17,7 +13,7 @@ interface ISocialLoginActions {
   logout: () => void;
 }
 
-const defaultState: ISocialLoginType = {
+const defaultState: ISocialLoginState = {
   provider: null,
   authCode: "",
 };
@@ -28,16 +24,11 @@ export const useSocialLoginStore = create<
 >()(
   persist(
     (set) => ({
-      socialLoginState: defaultState,
-      setProvider: (provider: SocialLoginProvider) =>
-        set((state) => ({
-          socialLoginState: { ...state.socialLoginState, provider },
-        })),
-      setAuthCode: (authCode: string) =>
-        set((state) => ({
-          socialLoginState: { ...state.socialLoginState, authCode },
-        })),
-      logout: () => set({ socialLoginState: defaultState }),
+      ...defaultState,
+
+      setProvider: (provider: SocialLoginProvider) => set({ provider }),
+      setAuthCode: (authCode: string) => set({ authCode }),
+      logout: () => set({ ...defaultState }),
     }),
     {
       name: "social-login-storage",

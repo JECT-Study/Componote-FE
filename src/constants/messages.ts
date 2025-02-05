@@ -93,7 +93,7 @@ export const DIALOG_TEXT = {
   },
 };
 
-export const SIGNIN_TEXT = {
+export const SIGNUP_TEXT = {
   titleText: "회원가입",
   profileText: "사용하실 프로필을 설정해 주세요.",
   job: {

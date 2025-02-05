@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 interface ITokenState {
-  accessToken: string;
+  accessToken: string | undefined;
   memberId: number;
 }
 
@@ -13,7 +13,7 @@ interface ITokenActions {
 
 // eslint-disable-next-line import/prefer-default-export
 export const useTokenStore = create<ITokenState & ITokenActions>((set) => ({
-  accessToken: "",
+  accessToken: undefined,
   memberId: 0,
   setAccessToken: (accessToken: string) => set({ accessToken }),
   setMemberId: (memberId: number) => set({ memberId }),

@@ -16,17 +16,15 @@ export default function InputField({
   $isNegative,
   $labelVisible,
   $helperVisible,
+  $style,
+  // input의 value와 onChange를 받아옴
+  value,
+  onChange,
 }: IInputField) {
   const [isFocused, setIsFocused] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newInputValue = event.target.value;
-    if (newInputValue.length <= 40) setInputValue(newInputValue);
-  };
 
   return (
-    <S.InputFieldContainer $width={$width}>
+    <S.InputFieldContainer $width={$width} style={{ ...$style }}>
       {$labelVisible && (
         <S.LabelContainer>
           <S.LabelText>{label}</S.LabelText>
@@ -42,9 +40,9 @@ export default function InputField({
           <S.Input
             id="inputFieldId"
             $size={$size}
-            value={inputValue}
+            value={value}
             placeholder={placeholderText}
-            onChange={handleInputChange}
+            onChange={onChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
@@ -59,7 +57,7 @@ export default function InputField({
         <S.HelperContainer $isNegative={$isNegative}>
           <S.HelperText>{helperText}</S.HelperText>
           <S.CountText>
-            {inputValue.length}/{countLimit}
+            {value.length}/{countLimit}
           </S.CountText>
         </S.HelperContainer>
       )}
