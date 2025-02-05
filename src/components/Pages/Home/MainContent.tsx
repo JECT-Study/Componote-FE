@@ -40,7 +40,7 @@ export default function MainContent() {
     if (!socialLoginData) return;
 
     if (!socialLoginData.isRegister) {
-      router.push("/login/signin");
+      router.push("/login/signup");
       return;
     }
 

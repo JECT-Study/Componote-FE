@@ -3,7 +3,7 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-export const SigninTitleWrapper = styled.div`
+export const SignupTitleWrapper = styled.div`
   display: flex;
   max-width: 30rem;
   align-items: center;
@@ -12,7 +12,7 @@ export const SigninTitleWrapper = styled.div`
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
-export const SigninTitleText = styled.span`
+export const SignupTitleText = styled.span`
   color: ${({ theme }) => theme.light["object-hero"]};
 
   ${DESIGN_SYSTEM.typography.title["1"]}

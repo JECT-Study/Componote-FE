@@ -4,7 +4,7 @@ import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
 // eslint-disable-next-line import/prefer-default-export
-export const SigninButtonContainer = styled.div`
+export const SignupButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;

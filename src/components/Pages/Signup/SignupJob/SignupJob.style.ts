@@ -3,7 +3,7 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-export const SigninJobWrapper = styled.div`
+export const SignupJobWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12,7 +12,7 @@ export const SigninJobWrapper = styled.div`
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
-export const SigninJobTitleContainer = styled.div`
+export const SignupJobTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,27 +22,27 @@ export const SigninJobTitleContainer = styled.div`
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
-export const SigninJobTitleText = styled.span`
+export const SignupJobTitleText = styled.span`
   align-self: stretch;
   color: ${({ theme }) => theme.light["object-hero"]};
 
   ${DESIGN_SYSTEM.typography.title["2"]}
 `;
 
-export const SigninJobTitleMustIcon = styled.span`
+export const SignupJobTitleMustIcon = styled.span`
   color: ${({ theme }) => theme.light["feedback-notification"]};
 
   ${DESIGN_SYSTEM.typography.title["2"]}
 `;
 
-export const SigninJobBodyText = styled.span`
+export const SignupJobBodyText = styled.span`
   align-self: stretch;
   color: ${({ theme }) => theme.light["object-bold"]};
 
   ${DESIGN_SYSTEM.typography.body.sm}
 `;
 
-export const SigninJobChipContainer = styled.div`
+export const SignupJobChipContainer = styled.div`
   display: flex;
   align-items: flex-start;
   align-content: flex-start;

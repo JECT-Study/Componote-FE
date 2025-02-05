@@ -1,21 +1,21 @@
 import { Button } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
-import { SIGNIN_TEXT } from "@/constants/messages";
-import * as S from "./SignInButton.style";
+import { SIGNUP_TEXT } from "@/constants/messages";
+import * as S from "./SignupButton.style";
 
-export default function SignInButton() {
+export default function SignupButton() {
   return (
-    <S.SigninButtonContainer>
+    <S.SignupButtonContainer>
       <Button
-        text={SIGNIN_TEXT.cancelButtonText}
+        text={SIGNUP_TEXT.cancelButtonText}
         $size="md"
         $buttonStyle={ButtonStyle.OutlinedSecondary}
       />
       <Button
-        text={SIGNIN_TEXT.submitButtonText}
+        text={SIGNUP_TEXT.submitButtonText}
         $size="md"
         $buttonStyle={ButtonStyle.SolidBrand}
       />
-    </S.SigninButtonContainer>
+    </S.SignupButtonContainer>
   );
 }

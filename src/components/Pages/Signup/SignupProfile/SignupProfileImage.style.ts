@@ -3,7 +3,7 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
-export const SigninProfileImageUploadWrapper = styled.div`
+export const SignupProfileImageUploadWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ export const SigninProfileImageUploadWrapper = styled.div`
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
-export const SigninProfileImageLabel = styled.div`
+export const SignupProfileImageLabel = styled.div`
   display: flex;
   align-items: flex-start;
   align-self: stretch;
@@ -24,7 +24,7 @@ export const SigninProfileImageLabel = styled.div`
   ${DESIGN_SYSTEM.typography.label.xs}
 `;
 
-export const SigninProfileImageHelperCaption = styled.div`
+export const SignupProfileImageHelperCaption = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;

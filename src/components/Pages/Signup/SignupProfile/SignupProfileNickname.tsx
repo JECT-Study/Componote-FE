@@ -1,21 +1,21 @@
 import { Button, InputField } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
-import * as S from "./SignInProfileNickname.style";
+import * as S from "./SignupProfileNickname.style";
 
-export default function SignInProfileNickname() {
+export default function SignupProfileNickname() {
   return (
-    <S.SigninProfileNicknameInputContainer>
+    <S.SignupProfileNicknameInputContainer>
       <InputField
         $size="md"
         placeholderText="김노트"
         $labelVisible
         label={
-          <S.SigninProfileNicknameInputLabel>
+          <S.SignupProfileNicknameInputLabel>
             닉네임
-            <S.SigninProfileNicknameInputLabelStar>
+            <S.SignupProfileNicknameInputLabelStar>
               *
-            </S.SigninProfileNicknameInputLabelStar>
-          </S.SigninProfileNicknameInputLabel>
+            </S.SignupProfileNicknameInputLabelStar>
+          </S.SignupProfileNicknameInputLabel>
         }
         $helperVisible
         helperText="특수문자, 공백 제외. 한글, 영문, 숫자로 10자 이내만 가능해요."
@@ -27,6 +27,6 @@ export default function SignInProfileNickname() {
         $size="md"
         $buttonStyle={ButtonStyle.OutlinedPrimary}
       />
-    </S.SigninProfileNicknameInputContainer>
+    </S.SignupProfileNicknameInputContainer>
   );
 }
