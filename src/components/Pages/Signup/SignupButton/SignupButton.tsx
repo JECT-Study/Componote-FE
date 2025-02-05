@@ -5,7 +5,6 @@ import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
 import SignupJobs from "@/types/enum/signupJobs";
 import { useSignupMutation } from "@/hooks/api/useSignupMutation";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import * as S from "./SignupButton.style";
 
 export default function SignupButton() {
@@ -14,12 +13,7 @@ export default function SignupButton() {
   const isSubmitDisabled =
     !nickname || job === SignupJobs.NONE || !socialAccountId;
 
-  const {
-    mutate: signupMutate,
-    isPending,
-    isError,
-    isSuccess,
-  } = useSignupMutation();
+  const { mutate: signupMutate, isPending, isError } = useSignupMutation();
 
   // job 변환 (ex. "개발자" -> "DEVELOPER")
   const getJobKey = (jobValue: string) =>
@@ -27,12 +21,6 @@ export default function SignupButton() {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       ([_, value]) => value === jobValue
     )?.[0] as keyof typeof SignupJobs) || "";
-
-  useEffect(() => {
-    if (isSuccess) {
-      router.push("/");
-    }
-  }, [isSuccess, router]);
 
   const handleSignup = () => {
     signupMutate({
