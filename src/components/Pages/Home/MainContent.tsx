@@ -25,9 +25,7 @@ export default function MainContent() {
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
     const codeParam = searchParams.get("code");
-    if (codeParam) {
-      setAuthCode(codeParam);
-    }
+    if (codeParam) setAuthCode(codeParam);
   }, [searchParams, setAuthCode]);
 
   const { socialLoginData } = useSocialLoginQuery(provider || "", authCode);
@@ -36,6 +34,7 @@ export default function MainContent() {
   useEffect(() => {
     if (!authCode) return;
     if (!socialLoginData) return;
+    if (accessToken && memberId !== 0) return;
 
     if (!socialLoginData.isRegister) {
       setSocialAccountId(socialLoginData.socialAccountId);
@@ -45,9 +44,17 @@ export default function MainContent() {
 
     loginMutate({ socialAccountId: socialLoginData.socialAccountId });
     router.push("/");
-  }, [authCode, socialLoginData, loginMutate, router, setSocialAccountId]);
+  }, [
+    authCode,
+    socialLoginData,
+    loginMutate,
+    router,
+    setSocialAccountId,
+    accessToken,
+    memberId,
+  ]);
 
-  const { userInfoData } = useUserInfoQuery(accessToken, memberId);
+  const { userInfoData } = useUserInfoQuery(accessToken || "", memberId);
 
   useEffect(() => {
     if (userInfoData) {
