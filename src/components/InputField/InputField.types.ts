@@ -13,4 +13,5 @@ export interface IInputField extends IInputComponent {
   placeholderText: string;
   $labelVisible: boolean;
   $helperVisible: boolean;
+  $style?: React.CSSProperties;
 }

@@ -16,6 +16,7 @@ export default function InputField({
   $isNegative,
   $labelVisible,
   $helperVisible,
+  $style,
 }: IInputField) {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -26,7 +27,7 @@ export default function InputField({
   };
 
   return (
-    <S.InputFieldContainer $width={$width}>
+    <S.InputFieldContainer $width={$width} style={{ ...$style }}>
       {$labelVisible && (
         <S.LabelContainer>
           <S.LabelText>{label}</S.LabelText>

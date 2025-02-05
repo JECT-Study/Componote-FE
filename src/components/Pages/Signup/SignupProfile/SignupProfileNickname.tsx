@@ -20,7 +20,7 @@ export default function SignupProfileNickname() {
         $helperVisible
         helperText="특수문자, 공백 제외. 한글, 영문, 숫자로 10자 이내만 가능해요."
         countLimit="10"
-        $width="100%"
+        $style={{ flex: "1 0 0" }}
       />
       <Button
         text="중복 검사"

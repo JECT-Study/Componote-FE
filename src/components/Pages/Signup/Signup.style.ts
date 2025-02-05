@@ -17,6 +17,7 @@ export const SignupWrapper = styled.div`
 `;
 
 export const SignupModule = styled.div`
+  width: 100%;
   max-width: 35rem;
 
   display: flex;
