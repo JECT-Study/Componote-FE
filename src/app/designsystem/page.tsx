@@ -37,9 +37,9 @@ export default function DesignSystem() {
         <ButtonList />
       </Toolbar>
       <DesignSystemCardContainer>
-        {Array.from({ length: 20 }).map((_, index) => (
+        {Array.from({ length: 20 }).map((value) => (
           <DesignSystemCard
-            key={`designSystemcard-${index}`}
+            key={`designSystemcard-${value}`}
             designSystemName="디자인 시스템 명"
             organizationName="회사/단체 명"
             descriptionText="설명 내용"
@@ -62,9 +62,9 @@ export default function DesignSystem() {
                 />
               </>
             }
-            labels={Array.from({ length: 16 }).map((_, index) => (
+            labels={Array.from({ length: 16 }).map((label) => (
               <BadgeLabel
-                key={`label-${index}`}
+                key={`label-${label}`}
                 $variant="labelOnly"
                 text="레이블"
                 $feedback={BadgeLabelFeedback.NONE}
