@@ -6,7 +6,7 @@ export const CALLOUT_SIZE = {
     titleText: DESIGN_SYSTEM.typography.label.bold.lg,
     maxHeight: "3.375rem",
     bodyText: DESIGN_SYSTEM.typography.label.xs,
-    height: " 2.625rem",
+    height: "2.625rem",
   },
   md: {
     containerPadding: `${DESIGN_SYSTEM.gap.xl} ${DESIGN_SYSTEM.gap["2xl"]}`,
