@@ -24,23 +24,27 @@ type Story = StoryObj<typeof meta>;
 export const Platform: Story = {
   args: {
     $variant: "platform",
+    $width: "100%",
   },
 };
 
 export const Tech: Story = {
   args: {
     $variant: "tech",
+    $width: "100%",
   },
 };
 
 export const Contents: Story = {
   args: {
     $variant: "contents",
+    $width: "100%",
   },
 };
 
 export const Device: Story = {
   args: {
     $variant: "device",
+    $width: "100%",
   },
 };

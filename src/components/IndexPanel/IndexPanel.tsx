@@ -21,6 +21,7 @@ function IndexPanelItem({
   contentRef,
 }: IIndexPanelItem) {
   // TODO: 목차 중 해당 위치에 닿으면 isSelected true되도록 구현하기
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isSelected, setIsSelected] = useState($isSelected);
 
   const onContentClick = () => {
