@@ -1,8 +1,8 @@
 import Divider from "@/components/Divider/Divider";
-import * as S from "./DocumentSection.style";
 import { Callout } from "@/components";
-import { IDocumentSection } from "./DocumentSection.types";
 import { COMPONENT_DETAIL_PAGE_TEXT } from "@/constants/messages";
+import { IDocumentSection } from "./DocumentSection.types";
+import * as S from "./DocumentSection.style";
 
 export default function DocumentSection({
   descriptionText,
