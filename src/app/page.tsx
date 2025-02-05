@@ -23,6 +23,7 @@ export default function Home() {
   const { socialLoginState, setAuthCode } = useSocialLoginStore();
   const { accessToken, memberId, setAccessToken, setMemberId } =
     useTokenStore();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면 해당 주석 제거
   const { userInfo, setUserInfo } = useUserInfoStore();
 
   useEffect(() => {
