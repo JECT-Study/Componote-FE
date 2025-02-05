@@ -99,7 +99,7 @@ export const Input = styled.input<IInputComponent>`
   width: 100%;
 
   border: ${DESIGN_SYSTEM.stroke.none};
-  color: ${({ theme }) => theme.light["object-subtler"]};
+  color: ${({ theme }) => theme.light["object-hero"]};
 
   ${(props) =>
     props.$size === "md"
