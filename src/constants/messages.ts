@@ -106,6 +106,10 @@ export const SIGNIN_TEXT = {
 
 export const STAR_ICON = "*";
 
+
 export const ANNOUNCE_PAGE_TEXT = {
   emptyState: (tabLabel: string) => `아직 ${tabLabel}이 없어요`,
+
+export const BOOKMARK_PAGE_TEXT = {
+  emptyState: (tabLabel: string) => `아직 북마크한 ${tabLabel} 없어요`,
 };

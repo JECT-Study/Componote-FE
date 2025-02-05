@@ -5,10 +5,10 @@ import heartIcon from "@/assets/icons/heart-line.svg";
 import commentIcon from "@/assets/icons/reply-line.svg";
 import modifyIcon from "@/assets/icons/corner-down-left-line.svg";
 
-import UserSection from "./UserSection";
-import { IReplyComment, IUserSection } from "./Comment.types";
-import { ButtonStyle } from "../Button/Button.types";
 import * as S from "./Comment.reply.style";
+import { IReplyComment, IUserSection } from "./Comment.types";
+import UserSection from "./UserSection";
+import { ButtonStyle } from "../Button/Button.types";
 
 export default function ReplyComment({
   $src,

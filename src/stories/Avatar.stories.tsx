@@ -20,7 +20,7 @@ const meta = {
       control: { type: "radio" },
       options: ["xs", "sm", "md", "lg", "xl", "2xl"],
     },
-    isBadge: {
+    $badgeVisible: {
       control: { type: "boolean" },
     },
   },
@@ -35,6 +35,14 @@ export const Default: Story = {
     $size: "md",
   },
 };
+
+export const AvatarNoBadge = {
+  args: {
+    ...Default.args,
+    $badgeVisible: false,
+  },
+};
+
 export const AvatarImage = {
   args: {
     ...Default.args,
