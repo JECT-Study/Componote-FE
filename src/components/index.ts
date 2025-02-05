@@ -34,6 +34,7 @@ export { default as Dialog } from "./Dialog/Dialog";
 export { default as Layout } from "./Layout/Layout";
 export { default as CardContainer } from "./Pages/Component/CardContainer";
 export { default as ImageContainer } from "./Pages/Onboarding/ImageContainer";
+export { default as DesignSystemCardContainer } from "./Pages/DesignSystem/DesignCardContainer";
 export { default as EmptyState } from "./EmptyState/EmptyState";
 export { default as Pagination } from "./Pagination/Pagination";
 export { default as Accordion } from "./Accordion/Accordion";
