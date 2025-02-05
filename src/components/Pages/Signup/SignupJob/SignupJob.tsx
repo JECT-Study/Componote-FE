@@ -3,11 +3,15 @@
 import { Chip } from "@/components";
 import { useState } from "react";
 import { SIGNUP_TEXT, STAR_ICON } from "@/constants/messages";
-import { SIGNUP_CHIPS } from "@/constants/chips";
+import SignupJobs from "@/types/enum/signupJobs";
 import * as S from "./SignupJob.style";
 
 export default function SignupJob() {
   const [selectedChip, setSelectedChip] = useState<number | null>(null);
+
+  const JOB_CHIPS = Object.values(SignupJobs).filter(
+    (job) => job !== SignupJobs.NONE
+  );
 
   return (
     <S.SignupJobWrapper>
@@ -19,7 +23,7 @@ export default function SignupJob() {
         <S.SignupJobBodyText>{SIGNUP_TEXT.job.bodyText}</S.SignupJobBodyText>
       </S.SignupJobTitleContainer>
       <S.SignupJobChipContainer>
-        {SIGNUP_CHIPS.map((chip, i) => (
+        {JOB_CHIPS.map((chip, i) => (
           <Chip
             text={chip}
             onClick={() => setSelectedChip(i)}
