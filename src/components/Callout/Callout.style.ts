@@ -35,7 +35,9 @@ export const CalloutTitleContainer = styled.div`
 `;
 
 export const CalloutTitleText = styled.span<ICalloutStyle>`
-  ${(props) => CALLOUT_SIZE[props.$size].titleText}
+  ${(props) => CALLOUT_SIZE[props.$size].titleText};
+  ${(props) => CALLOUT_SIZE[props.$size].maxHeight};
+
   flex: 1 0 0;
 
   color: ${({ theme }) => theme.light["object-hero"]};
@@ -43,6 +45,7 @@ export const CalloutTitleText = styled.span<ICalloutStyle>`
 
 export const CalloutBodyText = styled.span<ICalloutStyle>`
   ${(props) => CALLOUT_SIZE[props.$size].bodyText}
+  ${(props) => CALLOUT_SIZE[props.$size].height};
 
   align-self: stretch;
   overflow: hidden;
