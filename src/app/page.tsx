@@ -14,16 +14,17 @@ import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 
-export default function Home() {
+// 메인 컨텐츠를 별도 컴포넌트로 분리
+function MainContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const { socialLoginState, setAuthCode } = useSocialLoginStore();
   const { accessToken, memberId, setAccessToken, setMemberId } =
     useTokenStore();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면 해당 주석 제거
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면
   const { userInfo, setUserInfo } = useUserInfoStore();
 
   useEffect(() => {
@@ -69,14 +70,25 @@ export default function Home() {
   }, [userInfoData, setUserInfo]);
 
   return (
+    <>
+      <OnboardingBanner />
+      <ImageContainer />
+    </>
+  );
+}
+
+// 페이지 컴포넌트
+export default function Home() {
+  return (
     <Layout>
       <NavigationBar
         $isSeparated={false}
         $isAuthorized={false}
         placeholderText="플레이스 홀더"
       />
-      <OnboardingBanner />
-      <ImageContainer />
+      <Suspense fallback={<div>Loading...</div>}>
+        <MainContent />
+      </Suspense>
       <Footer />
     </Layout>
   );
