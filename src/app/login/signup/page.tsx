@@ -1,27 +1,29 @@
 import { Divider } from "@/components";
 import {
-  Signup as S,
+  SignupBodyModuleWrapper,
   SignupButton,
   SignupFooter,
   SignupJob,
+  SignupModuleWrapper,
   SignupProfile,
   SignupTitle,
+  SignupWrapper,
 } from "@/components/Pages";
 
 export default function SignupPage() {
   return (
-    <S.SignupWrapper>
-      <S.SignupModule>
+    <SignupWrapper>
+      <SignupModuleWrapper>
         <SignupTitle />
         <Divider $stroke="normal" $layout="horizontal" />
-        <S.SignupBodyModule>
+        <SignupBodyModuleWrapper>
           <SignupProfile />
           <SignupJob />
           <Divider $stroke="normal" $layout="horizontal" />
           <SignupButton />
-        </S.SignupBodyModule>
-      </S.SignupModule>
+        </SignupBodyModuleWrapper>
+      </SignupModuleWrapper>
       <SignupFooter />
-    </S.SignupWrapper>
+    </SignupWrapper>
   );
 }

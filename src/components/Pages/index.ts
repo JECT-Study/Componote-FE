@@ -16,4 +16,6 @@ export { default as SignupFooter } from "./Signup/SignupFooter/SignupFooter";
 export { default as SignupJob } from "./Signup/SignupJob/SignupJob";
 export { default as SignupProfile } from "./Signup/SignupProfile/SignupProfile";
 export { default as SignupTitle } from "./Signup/SignupTitle/SignupTitle";
-export * as Signup from "./Signup/Signup.style";
+export { default as SignupWrapper } from "./Signup/SignupWrapper";
+export { default as SignupModuleWrapper } from "./Signup/SignupModuleWrapper";
+export { default as SignupBodyModuleWrapper } from "./Signup/SignupBodyModuleWrapper";
