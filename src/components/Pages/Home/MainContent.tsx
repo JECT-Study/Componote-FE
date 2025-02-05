@@ -17,8 +17,7 @@ export default function MainContent() {
   const searchParams = useSearchParams();
 
   const { socialLoginState, setAuthCode } = useSocialLoginStore();
-  const { accessToken, memberId, setAccessToken, setMemberId } =
-    useTokenStore();
+  const { accessToken, memberId } = useTokenStore();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면
   const { userInfo, setUserInfo } = useUserInfoStore();
   const { setSocialAccountId } = useSignupUserStore();
@@ -35,7 +34,7 @@ export default function MainContent() {
     socialLoginState.provider || "",
     socialLoginState.authCode
   );
-  const { mutate: login, data: loginData } = useLoginMutation();
+  const { mutate: loginMutate } = useLoginMutation();
 
   useEffect(() => {
     if (!socialLoginState.authCode) return;
@@ -47,22 +46,15 @@ export default function MainContent() {
       return;
     }
 
-    login({ socialAccountId: socialLoginData.socialAccountId });
+    loginMutate({ socialAccountId: socialLoginData.socialAccountId });
     router.push("/");
   }, [
     socialLoginState.authCode,
     socialLoginData,
-    login,
+    loginMutate,
     router,
     setSocialAccountId,
   ]);
-
-  useEffect(() => {
-    if (loginData) {
-      setAccessToken(loginData.accessToken);
-      setMemberId(loginData.memberId);
-    }
-  }, [accessToken, loginData, setAccessToken, setMemberId]);
 
   const { userInfoData } = useUserInfoQuery(accessToken, memberId);
 
