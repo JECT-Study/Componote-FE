@@ -4,6 +4,7 @@ import { OnboardingBanner, ImageContainer } from "@/components";
 import { useLoginMutation } from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
 import { useUserInfoQuery } from "@/hooks/api/useUserInfoQuery";
+import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
 import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
@@ -20,6 +21,7 @@ export default function MainContent() {
     useTokenStore();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면
   const { userInfo, setUserInfo } = useUserInfoStore();
+  const { setSocialAccountId } = useSignupUserStore();
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
@@ -40,13 +42,20 @@ export default function MainContent() {
     if (!socialLoginData) return;
 
     if (!socialLoginData.isRegister) {
+      setSocialAccountId(socialLoginData.socialAccountId);
       router.push("/login/signup");
       return;
     }
 
     login({ socialAccountId: socialLoginData.socialAccountId });
     router.push("/");
-  }, [socialLoginState.authCode, socialLoginData, login, router]);
+  }, [
+    socialLoginState.authCode,
+    socialLoginData,
+    login,
+    router,
+    setSocialAccountId,
+  ]);
 
   useEffect(() => {
     if (loginData) {
