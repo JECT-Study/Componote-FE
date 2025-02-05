@@ -13,16 +13,20 @@ export default function Callout({
   titleText,
   bodyText,
   buttonLabelText,
+  highlightedText,
 }: ICallout) {
   return (
     <S.CalloutContainer $size={$size} onClick={onClick}>
       <S.CalloutTitleContainer>
-        <S.CalloutTitleText $size={$size}>{titleText}</S.CalloutTitleText>
+        <S.CalloutTitleText $size={$size}>
+          <S.HighlightedText>{highlightedText}</S.HighlightedText>
+          {titleText}
+        </S.CalloutTitleText>
         <Button
           text={buttonLabelText}
           $size="sm"
-          $buttonType="iconButton"
-          $leftIcon={rightIcon}
+          $buttonType="button"
+          $rightIcon={rightIcon}
           $buttonStyle={ButtonStyle.EmptySecondary}
         />
       </S.CalloutTitleContainer>

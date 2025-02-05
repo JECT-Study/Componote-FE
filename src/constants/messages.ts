@@ -113,3 +113,18 @@ export const ANNOUNCE_PAGE_TEXT = {
 export const BOOKMARK_PAGE_TEXT = {
   emptyState: (tabLabel: string) => `아직 북마크한 ${tabLabel} 없어요`,
 };
+
+export const COMPONENT_DETAIL_PAGE_TEXT = {
+  title: {
+    description: "설명",
+    useCase: "간단 용례",
+    reference: "참고자료 및 문헌",
+  },
+  body: {
+    reference: "컴포넌트에 대한 참고자료 및 문헌",
+  },
+  callout: {
+    title: "개의 디자인 시스템에서 이 컴포넌트를 사용하고 있어요",
+    buttonLabel: "보러 가기",
+  },
+};

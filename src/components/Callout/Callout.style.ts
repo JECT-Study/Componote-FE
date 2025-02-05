@@ -4,7 +4,7 @@ import { CALLOUT_SIZE } from "./Callout.theme";
 import { ICalloutStyle } from "./Callout.types";
 
 export const CalloutContainer = styled.div<ICalloutStyle>`
-  width: 30rem;
+  width: 100%;
   max-width: 70rem;
 
   display: flex;
@@ -25,8 +25,9 @@ export const CalloutContainer = styled.div<ICalloutStyle>`
 
 export const CalloutTitleContainer = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   align-self: stretch;
+
   gap: ${DESIGN_SYSTEM.gap.xs};
   padding: ${DESIGN_SYSTEM.gap.none};
 
@@ -35,14 +36,25 @@ export const CalloutTitleContainer = styled.div`
 `;
 
 export const CalloutTitleText = styled.span<ICalloutStyle>`
-  ${(props) => CALLOUT_SIZE[props.$size].titleText}
+  ${(props) => CALLOUT_SIZE[props.$size].titleText};
+  ${(props) => CALLOUT_SIZE[props.$size].maxHeight};
+
   flex: 1 0 0;
 
   color: ${({ theme }) => theme.light["object-hero"]};
 `;
 
+export const HighlightedText = styled.span`
+  flex: 1 0 0;
+  max-height: 3.5rem;
+
+  ${DESIGN_SYSTEM.typography.title[1]};
+  color: ${({ theme }) => theme.light["feedback-information"]};
+`;
+
 export const CalloutBodyText = styled.span<ICalloutStyle>`
   ${(props) => CALLOUT_SIZE[props.$size].bodyText}
+  ${(props) => CALLOUT_SIZE[props.$size].height};
 
   align-self: stretch;
   overflow: hidden;

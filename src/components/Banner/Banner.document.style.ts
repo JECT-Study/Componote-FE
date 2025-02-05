@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import { IDocumentBannerComponent } from "./Banner.types";
 
 export const BannerContainer = styled.div`
   display: flex;
@@ -85,7 +86,7 @@ export const ButtonContainer = styled.div`
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.div<IDocumentBannerComponent>`
   width: 60rem;
   height: 25rem;
 
@@ -93,7 +94,8 @@ export const ImageBox = styled.div`
   border: ${DESIGN_SYSTEM.stroke.normal} solid
     ${({ theme }) => theme.light["border-trans-subtle"]};
 
-  background-image: url("/image/accordion.png"), url("/image/imageLayer.png");
+  background-image: ${(props) => props.$src && `url(${props.$src})`};
+
   background-color: #ffeede;
   background-repeat: no-repeat;
   background-position: center;
