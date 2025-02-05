@@ -6,7 +6,7 @@ import {
   useNaverAuthUrlQuery,
 } from "@/hooks/api/useAuthUrlQuery";
 import { useSocialLoginStore } from "@/hooks/store/useSocialLoginStore";
-import SocialLoginProvider from "@/hooks/type/socialLoginProvider.types";
+import SocialLoginProvider from "@/types/enum/socialLoginProvider";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";
 import Divider from "../Divider/Divider";

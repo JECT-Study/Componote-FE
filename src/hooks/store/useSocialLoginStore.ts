@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import SocialLoginProvider from "../type/socialLoginProvider.types";
+import SocialLoginProvider from "../../types/enum/socialLoginProvider";
 
 interface ISocialLoginType {
   provider: SocialLoginProvider | null;
