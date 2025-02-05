@@ -43,7 +43,6 @@ export default function MainContent() {
     }
 
     loginMutate({ socialAccountId: socialLoginData.socialAccountId });
-    router.push("/");
   }, [
     authCode,
     socialLoginData,

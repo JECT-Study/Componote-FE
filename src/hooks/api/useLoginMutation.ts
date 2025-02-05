@@ -1,9 +1,11 @@
 import { postLogin } from "@/api/login";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import { useTokenStore } from "../store/useTokenStore";
 
 // eslint-disable-next-line import/prefer-default-export
 export function useLoginMutation() {
+  const router = useRouter();
   const { setAccessToken, setMemberId } = useTokenStore();
 
   return useMutation({
@@ -14,6 +16,7 @@ export function useLoginMutation() {
     onSuccess: (data) => {
       setAccessToken(data.accessToken);
       setMemberId(data.memberId);
+      router.push("/");
     },
   });
 }
