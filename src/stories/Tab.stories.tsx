@@ -25,6 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     labelText: "탭 레이블",
+    onSelect: () => {},
   },
 };
 
