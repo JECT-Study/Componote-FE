@@ -44,6 +44,14 @@ export const CalloutTitleText = styled.span<ICalloutStyle>`
   color: ${({ theme }) => theme.light["object-hero"]};
 `;
 
+export const HighlightedText = styled.span`
+  flex: 1 0 0;
+  max-height: 3.5rem;
+
+  ${DESIGN_SYSTEM.typography.title[1]};
+  color: ${({ theme }) => theme.light["feedback-information"]};
+`;
+
 export const CalloutBodyText = styled.span<ICalloutStyle>`
   ${(props) => CALLOUT_SIZE[props.$size].bodyText}
   ${(props) => CALLOUT_SIZE[props.$size].height};

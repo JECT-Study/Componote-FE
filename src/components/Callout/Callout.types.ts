@@ -12,6 +12,7 @@ export interface ICalloutStyle {
  */
 export interface ICallout extends ICalloutStyle {
   titleText: string;
+  highlightedText?: number;
   bodyText?: string;
   buttonLabelText?: string;
   onClick?: () => void;
