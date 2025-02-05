@@ -10,12 +10,14 @@ interface IToolbar {
   children?: React.ReactNode;
   contextMenuItemLabels?: string[];
   defaultItem?: string;
+  onTabSelect?: (index: number) => void;
 }
 
 export default function Toolbar({
   children,
   contextMenuItemLabels,
   defaultItem,
+  onTabSelect,
 }: IToolbar) {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isContextMenuOpen, setIsContextMenuOpen] = useState<boolean>(false);
@@ -23,6 +25,7 @@ export default function Toolbar({
 
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
+    if (onTabSelect) onTabSelect(index);
   };
 
   const renderToolList = () => {

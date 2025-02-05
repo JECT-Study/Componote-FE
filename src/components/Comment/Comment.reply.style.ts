@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { IReplyCommentComponent } from "./Comment.types";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import ReplyIcon from "@/assets/icons/corner-down-right-line.svg";
+import { IReplyCommentComponent } from "./Comment.types";
 
 export const ReplyCommentContainer = styled.div`
   display: flex;

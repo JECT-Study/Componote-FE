@@ -25,6 +25,8 @@ const ChipGroupContainer = styled.div<IChipGroupComponent>`
 
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme }) => theme.light["surface-embossed"]};
+
+  z-index: 5;
 `;
 
 export default ChipGroupContainer;
