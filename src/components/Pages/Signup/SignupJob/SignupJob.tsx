@@ -1,17 +1,23 @@
-"use client";
-
 import { Chip } from "@/components";
-import { useState } from "react";
 import { SIGNUP_TEXT, STAR_ICON } from "@/constants/messages";
 import SignupJobs from "@/types/enum/signupJobs";
+import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
 import * as S from "./SignupJob.style";
 
 export default function SignupJob() {
-  const [selectedChip, setSelectedChip] = useState<number | null>(null);
+  const { job, setJob } = useSignupUserStore();
 
   const JOB_CHIPS = Object.values(SignupJobs).filter(
-    (job) => job !== SignupJobs.NONE
+    (val) => val !== SignupJobs.NONE
   );
+
+  const handleChipClick = (chip: SignupJobs) => {
+    if (job === chip) {
+      setJob(SignupJobs.NONE);
+      return;
+    }
+    setJob(chip);
+  };
 
   return (
     <S.SignupJobWrapper>
@@ -23,12 +29,12 @@ export default function SignupJob() {
         <S.SignupJobBodyText>{SIGNUP_TEXT.job.bodyText}</S.SignupJobBodyText>
       </S.SignupJobTitleContainer>
       <S.SignupJobChipContainer>
-        {JOB_CHIPS.map((chip, i) => (
+        {JOB_CHIPS.map((chip) => (
           <Chip
+            key={`job-${chip}`}
             text={chip}
-            onClick={() => setSelectedChip(i)}
-            $isSelected={i === selectedChip}
-            key={`${chip}i`}
+            onClick={() => handleChipClick(chip)}
+            $isSelected={chip === job}
             $size="xl"
           />
         ))}
