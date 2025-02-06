@@ -5,13 +5,14 @@ import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
 import SignupJobs from "@/types/enum/signupJobs";
 import { useSignupMutation } from "@/hooks/api/useSignupMutation";
 import { useRouter } from "next/navigation";
+import validateNickname from "@/utils/validateNickname";
 import * as S from "./SignupButton.style";
 
 export default function SignupButton() {
   const router = useRouter();
   const { nickname, job, socialAccountId, cancelSignup } = useSignupUserStore();
   const isSubmitDisabled =
-    !nickname || job === SignupJobs.NONE || !socialAccountId;
+    !nickname || job === SignupJobs.NONE || !validateNickname(nickname);
 
   const { mutate: signupMutate, isPending, isError } = useSignupMutation();
 
