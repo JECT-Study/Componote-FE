@@ -11,7 +11,7 @@ const meta = {
   },
   argTypes: {
     $type: {
-      options: ["input", "display", "feedback", "navigation"],
+      options: ["INPUT", "DISPLAY", "FEEDBACK", "NAVIGATION"],
       control: { type: "radio" },
     },
     $style: {
@@ -31,7 +31,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    $type: "input",
+    $type: "INPUT",
     $style: "solid",
     $size: "md",
   },
@@ -47,7 +47,7 @@ export const InputTransparent: Story = {
 export const DisplaySolid: Story = {
   args: {
     ...Default.args,
-    $type: "display",
+    $type: "DISPLAY",
   },
 };
 
@@ -61,7 +61,7 @@ export const DisplayTransparent: Story = {
 export const FeedbackSolid: Story = {
   args: {
     ...Default.args,
-    $type: "feedback",
+    $type: "FEEDBACK",
   },
 };
 
@@ -75,7 +75,7 @@ export const FeedbackTransparent: Story = {
 export const NavigationSolid: Story = {
   args: {
     ...Default.args,
-    $type: "navigation",
+    $type: "NAVIGATION",
   },
 };
 

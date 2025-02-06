@@ -51,7 +51,7 @@ function CardContainer(StoryFn: () => JSX.Element) {
 export const Default: Story = {
   args: {
     onClick: () => console.log(0),
-    $type: "display",
+    $type: "DISPLAY",
     $isDisabled: false,
     componentName: "컴포넌트 명",
     descriptionText: "설명 내용",
