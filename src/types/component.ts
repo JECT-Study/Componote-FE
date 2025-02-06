@@ -2,7 +2,7 @@ export interface IComponentData {
   id: number;
   title: string;
   thumbnailUrl: string;
-  type: "input" | "display" | "feedback" | "navigation";
+  type: "INPUT" | "DISPLAY" | "FEEDBACK" | "NAVIGATION";
   introduction: string;
   designReferenceCount: number;
   commentCount: number;
