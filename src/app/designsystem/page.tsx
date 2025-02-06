@@ -20,12 +20,15 @@ import githubIcon from "@/assets/icons/github-fill.svg";
 import figmaIcon from "@/assets/icons/figma-line.svg";
 import storybookIcon from "@/assets/icons/storybook-fill.svg";
 import zeroheightIcon from "@/assets/icons/zeroheight-fill.svg";
+import { useTokenStore } from "@/hooks/store/useTokenStore";
 
 export default function DesignSystem() {
+  const { accessToken } = useTokenStore();
+
   return (
     <Layout>
       <NavigationBar
-        $isAuthorized
+        $isAuthorized={!!accessToken}
         $isSeparated
         placeholderText="컴포넌트나 디자인 시스템을 검색해 보세요..."
       />
