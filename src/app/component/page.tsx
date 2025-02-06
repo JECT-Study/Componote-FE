@@ -20,14 +20,14 @@ import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
-import { useComponentList } from "@/hooks/api/component/useComponentList";
+import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
 import { IComponentData } from "@/types/component";
 
 export default function Component() {
   const router = useRouter();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useComponentList();
+    useComponentListInfiniteQuery();
 
   useObserver({
     target: lastElementRef,

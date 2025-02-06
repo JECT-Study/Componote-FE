@@ -7,7 +7,7 @@ interface IPageParam {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const useComponentList = () => {
+export const useComponentListInfiniteQuery = () => {
   const fetchComponents = async ({
     pageParam,
   }: IPageParam): Promise<IPageData> => {
