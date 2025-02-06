@@ -8,9 +8,7 @@ interface IPageParam {
 
 // eslint-disable-next-line import/prefer-default-export
 export const useComponentListInfiniteQuery = () => {
-  const fetchComponents = async ({
-    pageParam,
-  }: IPageParam): Promise<IPageData> => {
+  const fetchComponents = async ({ pageParam }: IPageParam) => {
     const page = typeof pageParam === "number" ? pageParam : 0;
     const data = await searchComponent(page, 10);
 
