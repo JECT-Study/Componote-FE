@@ -9,7 +9,10 @@ import {
 } from "@/components";
 import { useParams } from "next/navigation";
 import { DocumentSection } from "@/components/Pages";
-import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
+import {
+  COMPONENT_DETAIL_PAGE_TEXT,
+  NAVBAR_ITEM_TEXT,
+} from "@/constants/messages";
 import useComponentDetailQuery from "@/hooks/api/componentDetail/useComponentDetailQuery";
 
 export default function ComponentDetail() {
@@ -19,7 +22,7 @@ export default function ComponentDetail() {
   const { data, isLoading, isError } = useComponentDetailQuery(componentId);
 
   if (!data || isError) {
-    return <EmptyState text="컴포넌트 세부 내용을 불러올 수 없어요" />;
+    return <EmptyState text={COMPONENT_DETAIL_PAGE_TEXT.error} />;
   }
 
   return (
@@ -42,7 +45,7 @@ export default function ComponentDetail() {
         descriptionText={data.blocks.DESCRIPTION[0].content}
         useCaseText={data.blocks.USE_CASE[0].content}
       />
-      {isLoading && <EmptyState text="컴포넌트 세부 내용을 로드 중이에요" />}
+      {isLoading && <EmptyState text={COMPONENT_DETAIL_PAGE_TEXT.error} />}
       <Footer />
     </Layout>
   );
