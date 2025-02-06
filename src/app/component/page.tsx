@@ -11,7 +11,11 @@ import {
   Footer,
   EmptyState,
 } from "@/components";
-import { BANNER_TEXT, NAVBAR_ITEM_TEXT } from "@/constants/messages";
+import {
+  BANNER_TEXT,
+  COMPONENT_PAGE_TEXT,
+  NAVBAR_ITEM_TEXT,
+} from "@/constants/messages";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useObserver } from "@/hooks/api/common/useObserver";
@@ -66,8 +70,8 @@ export default function Component() {
           )),
         )}
       </CardContainer>
-      {isLoading && <EmptyState text="컴포넌트 목록을 로드 중이에요" />}
-      {isError && <EmptyState text="컴포넌트 목록을 로드할 수 없어요" />}
+      {isLoading && <EmptyState text={COMPONENT_PAGE_TEXT.loading} />}
+      {isError && <EmptyState text={COMPONENT_PAGE_TEXT.error} />}
       <div ref={lastElementRef} />
       <Footer />
     </Layout>

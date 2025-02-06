@@ -128,3 +128,8 @@ export const COMPONENT_DETAIL_PAGE_TEXT = {
     buttonLabel: "보러 가기",
   },
 };
+
+export const COMPONENT_PAGE_TEXT = {
+  loading: "컴포넌트 목록을 로드 중이에요",
+  error: "컴포넌트 목록을 로드할 수 없어요",
+};
