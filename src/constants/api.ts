@@ -34,7 +34,7 @@ const END_POINT = {
     size: number = 10,
     keyword: string = "",
     types: string = "",
-    sort: string = "viewCount,desc",
+    sort: string = "asc",
   ) =>
     `/components/search?keyword=${keyword}&types=${types}&page=${page}&size=${size}&sort=${sort}`,
 
