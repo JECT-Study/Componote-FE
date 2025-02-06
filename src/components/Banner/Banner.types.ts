@@ -15,6 +15,8 @@ export interface IDocumentBanner extends IDocumentBannerComponent {
   titleText: TPropsText;
   componentListText: TPropsText;
   bodyText: TPropsText;
+  commentCount: TPropsText;
+  bookmarkCount: TPropsText;
 }
 
 export interface IDocumentBannerComponent {

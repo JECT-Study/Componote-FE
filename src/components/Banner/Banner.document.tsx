@@ -11,6 +11,8 @@ export default function DocumentBanner({
   titleText,
   componentListText,
   bodyText,
+  commentCount,
+  bookmarkCount,
 }: IDocumentBanner) {
   return (
     <S.BannerContainer>
@@ -25,14 +27,14 @@ export default function DocumentBanner({
           </S.DisplayContainer>
           <S.ButtonContainer>
             <Button
-              text="댓글 보기"
+              text={commentCount}
               $size="lg"
               $buttonType="button"
               $leftIcon={chatIcon}
               $buttonStyle={ButtonStyle.OutlinedSecondary}
             />
             <Button
-              text="북마크 하기"
+              text={bookmarkCount}
               $size="lg"
               $buttonType="button"
               $leftIcon={bookmarkIcon}
