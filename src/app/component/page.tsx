@@ -9,64 +9,35 @@ import {
   ComponentCard,
   CardContainer,
   Footer,
+  EmptyState,
 } from "@/components";
-import { BANNER_TEXT } from "@/constants/messages";
+import { BANNER_TEXT, NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
-import { searchComponent } from "@/api/component";
 import { useObserver } from "@/hooks/api/common/useObserver";
-import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
+import { useComponentList } from "@/hooks/api/component/useComponentList";
+import { IComponentData } from "@/types/component";
 
-interface ComponentData {
-  id: number;
-  title: string;
-  thumbnailUrl: string;
-  type: "input" | "display" | "feedback" | "navigation";
-  introduction: string;
-  designReferenceCount: number;
-  commentCount: number;
-  bookmarkCount: number;
-}
-
-interface PageData {
-  content: ComponentData[];
-  pageSize: number;
-  hasNext: boolean;
-  pageNumber: number;
-  totalPages: number;
-  totalElements: number;
-}
 export default function Component() {
   const router = useRouter();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
-
-  const fetchComponents = async ({ pageParam = 0 }): Promise<PageData> => {
-    const data = await searchComponent(pageParam, 10);
-    return data;
-  };
-
-  const { data, fetchNextPage, isLoading, isError } = useInfiniteQuery<
-    PageData,
-    Error,
-    InfiniteData<PageData, unknown>
-  >({
-    queryKey: ["components"],
-    queryFn: fetchComponents,
-    getNextPageParam: (lastPage) =>
-      lastPage.hasNext ? lastPage.pageNumber + 1 : undefined,
-  });
+  const { data, fetchNextPage, hasNextPage, isLoading, isError } =
+    useComponentList();
 
   useObserver({
     target: lastElementRef,
-    onIntersect: () => fetchNextPage(),
+    onIntersect: ([entry]) => {
+      if (entry.isIntersecting && hasNextPage) fetchNextPage();
+    },
   });
+
   return (
     <Layout>
       <NavigationBar
         $isAuthorized
         $isSeparated
-        placeholderText="컴포넌트나 디자인 시스템을 검색해 보세요..."
+        placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
       <DefaultBanner
         titleText={BANNER_TEXT.component.titleText}
@@ -80,7 +51,7 @@ export default function Component() {
       </Toolbar>
       <CardContainer>
         {data?.pages.map((page) =>
-          page.content.map((component: ComponentData) => (
+          page.content.map((component: IComponentData) => (
             <ComponentCard
               key={component.id}
               onClick={() => router.push(`/component/${component.id}`)}
@@ -95,8 +66,8 @@ export default function Component() {
           )),
         )}
       </CardContainer>
-      {isLoading && <p>Loading...</p>}
-      {isError && <p>Error loading components.</p>}
+      {isLoading && <EmptyState text="컴포넌트 목록을 로드 중이에요" />}
+      {isError && <EmptyState text="컴포넌트 목록을 로드할 수 없어요" />}
       <div ref={lastElementRef} />
       <Footer />
     </Layout>
