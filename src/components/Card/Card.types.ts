@@ -5,7 +5,7 @@ export interface ICardComponent {
 
 /* component card에 사용되는 props type입니다. */
 export interface IComponentCard {
-  $type: "input" | "display" | "feedback" | "navigation";
+  $type: "INPUT" | "DISPLAY" | "FEEDBACK" | "NAVIGATION";
   componentName: string;
   descriptionText: string;
   $sampleCount: string;

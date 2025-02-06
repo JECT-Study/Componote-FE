@@ -5,10 +5,10 @@ export const FOOTER_TEXT = {
 };
 
 export const BADGE_COMPONENT_TYPE_TEXT = {
-  input: "Input 입력",
-  display: "Display 표시",
-  feedback: "Feedback 반응",
-  navigation: "Navigation 안내",
+  INPUT: "Input 입력",
+  DISPLAY: "Display 표시",
+  FEEDBACK: "Feedback 반응",
+  NAVIGATION: "Navigation 안내",
 };
 
 export const NAVBAR_ITEM_TEXT = {

@@ -95,10 +95,10 @@ export const BADGE_LABEL_SIZE = {
 };
 
 export const BADGE_COMPONENT_TYPE_COLOR = {
-  input: "cyan",
-  display: "violet",
-  feedback: "rose",
-  navigation: "lime",
+  INPUT: "cyan",
+  DISPLAY: "violet",
+  FEEDBACK: "rose",
+  NAVIGATION: "lime",
 };
 
 export const BADGE_COMPONENT_TYPE_SIZE = {
