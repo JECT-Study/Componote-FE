@@ -45,7 +45,7 @@ export default function ComponentDetail() {
         descriptionText={data.blocks.DESCRIPTION[0].content}
         useCaseText={data.blocks.USE_CASE[0].content}
       />
-      {isLoading && <EmptyState text={COMPONENT_DETAIL_PAGE_TEXT.error} />}
+      {isLoading && <EmptyState text={COMPONENT_DETAIL_PAGE_TEXT.loading} />}
       <Footer />
     </Layout>
   );
