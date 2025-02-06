@@ -22,7 +22,7 @@ const END_POINT = {
     componentId: number,
     page: number,
     size: number,
-    sort: string
+    sort: string,
   ) =>
     `components/${componentId}/comments?page=${page}&size=${size}&sort=${sort}`,
   like: (commentId: number) => `/comment-likes/${commentId}`, // POST, DELETE
@@ -30,11 +30,11 @@ const END_POINT = {
   /* component end point */
   componentDetail: (componentId: number) => `/components/${componentId}`,
   searchComponent: (
-    keyword: string,
-    types: string,
-    page: number,
-    size: number,
-    sort: string
+    page: number = 0,
+    size: number = 10,
+    keyword: string = "",
+    types: string = "",
+    sort: string = "asc",
   ) =>
     `/components/search?keyword=${keyword}&types=${types}&page=${page}&size=${size}&sort=${sort}`,
 

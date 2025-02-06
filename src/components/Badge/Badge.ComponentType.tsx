@@ -11,6 +11,7 @@ export default function BadgeComponentType({
   $size,
 }: IBadgeComponentType) {
   const text = BADGE_COMPONENT_TYPE_TEXT[$type];
+
   return (
     <BadgeComponentTypeContainer $type={$type} $style={$style} $size={$size}>
       {text}

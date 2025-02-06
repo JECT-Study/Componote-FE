@@ -11,6 +11,8 @@ import { DimmedScreen, DisabledInteraction } from "./CardInteraction";
 
 export default function ComponentCard({
   $src,
+  onClick,
+  $type,
   $isDisabled,
   componentName,
   descriptionText,
@@ -19,10 +21,10 @@ export default function ComponentCard({
   $bookmarkCount,
 }: IComponentCard & ICardComponent) {
   return (
-    <S.CardContainer $isDisabled={$isDisabled}>
+    <S.CardContainer onClick={onClick} $isDisabled={$isDisabled}>
       <S.ImageBox>
         <S.CardImage $src={$src} />
-        <BadgeComponentType $size="xs" $type="input" $style="solid" />
+        <BadgeComponentType $size="xs" $type={$type} $style="solid" />
         {$isDisabled && <DimmedScreen />}
       </S.ImageBox>
       <S.DescriptionBox>

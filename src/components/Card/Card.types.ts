@@ -5,11 +5,13 @@ export interface ICardComponent {
 
 /* component card에 사용되는 props type입니다. */
 export interface IComponentCard {
+  $type: "INPUT" | "DISPLAY" | "FEEDBACK" | "NAVIGATION";
   componentName: string;
   descriptionText: string;
   $sampleCount: string;
   $commentCount: string;
   $bookmarkCount: string;
+  onClick: () => void;
 }
 
 /* card item component에 사용되는 props type입니다. */

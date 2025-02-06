@@ -5,10 +5,10 @@ export const FOOTER_TEXT = {
 };
 
 export const BADGE_COMPONENT_TYPE_TEXT = {
-  input: "Input 입력",
-  display: "Display 표시",
-  feedback: "Feedback 반응",
-  navigation: "Navigation 안내",
+  INPUT: "Input 입력",
+  DISPLAY: "Display 표시",
+  FEEDBACK: "Feedback 반응",
+  NAVIGATION: "Navigation 안내",
 };
 
 export const NAVBAR_ITEM_TEXT = {
@@ -127,4 +127,9 @@ export const COMPONENT_DETAIL_PAGE_TEXT = {
     title: "개의 디자인 시스템에서 이 컴포넌트를 사용하고 있어요",
     buttonLabel: "보러 가기",
   },
+};
+
+export const COMPONENT_PAGE_TEXT = {
+  loading: "컴포넌트 목록을 로드 중이에요",
+  error: "컴포넌트 목록을 로드할 수 없어요",
 };
