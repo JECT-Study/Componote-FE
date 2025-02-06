@@ -8,17 +8,6 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {
-    titleText: {
-      control: { type: "text" },
-    },
-    componentListText: {
-      control: { type: "text" },
-    },
-    bodyText: {
-      control: { type: "text" },
-    },
-  },
 } satisfies Meta<typeof DocumentBanner>;
 
 export default meta;
@@ -30,5 +19,7 @@ export const Default: Story = {
     titleText: "컴포넌트 명",
     componentListText: "혼용되는 컴포넌트 이름 목록",
     bodyText: "컴포넌트에 대한 설명",
+    commentCount: "0",
+    bookmarkCount: "0",
   },
 };

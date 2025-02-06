@@ -18,6 +18,8 @@ export const CardContainer = styled.div<ICardComponent>`
 
   background: ${({ theme }) => theme.light["surface-embossed"]};
 
+  cursor: pointer;
+
   ${({ theme, $isDisabled }) => {
     if ($isDisabled) {
       return css`

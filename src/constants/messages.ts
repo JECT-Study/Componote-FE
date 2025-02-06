@@ -127,6 +127,8 @@ export const COMPONENT_DETAIL_PAGE_TEXT = {
     title: "개의 디자인 시스템에서 이 컴포넌트를 사용하고 있어요",
     buttonLabel: "보러 가기",
   },
+  loading: "컴포넌트 세부 내용을 로드 중이에요",
+  error:"컴포넌트 세부 내용을 불러올 수 없어요" 
 };
 
 export const COMPONENT_PAGE_TEXT = {
