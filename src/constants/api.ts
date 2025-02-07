@@ -32,8 +32,8 @@ const END_POINT = {
   searchComponent: (
     page: number = 0,
     size: number = 10,
-    keyword: string = "",
     types: string = "",
+    keyword: string = "",
     sort: string = "asc",
   ) =>
     `/components/search?keyword=${keyword}&types=${types}&page=${page}&size=${size}&sort=${sort}`,
