@@ -9,6 +9,7 @@ export { default as MainContainer } from "./Bookmark/MainContainer";
 // component/detail
 export { default as DocumentSection } from "./ComponentDetail/DocumentSection";
 export { default as BannerContainer } from "./ComponentDetail/BannerContainer";
+export { default as IndexPanelContainer } from "./ComponentDetail/IndexPanelContainer";
 
 // Home 페이지
 export { default as MainContent } from "./Home/MainContent";
