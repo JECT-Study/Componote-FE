@@ -21,6 +21,6 @@ export const Default: Story = {
     explanationRef: { current: null } as React.RefObject<HTMLDivElement>,
     exampleRef: { current: null } as React.RefObject<HTMLDivElement>,
     referenceRef: { current: null } as React.RefObject<HTMLDivElement>,
-    commentsRef: { current: null } as React.RefObject<HTMLDivElement>,
+    // commentsRef: { current: null } as React.RefObject<HTMLDivElement>,
   },
 };
