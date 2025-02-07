@@ -1,7 +1,10 @@
 import DESIGN_SYSTEM from "@/styles/designSystem";
+import { ForwardedRef } from "react";
 import styled from "styled-components";
 
-export const DocumentSectionContainer = styled.div`
+export const DocumentSectionContainer = styled.div<{
+  ref: ForwardedRef<unknown>;
+}>`
   display: flex;
   align-self: stretch;
   align-items: flex-start;
@@ -37,7 +40,7 @@ export const DocumentArticle = styled.article`
   padding: ${DESIGN_SYSTEM.gap.none};
 `;
 
-export const TitleText = styled.span`
+export const TitleText = styled.h3`
   align-self: stretch;
   color: ${({ theme }) => theme.light["object-hero"]};
 

@@ -1,8 +1,9 @@
+import { ForwardedRef } from "react";
 import styled from "styled-components";
 import DESIGN_SYSTEM from "@/styles/designSystem";
 import { IDocumentBannerComponent } from "./Banner.types";
 
-export const BannerContainer = styled.div`
+export const BannerContainer = styled.div<{ ref: ForwardedRef<unknown> }>`
   display: flex;
   justify-content: center;
   align-items: flex-start;
