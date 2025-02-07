@@ -50,6 +50,8 @@ export const IndexPanel = styled.div`
   gap: ${DESIGN_SYSTEM.gap.xs};
   padding: ${DESIGN_SYSTEM.gap.xs} ${DESIGN_SYSTEM.gap["2xs"]};
 
+  position: fixed;
+
   width: 12.5rem;
 
   border-radius: ${DESIGN_SYSTEM.radius.sm};

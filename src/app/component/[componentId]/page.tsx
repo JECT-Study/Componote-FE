@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+import { useParams } from "next/navigation";
 import {
   Layout,
   NavigationBar,
@@ -7,8 +9,11 @@ import {
   Footer,
   EmptyState,
 } from "@/components";
-import { useParams } from "next/navigation";
-import { DocumentSection } from "@/components/Pages";
+import {
+  BannerContainer,
+  DocumentSection,
+  IndexPanelContainer,
+} from "@/components/Pages";
 import {
   COMPONENT_DETAIL_PAGE_TEXT,
   NAVBAR_ITEM_TEXT,
@@ -18,6 +23,17 @@ import useComponentDetailQuery from "@/hooks/api/componentDetail/useComponentDet
 export default function ComponentDetail() {
   const params = useParams();
   const componentId = Number(params.componentId);
+
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const explanationRef = useRef<HTMLDivElement>(null);
+  const exampleRef = useRef<HTMLDivElement>(null);
+  const referenceRef = useRef<HTMLDivElement>(null);
+
+  const refs = {
+    explanationRef,
+    exampleRef,
+    referenceRef,
+  };
 
   const { data, isLoading, isError } = useComponentDetailQuery(componentId);
 
@@ -32,15 +48,25 @@ export default function ComponentDetail() {
         $isSeparated
         placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
-      <DocumentBanner
-        $src={data.thumbnailUrl}
-        titleText={data.title}
-        componentListText={data.mixedNames.join(", ")}
-        bodyText={data.introduction}
-        commentCount={data.commentCount.toString()}
-        bookmarkCount={data.commentCount.toString()}
-      />
+      <BannerContainer>
+        <DocumentBanner
+          ref={bannerRef}
+          $src={data.thumbnailUrl}
+          titleText={data.title}
+          componentListText={data.mixedNames.join(", ")}
+          bodyText={data.introduction}
+          commentCount={data.commentCount.toString()}
+          bookmarkCount={data.commentCount.toString()}
+        />
+        <IndexPanelContainer
+          bannerRef={bannerRef}
+          explanationRef={explanationRef}
+          exampleRef={exampleRef}
+          referenceRef={referenceRef}
+        />
+      </BannerContainer>
       <DocumentSection
+        refs={refs}
         designReferenceCount={data.designReferenceCount}
         descriptionText={data.blocks.DESCRIPTION[0].content}
         useCaseText={data.blocks.USE_CASE[0].content}

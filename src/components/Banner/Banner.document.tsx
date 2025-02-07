@@ -1,21 +1,25 @@
+import { forwardRef } from "react";
 import { Button } from "@/components";
 import chatIcon from "@/assets/icons/chat-line.svg";
 import bookmarkIcon from "@/assets/icons/bookmark-line.svg";
-import * as S from "./Banner.document.style";
 
+import * as S from "./Banner.document.style";
 import { IDocumentBanner } from "./Banner.types";
 import { ButtonStyle } from "../Button/Button.types";
 
-export default function DocumentBanner({
-  $src,
-  titleText,
-  componentListText,
-  bodyText,
-  commentCount,
-  bookmarkCount,
-}: IDocumentBanner) {
-  return (
-    <S.BannerContainer>
+const DocumentBanner = forwardRef(
+  (
+    {
+      $src,
+      titleText,
+      componentListText,
+      bodyText,
+      commentCount,
+      bookmarkCount,
+    }: IDocumentBanner,
+    ref,
+  ) => (
+    <S.BannerContainer ref={ref}>
       <S.ContentContainer>
         <S.TitleSection>
           <S.DisplayContainer>
@@ -45,5 +49,9 @@ export default function DocumentBanner({
         <S.ImageBox $src={$src} />
       </S.ContentContainer>
     </S.BannerContainer>
-  );
-}
+  ),
+);
+
+DocumentBanner.displayName = "DocumentBanner";
+
+export default DocumentBanner;

@@ -1,15 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useObserver } from "@/hooks/api/common/useObserver";
 import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./IndexPanel.style";
 import { InteractionVariant } from "../Interaction/Interaction.types";
-
-/**
- * IndexPanel/Item 컴포넌트에 필요한 props입니다
- */
-interface IIndexPanelItem extends S.IIndexPanelItemStyle {
-  text: string;
-  contentRef: React.RefObject<HTMLElement>;
-}
+import { IIndexPanel, IIndexPanelItem } from "./IndexPanel.types";
 
 /**
  * IndexPanel/Item 컴포넌트 입니다. IndexPanel에서만 사용됩니다.
@@ -19,6 +13,7 @@ function IndexPanelItem({
   $isDisabled = false,
   text,
   contentRef,
+  onSelect,
 }: IIndexPanelItem) {
   // TODO: 목차 중 해당 위치에 닿으면 isSelected true되도록 구현하기
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,6 +21,7 @@ function IndexPanelItem({
 
   const onContentClick = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
+    onSelect(text);
   };
 
   return (
@@ -44,34 +40,64 @@ function IndexPanelItem({
 }
 
 /**
- * IndexPanel 컴포넌트에 필요한 props입니다.
- */
-interface IIndexPanel {
-  bannerRef: React.RefObject<HTMLElement>;
-  explanationRef: React.RefObject<HTMLElement>;
-  exampleRef: React.RefObject<HTMLElement>;
-  referenceRef: React.RefObject<HTMLElement>;
-  commentsRef: React.RefObject<HTMLElement>;
-}
-
-/**
  * IndexPanel 컴포넌트입니다
  */
 function IndexPanel({
   bannerRef,
   explanationRef,
   exampleRef,
-  referenceRef,
-  commentsRef,
+  referenceRef, // commentsRef,
 }: IIndexPanel) {
+  const [selectedItem, setSelectedItem] = useState("");
+
+  const handleSelect = (item: string) => setSelectedItem(item);
+
+  const refs = {
+    explanation: useRef<HTMLDivElement>(null),
+    example: useRef<HTMLDivElement>(null),
+    reference: useRef<HTMLDivElement>(null),
+  };
+
+  const onIntersect: IntersectionObserverCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setSelectedItem(entry.target.getAttribute("document-section") || "");
+      }
+    });
+  };
+
+  useObserver({ target: refs.explanation, onIntersect });
+  useObserver({ target: refs.example, onIntersect });
+  useObserver({ target: refs.reference, onIntersect });
+
   return (
     <S.IndexPanel>
       <S.IndexPanelItemContainer>
-        <IndexPanelItem text="배너" contentRef={bannerRef} />
-        <IndexPanelItem text="설명" contentRef={explanationRef} />
-        <IndexPanelItem text="간단 용례" contentRef={exampleRef} />
-        <IndexPanelItem text="참고자료 및 문헌" contentRef={referenceRef} />
-        <IndexPanelItem text="댓글" contentRef={commentsRef} />
+        <IndexPanelItem
+          text="배너"
+          contentRef={bannerRef}
+          onSelect={handleSelect}
+          $isSelected={selectedItem === "배너"}
+        />
+        <IndexPanelItem
+          text="설명"
+          contentRef={explanationRef}
+          $isSelected={selectedItem === "설명"}
+          onSelect={handleSelect}
+        />
+        <IndexPanelItem
+          text="간단 용례"
+          contentRef={exampleRef}
+          $isSelected={selectedItem === "간단 용례"}
+          onSelect={handleSelect}
+        />
+        <IndexPanelItem
+          text="참고자료 및 문헌"
+          contentRef={referenceRef}
+          $isSelected={selectedItem === "참고자료 및 문헌"}
+          onSelect={handleSelect}
+        />
+        {/* <IndexPanelItem text="댓글" contentRef={commentsRef} /> */}
       </S.IndexPanelItemContainer>
     </S.IndexPanel>
   );
