@@ -2,6 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Chip, Button, ChipGroup } from "@/components";
 import arrowDown from "@/assets/icons/arrow-down.svg";
+import {
+  COMPONENT_CHIPS,
+  DESIGN_SYSTEM_CHIP_GROUP,
+} from "@/constants/chipGroup";
 import { ButtonStyle } from "../Button/Button.types";
 
 export function ChipList() {
@@ -14,17 +18,9 @@ export function ChipList() {
     });
   };
 
-  const chips = [
-    "전체",
-    "Input 입력",
-    "Display 표시",
-    "Feedback 반응",
-    "Navigation 안내",
-  ];
-
   return (
     <>
-      {chips.map((text, index) => (
+      {COMPONENT_CHIPS.map((text, index) => (
         <Chip
           key={text}
           $size="md"
@@ -37,7 +33,7 @@ export function ChipList() {
   );
 }
 
-export type TVariant = null | "platform" | "tech" | "contents" | "device";
+type TVariant = null | "platform" | "tech" | "contents" | "device";
 
 const ButtonBox = styled.div`
   position: relative;
@@ -55,7 +51,7 @@ export function ButtonList() {
       <ButtonBox>
         <Button
           onClick={() => handleChipClick("platform")}
-          text="플랫폼 필터"
+          text={DESIGN_SYSTEM_CHIP_GROUP.platform.text}
           $size="xs"
           $buttonType="button"
           $rightIcon={arrowDown}
@@ -69,7 +65,7 @@ export function ButtonList() {
       <ButtonBox>
         <Button
           onClick={() => handleChipClick("tech")}
-          text="기술 필터"
+          text={DESIGN_SYSTEM_CHIP_GROUP.tech.text}
           $size="xs"
           $buttonType="button"
           $rightIcon={arrowDown}
@@ -83,7 +79,7 @@ export function ButtonList() {
       <ButtonBox>
         <Button
           onClick={() => handleChipClick("contents")}
-          text="콘텐츠 필터"
+          text={DESIGN_SYSTEM_CHIP_GROUP.contents.text}
           $size="xs"
           $buttonType="button"
           $rightIcon={arrowDown}
@@ -97,7 +93,7 @@ export function ButtonList() {
       <ButtonBox>
         <Button
           onClick={() => handleChipClick("device")}
-          text="디바이스 필터"
+          text={DESIGN_SYSTEM_CHIP_GROUP.device.text}
           $size="xs"
           $buttonType="button"
           $rightIcon={arrowDown}
