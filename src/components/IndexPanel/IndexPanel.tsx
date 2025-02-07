@@ -61,7 +61,7 @@ function IndexPanel({
   const onIntersect: IntersectionObserverCallback = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setSelectedItem(entry.target.getAttribute("data-section") || "");
+        setSelectedItem(entry.target.getAttribute("document-section") || "");
       }
     });
   };
