@@ -5,7 +5,10 @@ export { default as ProfileContainer } from "./Profile/ProfileContainer";
 export { default as AnnouncTab } from "./Announce/AnnounceTab";
 export { default as AnnounceContainer } from "./Announce/AnnounceContainer";
 export { default as MainContainer } from "./Bookmark/MainContainer";
+
+// component/detail
 export { default as DocumentSection } from "./ComponentDetail/DocumentSection";
+export { default as BannerContainer } from "./ComponentDetail/BannerContainer";
 
 // Home 페이지
 export { default as MainContent } from "./Home/MainContent";
