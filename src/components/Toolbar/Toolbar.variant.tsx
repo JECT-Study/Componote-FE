@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Chip, Button, ChipGroup } from "@/components";
 import arrowDown from "@/assets/icons/arrow-down.svg";
+import { CHIPS } from "@/constants/componentChip";
 import { ButtonStyle } from "../Button/Button.types";
 
 export function ChipList() {
@@ -14,17 +15,10 @@ export function ChipList() {
     });
   };
 
-  const chips = [
-    "전체",
-    "Input 입력",
-    "Display 표시",
-    "Feedback 반응",
-    "Navigation 안내",
-  ];
 
   return (
     <>
-      {chips.map((text, index) => (
+      {CHIPS.map((text, index) => (
         <Chip
           key={text}
           $size="md"
