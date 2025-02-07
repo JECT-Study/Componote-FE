@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import {
   Layout,
   NavigationBar,
@@ -16,14 +18,13 @@ import {
   COMPONENT_PAGE_TEXT,
   NAVBAR_ITEM_TEXT,
 } from "@/constants/messages";
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
 import { IComponentData } from "@/types/component";
 import useChipStore from "@/store/Component/useChipStore";
 import { DISPLAY_TYPE } from "@/constants/componentChip";
+import { MainContainer } from "@/components/Pages";
 
 export default function Component() {
   const router = useRouter();
@@ -61,25 +62,40 @@ export default function Component() {
       >
         <ChipList />
       </Toolbar>
-      <CardContainer>
+      <CardContainer $content={!data?.pages[0].totalElements}>
         {data?.pages.map((page) =>
-          page.content.map((component: IComponentData) => (
-            <ComponentCard
-              key={component.id}
-              onClick={() => router.push(`/component/${component.id}`)}
-              $src={component.thumbnailUrl}
-              $type={component.type}
-              componentName={component.title}
-              descriptionText={component.introduction}
-              $sampleCount={component.designReferenceCount.toString()}
-              $commentCount={component.commentCount.toString()}
-              $bookmarkCount={component.bookmarkCount.toString()}
+          page.content.length ? (
+            page.content.map((component: IComponentData) => (
+              <ComponentCard
+                key={component.id}
+                onClick={() => router.push(`/component/${component.id}`)}
+                $src={component.thumbnailUrl}
+                $type={component.type}
+                componentName={component.title}
+                descriptionText={component.introduction}
+                $sampleCount={component.designReferenceCount.toString()}
+                $commentCount={component.commentCount.toString()}
+                $bookmarkCount={component.bookmarkCount.toString()}
+              />
+            ))
+          ) : (
+            <EmptyState
+              key="empty state"
+              text={COMPONENT_PAGE_TEXT.noConditions}
             />
-          )),
+          ),
         )}
       </CardContainer>
-      {isLoading && <EmptyState text={COMPONENT_PAGE_TEXT.loading} />}
-      {isError && <EmptyState text={COMPONENT_PAGE_TEXT.error} />}
+      {isLoading && (
+        <MainContainer>
+          <EmptyState text={COMPONENT_PAGE_TEXT.loading} />
+        </MainContainer>
+      )}
+      {isError && (
+        <MainContainer>
+          <EmptyState text={COMPONENT_PAGE_TEXT.error} />
+        </MainContainer>
+      )}
       <div ref={lastElementRef} />
       <Footer />
     </Layout>
