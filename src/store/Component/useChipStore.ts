@@ -1,16 +1,23 @@
 import { create } from "zustand";
 
 interface IChipStore {
-  selectedChip: number[];
+  selectedChips: number[];
   toggleChip: (index: number) => void;
 }
 
 const useChipStore = create<IChipStore>((set) => ({
-  selectedChip: [],
+  selectedChips: [],
   toggleChip: (index) =>
     set((state) => {
-      if (!state.selectedChip.includes(index)) return { selectedChip: [index] };
-      return state;
+      if (index === 0) return { selectedChips: [0] };
+      if (state.selectedChips.includes(0)) return { selectedChips: [index] };
+
+      if (state.selectedChips.includes(index)) {
+        return {
+          selectedChips: state.selectedChips.filter((i) => i !== index),
+        };
+      }
+      return { selectedChips: [...state.selectedChips, index] };
     }),
 }));
 

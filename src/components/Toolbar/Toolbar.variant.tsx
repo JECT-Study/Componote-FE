@@ -11,7 +11,7 @@ import useChipStore from "@/store/Component/useChipStore";
 import { ButtonStyle } from "../Button/Button.types";
 
 export function ChipList() {
-  const { selectedChip, toggleChip } = useChipStore();
+  const { selectedChips, toggleChip } = useChipStore();
 
   return (
     <>
@@ -20,8 +20,8 @@ export function ChipList() {
           key={text}
           $size="md"
           text={text}
-          $isSelected={selectedChip.includes(index)}
           onClick={() => toggleChip(index)}
+          $isSelected={selectedChips.includes(index)}
         />
       ))}
     </>

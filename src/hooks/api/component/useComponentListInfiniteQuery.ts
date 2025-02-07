@@ -9,7 +9,7 @@ interface IPageParam {
 // eslint-disable-next-line import/prefer-default-export
 export const useComponentListInfiniteQuery = (
   type: string,
-  selectedChip: number,
+  selectedChips: number[],
 ) => {
   const fetchComponentList = async ({ pageParam }: IPageParam) => {
     const page = typeof pageParam === "number" ? pageParam : 0;
@@ -19,7 +19,7 @@ export const useComponentListInfiniteQuery = (
   };
 
   return useInfiniteQuery<IPageData, Error, InfiniteData<IPageData>>({
-    queryKey: ["components", type, selectedChip],
+    queryKey: ["components", type, selectedChips],
     queryFn: fetchComponentList,
     initialPageParam: 0,
     getNextPageParam: (lastPage) =>
