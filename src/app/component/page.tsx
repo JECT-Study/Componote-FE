@@ -27,14 +27,15 @@ import { DISPLAY_TYPE } from "@/constants/componentChip";
 
 export default function Component() {
   const router = useRouter();
-  const { selectedChip } = useChipStore();
+  const { selectedChips } = useChipStore();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
 
+  const selectedChipNames = selectedChips
+    .map((chipIndex) => DISPLAY_TYPE[chipIndex])
+    .join(", ");
+
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useComponentListInfiniteQuery(
-      DISPLAY_TYPE[selectedChip[0]],
-      selectedChip[0],
-    );
+    useComponentListInfiniteQuery(selectedChipNames, selectedChips);
 
   useObserver({
     target: lastElementRef,
