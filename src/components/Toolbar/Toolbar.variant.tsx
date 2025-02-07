@@ -1,20 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
+
 import { Chip, Button, ChipGroup } from "@/components";
 import arrowDown from "@/assets/icons/arrow-down.svg";
 import { CHIPS } from "@/constants/componentChip";
+import useChipStore from "@/store/Component/useChipStore";
 import { ButtonStyle } from "../Button/Button.types";
 
 export function ChipList() {
-  const [selectedChip, setSelectedChip] = useState<number[]>([]);
-
-  const handleChipClick = (index: number) => {
-    setSelectedChip((prev) => {
-      if (prev.includes(index)) return prev.filter((i) => i !== index);
-      return [...prev, index];
-    });
-  };
-
+  const { selectedChip, toggleChip } = useChipStore();
 
   return (
     <>
@@ -24,7 +18,7 @@ export function ChipList() {
           $size="md"
           text={text}
           $isSelected={selectedChip.includes(index)}
-          onClick={() => handleChipClick(index)}
+          onClick={() => toggleChip(index)}
         />
       ))}
     </>
