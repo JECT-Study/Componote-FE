@@ -21,20 +21,20 @@ export default function ChipGroup({
 
   return (
     <ChipGroupContainer $width={$width}>
-      {chipGroup.contents.map((chip, index) => (
-        <Chip
-          key={chip}
-          text={chip}
-          $size="md"
-          IconComponent={
-            $variant === "platform"
-              ? DESIGN_SYSTEM_CHIP_GROUP.platform.icons[index]
-              : null
-          }
-          $isSelected={selectedChip.includes(index)}
-          onClick={() => handleChipClick(index)}
-        />
-      ))}
+      {chipGroup.contents.map((content, index) => {
+        const text = typeof content === "string" ? content : content.text;
+        const icon = typeof content === "string" ? null : content.icon;
+        return (
+          <Chip
+            key={text}
+            text={text}
+            $size="md"
+            IconComponent={icon || null}
+            $isSelected={selectedChip.includes(index)}
+            onClick={() => handleChipClick(index)}
+          />
+        );
+      })}
     </ChipGroupContainer>
   );
 }

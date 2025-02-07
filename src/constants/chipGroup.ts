@@ -14,8 +14,12 @@ export const COMPONENT_CHIPS = [
 export const DESIGN_SYSTEM_CHIP_GROUP = {
   platform: {
     text: "플랫폼 필터",
-    contents: ["GitHub", "Figma", "Storybook", "ZeroHeight"],
-    icons: [GitHubIcon, FigmaIcon, StorybookIcon, ZeroHeightIcon],
+    contents: [
+      { text: "GitHub", icon: GitHubIcon },
+      { text: "Figma", icon: FigmaIcon },
+      { text: "Storybook", icon: StorybookIcon },
+      { text: "ZeroHeight", icon: ZeroHeightIcon },
+    ],
   },
   tech: {
     text: "기술 필터",
