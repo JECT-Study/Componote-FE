@@ -10,3 +10,10 @@ export interface IDocumentSection {
     referenceRef: IIndexPanel["referenceRef"];
   };
 }
+
+export interface IDocumentArticle {
+  documentSection: string;
+  titleText: string;
+  bodyText: string;
+  ref: React.RefObject<HTMLElement>;
+}
