@@ -128,12 +128,13 @@ export const COMPONENT_DETAIL_PAGE_TEXT = {
     buttonLabel: "보러 가기",
   },
   loading: "컴포넌트 세부 내용을 로드 중이에요",
-  error:"컴포넌트 세부 내용을 불러올 수 없어요" 
+  error: "컴포넌트 세부 내용을 불러올 수 없어요",
 };
 
 export const COMPONENT_PAGE_TEXT = {
   loading: "컴포넌트 목록을 로드 중이에요",
   error: "컴포넌트 목록을 로드할 수 없어요",
+  noConditions: "선택한 조건에 맞는 결과가 없어요",
 };
 
 
