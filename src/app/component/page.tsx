@@ -21,13 +21,20 @@ import { useRouter } from "next/navigation";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
-import { IComponentData } from "@/types/api/component";
+import { DISPLAY_TYPE } from "@/constants/componentChip";
+import useChipStore from "@/store/Component/useChipStore";
+import { IComponentData } from "@/types/component";
 
 export default function Component() {
   const router = useRouter();
+  const { selectedChip } = useChipStore();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
+
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useComponentListInfiniteQuery();
+    useComponentListInfiniteQuery(
+      DISPLAY_TYPE[selectedChip[0]],
+      selectedChip[0],
+    );
 
   useObserver({
     target: lastElementRef,
@@ -67,7 +74,7 @@ export default function Component() {
               $commentCount={component.commentCount.toString()}
               $bookmarkCount={component.bookmarkCount.toString()}
             />
-          ))
+          )),
         )}
       </CardContainer>
       {isLoading && <EmptyState text={COMPONENT_PAGE_TEXT.loading} />}
