@@ -15,15 +15,29 @@ import {
 import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { ButtonStyle } from "@/components/Button/Button.types";
 import { BANNER_TEXT } from "@/constants/messages";
-
-import githubIcon from "@/assets/icons/github-fill.svg";
-import figmaIcon from "@/assets/icons/figma-line.svg";
-import storybookIcon from "@/assets/icons/storybook-fill.svg";
-import zeroheightIcon from "@/assets/icons/zeroheight-fill.svg";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
+import { IDesignSystemData } from "@/types/designSystem";
+import { useRef } from "react";
+import { useObserver } from "@/hooks/api/common/useObserver";
+import { DESIGN_SYSTEM_CHIP_GROUP } from "@/constants/chipGroup";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
+
+  const lastElementRef = useRef<HTMLDivElement | null>(null);
+  const {
+    data: designSystemList,
+    fetchNextPage,
+    hasNextPage,
+  } = useDesignSystemInfiniteQuery();
+
+  useObserver({
+    target: lastElementRef,
+    onIntersect: ([entry]) => {
+      if (entry.isIntersecting && hasNextPage) fetchNextPage();
+    },
+  });
 
   return (
     <Layout>
@@ -40,72 +54,71 @@ export default function DesignSystem() {
         <ButtonList />
       </Toolbar>
       <DesignSystemCardContainer>
-        {Array.from({ length: 20 }).map((value) => (
-          <DesignSystemCard
-            key={`designSystemcard-${value}`}
-            designSystemName="디자인 시스템 명"
-            organizationName="회사/단체 명"
-            descriptionText="설명 내용"
-            $bookmarkCount="999+"
-            deviceLabels={
-              <>
-                <BadgeLabel
-                  $variant="labelOnly"
-                  text="데스크톱"
-                  $feedback={BadgeLabelFeedback.NONE}
-                  $style="solid"
-                  $size="xs"
-                />
-                <BadgeLabel
-                  $variant="labelOnly"
-                  text="모바일"
-                  $feedback={BadgeLabelFeedback.NONE}
-                  $style="solid"
-                  $size="xs"
-                />
-              </>
-            }
-            labels={Array.from({ length: 16 }).map((label) => (
-              <BadgeLabel
-                key={`label-${label}`}
-                $variant="labelOnly"
-                text="레이블"
-                $feedback={BadgeLabelFeedback.NONE}
-                $style="transparent"
-                $size="xs"
+        {designSystemList?.pages.map((page) =>
+          page.content.map((designSystem: IDesignSystemData) => {
+            const deviceLabels = designSystem.filters.filter(
+              (value) => value.type === "DEVICE"
+            );
+            const labels = designSystem.filters.filter(
+              (value) => value.type === "TECH" || value.type === "CONTENT"
+            );
+            const platformLabels = designSystem.filters.filter(
+              (value) => value.type === "PLATFORM"
+            );
+
+            return (
+              <DesignSystemCard
+                key={`designSystemcard-${designSystem.name}`}
+                designSystemName={designSystem.name}
+                organizationName={designSystem.organizationName}
+                descriptionText={designSystem.description}
+                $bookmarkCount="999+"
+                deviceLabels={deviceLabels.map((deviceLabel) =>
+                  deviceLabel.values.map((deviceName) => (
+                    <BadgeLabel
+                      key={`deviceLabel-${deviceName}`}
+                      $variant="labelOnly"
+                      text={deviceName}
+                      $feedback={BadgeLabelFeedback.NONE}
+                      $style="solid"
+                      $size="xs"
+                    />
+                  ))
+                )}
+                labels={labels.map((label) =>
+                  label.values.map((labelName) => (
+                    <BadgeLabel
+                      key={`label-${label}`}
+                      $variant="labelOnly"
+                      text={labelName}
+                      $feedback={BadgeLabelFeedback.NONE}
+                      $style="transparent"
+                      $size="xs"
+                    />
+                  ))
+                )}
+                platformButtons={platformLabels.map((platformLabel) =>
+                  platformLabel.values.map((platformName) => (
+                    <Button
+                      key={`platformButton-${platformName}`}
+                      text={platformName}
+                      $size="md"
+                      $buttonType="iconButton"
+                      $leftIcon={
+                        DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
+                          (content) => content.responseName === platformName
+                        )?.icon
+                      }
+                      $buttonStyle={ButtonStyle.OutlinedSecondary}
+                    />
+                  ))
+                )}
               />
-            ))}
-            platformButtons={
-              <>
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={githubIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={figmaIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={storybookIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={zeroheightIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-              </>
-            }
-          />
-        ))}
+            );
+          })
+        )}
       </DesignSystemCardContainer>
+      <div ref={lastElementRef} />
       <Footer />
     </Layout>
   );

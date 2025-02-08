@@ -15,10 +15,10 @@ export const DESIGN_SYSTEM_CHIP_GROUP = {
   platform: {
     text: "플랫폼 필터",
     contents: [
-      { text: "GitHub", icon: GitHubIcon },
-      { text: "Figma", icon: FigmaIcon },
-      { text: "Storybook", icon: StorybookIcon },
-      { text: "ZeroHeight", icon: ZeroHeightIcon },
+      { text: "GitHub", icon: GitHubIcon, responseName: "GITHUB" },
+      { text: "Figma", icon: FigmaIcon, responseName: "FIGMA" },
+      { text: "Storybook", icon: StorybookIcon, responseName: "STORYBOOK" },
+      { text: "ZeroHeight", icon: ZeroHeightIcon, responseName: "ZEROHEIGHT" },
     ],
   },
   tech: {
