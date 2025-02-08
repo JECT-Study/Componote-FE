@@ -46,12 +46,12 @@ export const CardContainer = styled.div<ICardComponent>`
 export const TopSection = styled.section`
   display: flex;
   align-items: flex-start;
-  align-self: stretch;
-
   position: relative;
 
   gap: ${DESIGN_SYSTEM.gap.md};
   padding: ${DESIGN_SYSTEM.gap.none};
+
+  flex: 1 0 0;
 `;
 
 export const ImageBox = styled.div`
@@ -59,6 +59,7 @@ export const ImageBox = styled.div`
   align-items: flex-start;
 
   width: 6rem;
+  min-width: 6rem;
   height: 6rem;
 
   gap: ${DESIGN_SYSTEM.gap.none};
@@ -128,7 +129,9 @@ export const BodyText = styled(CommonTextStyle)`
 
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
   color: ${({ theme }) => theme.light["object-bold"]};
 
   ${DESIGN_SYSTEM.typography.body.xs};
