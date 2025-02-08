@@ -11,10 +11,11 @@ import {
   DesignSystemCard,
   BadgeLabel,
   Button,
+  EmptyState,
 } from "@/components";
 import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { ButtonStyle } from "@/components/Button/Button.types";
-import { BANNER_TEXT } from "@/constants/messages";
+import { BANNER_TEXT, DESIGNSYSTEM_PAGE_TEXT } from "@/constants/messages";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
 import { IDesignSystemData } from "@/types/designSystem";
@@ -30,6 +31,8 @@ export default function DesignSystem() {
     data: designSystemList,
     fetchNextPage,
     hasNextPage,
+    isLoading,
+    isError,
   } = useDesignSystemInfiniteQuery();
 
   useObserver({
@@ -118,6 +121,8 @@ export default function DesignSystem() {
           })
         )}
       </DesignSystemCardContainer>
+      {isLoading && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />}
+      {isError && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.error} />}
       <div ref={lastElementRef} />
       <Footer />
     </Layout>
