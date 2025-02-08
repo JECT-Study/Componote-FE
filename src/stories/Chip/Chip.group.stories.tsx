@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     $variant: {
       control: { type: "select" },
-      options: ["platform", "tech", "contents", "device"],
+      options: ["platform", "tech", "content", "device"],
       defaultValue: "platform",
     },
   },
@@ -37,7 +37,7 @@ export const Tech: Story = {
 
 export const Contents: Story = {
   args: {
-    $variant: "contents",
+    $variant: "content",
     $width: "100%",
   },
 };

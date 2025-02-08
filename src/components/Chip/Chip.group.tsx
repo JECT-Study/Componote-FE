@@ -23,13 +23,13 @@ export default function ChipGroup({
     <ChipGroupContainer $width={$width}>
       {chipGroup.contents.map((content, index) => {
         const text = typeof content === "string" ? content : content.text;
-        const icon = typeof content === "string" ? null : content.icon;
+        const icon = typeof content === "string" ? undefined : content.icon;
         return (
           <Chip
             key={text}
             text={text}
             $size="md"
-            IconComponent={icon || null}
+            IconComponent={icon}
             $isSelected={selectedChip.includes(index)}
             onClick={() => handleChipClick(index)}
           />
