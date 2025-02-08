@@ -19,3 +19,7 @@ export { default as SignupTitle } from "./Signup/SignupTitle/SignupTitle";
 export { default as SignupWrapper } from "./Signup/SignupWrapper";
 export { default as SignupModuleWrapper } from "./Signup/SignupModuleWrapper";
 export { default as SignupBodyModuleWrapper } from "./Signup/SignupBodyModuleWrapper";
+
+// DesignSystem 페이지
+export { default as DesignSystemCardContainer } from "./DesignSystem/DesignCardContainer";
+export { default as DesignSystemCard } from "./DesignSystem/DesignSystemCards";
