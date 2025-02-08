@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { BadgeLabel, Button, DesignSystemCard } from "@/components";
+import { BadgeLabel, Button, CardDesignSystem } from "@/components";
 import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { ButtonStyle } from "@/components/Button/Button.types";
 
@@ -10,7 +10,7 @@ import zeroheightIcon from "@/assets/icons/zeroheight-fill.svg";
 
 const meta = {
   title: "Components/Card/DesignSystemCard",
-  component: DesignSystemCard,
+  component: CardDesignSystem,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -20,7 +20,7 @@ const meta = {
       control: { type: "boolean" },
     },
   },
-} satisfies Meta<typeof DesignSystemCard>;
+} satisfies Meta<typeof CardDesignSystem>;
 
 export default meta;
 
