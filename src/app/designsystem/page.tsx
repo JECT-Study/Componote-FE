@@ -22,6 +22,17 @@ import { IDesignSystemData } from "@/types/api/designSystem";
 import { useRef } from "react";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { DESIGN_SYSTEM_CHIP_GROUP } from "@/constants/chipGroup";
+import {
+  ContentFilter,
+  DesignSystemFilterType,
+  DeviceFilter,
+  TechFilter,
+} from "@/types/enum/designSystemFilters";
+import {
+  contentFilterLabels,
+  deviceFilterLabels,
+  techFilterLabels,
+} from "@/constants/designSystemFilterLabel";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
@@ -60,13 +71,15 @@ export default function DesignSystem() {
         {designSystemList?.pages.map((page) =>
           page.content.map((designSystem: IDesignSystemData) => {
             const deviceLabels = designSystem.filters.filter(
-              (value) => value.type === "DEVICE"
+              (value) => value.type === DesignSystemFilterType.DEVICE
             );
             const labels = designSystem.filters.filter(
-              (value) => value.type === "TECH" || value.type === "CONTENT"
+              (value) =>
+                value.type === DesignSystemFilterType.TECH ||
+                value.type === DesignSystemFilterType.CONTENT
             );
             const platformLabels = designSystem.filters.filter(
-              (value) => value.type === "PLATFORM"
+              (value) => value.type === DesignSystemFilterType.PLATFORM
             );
 
             return (
@@ -81,7 +94,7 @@ export default function DesignSystem() {
                     <BadgeLabel
                       key={`deviceLabel-${deviceName}`}
                       $variant="labelOnly"
-                      text={deviceName}
+                      text={deviceFilterLabels[deviceName as DeviceFilter]}
                       $feedback={BadgeLabelFeedback.NONE}
                       $style="solid"
                       $size="xs"
@@ -93,7 +106,11 @@ export default function DesignSystem() {
                     <BadgeLabel
                       key={`label-${label}`}
                       $variant="labelOnly"
-                      text={labelName}
+                      text={
+                        label.type === "TECH"
+                          ? techFilterLabels[labelName as TechFilter]
+                          : contentFilterLabels[labelName as ContentFilter]
+                      }
                       $feedback={BadgeLabelFeedback.NONE}
                       $style="transparent"
                       $size="xs"

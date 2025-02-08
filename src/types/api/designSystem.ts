@@ -1,3 +1,5 @@
+import { DesignSystemFilterType } from "../enum/designSystemFilters";
+
 export interface IDesignSystemPageData {
   hasNext: boolean;
   totalElements: number;
@@ -14,8 +16,6 @@ export interface IDesignSystemData {
   filters: IDesignSystemFilter[];
   links: [];
 }
-
-type DesignSystemFilterType = "PLATFORM" | "TECH" | "CONTENT" | "DEVICE";
 
 export interface IDesignSystemFilter {
   type: DesignSystemFilterType;

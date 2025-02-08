@@ -33,7 +33,7 @@ export function ChipList() {
   );
 }
 
-type TVariant = null | "platform" | "tech" | "contents" | "device";
+type TVariant = null | "platform" | "tech" | "content" | "device";
 
 const ButtonBox = styled.div`
   position: relative;
@@ -78,15 +78,15 @@ export function ButtonList() {
 
       <ButtonBox>
         <Button
-          onClick={() => handleChipClick("contents")}
-          text={DESIGN_SYSTEM_CHIP_GROUP.contents.text}
+          onClick={() => handleChipClick("content")}
+          text={DESIGN_SYSTEM_CHIP_GROUP.content.text}
           $size="xs"
           $buttonType="button"
           $rightIcon={arrowDown}
           $buttonStyle={ButtonStyle.OutlinedSecondary}
         />
-        {activeChipGroup === "contents" && (
-          <ChipGroup $width="27.5rem" $variant="contents" />
+        {activeChipGroup === "content" && (
+          <ChipGroup $width="27.5rem" $variant="content" />
         )}
       </ButtonBox>
 
