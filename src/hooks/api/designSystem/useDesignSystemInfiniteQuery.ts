@@ -1,6 +1,6 @@
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 import { getDesignSystem } from "@/api/designSystem";
-import { IDesignSystemPageData } from "@/types/designSystem";
+import { IDesignSystemPageData } from "@/types/api/designSystem";
 
 interface IPageParam {
   pageParam: number | unknown;

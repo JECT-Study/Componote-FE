@@ -1,5 +1,5 @@
 import { getSocialAuthUrl } from "@/api/login";
-import { IAuthCode } from "@/types/login";
+import { IAuthCode } from "@/types/api/login";
 import { useQuery } from "@tanstack/react-query";
 
 export function useGoogleAuthUrlQuery() {

@@ -1,4 +1,4 @@
-import { IMemberSummary } from "@/types/user";
+import { IMemberSummary } from "@/types/api/user";
 import { create } from "zustand";
 
 interface IUserInfoState {

@@ -18,7 +18,7 @@ import { ButtonStyle } from "@/components/Button/Button.types";
 import { BANNER_TEXT, DESIGNSYSTEM_PAGE_TEXT } from "@/constants/messages";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
-import { IDesignSystemData } from "@/types/designSystem";
+import { IDesignSystemData } from "@/types/api/designSystem";
 import { useRef } from "react";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { DESIGN_SYSTEM_CHIP_GROUP } from "@/constants/chipGroup";

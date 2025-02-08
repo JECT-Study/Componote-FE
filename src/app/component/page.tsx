@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
-import { IComponentData } from "@/types/component";
+import { IComponentData } from "@/types/api/component";
 
 export default function Component() {
   const router = useRouter();
@@ -67,7 +67,7 @@ export default function Component() {
               $commentCount={component.commentCount.toString()}
               $bookmarkCount={component.bookmarkCount.toString()}
             />
-          )),
+          ))
         )}
       </CardContainer>
       {isLoading && <EmptyState text={COMPONENT_PAGE_TEXT.loading} />}
