@@ -6,7 +6,7 @@ interface IChipStore {
 }
 
 const useChipStore = create<IChipStore>((set) => ({
-  selectedChips: [],
+  selectedChips: [0],
   toggleChip: (index) =>
     set((state) => {
       if (index === 0) return { selectedChips: [0] };
