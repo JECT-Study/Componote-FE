@@ -1,4 +1,4 @@
-import SignupJobs from "./enum/signupJobs";
+import SignupJobs from "../enum/signupJobs";
 
 export interface IMemberSummary {
   isEmailRegistered: boolean;

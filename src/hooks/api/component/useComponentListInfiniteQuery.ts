@@ -1,6 +1,6 @@
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 import { searchComponent } from "@/api/component";
-import { IPageData } from "@/types/component";
+import { IPageData } from "@/types/api/component";
 
 interface IPageParam {
   pageParam: number | unknown;

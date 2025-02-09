@@ -1,5 +1,5 @@
 import { postSignup } from "@/api/signup";
-import { ISignupUser } from "@/types/user";
+import { ISignupUser } from "@/types/api/user";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useTokenStore } from "../store/useTokenStore";

@@ -5,7 +5,7 @@ import { ButtonStyle } from "../Button/Button.types";
 import { ICardComponent, IDesignSystemCard } from "./Card.types";
 import { DisabledInteraction, DimmedScreen } from "./CardInteraction";
 
-export default function DesignSystemCard({
+export default function CardDesignSystem({
   $isDisabled,
   designSystemName,
   organizationName,

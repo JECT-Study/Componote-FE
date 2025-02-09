@@ -6,26 +6,43 @@ import {
   DefaultBanner,
   Toolbar,
   ButtonList,
-  DesignSystemCardContainer,
   Footer,
-  DesignSystemCard,
-  BadgeLabel,
-  Button,
+  EmptyState,
 } from "@/components";
-import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
-import { ButtonStyle } from "@/components/Button/Button.types";
-import { BANNER_TEXT } from "@/constants/messages";
-
-import githubIcon from "@/assets/icons/github-fill.svg";
-import figmaIcon from "@/assets/icons/figma-line.svg";
-import storybookIcon from "@/assets/icons/storybook-fill.svg";
-import zeroheightIcon from "@/assets/icons/zeroheight-fill.svg";
+import { BANNER_TEXT, DESIGNSYSTEM_PAGE_TEXT } from "@/constants/messages";
+import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
+import { useRef } from "react";
+import { useObserver } from "@/hooks/api/common/useObserver";
+import {
+  DesignSystemCardContainer,
+  DesignSystemCard,
+} from "@/components/Pages";
+import { IDesignSystemData } from "@/types/api/designSystem";
 
 export default function DesignSystem() {
+  const { accessToken } = useTokenStore();
+
+  const lastElementRef = useRef<HTMLDivElement | null>(null);
+  const {
+    data: designSystemList,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isError,
+  } = useDesignSystemInfiniteQuery();
+
+  useObserver({
+    target: lastElementRef,
+    onIntersect: ([entry]) => {
+      if (entry.isIntersecting && hasNextPage) fetchNextPage();
+    },
+  });
+
   return (
     <Layout>
       <NavigationBar
-        $isAuthorized
+        $isAuthorized={!!accessToken}
         $isSeparated
         placeholderText="컴포넌트나 디자인 시스템을 검색해 보세요..."
       />
@@ -37,72 +54,18 @@ export default function DesignSystem() {
         <ButtonList />
       </Toolbar>
       <DesignSystemCardContainer>
-        {Array.from({ length: 20 }).map((value) => (
-          <DesignSystemCard
-            key={`designSystemcard-${value}`}
-            designSystemName="디자인 시스템 명"
-            organizationName="회사/단체 명"
-            descriptionText="설명 내용"
-            $bookmarkCount="999+"
-            deviceLabels={
-              <>
-                <BadgeLabel
-                  $variant="labelOnly"
-                  text="데스크톱"
-                  $feedback={BadgeLabelFeedback.NONE}
-                  $style="solid"
-                  $size="xs"
-                />
-                <BadgeLabel
-                  $variant="labelOnly"
-                  text="모바일"
-                  $feedback={BadgeLabelFeedback.NONE}
-                  $style="solid"
-                  $size="xs"
-                />
-              </>
-            }
-            labels={Array.from({ length: 16 }).map((label) => (
-              <BadgeLabel
-                key={`label-${label}`}
-                $variant="labelOnly"
-                text="레이블"
-                $feedback={BadgeLabelFeedback.NONE}
-                $style="transparent"
-                $size="xs"
-              />
-            ))}
-            platformButtons={
-              <>
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={githubIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={figmaIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={storybookIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-                <Button
-                  $size="md"
-                  $buttonType="iconButton"
-                  $leftIcon={zeroheightIcon}
-                  $buttonStyle={ButtonStyle.OutlinedSecondary}
-                />
-              </>
-            }
-          />
-        ))}
+        {designSystemList?.pages.map((page) =>
+          page.content.map((designSystemData: IDesignSystemData) => (
+            <DesignSystemCard
+              key={designSystemData.name}
+              designSystem={designSystemData}
+            />
+          ))
+        )}
       </DesignSystemCardContainer>
+      {isLoading && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />}
+      {isError && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.error} />}
+      <div ref={lastElementRef} />
       <Footer />
     </Layout>
   );

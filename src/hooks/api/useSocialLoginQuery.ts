@@ -1,5 +1,5 @@
 import { getSocialLogin } from "@/api/login";
-import { ISocialLogin } from "@/types/login";
+import { ISocialLogin } from "@/types/api/login";
 import { useQuery } from "@tanstack/react-query";
 
 // eslint-disable-next-line import/prefer-default-export

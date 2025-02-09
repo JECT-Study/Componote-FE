@@ -1,5 +1,5 @@
 import { componentDetail } from "@/api/componentDetail";
-import { IComponentDetail } from "@/types/componentDetail";
+import { IComponentDetail } from "@/types/api/componentDetail";
 import { useQuery } from "@tanstack/react-query";
 
 const useComponentDetailQuery = (componentId: number) => {

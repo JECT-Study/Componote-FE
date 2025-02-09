@@ -1,4 +1,4 @@
-import { ISignupUser } from "@/types/user";
+import { ISignupUser } from "@/types/api/user";
 import END_POINT from "@/constants/api";
 import axiosInstance from "./interceptor";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Chip } from "@/components";
-import { CHIP_GROUP, CHIP_ICONS } from "./chipGroup";
+import { DESIGN_SYSTEM_CHIP_GROUP } from "../../constants/chipGroup";
 import { IChipGroup, IChipGroupComponent } from "./Chip.types";
 import ChipGroupContainer from "./Chip.group.style";
 
@@ -9,7 +9,7 @@ export default function ChipGroup({
   $variant,
   $width,
 }: IChipGroup & IChipGroupComponent) {
-  const chipGroup = CHIP_GROUP[$variant];
+  const chipGroup = DESIGN_SYSTEM_CHIP_GROUP[$variant];
   const [selectedChip, setSelectedChip] = useState<number[]>([]);
 
   const handleChipClick = (index: number) => {
@@ -21,16 +21,20 @@ export default function ChipGroup({
 
   return (
     <ChipGroupContainer $width={$width}>
-      {chipGroup.map((chip, index) => (
-        <Chip
-          key={chip}
-          text={chip}
-          $size="md"
-          IconComponent={$variant === "platform" ? CHIP_ICONS[index] : null}
-          $isSelected={selectedChip.includes(index)}
-          onClick={() => handleChipClick(index)}
-        />
-      ))}
+      {chipGroup.contents.map((content, index) => {
+        const text = typeof content === "string" ? content : content.text;
+        const icon = typeof content === "string" ? undefined : content.icon;
+        return (
+          <Chip
+            key={text}
+            text={text}
+            $size="md"
+            IconComponent={icon}
+            $isSelected={selectedChip.includes(index)}
+            onClick={() => handleChipClick(index)}
+          />
+        );
+      })}
     </ChipGroupContainer>
   );
 }

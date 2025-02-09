@@ -1,5 +1,5 @@
 import { getUserInfo } from "@/api/userInfo";
-import { IMemberSummary } from "@/types/user";
+import { IMemberSummary } from "@/types/api/user";
 import { useQuery } from "@tanstack/react-query";
 
 // eslint-disable-next-line import/prefer-default-export

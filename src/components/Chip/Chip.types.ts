@@ -14,7 +14,7 @@ export interface IChipComponent {
 }
 
 export interface IChipGroup {
-  $variant: "platform" | "tech" | "contents" | "device";
+  $variant: "platform" | "tech" | "content" | "device";
 }
 
 export interface IChipGroupComponent {
