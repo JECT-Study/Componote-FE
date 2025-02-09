@@ -3,6 +3,7 @@ import { create } from "zustand";
 interface IChipStore {
   selectedChips: number[];
   toggleChip: (index: number) => void;
+  resetChips: () => void;
 }
 
 const useChipStore = create<IChipStore>((set) => ({
@@ -19,6 +20,7 @@ const useChipStore = create<IChipStore>((set) => ({
       }
       return { selectedChips: [...state.selectedChips, index] };
     }),
+  resetChips: () => set({ selectedChips: [0] }),
 }));
 
 export default useChipStore;
