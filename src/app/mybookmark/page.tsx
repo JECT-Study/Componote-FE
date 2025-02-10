@@ -38,7 +38,6 @@ export default function MyBookMark() {
       />
       <Toolbar
         contextMenuItemLabels={BOOKMARK_CONTEXT_MENU_ITEM_LABELS}
-        defaultItem={BOOKMARK_CONTEXT_MENU_ITEM_LABELS[0]}
         onTabSelect={setSelectedTabIndex}
       />
       <MainContainer>
