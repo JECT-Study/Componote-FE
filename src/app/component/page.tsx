@@ -24,21 +24,29 @@ import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabel
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
 import useChipStore from "@/store/component/useChipStore";
 import {
+  COMPONENT_SORT_CONDITION,
   COMPONENT_FILTER_TYPE,
 } from "@/constants/componentFilter";
 import { IComponentData } from "@/types/api/component";
+import useContextMenuStore from "@/store/common/useContextMenuStore";
 
 export default function Component() {
   const router = useRouter();
-  const { selectedChips } = useChipStore();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
+
+  const { selectedChips } = useChipStore();
+  const { selectedLabel } = useContextMenuStore();
 
   const selectedChipNames = selectedChips
     .map((chipIndex) => COMPONENT_FILTER_TYPE[chipIndex])
     .join(", ");
 
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useComponentListInfiniteQuery(selectedChipNames, selectedChips);
+    useComponentListInfiniteQuery(
+      selectedChipNames,
+      selectedChips,
+      COMPONENT_SORT_CONDITION[selectedLabel],
+    );
 
   useObserver({
     target: lastElementRef,
