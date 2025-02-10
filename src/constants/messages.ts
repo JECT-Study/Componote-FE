@@ -137,7 +137,6 @@ export const COMPONENT_PAGE_TEXT = {
   noConditions: "선택한 조건에 맞는 결과가 없어요",
 };
 
-
 export const DESIGNSYSTEM_PAGE_TEXT = {
   loading: "디자인시스템 목록을 로드 중이에요",
   error: "디자인시스템 목록을 로드할 수 없어요",
