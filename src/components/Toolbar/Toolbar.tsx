@@ -4,26 +4,30 @@ import resetIcon from "@/assets/icons/reset-left-line.svg";
 import arrowDown from "@/assets/icons/arrow-down.svg";
 import checkLineIcon from "@/assets/icons/check-line.svg";
 import useChipStore from "@/store/component/useChipStore";
+import useContextMenuStore from "@/store/common/useContextMenuStore";
 import * as S from "./Toolbar.style";
 import { ButtonStyle } from "../Button/Button.types";
 
 interface IToolbar {
   children?: React.ReactNode;
   contextMenuItemLabels?: string[];
-  defaultItem?: string;
   onTabSelect?: (index: number) => void;
 }
 
 export default function Toolbar({
   children,
   contextMenuItemLabels,
-  defaultItem,
   onTabSelect,
 }: IToolbar) {
-  const resetChips = useChipStore((state) => state.resetChips);
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  const [isContextMenuOpen, setIsContextMenuOpen] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<string>(defaultItem || "");
+
+  const resetChips = useChipStore((state) => state.resetChips);
+  const {
+    selectedLabel,
+    isContextMenuOpen,
+    selectContextMenu,
+    toggleContextMenu,
+  } = useContextMenuStore();
 
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
@@ -36,8 +40,8 @@ export default function Toolbar({
   };
 
   const handleContextMenuSelect = (label: string) => {
-    setSelectedItem(label);
-    setIsContextMenuOpen(false);
+    selectContextMenu(label);
+    toggleContextMenu();
   };
 
   return (
@@ -70,12 +74,12 @@ export default function Toolbar({
         </S.ToolBox>
         <S.ButtonBox>
           <Button
-            text={selectedItem}
+            text={selectedLabel}
             $size="xs"
             $buttonType="button"
             $rightIcon={arrowDown}
             $buttonStyle={ButtonStyle.OutlinedSecondary}
-            onClick={() => setIsContextMenuOpen(!isContextMenuOpen)}
+            onClick={toggleContextMenu}
           />
           {isContextMenuOpen && (
             <ContextMenu $width="160px">
@@ -83,8 +87,8 @@ export default function Toolbar({
                 <ContextMenu.Item
                   key={label}
                   labelText={label}
-                  $variant={selectedItem === label ? "rightIcon" : "labelOnly"}
-                  icon={selectedItem === label ? checkLineIcon : null}
+                  $variant={selectedLabel === label ? "rightIcon" : "labelOnly"}
+                  icon={selectedLabel === label ? checkLineIcon : null}
                   $size="sm"
                   onClick={() => handleContextMenuSelect(label)}
                 />

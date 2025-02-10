@@ -56,10 +56,7 @@ export default function Component() {
         titleText={BANNER_TEXT.component.titleText}
         descriptionText={BANNER_TEXT.component.descriptionText}
       />
-      <Toolbar
-        contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}
-        defaultItem={COMPONENT_CONTEXT_MENU_ITEM_LABELS[0]}
-      >
+      <Toolbar contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}>
         <ChipList />
       </Toolbar>
       <CardContainer $content={!data?.pages[0].totalElements}>
