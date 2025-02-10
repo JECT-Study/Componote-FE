@@ -12,7 +12,8 @@ const useContextMenuStore = create<IContextMenuStore>((set) => ({
   selectedLabel: COMPONENT_CONTEXT_MENU_ITEM_LABELS[0],
   isContextMenuOpen: false,
   selectContextMenu: (selectedLabel) => set({ selectedLabel }),
-  toggleContextMenu: () => set((state) => ({ isContextMenuOpen: !state.isContextMenuOpen })),
+  toggleContextMenu: () =>
+    set((state) => ({ isContextMenuOpen: !state.isContextMenuOpen })),
 }));
 
 export default useContextMenuStore;
