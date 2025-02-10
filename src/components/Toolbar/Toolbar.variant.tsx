@@ -7,7 +7,7 @@ import {
   COMPONENT_CHIPS,
   DESIGN_SYSTEM_CHIP_GROUP,
 } from "@/constants/chipGroup";
-import useChipStore from "@/store/Component/useChipStore";
+import useChipStore from "@/store/component/useChipStore";
 import { ButtonStyle } from "../Button/Button.types";
 
 export function ChipList() {

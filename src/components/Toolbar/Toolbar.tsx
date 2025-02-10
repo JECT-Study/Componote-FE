@@ -3,7 +3,7 @@ import { Button, ButtonList, ChipList, ContextMenu, Tab } from "@/components";
 import resetIcon from "@/assets/icons/reset-left-line.svg";
 import arrowDown from "@/assets/icons/arrow-down.svg";
 import checkLineIcon from "@/assets/icons/check-line.svg";
-import useChipStore from "@/store/Component/useChipStore";
+import useChipStore from "@/store/component/useChipStore";
 import * as S from "./Toolbar.style";
 import { ButtonStyle } from "../Button/Button.types";
 

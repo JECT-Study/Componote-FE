@@ -22,7 +22,7 @@ import { MainContainer } from "@/components/Pages";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
-import useChipStore from "@/store/Component/useChipStore";
+import useChipStore from "@/store/component/useChipStore";
 import { DISPLAY_TYPE } from "@/constants/componentChip";
 import { IComponentData } from "@/types/api/component";
 
