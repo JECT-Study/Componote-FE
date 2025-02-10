@@ -19,24 +19,34 @@ import {
   NAVBAR_ITEM_TEXT,
 } from "@/constants/messages";
 import { MainContainer } from "@/components/Pages";
+import useChipStore from "@/store/component/useChipStore";
+import useContextMenuStore from "@/store/common/useContextMenuStore";
 import { useObserver } from "@/hooks/api/common/useObserver";
-import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
-import useChipStore from "@/store/Component/useChipStore";
-import { DISPLAY_TYPE } from "@/constants/componentChip";
+import {
+  COMPONENT_SORT_CONDITION,
+  COMPONENT_FILTER_TYPE,
+} from "@/constants/componentFilter";
+import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { IComponentData } from "@/types/api/component";
 
 export default function Component() {
   const router = useRouter();
-  const { selectedChips } = useChipStore();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
 
+  const { selectedChips } = useChipStore();
+  const { selectedLabel } = useContextMenuStore();
+
   const selectedChipNames = selectedChips
-    .map((chipIndex) => DISPLAY_TYPE[chipIndex])
+    .map((chipIndex) => COMPONENT_FILTER_TYPE[chipIndex])
     .join(", ");
 
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useComponentListInfiniteQuery(selectedChipNames, selectedChips);
+    useComponentListInfiniteQuery(
+      selectedChipNames,
+      selectedChips,
+      COMPONENT_SORT_CONDITION[selectedLabel],
+    );
 
   useObserver({
     target: lastElementRef,
@@ -56,10 +66,7 @@ export default function Component() {
         titleText={BANNER_TEXT.component.titleText}
         descriptionText={BANNER_TEXT.component.descriptionText}
       />
-      <Toolbar
-        contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}
-        defaultItem={COMPONENT_CONTEXT_MENU_ITEM_LABELS[0]}
-      >
+      <Toolbar contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}>
         <ChipList />
       </Toolbar>
       <CardContainer $content={!data?.pages[0].totalElements}>

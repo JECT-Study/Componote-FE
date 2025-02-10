@@ -10,16 +10,17 @@ interface IPageParam {
 export const useComponentListInfiniteQuery = (
   type: string,
   selectedChips: number[],
+  sort: string,
 ) => {
   const fetchComponentList = async ({ pageParam }: IPageParam) => {
     const page = typeof pageParam === "number" ? pageParam : 0;
-    const data = await searchComponent(page, 10, type);
+    const data = await searchComponent(page, 10, type, "", sort);
 
     return data;
   };
 
   return useInfiniteQuery<IPageData, Error, InfiniteData<IPageData>>({
-    queryKey: ["components", type, selectedChips],
+    queryKey: ["components", type, selectedChips, sort],
     queryFn: fetchComponentList,
     initialPageParam: 0,
     getNextPageParam: (lastPage) =>
