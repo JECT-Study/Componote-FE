@@ -23,7 +23,9 @@ import { useObserver } from "@/hooks/api/common/useObserver";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
 import useChipStore from "@/store/component/useChipStore";
-import { DISPLAY_TYPE } from "@/constants/componentChip";
+import {
+  COMPONENT_FILTER_TYPE,
+} from "@/constants/componentFilter";
 import { IComponentData } from "@/types/api/component";
 
 export default function Component() {
@@ -32,7 +34,7 @@ export default function Component() {
   const lastElementRef = useRef<HTMLDivElement | null>(null);
 
   const selectedChipNames = selectedChips
-    .map((chipIndex) => DISPLAY_TYPE[chipIndex])
+    .map((chipIndex) => COMPONENT_FILTER_TYPE[chipIndex])
     .join(", ");
 
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
