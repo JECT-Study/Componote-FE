@@ -5,12 +5,12 @@ import axiosInstance from "./interceptor";
 export const searchComponent = async (
   page: number,
   size: number,
-  keyword?: string,
   types?: string,
+  keyword?: string,
   sort?: string,
 ) => {
   const { data } = await axiosInstance.get(
-    `${END_POINT.searchComponent(page, size, keyword, types, sort)}`,
+    `${END_POINT.searchComponent(page, size, types, keyword, sort)}`,
   );
 
   return data;

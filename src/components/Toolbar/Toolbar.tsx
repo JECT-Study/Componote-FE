@@ -3,6 +3,7 @@ import { Button, ButtonList, ChipList, ContextMenu, Tab } from "@/components";
 import resetIcon from "@/assets/icons/reset-left-line.svg";
 import arrowDown from "@/assets/icons/arrow-down.svg";
 import checkLineIcon from "@/assets/icons/check-line.svg";
+import useChipStore from "@/store/Component/useChipStore";
 import * as S from "./Toolbar.style";
 import { ButtonStyle } from "../Button/Button.types";
 
@@ -19,6 +20,7 @@ export default function Toolbar({
   defaultItem,
   onTabSelect,
 }: IToolbar) {
+  const resetChips = useChipStore((state) => state.resetChips);
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isContextMenuOpen, setIsContextMenuOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<string>(defaultItem || "");
@@ -59,6 +61,7 @@ export default function Toolbar({
           <S.FilterIcon />
           {renderToolList()}
           <Button
+            onClick={() => resetChips()}
             $size="sm"
             $buttonType="iconButton"
             $leftIcon={resetIcon}
