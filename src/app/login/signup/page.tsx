@@ -9,12 +9,13 @@ import {
   SignupTitle,
   SignupWrapper,
 } from "@/components/Pages";
+import { SIGNUP_TEXT } from "@/constants/messages";
 
 export default function SignupPage() {
   return (
     <SignupWrapper>
       <SignupModuleWrapper>
-        <SignupTitle />
+        <SignupTitle titleText={SIGNUP_TEXT.titleText} />
         <Divider $stroke="normal" $layout="horizontal" />
         <SignupBodyModuleWrapper>
           <SignupProfile />
