@@ -6,6 +6,7 @@ import { ICardComponent, IDesignSystemCard } from "./Card.types";
 import { DisabledInteraction, DimmedScreen } from "./CardInteraction";
 
 export default function CardDesignSystem({
+  $src,
   $isDisabled,
   designSystemName,
   organizationName,
@@ -20,7 +21,7 @@ export default function CardDesignSystem({
       <S.TopSection>
         <S.ImageBox>
           {$isDisabled && <DimmedScreen />}
-          <S.ComponentImage />
+          <S.ComponentImage $src={$src} />
         </S.ImageBox>
         <S.ContentContainer>
           <S.ContentBox>

@@ -14,6 +14,7 @@ export interface IDesignSystemData {
   organizationName: string;
   description: string;
   filters: IDesignSystemFilter[];
+  thumbnailUrl: string;
   links: [];
 }
 

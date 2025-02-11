@@ -21,16 +21,17 @@ export default function DesignSystemCard({
   designSystem: IDesignSystemData;
 }) {
   const deviceLabels = designSystem.filters.filter(
-    (value) => value.type === DesignSystemFilterType.DEVICE
+    (value) => value.type === DesignSystemFilterType.DEVICE,
   );
   const labels = designSystem.filters.filter(
     (value) =>
       value.type === DesignSystemFilterType.TECH ||
-      value.type === DesignSystemFilterType.CONTENT
+      value.type === DesignSystemFilterType.CONTENT,
   );
   const platformLabels = designSystem.filters.filter(
-    (value) => value.type === DesignSystemFilterType.PLATFORM
+    (value) => value.type === DesignSystemFilterType.PLATFORM,
   );
+
 
   return (
     <CardDesignSystem
@@ -38,6 +39,7 @@ export default function DesignSystemCard({
       designSystemName={designSystem.name}
       organizationName={designSystem.organizationName}
       descriptionText={designSystem.description}
+      $src={designSystem.thumbnailUrl}
       $bookmarkCount="999+"
       deviceLabels={deviceLabels.map((deviceLabel) =>
         deviceLabel.values.map((deviceName) => (
@@ -49,7 +51,7 @@ export default function DesignSystemCard({
             $style="solid"
             $size="xs"
           />
-        ))
+        )),
       )}
       labels={labels.map((label) =>
         label.values.map((labelName) => (
@@ -65,7 +67,7 @@ export default function DesignSystemCard({
             $style="transparent"
             $size="xs"
           />
-        ))
+        )),
       )}
       platformButtons={platformLabels.map((platformLabel) =>
         platformLabel.values.map((platformName) => (
@@ -76,12 +78,12 @@ export default function DesignSystemCard({
             $buttonType="iconButton"
             $leftIcon={
               DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
-                (content) => content.responseName === platformName
+                (content) => content.responseName === platformName,
               )?.icon
             }
             $buttonStyle={ButtonStyle.OutlinedSecondary}
           />
-        ))
+        )),
       )}
     />
   );
