@@ -1,6 +1,6 @@
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 import { getComponentList } from "@/api/component";
-import { IPageData } from "@/types/api/component";
+import { IComponentListPageData } from "@/types/api/component";
 
 interface IPageParam {
   pageParam: number | unknown;
@@ -18,7 +18,11 @@ const useComponentListInfiniteQuery = (
     return data;
   };
 
-  return useInfiniteQuery<IPageData, Error, InfiniteData<IPageData>>({
+  return useInfiniteQuery<
+    IComponentListPageData,
+    Error,
+    InfiniteData<IComponentListPageData>
+  >({
     queryKey: ["components", types, selectedChips, sort],
     queryFn: fetchComponentList,
     initialPageParam: 0,
