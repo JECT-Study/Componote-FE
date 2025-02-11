@@ -46,12 +46,14 @@ export const CardContainer = styled.div<ICardComponent>`
 export const TopSection = styled.section`
   display: flex;
   align-items: flex-start;
+  flex: 1 0 0;
+  
   position: relative;
+  width: 100%;
 
   gap: ${DESIGN_SYSTEM.gap.md};
   padding: ${DESIGN_SYSTEM.gap.none};
 
-  flex: 1 0 0;
 `;
 
 export const ImageBox = styled.div`
