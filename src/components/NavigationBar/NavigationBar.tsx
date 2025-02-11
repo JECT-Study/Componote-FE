@@ -108,7 +108,7 @@ export default function NavigationBar({
                         labelText={cleanKorean(component.title)}
                         badgeLabelText="컴포넌트"
                         subLabelText={extractKorean(component.mixedNames).join(
-                          ", ",
+                          ", "
                         )}
                         onClick={() => handleItemClick(component.id)}
                       />
@@ -120,13 +120,14 @@ export default function NavigationBar({
                     key="noCondition"
                     text="컴포넌트 검색 결과가 없어요"
                   />
-                ),
+                )
               )}
             </Combobox>
           )}
           {$isAuthorized ? (
             <S.NavItemBox>
-              <S.AvatarBox>
+              {/* TODO: 추후 콤보 박스로 변경해야함. 현재 임시로 Profile 페이지로 이동 */}
+              <S.AvatarBox onClick={() => router.push("/profile")}>
                 <Avatar $size="md" $badgeVisible />
               </S.AvatarBox>
             </S.NavItemBox>
