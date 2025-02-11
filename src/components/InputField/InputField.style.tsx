@@ -72,7 +72,7 @@ const BasicIconImg = styled(IconWrapper)`
   }
 `;
 
-export const InputFieldIcon = styled(BasicIconImg)`
+export const InputFieldIcon = styled(BasicIconImg)<{ onClick?: () => void }>`
   width: 1.5rem;
   height: 1.5rem;
 `;
