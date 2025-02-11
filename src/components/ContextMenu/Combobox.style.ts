@@ -2,13 +2,16 @@ import DESIGN_SYSTEM from "@/styles/designSystem";
 import styled from "styled-components";
 
 export const Combobox = styled.div`
-  width: 25rem;
+  width: 21.25rem;
   max-height: 21rem;
 
   display: flex;
   align-items: flex-start;
   gap: ${DESIGN_SYSTEM.gap["3xs"]};
   padding: ${DESIGN_SYSTEM.gap["3xs"]};
+
+  position: absolute;
+  top: 3.75rem;
 
   border-radius: ${DESIGN_SYSTEM.radius.md};
   border: ${DESIGN_SYSTEM.stroke.normal} solid
@@ -17,7 +20,8 @@ export const Combobox = styled.div`
   opacity: ${DESIGN_SYSTEM.opacity.visible};
   background: ${({ theme }) => theme.light["surface-embossed"]};
 
-  ${DESIGN_SYSTEM.shadow.floated}
+  box-shadow: ${DESIGN_SYSTEM.shadow.floated};
+  z-index: 10;
 
   overflow: auto;
   ::-webkit-scrollbar {
