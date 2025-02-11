@@ -143,10 +143,6 @@ export const DeviceLabelBox = styled.div`
 
   gap: ${DESIGN_SYSTEM.gap["2xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
-
-  position: absolute;
-  right: 0rem;
-  top: 0.125rem;
 `;
 
 export const LabelBox = styled.div`
