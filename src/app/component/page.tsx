@@ -22,7 +22,7 @@ import { MainContainer } from "@/components/Pages";
 import useChipStore from "@/store/component/useChipStore";
 import useContextMenuStore from "@/store/common/useContextMenuStore";
 import { useObserver } from "@/hooks/api/common/useObserver";
-import { useComponentListInfiniteQuery } from "@/hooks/api/component/useComponentListInfiniteQuery";
+import useComponentListInfiniteQuery from "@/hooks/api/component/useComponentListInfiniteQuery";
 import {
   COMPONENT_SORT_CONDITION,
   COMPONENT_FILTER_TYPE,
