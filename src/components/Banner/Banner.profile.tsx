@@ -1,17 +1,23 @@
+"use client";
+
 import { Avatar, Button } from "@/components";
 import rightIcon from "@/assets/icons/chevron-right-line.svg";
 import { BANNER_TEXT } from "@/constants/messages";
+import { useRouter } from "next/navigation";
+import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
 import { ButtonStyle } from "../Button/Button.types";
 import * as S from "./Banner.profile.style";
 import { IProfileBanner } from "./Banner.types";
 
 export default function ProfileBanner({
   $src,
-  userName,
   userJob,
   emailAddress,
   loginInfo,
 }: IProfileBanner) {
+  const router = useRouter();
+  const { userInfo } = useUserInfoStore();
+
   return (
     <S.BannerContainer>
       <S.ContentContainer>
@@ -20,7 +26,7 @@ export default function ProfileBanner({
         </S.AvatarBox>
         <S.UserInfoContainer>
           <S.UserNameBox>
-            <S.UserNameText>{userName}</S.UserNameText>
+            <S.UserNameText>{userInfo.nickname}</S.UserNameText>
             <S.UserJobText>{userJob}</S.UserJobText>
           </S.UserNameBox>
           <S.UserEmailBox>
@@ -42,6 +48,7 @@ export default function ProfileBanner({
           $size="sm"
           $buttonStyle={ButtonStyle.OutlinedSecondary}
           $buttonType="button"
+          onClick={() => router.push("/profile/edit")}
         />
       </S.ContentContainer>
     </S.BannerContainer>

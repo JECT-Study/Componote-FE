@@ -10,9 +10,11 @@ import {
 } from "@/components";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import { ProfileContainer, ProfileTab } from "@/components/Pages";
+import { useTokenStore } from "@/hooks/store/useTokenStore";
 
 export default function Profile() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const { accessToken } = useTokenStore();
 
   const getEmptyStateText = () => {
     if (!selectedTabIndex) return `아직 알림이 없어요`;
@@ -22,12 +24,11 @@ export default function Profile() {
   return (
     <Layout>
       <NavigationBar
-        $isAuthorized
+        $isAuthorized={!!accessToken}
         $isSeparated
         placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
       <ProfileBanner
-        userName="악악어"
         userJob="디자이너"
         emailAddress="아직 인증된 이메일 주소가 없어요."
         loginInfo="Google 소셜"

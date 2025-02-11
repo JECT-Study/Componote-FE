@@ -28,7 +28,6 @@ export interface IDocumentBannerComponent {
  */
 export interface IProfileBanner {
   $src?: string;
-  userName: string;
   userJob: string;
   emailAddress: string;
   loginInfo: string;
