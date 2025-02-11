@@ -27,3 +27,11 @@ export { default as SignupBodyModuleWrapper } from "./Signup/SignupBodyModuleWra
 // DesignSystem 페이지
 export { default as DesignSystemCardContainer } from "./DesignSystem/DesignCardContainer";
 export { default as DesignSystemCard } from "./DesignSystem/DesignSystemCards";
+
+// profile/edit 페이지
+export { default as ProfileEditWrapper } from "./Profile/Edit/ProfileEditWrapper";
+export { default as ProfileEditModuleWrapper } from "./Profile/Edit/ProfileEditModuleWrapper";
+export { default as ProfileEditBodyModuleWrapper } from "./Profile/Edit/ProfileEditBodyModuleWrapper";
+export { default as ProfileEditButton } from "./Profile/Edit/ProfileEditButton/ProfileEditButton";
+export { default as ProfileEditJob } from "./Profile/Edit/ProfileEditJob/ProfileEditJob";
+export { default as ProfileEditProfile } from "./Profile/Edit/ProfileEditProfile/ProfileEditProfile";
