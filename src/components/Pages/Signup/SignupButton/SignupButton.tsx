@@ -10,7 +10,8 @@ import * as S from "./SignupButton.style";
 
 export default function SignupButton() {
   const router = useRouter();
-  const { nickname, job, socialAccountId, cancelSignup } = useSignupUserStore();
+  const { nickname, job, socialAccountToken, cancelSignup } =
+    useSignupUserStore();
   const isSubmitDisabled =
     !nickname || job === SignupJobs.NONE || !validateNickname(nickname);
 
@@ -27,7 +28,7 @@ export default function SignupButton() {
     signupMutate({
       nickname,
       job: getJobKey(job),
-      socialAccountId,
+      socialAccountToken,
     });
   };
 

@@ -4,20 +4,20 @@ import { create } from "zustand";
 interface ISignupUserState {
   nickname: string;
   job: SignupJobs;
-  socialAccountId: number;
+  socialAccountToken: string;
 }
 
 interface ISignupUserActions {
   setNickname: (nickName: string) => void;
   setJob: (job: SignupJobs) => void;
-  setSocialAccountId: (id: number) => void;
+  setSocialAccountToken: (id: string) => void;
   cancelSignup: () => void;
 }
 
-const DefaultState = {
+const DefaultState: ISignupUserState = {
   nickname: "",
   job: SignupJobs.NONE,
-  socialAccountId: 0,
+  socialAccountToken: "",
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -27,7 +27,8 @@ export const useSignupUserStore = create<ISignupUserState & ISignupUserActions>(
 
     setNickname: (nickname: string) => set({ nickname }),
     setJob: (job: SignupJobs) => set({ job }),
-    setSocialAccountId: (socialAccountId: number) => set({ socialAccountId }),
+    setSocialAccountToken: (socialAccountToken: string) =>
+      set({ socialAccountToken }),
     cancelSignup: () => set({ ...DefaultState }),
   })
 );

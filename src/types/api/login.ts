@@ -4,7 +4,7 @@ export interface IAuthCode {
 
 export interface ISocialLogin {
   isRegister: false;
-  socialAccountId: number;
+  socialAccountToken: string;
 }
 
 export interface ILogin {
