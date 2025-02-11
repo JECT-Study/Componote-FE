@@ -15,9 +15,9 @@ export const getSocialLogin = async (provider: string, code: string | null) => {
   return response;
 };
 
-export const postLogin = async (socialAccountId: number) => {
+export const postLogin = async (socialAccountToken: string) => {
   const response = await axiosInstance.post(END_POINT.login, {
-    socialAccountId,
+    socialAccountToken,
   });
   return response;
 };

@@ -6,12 +6,12 @@ import axiosInstance from "./interceptor";
 export const postSignup = async ({
   nickname,
   job,
-  socialAccountId,
+  socialAccountToken,
 }: ISignupUser) => {
   const response = await axiosInstance.post(END_POINT.signup, {
     nickname,
     job,
-    socialAccountId,
+    socialAccountToken,
   });
   return response;
 };

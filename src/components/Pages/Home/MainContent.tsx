@@ -20,7 +20,7 @@ export default function MainContent() {
   const { accessToken, memberId } = useTokenStore();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO : userInfo 사용하게 되면
   const { userInfo, setUserInfo } = useUserInfoStore();
-  const { setSocialAccountId } = useSignupUserStore();
+  const { setSocialAccountToken } = useSignupUserStore();
 
   useEffect(() => {
     // URL에서 code 파라미터 가져오기
@@ -37,18 +37,18 @@ export default function MainContent() {
     if (accessToken && memberId !== 0) return;
 
     if (!socialLoginData.isRegister) {
-      setSocialAccountId(socialLoginData.socialAccountId);
+      setSocialAccountToken(socialLoginData.socialAccountToken);
       router.push("/login/signup");
       return;
     }
 
-    loginMutate({ socialAccountId: socialLoginData.socialAccountId });
+    loginMutate({ socialAccountToken: socialLoginData.socialAccountToken });
   }, [
     authCode,
     socialLoginData,
     loginMutate,
     router,
-    setSocialAccountId,
+    setSocialAccountToken,
     accessToken,
     memberId,
   ]);

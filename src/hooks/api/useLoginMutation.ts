@@ -9,8 +9,12 @@ export function useLoginMutation() {
   const { setAccessToken, setMemberId } = useTokenStore();
 
   return useMutation({
-    mutationFn: async ({ socialAccountId }: { socialAccountId: number }) => {
-      const response = await postLogin(socialAccountId);
+    mutationFn: async ({
+      socialAccountToken,
+    }: {
+      socialAccountToken: string;
+    }) => {
+      const response = await postLogin(socialAccountToken);
       return response.data;
     },
     onSuccess: (data) => {

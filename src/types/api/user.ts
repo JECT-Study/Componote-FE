@@ -9,5 +9,5 @@ export interface IMemberSummary {
 export interface ISignupUser {
   nickname: string;
   job: keyof typeof SignupJobs;
-  socialAccountId: number;
+  socialAccountToken: string;
 }
