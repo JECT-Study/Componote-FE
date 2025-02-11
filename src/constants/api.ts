@@ -29,14 +29,12 @@ const END_POINT = {
 
   /* component end point */
   componentDetail: (componentId: number) => `/components/${componentId}`,
-  searchComponent: (
+  componentList: (
     page: number = 0,
     size: number = 10,
     types: string = "",
-    keyword: string = "",
     sort: string = "asc",
-  ) =>
-    `/components/search?keyword=${keyword}&types=${types}&page=${page}&size=${size}&sort=${sort}`,
+  ) => `/components?&types=${types}&page=${page}&size=${size}&sort=${sort}`,
 
   /* notice end point */
   notice: "/notices",
