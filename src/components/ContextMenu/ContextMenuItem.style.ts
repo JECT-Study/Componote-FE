@@ -25,7 +25,7 @@ export const ContextMenuItem = styled.button<IContextMenuItemStyle>`
 `;
 
 export const ContextMenuCheckboxIcon = styled(
-  checkboxBlankLine
+  checkboxBlankLine,
 )<IContextMenuItemStyle>`
   width: ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].iconSize};
   height: ${({ $size }) => CONTEXT_MENU_ITEM_SIZE[$size].iconSize};
@@ -102,7 +102,7 @@ export const ContextMenuItemItemLabelText = styled.span<IContextMenuItemStyle>`
 `;
 
 export const ContextMenuItemSubLabelText = styled.span`
-  color: ${({ theme }) => theme.light["object-normal"]};
+  color: ${({ theme }) => theme.light["object-subtler"]};
   ${DESIGN_SYSTEM.typography.body.xs};
 `;
 

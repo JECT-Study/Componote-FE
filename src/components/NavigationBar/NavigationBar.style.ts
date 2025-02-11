@@ -56,6 +56,8 @@ export const RightItemContainer = styled.div`
   align-items: center;
   align-self: stretch;
 
+  position: relative;
+
   gap: ${DESIGN_SYSTEM.gap["3xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
 `;

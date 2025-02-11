@@ -35,6 +35,11 @@ const END_POINT = {
     types: string = "",
     sort: string = "asc",
   ) => `/components?&types=${types}&page=${page}&size=${size}&sort=${sort}`,
+  searchComponent: (
+    page: number = 0,
+    size: number = 10,
+    keyword: string = "",
+  ) => `/components/search?keyword=${keyword}&page=${page}&size=${size}`,
 
   /* notice end point */
   notice: "/notices",

@@ -1,12 +1,28 @@
-import { Logo, Button, NavItem, Avatar, InputField } from "@/components";
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
+import {
+  Logo,
+  Button,
+  NavItem,
+  Avatar,
+  InputField,
+  Combobox,
+  EmptyState,
+} from "@/components";
 import sunIcon from "@/assets/icons/sun-line.svg";
 import searchIcon from "@/assets/icons/search-line.svg";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import useSearchStore from "@/store/common/useSearchStore";
+import useComboBoxStore from "@/store/common/useComboBoxStore";
+import useSearchComponentInfiniteQuery from "@/hooks/api/component/useSearchComponentInfiniteQuery";
+import { useObserver } from "@/hooks/api/common/useObserver";
+import { ISearchComponentData } from "@/types/api/component";
+import { cleanKorean, extractKorean } from "@/utils/extractKorean";
+
 import * as S from "./NavigationBar.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IInputField, INavigation } from "./NavigationBar.types";
+import ContextMenuItem from "../ContextMenu/ContextMenuItem";
 
 export default function NavigationBar({
   placeholderText,
@@ -14,7 +30,30 @@ export default function NavigationBar({
   $isAuthorized,
 }: INavigation & IInputField) {
   const router = useRouter();
-  const [searchValue, setSearchValue] = useState("");
+  const { searchValue, setSearchValue } = useSearchStore();
+  const { isComboBoxOpen, toggleComboBox } = useComboBoxStore();
+  const lastElementRef = useRef<HTMLDivElement | null>(null);
+
+  const { data, fetchNextPage, hasNextPage, isLoading, isError } =
+    useSearchComponentInfiniteQuery(searchValue);
+
+  useObserver({
+    target: lastElementRef,
+    onIntersect: ([entry]) => {
+      if (entry.isIntersecting && hasNextPage) fetchNextPage();
+    },
+  });
+
+  const handleInputField = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+    if (event.target.value.length) toggleComboBox();
+    if (!event.target.value.length) toggleComboBox();
+  };
+
+  const handleItemClick = (componentId: number) => {
+    toggleComboBox();
+    router.push(`/component/${componentId}`);
+  };
 
   return (
     <S.NavigationBarContainer
@@ -41,8 +80,50 @@ export default function NavigationBar({
             $labelVisible={false}
             $helperVisible={false}
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={handleInputField}
           />
+          {isComboBoxOpen && (
+            <Combobox>
+              {isLoading && (
+                <EmptyState
+                  key="loading"
+                  text="검색한 컴포넌트를 로드 중이에요"
+                />
+              )}
+              {isError && (
+                <EmptyState
+                  key="error"
+                  text="검색한 컴포넌트를 로드할 수 없어요"
+                />
+              )}
+              {data?.pages.map((page) =>
+                page.content.length ? (
+                  page.content.map((component: ISearchComponentData) => (
+                    <div key={component.id} style={{ width: "100%" }}>
+                      <ContextMenuItem
+                        key={`searched component - ${component.id}`}
+                        $size="md"
+                        $variant="badge"
+                        $feedback="normal"
+                        labelText={cleanKorean(component.title)}
+                        badgeLabelText="컴포넌트"
+                        subLabelText={extractKorean(component.mixedNames).join(
+                          ", ",
+                        )}
+                        onClick={() => handleItemClick(component.id)}
+                      />
+                      <div key={`ref - ${component.id}`} ref={lastElementRef} />
+                    </div>
+                  ))
+                ) : (
+                  <EmptyState
+                    key="noCondition"
+                    text="컴포넌트 검색 결과가 없어요"
+                  />
+                ),
+              )}
+            </Combobox>
+          )}
           {$isAuthorized ? (
             <S.NavItemBox>
               <S.AvatarBox>
