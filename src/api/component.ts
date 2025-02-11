@@ -1,7 +1,6 @@
 import END_POINT from "@/constants/api";
 import axiosInstance from "./interceptor";
 
-// eslint-disable-next-line import/prefer-default-export
 export const getComponentList = async (
   page: number,
   size: number,
@@ -10,6 +9,18 @@ export const getComponentList = async (
 ) => {
   const { data } = await axiosInstance.get(
     `${END_POINT.componentList(page, size, types, sort)}`,
+  );
+
+  return data;
+};
+
+export const searchComponent = async (
+  page: number,
+  size: number,
+  keyword: string,
+) => {
+  const { data } = await axiosInstance.get(
+    `${END_POINT.searchComponent(page, size, keyword)}`,
   );
 
   return data;
