@@ -21,6 +21,7 @@ import { useObserver } from "@/hooks/api/common/useObserver";
 import {
   DesignSystemCardContainer,
   DesignSystemCard,
+  MainContainer,
 } from "@/components/Pages";
 import { IDesignSystemData } from "@/types/api/designSystem";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
@@ -68,8 +69,16 @@ export default function DesignSystem() {
           )),
         )}
       </DesignSystemCardContainer>
-      {isLoading && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />}
-      {isError && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.error} />}
+      {isLoading && (
+        <MainContainer>
+          <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />
+        </MainContainer>
+      )}
+      {isError && (
+        <MainContainer>
+          <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.error} />
+        </MainContainer>
+      )}
       <div ref={lastElementRef} />
       <Footer />
     </Layout>
