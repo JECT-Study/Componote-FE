@@ -46,7 +46,7 @@ export default function DesignSystemCard({
       organizationName={designSystem.organizationName}
       descriptionText={designSystem.description}
       onClick={() => router.push(websiteLinks[0].url)}
-      $bookmarkCount="999+"
+      $bookmarkCount="0"
       deviceLabels={deviceLabels.map((deviceLabel) =>
         deviceLabel.values.map((deviceName) => (
           <BadgeLabel
