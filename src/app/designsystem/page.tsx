@@ -9,7 +9,11 @@ import {
   Footer,
   EmptyState,
 } from "@/components";
-import { BANNER_TEXT, DESIGNSYSTEM_PAGE_TEXT } from "@/constants/messages";
+import {
+  BANNER_TEXT,
+  DESIGNSYSTEM_PAGE_TEXT,
+  NAVBAR_ITEM_TEXT,
+} from "@/constants/messages";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
 import { useRef } from "react";
@@ -44,7 +48,7 @@ export default function DesignSystem() {
       <NavigationBar
         $isAuthorized={!!accessToken}
         $isSeparated
-        placeholderText="컴포넌트나 디자인 시스템을 검색해 보세요..."
+        placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
       <DefaultBanner
         titleText={BANNER_TEXT.designSystem.titleText}
