@@ -29,7 +29,6 @@ export default function Profile() {
         placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
       <ProfileBanner
-        userJob="디자이너"
         emailAddress="아직 인증된 이메일 주소가 없어요."
         loginInfo="Google 소셜"
       />

@@ -5,13 +5,13 @@ import rightIcon from "@/assets/icons/chevron-right-line.svg";
 import { BANNER_TEXT } from "@/constants/messages";
 import { useRouter } from "next/navigation";
 import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
+import SignupJobs from "@/types/enum/signupJobs";
 import { ButtonStyle } from "../Button/Button.types";
 import * as S from "./Banner.profile.style";
 import { IProfileBanner } from "./Banner.types";
 
 export default function ProfileBanner({
   $src,
-  userJob,
   emailAddress,
   loginInfo,
 }: IProfileBanner) {
@@ -27,7 +27,7 @@ export default function ProfileBanner({
         <S.UserInfoContainer>
           <S.UserNameBox>
             <S.UserNameText>{userInfo.nickname}</S.UserNameText>
-            <S.UserJobText>{userJob}</S.UserJobText>
+            <S.UserJobText>{SignupJobs[userInfo.job]}</S.UserJobText>
           </S.UserNameBox>
           <S.UserEmailBox>
             <S.EmailAddressText>{emailAddress}</S.EmailAddressText>
