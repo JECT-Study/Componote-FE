@@ -4,6 +4,7 @@ import {
   DesignSystemFilterType,
   PlatformFilter,
   TechFilter,
+  DesignSystemSortCondition,
 } from "@/types/enum/designSystemFilters";
 
 // 필터 타입별 레이블
@@ -59,4 +60,10 @@ export const platformFilterLabels: { [key in PlatformFilter]: string } = {
   [PlatformFilter.FIGMA]: "Figma",
   [PlatformFilter.STORYBOOK]: "Storybook",
   [PlatformFilter.ZEROHEIGHT]: "ZeroHeight",
+};
+
+export const DESIGN_SYSTEM_SORT_CONDITION: { [key: string]: string } = {
+  [DesignSystemSortCondition.NAME_ASC]: "summary.name",
+  // [DesignSystemSortCondition.VIEW_DESC]: "", → 보류
+  [DesignSystemSortCondition.RECOMMEND_DESC]: "summary.recommendCount,desc",
 };

@@ -50,3 +50,9 @@ export enum PlatformFilter {
   STORYBOOK = "STORYBOOK",
   ZEROHEIGHT = "ZEROHEIGHT",
 }
+
+export enum DesignSystemSortCondition {
+  NAME_ASC = "이름 순으로 정렬",
+  // VIEW_DESC = "조회 순으로 정렬", → 보류
+  RECOMMEND_DESC = "추천 순으로 정렬",
+}
