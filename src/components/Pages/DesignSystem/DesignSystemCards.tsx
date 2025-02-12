@@ -77,7 +77,7 @@ export default function DesignSystemCard({
       )}
       platformButtons={platformLabels.map((platformLabel) =>
         platformLabel.values.map((platformName) => {
-          const link = designSystem.links.find(
+          const platformLink = designSystem.links.find(
             (link) => link.type === platformName.toLowerCase(),
           );
 
@@ -88,7 +88,7 @@ export default function DesignSystemCard({
               $size="md"
               $buttonType="iconButton"
               onClick={() => {
-                if (link) router.push(link.url);
+                if (platformLink) router.push(platformLink.url);
               }}
               $leftIcon={
                 DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
