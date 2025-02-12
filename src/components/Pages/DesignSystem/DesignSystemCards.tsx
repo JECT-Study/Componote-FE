@@ -45,7 +45,6 @@ export default function DesignSystemCard({
       designSystemName={designSystem.name}
       organizationName={designSystem.organizationName}
       descriptionText={designSystem.description}
-      $src={designSystem.thumbnailUrl}
       onClick={() => router.push(websiteLinks[0].url)}
       $bookmarkCount="999+"
       deviceLabels={deviceLabels.map((deviceLabel) =>
