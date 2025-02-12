@@ -11,3 +11,9 @@ export interface ISignupUser {
   job: keyof typeof SignupJobs;
   socialAccountToken: string;
 }
+
+export interface IProfileEdit {
+  nickname: string;
+  profileImageObjectKey: string;
+  job: keyof typeof SignupJobs;
+}
