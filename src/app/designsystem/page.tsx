@@ -23,6 +23,7 @@ import {
   DesignSystemCard,
 } from "@/components/Pages";
 import { IDesignSystemData } from "@/types/api/designSystem";
+import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
@@ -54,7 +55,7 @@ export default function DesignSystem() {
         titleText={BANNER_TEXT.designSystem.titleText}
         descriptionText={BANNER_TEXT.designSystem.descriptionText}
       />
-      <Toolbar>
+      <Toolbar contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}>
         <ButtonList />
       </Toolbar>
       <DesignSystemCardContainer>
@@ -64,7 +65,7 @@ export default function DesignSystem() {
               key={designSystemData.name}
               designSystem={designSystemData}
             />
-          ))
+          )),
         )}
       </DesignSystemCardContainer>
       {isLoading && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />}
