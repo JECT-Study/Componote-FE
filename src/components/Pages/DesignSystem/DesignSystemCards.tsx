@@ -76,20 +76,29 @@ export default function DesignSystemCard({
         )),
       )}
       platformButtons={platformLabels.map((platformLabel) =>
-        platformLabel.values.map((platformName) => (
-          <Button
-            key={`platformButton-${platformName}`}
-            text={platformName}
-            $size="md"
-            $buttonType="iconButton"
-            $leftIcon={
-              DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
-                (content) => content.responseName === platformName,
-              )?.icon
-            }
-            $buttonStyle={ButtonStyle.OutlinedSecondary}
-          />
-        )),
+        platformLabel.values.map((platformName) => {
+          const link = designSystem.links.find(
+            (link) => link.type === platformName.toLowerCase(),
+          );
+
+          return (
+            <Button
+              key={`platformButton-${platformName}`}
+              text={platformName}
+              $size="md"
+              $buttonType="iconButton"
+              onClick={() => {
+                if (link) router.push(link.url);
+              }}
+              $leftIcon={
+                DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
+                  (content) => content.responseName === platformName,
+                )?.icon
+              }
+              $buttonStyle={ButtonStyle.OutlinedSecondary}
+            />
+          );
+        }),
       )}
     />
   );
