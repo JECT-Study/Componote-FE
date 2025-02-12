@@ -1,24 +1,23 @@
-import { DesignSystemFilterType } from "../enum/designSystemFilters";
+import ICommonPageData from "@/types/common/pageData";
+import { DesignSystemFilterType } from "@/types/enum/designSystemFilters";
 
-export interface IDesignSystemPageData {
-  hasNext: boolean;
-  totalElements: number;
-  totalPages: number;
-  content: IDesignSystemData[];
-  pageNumber: number;
-  pageSize: number;
+interface IDesignSystemLinks {
+  type: string;
+  url: string;
+}
+
+export type IDesignSystemPageData = ICommonPageData<IDesignSystemData>;
+
+export interface IDesignSystemFilter {
+  values: string[];
+  type: DesignSystemFilterType;
 }
 
 export interface IDesignSystemData {
   name: string;
   organizationName: string;
   description: string;
-  filters: IDesignSystemFilter[];
   thumbnailUrl: string;
-  links: [];
-}
-
-export interface IDesignSystemFilter {
-  type: DesignSystemFilterType;
-  values: string[];
+  links: IDesignSystemLinks[];
+  filters: IDesignSystemFilter[];
 }

@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { BadgeLabel, Button, CardDesignSystem } from "@/components";
 import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { ButtonStyle } from "@/components/Button/Button.types";
@@ -20,6 +21,7 @@ export default function DesignSystemCard({
 }: {
   designSystem: IDesignSystemData;
 }) {
+  const router = useRouter();
   const deviceLabels = designSystem.filters.filter(
     (value) => value.type === DesignSystemFilterType.DEVICE,
   );
@@ -32,6 +34,9 @@ export default function DesignSystemCard({
     (value) => value.type === DesignSystemFilterType.PLATFORM,
   );
 
+  const websiteLinks = designSystem.links.filter(
+    (value) => value.type === "website",
+  );
 
   return (
     <CardDesignSystem
@@ -40,6 +45,7 @@ export default function DesignSystemCard({
       organizationName={designSystem.organizationName}
       descriptionText={designSystem.description}
       $src={designSystem.thumbnailUrl}
+      onClick={() => router.push(websiteLinks[0].url)}
       $bookmarkCount="999+"
       deviceLabels={deviceLabels.map((deviceLabel) =>
         deviceLabel.values.map((deviceName) => (

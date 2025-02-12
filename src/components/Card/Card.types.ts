@@ -28,4 +28,5 @@ export interface IDesignSystemCard {
   labels: React.ReactNode;
   platformButtons: React.ReactNode;
   $bookmarkCount: string;
+  onClick: () => void;
 }

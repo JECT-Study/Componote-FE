@@ -15,10 +15,11 @@ export default function CardDesignSystem({
   labels,
   platformButtons,
   $bookmarkCount,
+  onClick,
 }: IDesignSystemCard & ICardComponent) {
   return (
     <S.CardContainer $isDisabled={$isDisabled}>
-      <S.TopSection>
+      <S.TopSection onClick={onClick}>
         <S.ImageBox>
           {$isDisabled && <DimmedScreen />}
           <S.ComponentImage $src={$src} />
