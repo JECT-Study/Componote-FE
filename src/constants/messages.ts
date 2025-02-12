@@ -104,6 +104,17 @@ export const SIGNUP_TEXT = {
   submitButtonText: "회원가입 완료",
 };
 
+export const PROFILE_EDIT_TEXT = {
+  titleText: "프로필 편집",
+  profileText: "사용하실 프로필을 설정해 주세요.",
+  job: {
+    titleText: "직군을 선택해 주세요.",
+    bodyText: "여러 직군을 겸하고 계신다면, 가장 가까운 직군을 골라주세요.",
+  },
+  cancelButtonText: "취소하기",
+  submitButtonText: "프로필 편집 완료",
+};
+
 export const STAR_ICON = "*";
 
 export const ANNOUNCE_PAGE_TEXT = {

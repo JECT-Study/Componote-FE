@@ -7,6 +7,7 @@ const END_POINT = {
   nicknameValidation: "/members/validations/nickname",
   emailVerification: "/members/email/verification",
   modifyEmail: "/members/email",
+  modifyProfile: "/members",
   authorizationUrl: (providerType: string) =>
     `/oauth/${providerType}/authorization-url`,
   socialLogin: (providerType: string) => `/oauth/${providerType}/login`,

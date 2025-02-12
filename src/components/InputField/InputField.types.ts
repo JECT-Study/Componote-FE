@@ -15,5 +15,6 @@ export interface IInputField extends IInputComponent {
   $helperVisible: boolean;
   $style?: React.CSSProperties;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

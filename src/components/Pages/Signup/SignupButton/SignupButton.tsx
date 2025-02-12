@@ -6,6 +6,7 @@ import SignupJobs from "@/types/enum/signupJobs";
 import { useSignupMutation } from "@/hooks/api/useSignupMutation";
 import { useRouter } from "next/navigation";
 import validateNickname from "@/utils/validateNickname";
+import getJobKey from "@/utils/getJobKey";
 import * as S from "./SignupButton.style";
 
 export default function SignupButton() {
@@ -16,13 +17,6 @@ export default function SignupButton() {
     !nickname || job === SignupJobs.NONE || !validateNickname(nickname);
 
   const { mutate: signupMutate, isPending, isError } = useSignupMutation();
-
-  // job 변환 (ex. "개발자" -> "DEVELOPER")
-  const getJobKey = (jobValue: string) =>
-    (Object.entries(SignupJobs).find(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      ([_, value]) => value === jobValue
-    )?.[0] as keyof typeof SignupJobs) || "";
 
   const handleSignup = () => {
     signupMutate({

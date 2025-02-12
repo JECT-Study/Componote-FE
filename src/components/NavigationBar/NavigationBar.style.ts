@@ -73,7 +73,7 @@ export const NavItemBox = styled.div`
   padding: ${DESIGN_SYSTEM.gap["3xs"]};
 `;
 
-export const AvatarBox = styled.div`
+export const AvatarBox = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

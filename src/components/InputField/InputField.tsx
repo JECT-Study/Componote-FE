@@ -23,6 +23,7 @@ export default function InputField({
   $style,
   value,
   onChange,
+  onBlur,
 }: IInputField) {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -55,8 +56,14 @@ export default function InputField({
             placeholder={placeholderText}
             onChange={onChange}
             onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            onBlur={(event) => {
+              setIsFocused(false);
+              if (onBlur) {
+                onBlur(event);
+              }
+            }}
           />
+          {/* TODO : PR 78번 확인, 논의 후 수정 예정 */}
           {/* <InteractionContainer
             $variant={InteractionVariant.DEFAULT}
             $density="normal"
