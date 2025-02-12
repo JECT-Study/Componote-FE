@@ -1,23 +1,30 @@
 import { Chip } from "@/components";
 import { PROFILE_EDIT_TEXT, STAR_ICON } from "@/constants/messages";
 import SignupJobs from "@/types/enum/signupJobs";
-// import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
+import { useProfileEditStore } from "@/hooks/store/useProfileEditStore";
+import getJobKey from "@/utils/getJobKey";
+import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
+import { useState } from "react";
 import * as S from "./ProfileEditJob.style";
 
 export default function ProfileEditJob() {
-  // const { job, setJob } = useSignupUserStore();
+  const { userInfo } = useUserInfoStore();
+  const { profileInfo, setProfileInfo } = useProfileEditStore();
+  const [job, setJob] = useState<keyof typeof SignupJobs>(userInfo.job);
 
   const JOB_CHIPS = Object.values(SignupJobs).filter(
-    (val) => val !== SignupJobs.NONE
+    (val) => val !== SignupJobs.NONE,
   );
 
-  // const handleChipClick = (chip: SignupJobs) => {
-  //   if (job === chip) {
-  //     setJob(SignupJobs.NONE);
-  //     return;
-  //   }
-  //   setJob(chip);
-  // };
+  const handleChipClick = (chip: SignupJobs) => {
+    if (profileInfo.job === getJobKey(chip)) {
+      setJob(getJobKey(SignupJobs.NONE));
+      setProfileInfo({ ...profileInfo, job: "NONE" });
+      return;
+    }
+    setJob(getJobKey(chip));
+    setProfileInfo({ ...profileInfo, job: getJobKey(chip) });
+  };
 
   return (
     <S.ProfileEditJobWrapper>
@@ -38,9 +45,9 @@ export default function ProfileEditJob() {
             key={`job-${chip}`}
             text={chip}
             onClick={() => {
-              // handleChipClick(chip)
+              handleChipClick(chip);
             }}
-            // $isSelected={chip === job}
+            $isSelected={getJobKey(chip) === job}
             $size="xl"
           />
         ))}

@@ -1,46 +1,52 @@
 import { Button } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
 import { PROFILE_EDIT_TEXT } from "@/constants/messages";
+import { useRouter } from "next/navigation";
+import { useProfileEditMutation } from "@/hooks/api/profileEdit/useProfileEditMutation";
+import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useProfileEditStore } from "@/hooks/store/useProfileEditStore";
+import { useEffect } from "react";
+import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
 import * as S from "./ProfileEditButton.style";
-// import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
-// import SignupJobs from "@/types/enum/signupJobs";
-// import { useSignupMutation } from "@/hooks/api/useSignupMutation";
-// import { useRouter } from "next/navigation";
-// import validateNickname from "@/utils/validateNickname";
 
 export default function ProfileEditButton() {
-  // const router = useRouter();
-  // const { nickname, job, socialAccountToken, cancelSignup } =
-  //   useSignupUserStore();
-  // const isSubmitDisabled =
-  //   !nickname || job === SignupJobs.NONE || !validateNickname(nickname);
+  const router = useRouter();
+  const { accessToken } = useTokenStore();
+  const {
+    profileInfo: { nickname, profileImageObjectKey, job },
+    cancelEdit,
+    initializeWithUserInfo,
+  } = useProfileEditStore();
+  const { userInfo } = useUserInfoStore();
 
-  // const { mutate: signupMutate, isPending, isError } = useSignupMutation();
+  const {
+    mutate: profileEditMutate,
+    isPending,
+    isError,
+  } = useProfileEditMutation(accessToken || "");
 
-  // // job 변환 (ex. "개발자" -> "DEVELOPER")
-  // const getJobKey = (jobValue: string) =>
-  //   (Object.entries(SignupJobs).find(
-  //     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  //     ([_, value]) => value === jobValue
-  //   )?.[0] as keyof typeof SignupJobs) || "";
+  useEffect(() => {
+    initializeWithUserInfo(userInfo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // const handleSignup = () => {
-  //   signupMutate({
-  //     nickname,
-  //     job: getJobKey(job),
-  //     socialAccountToken,
-  //   });
-  // };
+  const handleSubmit = () => {
+    profileEditMutate({
+      nickname,
+      profileImageObjectKey,
+      job,
+    });
+  };
 
-  // // 에러 처리
-  // if (isError) {
-  //   return <div>회원가입 중 오류가 발생했습니다.</div>;
-  // }
+  // 에러 처리
+  if (isError) {
+    return <div>프로필 편집 중 오류가 발생했습니다.</div>;
+  }
 
-  // const handleCancelClick = () => {
-  //   cancelSignup();
-  //   router.push("/");
-  // };
+  const handleCancelClick = () => {
+    cancelEdit();
+    router.push("/profile");
+  };
 
   return (
     <S.ProfileEditButtonContainer>
@@ -48,14 +54,13 @@ export default function ProfileEditButton() {
         text={PROFILE_EDIT_TEXT.cancelButtonText}
         $size="md"
         $buttonStyle={ButtonStyle.OutlinedSecondary}
-        // onClick={handleCancelClick}
+        onClick={handleCancelClick}
       />
       <Button
-        text={PROFILE_EDIT_TEXT.submitButtonText}
+        text={isPending ? "로딩중..." : PROFILE_EDIT_TEXT.submitButtonText}
         $size="md"
         $buttonStyle={ButtonStyle.SolidBrand}
-        // $isDisabled={isSubmitDisabled}
-        // onClick={handleSignup}
+        onClick={handleSubmit}
       />
     </S.ProfileEditButtonContainer>
   );

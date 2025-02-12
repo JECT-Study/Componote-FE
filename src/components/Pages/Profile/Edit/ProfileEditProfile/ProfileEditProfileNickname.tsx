@@ -2,18 +2,19 @@ import { Button, InputField } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
 import { useState } from "react";
 import validateNickname from "@/utils/validateNickname";
+import { useProfileEditStore } from "@/hooks/store/useProfileEditStore";
 import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
 import * as S from "./ProfileEditProfileNickname.style";
 
 export default function ProfileEditProfileNickname() {
   const { userInfo } = useUserInfoStore();
+  const { profileInfo, setProfileInfo } = useProfileEditStore();
   const [isNickNameValid, setIsNickNameValid] = useState(true);
+  const [nickname, setNickname] = useState(userInfo.nickname);
 
-  function handleNicknameChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const input = event.target.value;
-
-    setIsNickNameValid(validateNickname(input));
-    // setNickname(input);
+  function handleNicknameBlur() {
+    setIsNickNameValid(validateNickname(nickname));
+    setProfileInfo({ ...profileInfo, nickname });
   }
 
   return (
@@ -35,9 +36,10 @@ export default function ProfileEditProfileNickname() {
         helperText="특수문자, 공백 제외. 한글, 영문, 숫자로 10자 이내만 가능해요."
         countLimit="10"
         $style={{ flex: "1 0 0" }}
-        // $isNegative={!isNickNameValid}
-        value={userInfo.nickname}
-        onChange={(event) => handleNicknameChange(event)}
+        $isNegative={!isNickNameValid}
+        value={nickname}
+        onChange={(event) => setNickname(event.target.value)}
+        onBlur={() => handleNicknameBlur()}
       />
       <Button
         text="중복 검사"
