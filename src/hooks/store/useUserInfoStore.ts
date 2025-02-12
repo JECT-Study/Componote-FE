@@ -1,4 +1,6 @@
 import { IMemberSummary } from "@/types/api/user";
+import SignupJobs from "@/types/enum/signupJobs";
+import getJobKey from "@/utils/getJobKey";
 import { create } from "zustand";
 
 interface IUserInfoState {
@@ -14,6 +16,7 @@ const defaultState: IMemberSummary = {
   isEmailRegistered: false,
   nickname: "",
   profileImageUrl: "",
+  job: getJobKey(SignupJobs.NONE),
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -22,5 +25,5 @@ export const useUserInfoStore = create<IUserInfoState & IUserInfoActions>(
     userInfo: defaultState,
     setUserInfo: (userInfo: IMemberSummary) => set({ userInfo }),
     logout: () => set({ userInfo: defaultState }),
-  })
+  }),
 );

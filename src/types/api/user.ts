@@ -4,6 +4,7 @@ export interface IMemberSummary {
   isEmailRegistered: boolean;
   nickname: string;
   profileImageUrl: string;
+  job: keyof typeof SignupJobs;
 }
 
 export interface ISignupUser {
