@@ -11,23 +11,27 @@ import {
   EmptyState,
 } from "@/components";
 import {
-  BANNER_TEXT,
-  DESIGNSYSTEM_PAGE_TEXT,
-  NAVBAR_ITEM_TEXT,
-} from "@/constants/messages";
-import { DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
-import { useTokenStore } from "@/hooks/store/useTokenStore";
-import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
-import { useObserver } from "@/hooks/api/common/useObserver";
-import {
   DesignSystemCardContainer,
   DesignSystemCard,
   MainContainer,
 } from "@/components/Pages";
+import {
+  BANNER_TEXT,
+  DESIGNSYSTEM_PAGE_TEXT,
+  NAVBAR_ITEM_TEXT,
+} from "@/constants/messages";
+import { DESIGN_SYSTEM_SORT_CONDITION } from "@/constants/designSystemFilterLabel";
+import { DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
+
+import { useObserver } from "@/hooks/api/common/useObserver";
+import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
+import useContextMenuStore from "@/store/common/useContextMenuStore";
 import { IDesignSystemData } from "@/types/api/designSystem";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
+  const { selectedLabel } = useContextMenuStore();
 
   const lastElementRef = useRef<HTMLDivElement | null>(null);
   const {
@@ -36,7 +40,7 @@ export default function DesignSystem() {
     hasNextPage,
     isLoading,
     isError,
-  } = useDesignSystemInfiniteQuery();
+  } = useDesignSystemInfiniteQuery(DESIGN_SYSTEM_SORT_CONDITION[selectedLabel]);
 
   useObserver({
     target: lastElementRef,
