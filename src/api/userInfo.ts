@@ -13,15 +13,20 @@ export const getUserInfo = async (accessToken: string) => {
 
 export const putProfileEdit = async (
   accessToken: string,
-  { nickname, profileImageObjectKey, job }: IProfileEdit
+  { nickname, profileImageObjectKey, job }: IProfileEdit,
 ) => {
-  const response = await axiosInstance.put(END_POINT.modifyProfile, {
-    headers: {
-      Authorization: accessToken,
+  const response = await axiosInstance.put(
+    END_POINT.modifyProfile,
+    {
+      profileImageObjectKey,
+      nickname,
+      job,
     },
-    profileImageObjectKey,
-    nickname,
-    job,
-  });
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    },
+  );
   return response;
 };
