@@ -15,6 +15,7 @@ import {
   DESIGNSYSTEM_PAGE_TEXT,
   NAVBAR_ITEM_TEXT,
 } from "@/constants/messages";
+import { DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
 import { useObserver } from "@/hooks/api/common/useObserver";
@@ -24,7 +25,6 @@ import {
   MainContainer,
 } from "@/components/Pages";
 import { IDesignSystemData } from "@/types/api/designSystem";
-import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
@@ -56,7 +56,7 @@ export default function DesignSystem() {
         titleText={BANNER_TEXT.designSystem.titleText}
         descriptionText={BANNER_TEXT.designSystem.descriptionText}
       />
-      <Toolbar contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}>
+      <Toolbar contextMenuItemLabels={DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS}>
         <ButtonList />
       </Toolbar>
       <DesignSystemCardContainer>
