@@ -1,4 +1,4 @@
-import { IProfileEdit } from "@/types/api/user";
+import { IMemberSummary, IProfileEdit } from "@/types/api/user";
 import SignupJobs from "@/types/enum/signupJobs";
 import getJobKey from "@/utils/getJobKey";
 import { create } from "zustand";
@@ -10,6 +10,7 @@ interface IProfileEditState {
 interface IProfileEditActions {
   setProfileInfo: (profileInfo: IProfileEdit) => void;
   cancelEdit: () => void;
+  initializeWithUserInfo: (userInfo: IMemberSummary) => void;
 }
 
 const defaultState: IProfileEdit = {
@@ -25,4 +26,13 @@ export const useProfileEditStore = create<
   profileInfo: defaultState,
   setProfileInfo: (profileInfo: IProfileEdit) => set({ profileInfo }),
   cancelEdit: () => set({ profileInfo: defaultState }),
+  initializeWithUserInfo: (userInfo) =>
+    set({
+      profileInfo: {
+        nickname: userInfo.nickname,
+        // TODO: 이미지 구현되면 수정 필요
+        profileImageObjectKey: userInfo.profileImageUrl,
+        job: userInfo.job,
+      },
+    }),
 }));
