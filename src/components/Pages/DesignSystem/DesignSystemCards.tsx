@@ -41,6 +41,7 @@ export default function DesignSystemCard({
   return (
     <CardDesignSystem
       key={`designSystemcard-${designSystem.name}`}
+      $src={designSystem.thumbnailUrl}
       designSystemName={designSystem.name}
       organizationName={designSystem.organizationName}
       descriptionText={designSystem.description}

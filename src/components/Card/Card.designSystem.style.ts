@@ -78,8 +78,7 @@ export const ComponentImage = styled.div<{ $src?: string }>`
   flex: 1 0 0;
   align-self: stretch;
 
-  background-image: ${(props) =>
-    props.$src ? `url(${props.$src})` : `url("/image/sampleImage.png")`};
+  background-image: ${(props) => props.$src && `url(${props.$src})`};
 
   background-color: #ffeede;
   background-size: cover;
