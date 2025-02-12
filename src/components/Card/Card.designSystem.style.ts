@@ -46,12 +46,14 @@ export const CardContainer = styled.div<ICardComponent>`
 export const TopSection = styled.section`
   display: flex;
   align-items: flex-start;
+  flex: 1 0 0;
+  
   position: relative;
+  width: 100%;
 
   gap: ${DESIGN_SYSTEM.gap.md};
   padding: ${DESIGN_SYSTEM.gap.none};
 
-  flex: 1 0 0;
 `;
 
 export const ImageBox = styled.div`
@@ -76,8 +78,7 @@ export const ComponentImage = styled.div<{ $src?: string }>`
   flex: 1 0 0;
   align-self: stretch;
 
-  background-image: ${(props) =>
-    props.$src ? `url(${props.$src})` : `url("/image/sampleImage.png")`};
+  background-image: ${(props) => props.$src && `url(${props.$src})`};
 
   background-color: #ffeede;
   background-size: cover;
@@ -143,10 +144,6 @@ export const DeviceLabelBox = styled.div`
 
   gap: ${DESIGN_SYSTEM.gap["2xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
-
-  position: absolute;
-  right: 0rem;
-  top: 0.125rem;
 `;
 
 export const LabelBox = styled.div`

@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { BadgeLabel, Button, CardDesignSystem } from "@/components";
 import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { ButtonStyle } from "@/components/Button/Button.types";
@@ -20,24 +21,31 @@ export default function DesignSystemCard({
 }: {
   designSystem: IDesignSystemData;
 }) {
+  const router = useRouter();
   const deviceLabels = designSystem.filters.filter(
-    (value) => value.type === DesignSystemFilterType.DEVICE
+    (value) => value.type === DesignSystemFilterType.DEVICE,
   );
   const labels = designSystem.filters.filter(
     (value) =>
       value.type === DesignSystemFilterType.TECH ||
-      value.type === DesignSystemFilterType.CONTENT
+      value.type === DesignSystemFilterType.CONTENT,
   );
   const platformLabels = designSystem.filters.filter(
-    (value) => value.type === DesignSystemFilterType.PLATFORM
+    (value) => value.type === DesignSystemFilterType.PLATFORM,
+  );
+
+  const websiteLinks = designSystem.links.filter(
+    (value) => value.type === "website",
   );
 
   return (
     <CardDesignSystem
       key={`designSystemcard-${designSystem.name}`}
+      $src={designSystem.thumbnailUrl}
       designSystemName={designSystem.name}
       organizationName={designSystem.organizationName}
       descriptionText={designSystem.description}
+      onClick={() => router.push(websiteLinks[0].url)}
       $bookmarkCount="999+"
       deviceLabels={deviceLabels.map((deviceLabel) =>
         deviceLabel.values.map((deviceName) => (
@@ -49,7 +57,7 @@ export default function DesignSystemCard({
             $style="solid"
             $size="xs"
           />
-        ))
+        )),
       )}
       labels={labels.map((label) =>
         label.values.map((labelName) => (
@@ -65,23 +73,32 @@ export default function DesignSystemCard({
             $style="transparent"
             $size="xs"
           />
-        ))
+        )),
       )}
       platformButtons={platformLabels.map((platformLabel) =>
-        platformLabel.values.map((platformName) => (
-          <Button
-            key={`platformButton-${platformName}`}
-            text={platformName}
-            $size="md"
-            $buttonType="iconButton"
-            $leftIcon={
-              DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
-                (content) => content.responseName === platformName
-              )?.icon
-            }
-            $buttonStyle={ButtonStyle.OutlinedSecondary}
-          />
-        ))
+        platformLabel.values.map((platformName) => {
+          const platformLink = designSystem.links.find(
+            (link) => link.type === platformName.toLowerCase(),
+          );
+
+          return (
+            <Button
+              key={`platformButton-${platformName}`}
+              text={platformName}
+              $size="md"
+              $buttonType="iconButton"
+              onClick={() => {
+                if (platformLink) router.push(platformLink.url);
+              }}
+              $leftIcon={
+                DESIGN_SYSTEM_CHIP_GROUP.platform.contents.find(
+                  (content) => content.responseName === platformName,
+                )?.icon
+              }
+              $buttonStyle={ButtonStyle.OutlinedSecondary}
+            />
+          );
+        }),
       )}
     />
   );

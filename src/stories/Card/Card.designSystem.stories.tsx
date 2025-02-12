@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useRouter } from "next/navigation";
 import { BadgeLabel, Button, CardDesignSystem } from "@/components";
 import { BadgeLabelFeedback } from "@/components/Badge/Badge.types";
 import { ButtonStyle } from "@/components/Button/Button.types";
@@ -40,8 +41,11 @@ function CardContainer(StoryFn: () => JSX.Element) {
   );
 }
 
+const router = useRouter();
+
 export const Default: Story = {
   args: {
+    onClick: () => router.push("/"),
     $bookmarkCount: "999+",
     designSystemName: "디자인 시스템 명",
     organizationName: "회사/단체 명",

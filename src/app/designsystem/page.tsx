@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import {
   Layout,
   NavigationBar,
@@ -9,16 +10,21 @@ import {
   Footer,
   EmptyState,
 } from "@/components";
-import { BANNER_TEXT, DESIGNSYSTEM_PAGE_TEXT } from "@/constants/messages";
+import {
+  BANNER_TEXT,
+  DESIGNSYSTEM_PAGE_TEXT,
+  NAVBAR_ITEM_TEXT,
+} from "@/constants/messages";
 import { useTokenStore } from "@/hooks/store/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
-import { useRef } from "react";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import {
   DesignSystemCardContainer,
   DesignSystemCard,
+  MainContainer,
 } from "@/components/Pages";
 import { IDesignSystemData } from "@/types/api/designSystem";
+import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
@@ -44,13 +50,13 @@ export default function DesignSystem() {
       <NavigationBar
         $isAuthorized={!!accessToken}
         $isSeparated
-        placeholderText="컴포넌트나 디자인 시스템을 검색해 보세요..."
+        placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
       <DefaultBanner
         titleText={BANNER_TEXT.designSystem.titleText}
         descriptionText={BANNER_TEXT.designSystem.descriptionText}
       />
-      <Toolbar>
+      <Toolbar contextMenuItemLabels={COMPONENT_CONTEXT_MENU_ITEM_LABELS}>
         <ButtonList />
       </Toolbar>
       <DesignSystemCardContainer>
@@ -60,11 +66,19 @@ export default function DesignSystem() {
               key={designSystemData.name}
               designSystem={designSystemData}
             />
-          ))
+          )),
         )}
       </DesignSystemCardContainer>
-      {isLoading && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />}
-      {isError && <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.error} />}
+      {isLoading && (
+        <MainContainer>
+          <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.loading} />
+        </MainContainer>
+      )}
+      {isError && (
+        <MainContainer>
+          <EmptyState text={DESIGNSYSTEM_PAGE_TEXT.error} />
+        </MainContainer>
+      )}
       <div ref={lastElementRef} />
       <Footer />
     </Layout>

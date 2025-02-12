@@ -1,12 +1,4 @@
-/* component page API 공통 types입니다. */
-interface ICommonPageData<T> {
-  pageSize: number;
-  hasNext: boolean;
-  pageNumber: number;
-  totalPages: number;
-  totalElements: number;
-  content: T[];
-}
+import ICommonPageData from "@/types/common/pageData";
 
 /* component list API(/components)의 content types입니다. */
 export interface IComponentData {
