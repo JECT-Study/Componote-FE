@@ -2,7 +2,7 @@
 
 import { Footer, NavigationBar, Layout } from "@/components";
 import { MainContent } from "@/components/Pages";
-import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useTokenStore } from "@/store/user/useTokenStore";
 import { Suspense } from "react";
 
 export default function Home() {

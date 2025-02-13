@@ -1,7 +1,7 @@
 import { Button } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
 import { SIGNUP_TEXT } from "@/constants/messages";
-import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
+import { useSignupUserStore } from "@/store/user/useSignupUserStore";
 import SignupJobs from "@/types/enum/signupJobs";
 import { useSignupMutation } from "@/hooks/api/useSignupMutation";
 import { useRouter } from "next/navigation";

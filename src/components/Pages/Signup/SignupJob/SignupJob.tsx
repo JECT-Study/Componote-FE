@@ -1,14 +1,14 @@
 import { Chip } from "@/components";
 import { SIGNUP_TEXT, STAR_ICON } from "@/constants/messages";
 import SignupJobs from "@/types/enum/signupJobs";
-import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
+import { useSignupUserStore } from "@/store/user/useSignupUserStore";
 import * as S from "./SignupJob.style";
 
 export default function SignupJob() {
   const { job, setJob } = useSignupUserStore();
 
   const JOB_CHIPS = Object.values(SignupJobs).filter(
-    (val) => val !== SignupJobs.NONE
+    (val) => val !== SignupJobs.NONE,
   );
 
   const handleChipClick = (chip: SignupJobs) => {

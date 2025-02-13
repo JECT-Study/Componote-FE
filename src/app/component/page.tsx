@@ -29,7 +29,7 @@ import {
 } from "@/constants/componentFilter";
 import { COMPONENT_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 import { IComponentData } from "@/types/api/component";
-import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useTokenStore } from "@/store/user/useTokenStore";
 
 export default function Component() {
   const router = useRouter();

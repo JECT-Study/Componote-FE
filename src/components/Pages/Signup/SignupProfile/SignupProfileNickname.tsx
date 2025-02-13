@@ -1,6 +1,6 @@
 import { Button, InputField } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
-import { useSignupUserStore } from "@/hooks/store/useSignupUserStore";
+import { useSignupUserStore } from "@/store/user/useSignupUserStore";
 import { useState } from "react";
 import validateNickname from "@/utils/validateNickname";
 import * as S from "./SignupProfileNickname.style";
