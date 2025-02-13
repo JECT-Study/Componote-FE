@@ -21,7 +21,7 @@ export default function ChipGroup({
         const icon = typeof content === "string" ? undefined : content.icon;
         return (
           <Chip
-            key={text}
+            key={`chip-${text}-${content.responseName}`}
             text={text}
             $size="md"
             IconComponent={icon}
