@@ -7,8 +7,7 @@ interface IDesignSystemFilterState {
 
 interface IDesignSystemFilterAction {
   toggleFilterChip: (filter: DesignSystemFilter) => void;
-  // TODO: reset 기능 추가
-  // resetChips: () => void;
+  resetFilters: () => void;
 }
 
 const useDesignSystemFilterStore = create<
@@ -26,7 +25,7 @@ const useDesignSystemFilterStore = create<
 
       return { selectedFilters: [...state.selectedFilters, filter] };
     }),
-  // resetChips: () => set({ selectedChips: [0] }),
+  resetFilters: () => set({ selectedFilters: [] }),
 }));
 
 export default useDesignSystemFilterStore;

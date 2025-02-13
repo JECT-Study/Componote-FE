@@ -5,6 +5,7 @@ import arrowDown from "@/assets/icons/arrow-down.svg";
 import checkLineIcon from "@/assets/icons/check-line.svg";
 import useChipStore from "@/store/component/useChipStore";
 import useContextMenuStore from "@/store/common/useContextMenuStore";
+import useDesignSystemFilterStore from "@/store/designSystem/useDesignSystemFilterStore";
 import * as S from "./Toolbar.style";
 import { ButtonStyle } from "../Button/Button.types";
 
@@ -22,6 +23,9 @@ export default function Toolbar({
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   const resetChips = useChipStore((state) => state.resetChips);
+  const resetFilters = useDesignSystemFilterStore(
+    (state) => state.resetFilters,
+  );
   const {
     selectedLabel,
     isContextMenuOpen,
@@ -32,6 +36,12 @@ export default function Toolbar({
   const handleTabSelect = (index: number) => {
     setSelectedTabIndex(index);
     if (onTabSelect) onTabSelect(index);
+  };
+
+  const handleResetClick = () => {
+    // 임시로 resetChips, resetFilters를 동시에 호출함 => 논의 필요
+    resetChips();
+    resetFilters();
   };
 
   const renderToolList = () => {
@@ -65,7 +75,7 @@ export default function Toolbar({
           <S.FilterIcon />
           {renderToolList()}
           <Button
-            onClick={() => resetChips()}
+            onClick={handleResetClick}
             $size="sm"
             $buttonType="iconButton"
             $leftIcon={resetIcon}
