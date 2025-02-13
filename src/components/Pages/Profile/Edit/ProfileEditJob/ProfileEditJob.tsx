@@ -1,9 +1,9 @@
 import { Chip } from "@/components";
 import { PROFILE_EDIT_TEXT, STAR_ICON } from "@/constants/messages";
 import SignupJobs from "@/types/enum/signupJobs";
-import { useProfileEditStore } from "@/hooks/store/useProfileEditStore";
+import { useProfileEditStore } from "@/store/user/useProfileEditStore";
 import getJobKey from "@/utils/getJobKey";
-import { useUserInfoStore } from "@/hooks/store/useUserInfoStore";
+import { useUserInfoStore } from "@/store/user/useUserInfoStore";
 import { useState } from "react";
 import * as S from "./ProfileEditJob.style";
 

@@ -24,7 +24,7 @@ import { DESIGN_SYSTEM_SORT_CONDITION } from "@/constants/designSystemFilterLabe
 import { DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 
 import { useObserver } from "@/hooks/api/common/useObserver";
-import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useTokenStore } from "@/store/user/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
 import useContextMenuStore from "@/store/common/useContextMenuStore";
 import { IDesignSystemData } from "@/types/api/designSystem";

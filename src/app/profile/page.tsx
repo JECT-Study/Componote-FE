@@ -10,7 +10,7 @@ import {
 } from "@/components";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import { ProfileContainer, ProfileTab } from "@/components/Pages";
-import { useTokenStore } from "@/hooks/store/useTokenStore";
+import { useTokenStore } from "@/store/user/useTokenStore";
 
 export default function Profile() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);

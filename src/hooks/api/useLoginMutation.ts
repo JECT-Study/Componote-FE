@@ -1,7 +1,7 @@
 import { postLogin } from "@/api/login";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useTokenStore } from "../store/useTokenStore";
+import { useTokenStore } from "../../store/user/useTokenStore";
 
 // eslint-disable-next-line import/prefer-default-export
 export function useLoginMutation() {
