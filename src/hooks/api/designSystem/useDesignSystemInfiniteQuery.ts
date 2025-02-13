@@ -7,12 +7,18 @@ interface IPageParam {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const useDesignSystemInfiniteQuery = (sort: string) => {
+export const useDesignSystemInfiniteQuery = ({
+  filters,
+  sort,
+}: {
+  filters: string;
+  sort: string;
+}) => {
   const fetchDesignSystem = async ({
     pageParam,
   }: IPageParam): Promise<IDesignSystemPageData> => {
     const page = typeof pageParam === "number" ? pageParam : 0;
-    const data = await getDesignSystem(page, 10, "", "", sort);
+    const data = await getDesignSystem({ page, size: 10, sort, filters });
 
     return data;
   };
@@ -22,7 +28,7 @@ export const useDesignSystemInfiniteQuery = (sort: string) => {
     Error,
     InfiniteData<IDesignSystemPageData>
   >({
-    queryKey: ["designSytem", sort],
+    queryKey: ["designSystem", filters, sort],
     queryFn: fetchDesignSystem,
     initialPageParam: 0,
     getNextPageParam: (lastPage) =>

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Chip } from "@/components";
+import useDesignSystemFilterStore from "@/store/designSystem/useDesignSystemFilterStore";
+import { DesignSystemFilter } from "@/types/enum/designSystemFilters";
 import { DESIGN_SYSTEM_CHIP_GROUP } from "../../constants/chipGroup";
 import { IChipGroup, IChipGroupComponent } from "./Chip.types";
 import ChipGroupContainer from "./Chip.group.style";
@@ -10,28 +12,25 @@ export default function ChipGroup({
   $width,
 }: IChipGroup & IChipGroupComponent) {
   const chipGroup = DESIGN_SYSTEM_CHIP_GROUP[$variant];
-  const [selectedChip, setSelectedChip] = useState<number[]>([]);
-
-  const handleChipClick = (index: number) => {
-    setSelectedChip((prev) => {
-      if (prev.includes(index)) return prev.filter((i) => i !== index);
-      return [...prev, index];
-    });
-  };
+  const { selectedFilters, toggleFilterChip } = useDesignSystemFilterStore();
 
   return (
     <ChipGroupContainer $width={$width}>
-      {chipGroup.contents.map((content, index) => {
+      {chipGroup.contents.map((content) => {
         const text = typeof content === "string" ? content : content.text;
         const icon = typeof content === "string" ? undefined : content.icon;
         return (
           <Chip
-            key={text}
+            key={`chip-${text}-${content.responseName}`}
             text={text}
             $size="md"
             IconComponent={icon}
-            $isSelected={selectedChip.includes(index)}
-            onClick={() => handleChipClick(index)}
+            $isSelected={selectedFilters.includes(
+              content.responseName as DesignSystemFilter,
+            )}
+            onClick={() =>
+              toggleFilterChip(content.responseName as DesignSystemFilter)
+            }
           />
         );
       })}

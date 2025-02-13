@@ -28,10 +28,12 @@ import { useTokenStore } from "@/store/user/useTokenStore";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
 import useContextMenuStore from "@/store/common/useContextMenuStore";
 import { IDesignSystemData } from "@/types/api/designSystem";
+import useDesignSystemFilterStore from "@/store/designSystem/useDesignSystemFilterStore";
 
 export default function DesignSystem() {
   const { accessToken } = useTokenStore();
   const { selectedLabel } = useContextMenuStore();
+  const { selectedFilters } = useDesignSystemFilterStore();
 
   const lastElementRef = useRef<HTMLDivElement | null>(null);
   const {
@@ -40,7 +42,10 @@ export default function DesignSystem() {
     hasNextPage,
     isLoading,
     isError,
-  } = useDesignSystemInfiniteQuery(DESIGN_SYSTEM_SORT_CONDITION[selectedLabel]);
+  } = useDesignSystemInfiniteQuery({
+    filters: selectedFilters.join(","),
+    sort: DESIGN_SYSTEM_SORT_CONDITION[selectedLabel],
+  });
 
   useObserver({
     target: lastElementRef,

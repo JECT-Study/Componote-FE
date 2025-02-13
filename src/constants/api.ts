@@ -62,6 +62,7 @@ const END_POINT = {
 
   /* design system */
   searchDesignSystem: "design-systems/search",
+  designSystemSummary: "design-systems",
 };
 
 export default END_POINT;

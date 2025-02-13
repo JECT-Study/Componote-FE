@@ -51,6 +51,13 @@ export enum PlatformFilter {
   ZEROHEIGHT = "ZEROHEIGHT",
 }
 
+// 필터 전부
+export type DesignSystemFilter =
+  | DeviceFilter
+  | TechFilter
+  | ContentFilter
+  | PlatformFilter;
+
 export enum DesignSystemSortCondition {
   NAME_ASC = "이름 순으로 정렬",
   // VIEW_DESC = "조회 순으로 정렬", → 보류
