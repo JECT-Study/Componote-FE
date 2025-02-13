@@ -12,7 +12,7 @@ export const useDesignSystemInfiniteQuery = (sort: string) => {
     pageParam,
   }: IPageParam): Promise<IDesignSystemPageData> => {
     const page = typeof pageParam === "number" ? pageParam : 0;
-    const data = await getDesignSystem(page, 10, "", "", sort);
+    const data = await getDesignSystem({ page, size: 10, sort });
 
     return data;
   };
