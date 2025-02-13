@@ -5,16 +5,16 @@ import axiosInstance from "./interceptor";
 export const getDesignSystem = async ({
   page,
   size,
-  types,
+  filters,
   sort,
 }: {
   page: number;
   size: number;
-  types?: string;
+  filters?: string;
   sort?: string;
 }) => {
   const { data } = await axiosInstance.get(END_POINT.designSystemSummary, {
-    params: { page, size, types, sort },
+    params: { page, size, filters, sort },
   });
 
   return data;
