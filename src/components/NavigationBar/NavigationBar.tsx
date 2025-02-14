@@ -17,9 +17,11 @@ import useComboBoxStore from "@/store/common/useComboBoxStore";
 import useSearchComponentInfiniteQuery from "@/hooks/api/component/useSearchComponentInfiniteQuery";
 import { useObserver } from "@/hooks/api/common/useObserver";
 import { ISearchComponentData } from "@/types/api/component";
+import { ISearchDesignSystemData } from "@/types/api/designSystem";
 import { cleanKorean, extractKorean } from "@/utils/extractKorean";
 
 import { useTokenStore } from "@/store/user/useTokenStore";
+import useSearchDesignSystemInfiniteQuery from "@/hooks/api/designSystem/useSearchDesignSystemInfiniteQuery";
 import * as S from "./NavigationBar.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IInputField, INavigation } from "./NavigationBar.types";
@@ -30,18 +32,40 @@ export default function NavigationBar({
   $isSeparated,
 }: INavigation & IInputField) {
   const router = useRouter();
+  const accessToken = useTokenStore();
   const { searchValue, setSearchValue } = useSearchStore();
   const { isComboBoxOpen, toggleComboBox } = useComboBoxStore();
   const lastElementRef = useRef<HTMLDivElement | null>(null);
 
-  const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useSearchComponentInfiniteQuery(searchValue);
-  const { accessToken } = useTokenStore();
+  const {
+    data: componentData,
+    fetchNextPage: componentFetchNextPage,
+    hasNextPage: componentHasNextPage,
+    isLoading: isLoadingComponents,
+    isError: isErrorComponents,
+  } = useSearchComponentInfiniteQuery(searchValue);
+
+  const {
+    data: designSystemData,
+    fetchNextPage: designSystemFetchNextPage,
+    hasNextPage: designSystemHasNextPage,
+    isLoading: isLoadingDesignSystems,
+    isError: isErrorDesignSystems,
+  } = useSearchDesignSystemInfiniteQuery(searchValue);
+
+  const isLoading = isLoadingComponents && isLoadingDesignSystems;
+  const isError = isErrorComponents && isErrorDesignSystems;
 
   useObserver({
     target: lastElementRef,
     onIntersect: ([entry]) => {
-      if (entry.isIntersecting && hasNextPage) fetchNextPage();
+      if (entry.isIntersecting && componentHasNextPage) {
+        componentFetchNextPage();
+      }
+
+      if (entry.isIntersecting && designSystemHasNextPage) {
+        designSystemFetchNextPage();
+      }
     },
   });
 
@@ -51,9 +75,9 @@ export default function NavigationBar({
     if (!event.target.value.length) toggleComboBox();
   };
 
-  const handleItemClick = (componentId: number) => {
+  const handleItemClick = (url: string) => {
     toggleComboBox();
-    router.push(`/component/${componentId}`);
+    router.push(url);
   };
 
   return (
@@ -86,19 +110,14 @@ export default function NavigationBar({
           {isComboBoxOpen && (
             <Combobox>
               {isLoading && (
-                <EmptyState
-                  key="loading"
-                  text="검색한 컴포넌트를 로드 중이에요"
-                />
+                <EmptyState key="loading" text="검색 결과를 로드 중이에요" />
               )}
               {isError && (
-                <EmptyState
-                  key="error"
-                  text="검색한 컴포넌트를 로드할 수 없어요"
-                />
+                <EmptyState key="error" text="검색 결과를 로드할 수 없어요" />
               )}
-              {data?.pages.map((page) =>
-                page.content.length ? (
+              {componentData?.pages.map(
+                (page) =>
+                  page.content.length >= 1 &&
                   page.content.map((component: ISearchComponentData) => (
                     <div key={component.id} style={{ width: "100%" }}>
                       <ContextMenuItem
@@ -111,17 +130,35 @@ export default function NavigationBar({
                         subLabelText={extractKorean(component.mixedNames).join(
                           ", ",
                         )}
-                        onClick={() => handleItemClick(component.id)}
+                        onClick={() =>
+                          handleItemClick(`/component/${component.id}`)
+                        }
                       />
                       <div key={`ref - ${component.id}`} ref={lastElementRef} />
                     </div>
-                  ))
-                ) : (
-                  <EmptyState
-                    key="noCondition"
-                    text="컴포넌트 검색 결과가 없어요"
-                  />
-                ),
+                  )),
+              )}
+              {designSystemData?.pages.map(
+                (page) =>
+                  page.content.length >= 1 &&
+                  page.content.map((designSystem: ISearchDesignSystemData) => (
+                    <div key={designSystem.name} style={{ width: "100%" }}>
+                      <ContextMenuItem
+                        key={`searched design system - ${designSystem.name}`}
+                        $size="md"
+                        $variant="badge"
+                        $feedback="normal"
+                        labelText={designSystem.name}
+                        badgeLabelText="디자인 시스템"
+                        subLabelText={designSystem.organizationName}
+                        onClick={() => handleItemClick(designSystem.url)}
+                      />
+                      <div
+                        key={`ref - ${designSystem.name}`}
+                        ref={lastElementRef}
+                      />
+                    </div>
+                  )),
               )}
             </Combobox>
           )}
