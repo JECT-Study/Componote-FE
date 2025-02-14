@@ -146,7 +146,13 @@ export default function NavigationBar({
                       $feedback="normal"
                       onClick={() => router.push("/profile")}
                     />
-                    {/* TODO : 북마크 기능 구현되면 내 북마크 Item 추가 */}
+                    <ContextMenu.Item
+                      labelText={AVATAR_CONTEXT_MENU_ITEM_LABELS.myBookmark}
+                      $variant="labelOnly"
+                      $size="sm"
+                      $feedback="normal"
+                      onClick={() => router.push("/mybookmark")}
+                    />
                     <ContextMenu.Item
                       labelText={AVATAR_CONTEXT_MENU_ITEM_LABELS.logOut}
                       $variant="labelOnly"
