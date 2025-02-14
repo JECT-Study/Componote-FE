@@ -29,7 +29,6 @@ export default function Announce() {
   return (
     <Layout>
       <NavigationBar
-        $isAuthorized
         $isSeparated
         placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />

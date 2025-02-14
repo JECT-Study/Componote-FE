@@ -10,11 +10,9 @@ import {
 } from "@/components";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import { ProfileContainer, ProfileTab } from "@/components/Pages";
-import { useTokenStore } from "@/store/user/useTokenStore";
 
 export default function Profile() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  const { accessToken } = useTokenStore();
 
   const getEmptyStateText = () => {
     if (!selectedTabIndex) return `아직 알림이 없어요`;
@@ -24,7 +22,6 @@ export default function Profile() {
   return (
     <Layout>
       <NavigationBar
-        $isAuthorized={!!accessToken}
         $isSeparated
         placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />
