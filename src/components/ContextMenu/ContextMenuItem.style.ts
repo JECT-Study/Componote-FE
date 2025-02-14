@@ -45,7 +45,7 @@ export const ContextMenuIcon = styled(IconWrapper)<IContextMenuItemStyle>`
 `;
 
 export const ContextMenuItemSection = styled.div`
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 
   display: flex;
@@ -62,6 +62,9 @@ export const ContextMenuItemWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  width: 100%;
+
   gap: ${DESIGN_SYSTEM.gap["7xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
 
@@ -72,6 +75,9 @@ export const ContextMenuItemWrap = styled.div`
 export const ContextMenuItemContainer = styled.div`
   display: flex;
   align-items: center;
+
+  width: 100%;
+
   gap: ${DESIGN_SYSTEM.gap["3xs"]};
   padding: ${DESIGN_SYSTEM.gap.none};
 
@@ -94,6 +100,15 @@ export const ContextMenuItemLabelContainer = styled.div`
 `;
 
 export const ContextMenuItemItemLabelText = styled.span<IContextMenuItemStyle>`
+  display: inline-block;
+
+  width: 11rem;
+  text-align: left;
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   color: ${({ $feedback, theme }) =>
     $feedback &&
     CONTEXT_MENU_ITEM_FEEDBACK_COLOR[$feedback].itemLabelTextColor(theme)};

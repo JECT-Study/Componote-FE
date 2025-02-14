@@ -21,3 +21,12 @@ export interface IDesignSystemData {
   links: IDesignSystemLinks[];
   filters: IDesignSystemFilter[];
 }
+
+export interface ISearchDesignSystemData {
+  name: string;
+  url: string;
+  organizationName: string;
+}
+
+export type ISearchDesignSystemPageData =
+  ICommonPageData<ISearchDesignSystemData>;
