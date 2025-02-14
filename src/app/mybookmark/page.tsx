@@ -28,7 +28,6 @@ export default function MyBookMark() {
   return (
     <Layout>
       <NavigationBar
-        $isAuthorized
         $isSeparated
         placeholderText={NAVBAR_ITEM_TEXT.inputPlaceholder}
       />

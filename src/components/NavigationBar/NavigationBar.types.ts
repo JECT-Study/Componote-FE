@@ -5,7 +5,7 @@ export interface INavItem {
 
 export interface INavigation {
   $isSeparated: boolean;
-  $isAuthorized: boolean;
+  $isAuthorized?: boolean;
 }
 
 export interface IInputField {

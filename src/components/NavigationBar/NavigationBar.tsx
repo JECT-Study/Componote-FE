@@ -19,6 +19,7 @@ import { useObserver } from "@/hooks/api/common/useObserver";
 import { ISearchComponentData } from "@/types/api/component";
 import { cleanKorean, extractKorean } from "@/utils/extractKorean";
 
+import { useTokenStore } from "@/store/user/useTokenStore";
 import * as S from "./NavigationBar.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IInputField, INavigation } from "./NavigationBar.types";
@@ -27,7 +28,6 @@ import ContextMenuItem from "../ContextMenu/ContextMenuItem";
 export default function NavigationBar({
   placeholderText,
   $isSeparated,
-  $isAuthorized,
 }: INavigation & IInputField) {
   const router = useRouter();
   const { searchValue, setSearchValue } = useSearchStore();
@@ -36,6 +36,7 @@ export default function NavigationBar({
 
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
     useSearchComponentInfiniteQuery(searchValue);
+  const { accessToken } = useTokenStore();
 
   useObserver({
     target: lastElementRef,
@@ -57,7 +58,7 @@ export default function NavigationBar({
 
   return (
     <S.NavigationBarContainer
-      $isAuthorized={$isAuthorized}
+      $isAuthorized={!!accessToken}
       $isSeparated={$isSeparated}
     >
       <S.NavigationBarSection>
@@ -108,7 +109,7 @@ export default function NavigationBar({
                         labelText={cleanKorean(component.title)}
                         badgeLabelText="컴포넌트"
                         subLabelText={extractKorean(component.mixedNames).join(
-                          ", "
+                          ", ",
                         )}
                         onClick={() => handleItemClick(component.id)}
                       />
@@ -120,11 +121,11 @@ export default function NavigationBar({
                     key="noCondition"
                     text="컴포넌트 검색 결과가 없어요"
                   />
-                )
+                ),
               )}
             </Combobox>
           )}
-          {$isAuthorized ? (
+          {accessToken ? (
             <S.NavItemBox>
               {/* TODO: 추후 콤보 박스로 변경해야함. 현재 임시로 Profile 페이지로 이동 */}
               <S.AvatarBox onClick={() => router.push("/profile")}>
