@@ -34,7 +34,7 @@ export default function NavigationBar({
   $isSeparated,
 }: INavigation & IInputField) {
   const router = useRouter();
-  const accessToken = useTokenStore();
+  const { accessToken } = useTokenStore();
   const { searchValue, setSearchValue } = useSearchStore();
   const { isComboBoxOpen, toggleComboBox } = useComboBoxStore();
   // TODO : 임시 로그아웃 구현
