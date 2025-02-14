@@ -61,8 +61,12 @@ const END_POINT = {
   imageMove: "/move",
 
   /* design system */
-  searchDesignSystem: "design-systems/search",
   designSystemSummary: "design-systems",
+  searchDesignSystem: (
+    keyword: string = "",
+    page: number = 0,
+    size: number = 10,
+  ) => `/design-systems/search?keyword=${keyword}&page=${page}&size=${size}`,
 };
 
 export default END_POINT;
