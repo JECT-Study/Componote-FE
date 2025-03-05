@@ -24,6 +24,7 @@ const useSearchDesignSystemInfiniteQuery = (keyword: string) => {
     initialPageParam: 0,
     getNextPageParam: (lastPage) =>
       lastPage.hasNext ? lastPage.pageNumber + 1 : undefined,
+    enabled: !!keyword,
   });
 };
 
