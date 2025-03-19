@@ -20,8 +20,7 @@ const DefaultState: ISignupUserState = {
   socialAccountToken: "",
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export const useSignupUserStore = create<ISignupUserState & ISignupUserActions>(
+const useSignupUserStore = create<ISignupUserState & ISignupUserActions>(
   (set) => ({
     ...DefaultState,
 
@@ -30,5 +29,7 @@ export const useSignupUserStore = create<ISignupUserState & ISignupUserActions>(
     setSocialAccountToken: (socialAccountToken: string) =>
       set({ socialAccountToken }),
     cancelSignup: () => set({ ...DefaultState }),
-  })
+  }),
 );
+
+export default useSignupUserStore;

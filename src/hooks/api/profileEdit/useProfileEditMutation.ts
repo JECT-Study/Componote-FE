@@ -1,9 +1,9 @@
 import { putProfileEdit } from "@/api/userInfo";
-import { useUserInfoStore } from "@/store/user/useUserInfoStore";
+import useUserInfoStore from "@/store/user/useUserInfoStore";
 import { IProfileEdit } from "@/types/api/user";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useTokenStore } from "@/store/user/useTokenStore";
+import useTokenStore from "@/store/user/useTokenStore";
 import { useUserInfoQuery } from "../useUserInfoQuery";
 
 // eslint-disable-next-line import/prefer-default-export

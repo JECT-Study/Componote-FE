@@ -3,10 +3,10 @@ import { ButtonStyle } from "@/components/Button/Button.types";
 import { PROFILE_EDIT_TEXT } from "@/constants/messages";
 import { useRouter } from "next/navigation";
 import { useProfileEditMutation } from "@/hooks/api/profileEdit/useProfileEditMutation";
-import { useTokenStore } from "@/store/user/useTokenStore";
-import { useProfileEditStore } from "@/store/user/useProfileEditStore";
+import useTokenStore from "@/store/user/useTokenStore";
+import useProfileEditStore from "@/store/user/useProfileEditStore";
 import { useEffect } from "react";
-import { useUserInfoStore } from "@/store/user/useUserInfoStore";
+import useUserInfoStore from "@/store/user/useUserInfoStore";
 import * as S from "./ProfileEditButton.style";
 
 export default function ProfileEditButton() {

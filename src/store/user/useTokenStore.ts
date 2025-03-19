@@ -12,8 +12,7 @@ interface ITokenActions {
   logout: () => void;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const useTokenStore = create<ITokenState & ITokenActions>()(
+const useTokenStore = create<ITokenState & ITokenActions>()(
   persist(
     (set) => ({
       accessToken: undefined,
@@ -28,6 +27,8 @@ export const useTokenStore = create<ITokenState & ITokenActions>()(
     {
       name: "token-storage",
       storage: createJSONStorage(() => sessionStorage),
-    }
-  )
+    },
+  ),
 );
+
+export default useTokenStore;

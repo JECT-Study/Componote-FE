@@ -5,7 +5,7 @@ import {
   useGoogleAuthUrlQuery,
   useNaverAuthUrlQuery,
 } from "@/hooks/api/useAuthUrlQuery";
-import { useSocialLoginStore } from "@/store/user/useSocialLoginStore";
+import useSocialLoginStore from "@/store/user/useSocialLoginStore";
 import SocialLoginProvider from "@/types/enum/socialLoginProvider";
 import Button from "../Button/Button";
 import { ButtonStyle } from "../Button/Button.types";

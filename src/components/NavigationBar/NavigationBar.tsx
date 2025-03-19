@@ -15,6 +15,7 @@ import searchIcon from "@/assets/icons/search-line.svg";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import useSearchStore from "@/store/common/useSearchStore";
 import useComboBoxStore from "@/store/common/useComboBoxStore";
+import useTokenStore from "@/store/user/useTokenStore";
 import useSearchComponentInfiniteQuery from "@/hooks/api/component/useSearchComponentInfiniteQuery";
 import { useObserver } from "@/hooks/common/useObserver";
 import { ISearchComponentData } from "@/types/api/component";
@@ -22,7 +23,6 @@ import { ISearchDesignSystemData } from "@/types/api/designSystem";
 import { cleanKorean, extractKorean } from "@/utils/extractKorean";
 
 import { AVATAR_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
-import { useTokenStore } from "@/store/user/useTokenStore";
 import useSearchDesignSystemInfiniteQuery from "@/hooks/api/designSystem/useSearchDesignSystemInfiniteQuery";
 import useDebounce from "@/hooks/common/useDebounce";
 import * as S from "./NavigationBar.style";
@@ -69,6 +69,10 @@ export default function NavigationBar({
     },
   });
 
+  const isSearched =
+    componentData?.pages.some((page) => page.content.length > 0) ||
+    designSystemData?.pages.some((page) => page.content.length > 0);
+
   const handleInputField = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
     if (event.target.value.length) toggleComboBox();
@@ -109,10 +113,7 @@ export default function NavigationBar({
           />
           {isComboBoxOpen && (
             <Combobox>
-              {componentData?.pages.some((page) => page.content.length > 0) ||
-              designSystemData?.pages.some(
-                (page) => page.content.length > 0,
-              ) ? (
+              {isSearched ? (
                 <>
                   {componentData?.pages.map(
                     (page) =>
