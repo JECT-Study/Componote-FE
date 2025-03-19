@@ -1,11 +1,11 @@
+import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+
 import { postSignup } from "@/api/signup";
 import { ISignupUser } from "@/types/api/user";
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { useTokenStore } from "../../store/user/useTokenStore";
+import { useTokenStore } from "@/store";
 
-// eslint-disable-next-line import/prefer-default-export
-export function useSignupMutation() {
+export default function useSignupMutation() {
   const { setAccessToken, setMemberId } = useTokenStore();
   const router = useRouter();
 

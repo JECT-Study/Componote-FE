@@ -18,10 +18,7 @@ const defaultState: ISocialLoginState = {
   authCode: "",
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export const useSocialLoginStore = create<
-  ISocialLoginState & ISocialLoginActions
->()(
+const useSocialLoginStore = create<ISocialLoginState & ISocialLoginActions>()(
   persist(
     (set) => ({
       ...defaultState,
@@ -32,6 +29,8 @@ export const useSocialLoginStore = create<
     }),
     {
       name: "social-login-storage",
-    }
-  )
+    },
+  ),
 );
+
+export default useSocialLoginStore;

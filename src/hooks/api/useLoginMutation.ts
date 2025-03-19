@@ -1,10 +1,10 @@
-import { postLogin } from "@/api/login";
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useTokenStore } from "../../store/user/useTokenStore";
+import { useMutation } from "@tanstack/react-query";
 
-// eslint-disable-next-line import/prefer-default-export
-export function useLoginMutation() {
+import { postLogin } from "@/api/login";
+import { useTokenStore } from "@/store";
+
+export default function useLoginMutation() {
   const router = useRouter();
   const { setAccessToken, setMemberId } = useTokenStore();
 

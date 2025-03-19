@@ -23,11 +23,10 @@ import {
 import { DESIGN_SYSTEM_SORT_CONDITION } from "@/constants/designSystemFilterLabel";
 import { DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
 
-import { useObserver } from "@/hooks/api/common/useObserver";
+import { useObserver } from "@/hooks/common/useObserver";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
-import useContextMenuStore from "@/store/common/useContextMenuStore";
+import { useContextMenuStore, useDesignSystemFilterStore } from "@/store";
 import { IDesignSystemData } from "@/types/api/designSystem";
-import useDesignSystemFilterStore from "@/store/designSystem/useDesignSystemFilterStore";
 
 export default function DesignSystem() {
   const { selectedLabel } = useContextMenuStore();

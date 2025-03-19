@@ -5,12 +5,10 @@ import {
   useGoogleAuthUrlQuery,
   useNaverAuthUrlQuery,
 } from "@/hooks/api/useAuthUrlQuery";
-import { useSocialLoginStore } from "@/store/user/useSocialLoginStore";
+import useSocialLoginStore from "@/store/user/useSocialLoginStore";
 import SocialLoginProvider from "@/types/enum/socialLoginProvider";
-import Button from "../Button/Button";
+import { Button, Divider, SocialAuthButton } from "@/components";
 import { ButtonStyle } from "../Button/Button.types";
-import Divider from "../Divider/Divider";
-import SocialAuthButton from "../SocialAuth/SocialAuthButton";
 import * as S from "./Dialog.Login.style";
 
 export default function DialogLogin({

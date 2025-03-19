@@ -13,17 +13,16 @@ import {
 import sunIcon from "@/assets/icons/sun-line.svg";
 import searchIcon from "@/assets/icons/search-line.svg";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
-import useSearchStore from "@/store/common/useSearchStore";
-import useComboBoxStore from "@/store/common/useComboBoxStore";
+import { useSearchStore, useComboBoxStore, useTokenStore } from "@/store";
 import useSearchComponentInfiniteQuery from "@/hooks/api/component/useSearchComponentInfiniteQuery";
-import { useObserver } from "@/hooks/api/common/useObserver";
+import { useObserver } from "@/hooks/common/useObserver";
 import { ISearchComponentData } from "@/types/api/component";
 import { ISearchDesignSystemData } from "@/types/api/designSystem";
 import { cleanKorean, extractKorean } from "@/utils/extractKorean";
 
 import { AVATAR_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuLabels";
-import { useTokenStore } from "@/store/user/useTokenStore";
 import useSearchDesignSystemInfiniteQuery from "@/hooks/api/designSystem/useSearchDesignSystemInfiniteQuery";
+import useDebounce from "@/hooks/common/useDebounce";
 import * as S from "./NavigationBar.style";
 import { ButtonStyle } from "../Button/Button.types";
 import { IInputField, INavigation } from "./NavigationBar.types";
@@ -35,10 +34,11 @@ export default function NavigationBar({
 }: INavigation & IInputField) {
   const router = useRouter();
   const { accessToken } = useTokenStore();
-  const { searchValue, setSearchValue } = useSearchStore();
+  const { logout } = useTokenStore(); // TODO : 임시 로그아웃 구현
   const { isComboBoxOpen, toggleComboBox } = useComboBoxStore();
-  // TODO : 임시 로그아웃 구현
-  const { logout } = useTokenStore();
+  const { searchValue, setSearchValue } = useSearchStore();
+
+  const debounceSearchValue = useDebounce<string>(searchValue);
   const [isContextMenuOpen, setContextMenuOpen] = useState<boolean>(false);
   const lastElementRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,20 +46,13 @@ export default function NavigationBar({
     data: componentData,
     fetchNextPage: componentFetchNextPage,
     hasNextPage: componentHasNextPage,
-    isLoading: isLoadingComponents,
-    isError: isErrorComponents,
-  } = useSearchComponentInfiniteQuery(searchValue);
+  } = useSearchComponentInfiniteQuery(debounceSearchValue);
 
   const {
     data: designSystemData,
     fetchNextPage: designSystemFetchNextPage,
     hasNextPage: designSystemHasNextPage,
-    isLoading: isLoadingDesignSystems,
-    isError: isErrorDesignSystems,
-  } = useSearchDesignSystemInfiniteQuery(searchValue);
-
-  const isLoading = isLoadingComponents && isLoadingDesignSystems;
-  const isError = isErrorComponents && isErrorDesignSystems;
+  } = useSearchDesignSystemInfiniteQuery(debounceSearchValue);
 
   useObserver({
     target: lastElementRef,
@@ -73,6 +66,10 @@ export default function NavigationBar({
       }
     },
   });
+
+  const isSearched =
+    componentData?.pages.some((page) => page.content.length > 0) ||
+    designSystemData?.pages.some((page) => page.content.length > 0);
 
   const handleInputField = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -114,56 +111,64 @@ export default function NavigationBar({
           />
           {isComboBoxOpen && (
             <Combobox>
-              {isLoading && (
-                <EmptyState key="loading" text="검색 결과를 로드 중이에요" />
-              )}
-              {isError && (
-                <EmptyState key="error" text="검색 결과를 로드할 수 없어요" />
-              )}
-              {componentData?.pages.map(
-                (page) =>
-                  page.content.length >= 1 &&
-                  page.content.map((component: ISearchComponentData) => (
-                    <div key={component.id} style={{ width: "100%" }}>
-                      <ContextMenuItem
-                        key={`searched component - ${component.id}`}
-                        $size="md"
-                        $variant="badge"
-                        $feedback="normal"
-                        labelText={cleanKorean(component.title)}
-                        badgeLabelText="컴포넌트"
-                        subLabelText={extractKorean(component.mixedNames).join(
-                          ", ",
-                        )}
-                        onClick={() =>
-                          handleItemClick(`/component/${component.id}`)
-                        }
-                      />
-                      <div key={`ref - ${component.id}`} ref={lastElementRef} />
-                    </div>
-                  )),
-              )}
-              {designSystemData?.pages.map(
-                (page) =>
-                  page.content.length >= 1 &&
-                  page.content.map((designSystem: ISearchDesignSystemData) => (
-                    <div key={designSystem.name} style={{ width: "100%" }}>
-                      <ContextMenuItem
-                        key={`searched design system - ${designSystem.name}`}
-                        $size="md"
-                        $variant="badge"
-                        $feedback="normal"
-                        labelText={designSystem.name}
-                        badgeLabelText="디자인 시스템"
-                        subLabelText={designSystem.organizationName}
-                        onClick={() => handleItemClick(designSystem.url)}
-                      />
-                      <div
-                        key={`ref - ${designSystem.name}`}
-                        ref={lastElementRef}
-                      />
-                    </div>
-                  )),
+              {isSearched ? (
+                <>
+                  {componentData?.pages.map(
+                    (page) =>
+                      page.content.length >= 1 &&
+                      page.content.map((component: ISearchComponentData) => (
+                        <div key={component.id} style={{ width: "100%" }}>
+                          <ContextMenuItem
+                            key={`searched component - ${component.id}`}
+                            $size="md"
+                            $variant="badge"
+                            $feedback="normal"
+                            labelText={cleanKorean(component.title)}
+                            badgeLabelText="컴포넌트"
+                            subLabelText={extractKorean(
+                              component.mixedNames,
+                            ).join(", ")}
+                            onClick={() =>
+                              handleItemClick(`/component/${component.id}`)
+                            }
+                          />
+                          <div
+                            key={`ref - ${component.id}`}
+                            ref={lastElementRef}
+                          />
+                        </div>
+                      )),
+                  )}
+                  {designSystemData?.pages.map(
+                    (page) =>
+                      page.content.length >= 1 &&
+                      page.content.map(
+                        (designSystem: ISearchDesignSystemData) => (
+                          <div
+                            key={designSystem.name}
+                            style={{ width: "100%" }}
+                          >
+                            <ContextMenuItem
+                              key={`searched design system - ${designSystem.name}`}
+                              $size="md"
+                              $variant="badge"
+                              $feedback="normal"
+                              labelText={designSystem.name}
+                              badgeLabelText="디자인 시스템"
+                              subLabelText={designSystem.organizationName}
+                              onClick={() => handleItemClick(designSystem.url)}
+                            />
+                            <div
+                              key={`ref - ${designSystem.name}`}
+                              ref={lastElementRef}
+                            />
+                          </div>
+                        ),
+                      ),
+                  )}
+                </>
+              ) : (
+                <EmptyState key="none" text="일치하는 검색어가 없어요" />
               )}
             </Combobox>
           )}

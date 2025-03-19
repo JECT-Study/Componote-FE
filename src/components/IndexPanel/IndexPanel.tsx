@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useObserver } from "@/hooks/api/common/useObserver";
+import { useObserver } from "@/hooks/common/useObserver";
 import InteractionContainer from "../Interaction/Interaction.style";
 import * as S from "./IndexPanel.style";
 import { InteractionVariant } from "../Interaction/Interaction.types";

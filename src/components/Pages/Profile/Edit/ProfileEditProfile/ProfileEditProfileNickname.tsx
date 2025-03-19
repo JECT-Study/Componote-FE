@@ -1,9 +1,9 @@
+import { useState } from "react";
+
 import { Button, InputField } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
-import { useState } from "react";
 import validateNickname from "@/utils/validateNickname";
-import { useProfileEditStore } from "@/store/user/useProfileEditStore";
-import { useUserInfoStore } from "@/store/user/useUserInfoStore";
+import { useProfileEditStore, useUserInfoStore } from "@/store";
 import * as S from "./ProfileEditProfileNickname.style";
 
 export default function ProfileEditProfileNickname() {

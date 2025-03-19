@@ -19,11 +19,10 @@ const defaultState: IMemberSummary = {
   job: getJobKey(SignupJobs.NONE),
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export const useUserInfoStore = create<IUserInfoState & IUserInfoActions>(
-  (set) => ({
-    userInfo: defaultState,
-    setUserInfo: (userInfo: IMemberSummary) => set({ userInfo }),
-    logout: () => set({ userInfo: defaultState }),
-  }),
-);
+const useUserInfoStore = create<IUserInfoState & IUserInfoActions>((set) => ({
+  userInfo: defaultState,
+  setUserInfo: (userInfo: IMemberSummary) => set({ userInfo }),
+  logout: () => set({ userInfo: defaultState }),
+}));
+
+export default useUserInfoStore;
