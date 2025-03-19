@@ -16,7 +16,7 @@ import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
 import useSearchStore from "@/store/common/useSearchStore";
 import useComboBoxStore from "@/store/common/useComboBoxStore";
 import useSearchComponentInfiniteQuery from "@/hooks/api/component/useSearchComponentInfiniteQuery";
-import { useObserver } from "@/hooks/api/common/useObserver";
+import { useObserver } from "@/hooks/common/useObserver";
 import { ISearchComponentData } from "@/types/api/component";
 import { ISearchDesignSystemData } from "@/types/api/designSystem";
 import { cleanKorean, extractKorean } from "@/utils/extractKorean";
