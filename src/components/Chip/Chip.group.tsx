@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Chip } from "@/components";
-import useDesignSystemFilterStore from "@/store/designSystem/useDesignSystemFilterStore";
+import { useDesignSystemFilterStore } from "@/store";
 import { DesignSystemFilter } from "@/types/enum/designSystemFilters";
-import { DESIGN_SYSTEM_CHIP_GROUP } from "../../constants/chipGroup";
+import { DESIGN_SYSTEM_CHIP_GROUP } from "@/constants/chipGroup";
 import { IChipGroup, IChipGroupComponent } from "./Chip.types";
 import ChipGroupContainer from "./Chip.group.style";
 

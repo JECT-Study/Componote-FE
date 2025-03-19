@@ -25,9 +25,8 @@ import { DESIGN_SYSTEM_CONTEXT_MENU_ITEM_LABELS } from "@/constants/contextMenuL
 
 import { useObserver } from "@/hooks/common/useObserver";
 import { useDesignSystemInfiniteQuery } from "@/hooks/api/designSystem/useDesignSystemInfiniteQuery";
-import useContextMenuStore from "@/store/common/useContextMenuStore";
+import { useContextMenuStore, useDesignSystemFilterStore } from "@/store";
 import { IDesignSystemData } from "@/types/api/designSystem";
-import useDesignSystemFilterStore from "@/store/designSystem/useDesignSystemFilterStore";
 
 export default function DesignSystem() {
   const { selectedLabel } = useContextMenuStore();

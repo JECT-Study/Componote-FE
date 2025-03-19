@@ -19,8 +19,7 @@ import {
   NAVBAR_ITEM_TEXT,
 } from "@/constants/messages";
 import { MainContainer } from "@/components/Pages";
-import useChipStore from "@/store/component/useChipStore";
-import useContextMenuStore from "@/store/common/useContextMenuStore";
+import { useChipStore, useContextMenuStore } from "@/store";
 import { useObserver } from "@/hooks/common/useObserver";
 import useComponentListInfiniteQuery from "@/hooks/api/component/useComponentListInfiniteQuery";
 import {

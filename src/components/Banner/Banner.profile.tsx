@@ -4,7 +4,7 @@ import { Avatar, Button } from "@/components";
 import rightIcon from "@/assets/icons/chevron-right-line.svg";
 import { BANNER_TEXT } from "@/constants/messages";
 import { useRouter } from "next/navigation";
-import useUserInfoStore from "@/store/user/useUserInfoStore";
+import { useUserInfoStore } from "@/store";
 import SignupJobs from "@/types/enum/signupJobs";
 import { ButtonStyle } from "../Button/Button.types";
 import * as S from "./Banner.profile.style";

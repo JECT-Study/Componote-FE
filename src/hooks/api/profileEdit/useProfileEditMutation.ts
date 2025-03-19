@@ -1,13 +1,12 @@
-import { putProfileEdit } from "@/api/userInfo";
-import useUserInfoStore from "@/store/user/useUserInfoStore";
-import { IProfileEdit } from "@/types/api/user";
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import useTokenStore from "@/store/user/useTokenStore";
+import { useMutation } from "@tanstack/react-query";
+
+import { putProfileEdit } from "@/api/userInfo";
+import { useUserInfoStore, useTokenStore } from "@/store";
+import { IProfileEdit } from "@/types/api/user";
 import { useUserInfoQuery } from "../useUserInfoQuery";
 
-// eslint-disable-next-line import/prefer-default-export
-export const useProfileEditMutation = (accessToken: string) => {
+export default function useProfileEditMutation(accessToken: string) {
   const { setUserInfo } = useUserInfoStore();
   const { memberId } = useTokenStore();
   const { refetch } = useUserInfoQuery(accessToken, memberId);
@@ -34,4 +33,4 @@ export const useProfileEditMutation = (accessToken: string) => {
       router.push("/profile");
     },
   });
-};
+}

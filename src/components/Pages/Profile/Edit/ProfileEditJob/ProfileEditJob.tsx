@@ -1,10 +1,10 @@
+import { useState } from "react";
+
 import { Chip } from "@/components";
 import { PROFILE_EDIT_TEXT, STAR_ICON } from "@/constants/messages";
 import SignupJobs from "@/types/enum/signupJobs";
-import useProfileEditStore from "@/store/user/useProfileEditStore";
+import { useProfileEditStore, useUserInfoStore } from "@/store";
 import getJobKey from "@/utils/getJobKey";
-import useUserInfoStore from "@/store/user/useUserInfoStore";
-import { useState } from "react";
 import * as S from "./ProfileEditJob.style";
 
 export default function ProfileEditJob() {

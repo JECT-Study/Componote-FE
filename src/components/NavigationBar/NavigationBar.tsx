@@ -13,9 +13,7 @@ import {
 import sunIcon from "@/assets/icons/sun-line.svg";
 import searchIcon from "@/assets/icons/search-line.svg";
 import { NAVBAR_ITEM_TEXT } from "@/constants/messages";
-import useSearchStore from "@/store/common/useSearchStore";
-import useComboBoxStore from "@/store/common/useComboBoxStore";
-import useTokenStore from "@/store/user/useTokenStore";
+import { useSearchStore, useComboBoxStore, useTokenStore } from "@/store";
 import useSearchComponentInfiniteQuery from "@/hooks/api/component/useSearchComponentInfiniteQuery";
 import { useObserver } from "@/hooks/common/useObserver";
 import { ISearchComponentData } from "@/types/api/component";

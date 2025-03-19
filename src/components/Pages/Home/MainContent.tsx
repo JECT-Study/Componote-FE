@@ -1,15 +1,18 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+
 import { OnboardingBanner, ImageContainer } from "@/components";
-import { useLoginMutation } from "@/hooks/api/useLoginMutation";
+import useLoginMutation from "@/hooks/api/useLoginMutation";
 import { useSocialLoginQuery } from "@/hooks/api/useSocialLoginQuery";
 import { useUserInfoQuery } from "@/hooks/api/useUserInfoQuery";
-import useSignupUserStore from "@/store/user/useSignupUserStore";
-import useSocialLoginStore from "@/store/user/useSocialLoginStore";
-import useTokenStore from "@/store/user/useTokenStore";
-import useUserInfoStore from "@/store/user/useUserInfoStore";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import {
+  useSignupUserStore,
+  useSocialLoginStore,
+  useTokenStore,
+  useUserInfoStore,
+} from "@/store";
 
 // 메인 컨텐츠를 별도 컴포넌트로 분리
 export default function MainContent() {

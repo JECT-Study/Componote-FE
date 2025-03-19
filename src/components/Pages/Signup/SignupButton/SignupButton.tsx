@@ -1,10 +1,11 @@
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/components";
 import { ButtonStyle } from "@/components/Button/Button.types";
 import { SIGNUP_TEXT } from "@/constants/messages";
-import useSignupUserStore from "@/store/user/useSignupUserStore";
+import { useSignupUserStore } from "@/store";
 import SignupJobs from "@/types/enum/signupJobs";
-import { useSignupMutation } from "@/hooks/api/useSignupMutation";
-import { useRouter } from "next/navigation";
+import useSignupMutation from "@/hooks/api/useSignupMutation";
 import validateNickname from "@/utils/validateNickname";
 import getJobKey from "@/utils/getJobKey";
 import * as S from "./SignupButton.style";
